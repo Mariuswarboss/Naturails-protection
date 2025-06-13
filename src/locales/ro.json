@@ -289,5 +289,15 @@
     "loading": "Se încarcă recomandările...",
     "error": "Nu s-au putut încărca recomandările în acest moment.",
     "title": "S-ar putea să-ți placă și"
+  },
+  "contactPage": {
+    "title": "Contactează-ne",
+    "subtitle": "Luați legătura cu noi sau vizitați-ne la locația noastră.",
+    "ourLocation": "Locația Noastră",
+    "visitUsAt": "Găsiți-ne pe harta de mai jos:",
+    "contactDetailsTitle": "Detalii de Contact",
+    "contactInfoPlaceholder": "Informațiile de contact (telefon, email) vor fi afișate aici.",
+    "phoneLabel": "Telefon",
+    "emailLabel": "Email"
   }
 }

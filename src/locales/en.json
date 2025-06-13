@@ -289,5 +289,15 @@
     "loading": "Loading recommendations...",
     "error": "Could not load recommendations at this time.",
     "title": "You Might Also Like"
+  },
+  "contactPage": {
+    "title": "Contact Us",
+    "subtitle": "Get in touch or visit us at our location.",
+    "ourLocation": "Our Location",
+    "visitUsAt": "Find us on the map below:",
+    "contactDetailsTitle": "Contact Details",
+    "contactInfoPlaceholder": "Contact information (phone, email) will be displayed here.",
+    "phoneLabel": "Phone",
+    "emailLabel": "Email"
   }
 }
