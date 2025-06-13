@@ -25,6 +25,7 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [userName, setUserName] = useState<string | null>(null);
+  const logoUrl = "https://s3.eu-central-1.amazonaws.com/uploads.mangoweb.org/shared-prod/samohyl.cz/uploads/2017/09/natures-protection-logo.jpg";
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -90,11 +91,11 @@ export default function Header() {
       <div className="container flex h-20 items-center justify-between">
         <Link href="/" className="mr-4 flex items-center">
           <Image
-            src="https://placehold.co/150x40.png" // Replace with your actual logo URL
+            src={logoUrl}
             alt={t('header.siteTitle')}
             width={150}
             height={40}
-            className="object-contain"
+            className="object-contain h-10 w-auto" // Adjusted for better aspect ratio display
             data-ai-hint="company logo"
             priority
           />
@@ -168,11 +169,11 @@ export default function Header() {
                 <div className="p-4 border-b">
                   <Link href="/" className="flex items-center" onClick={() => setIsMobileMenuOpen(false)}>
                      <Image
-                        src="https://placehold.co/150x40.png" // Replace with your actual logo URL
+                        src={logoUrl}
                         alt={t('header.siteTitle')}
-                        width={130} // Slightly smaller for mobile menu
+                        width={130} 
                         height={35}
-                        className="object-contain"
+                        className="object-contain h-9 w-auto" // Adjusted for better aspect ratio display
                         data-ai-hint="company logo"
                         priority
                       />
