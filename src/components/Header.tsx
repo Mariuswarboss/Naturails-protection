@@ -2,7 +2,8 @@
 "use client";
 
 import Link from 'next/link';
-import { ShoppingBag, User, Search, Menu, Languages, ShieldCheck } from 'lucide-react';
+import Image from 'next/image'; // Added Image import
+import { ShoppingBag, User, Search, Menu, Languages } from 'lucide-react'; // Removed ShieldCheck
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useCart } from '@/hooks/useCart';
@@ -87,9 +88,16 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow-sm">
       <div className="container flex h-20 items-center justify-between">
-        <Link href="/" className="mr-4 flex items-center space-x-2">
-          <ShieldCheck className="h-8 w-8 text-primary" />
-          <span className="font-headline text-2xl font-bold text-primary whitespace-nowrap">{t('header.siteTitle')}</span>
+        <Link href="/" className="mr-4 flex items-center">
+          <Image
+            src="https://placehold.co/150x40.png" // Replace with your actual logo URL
+            alt={t('header.siteTitle')}
+            width={150}
+            height={40}
+            className="object-contain"
+            data-ai-hint="company logo"
+            priority
+          />
         </Link>
 
         <div className="hidden lg:flex flex-1 items-center justify-center">
@@ -158,9 +166,16 @@ export default function Header() {
               </SheetTrigger>
               <SheetContent side="right" className="w-[300px] sm:w-[350px] p-0 flex flex-col">
                 <div className="p-4 border-b">
-                  <Link href="/" className="flex items-center space-x-2" onClick={() => setIsMobileMenuOpen(false)}>
-                    <ShieldCheck className="h-7 w-7 text-primary" />
-                    <span className="font-headline text-xl font-bold text-primary">{t('header.siteTitle')}</span>
+                  <Link href="/" className="flex items-center" onClick={() => setIsMobileMenuOpen(false)}>
+                     <Image
+                        src="https://placehold.co/150x40.png" // Replace with your actual logo URL
+                        alt={t('header.siteTitle')}
+                        width={130} // Slightly smaller for mobile menu
+                        height={35}
+                        className="object-contain"
+                        data-ai-hint="company logo"
+                        priority
+                      />
                   </Link>
                 </div>
                 <div className="p-4 flex-grow overflow-y-auto">
