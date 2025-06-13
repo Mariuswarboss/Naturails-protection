@@ -16,6 +16,8 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { useState, useEffect } from 'react';
 
+const LANGUAGE_STORAGE_KEY = 'selectedLanguage';
+
 export default function Header() {
   const { itemCount } = useCart();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -29,14 +31,29 @@ export default function Header() {
       const name = localStorage.getItem('userName');
       setIsAuthenticated(!!token);
       setUserName(name);
+
+      const storedLanguage = localStorage.getItem(LANGUAGE_STORAGE_KEY);
+      if (storedLanguage) {
+        setSelectedLanguage(storedLanguage);
+      }
     }
   }, []);
+
+  const handleLanguageChange = (lang: string) => {
+    setSelectedLanguage(lang);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem(LANGUAGE_STORAGE_KEY, lang);
+    }
+    if (isMobileMenuOpen) setIsMobileMenuOpen(false);
+    // Actual translation logic would go here in a full i18n setup
+    console.log(`Language changed to: ${lang}`);
+  };
 
 
   const navLinks = [
     { href: '/', label: 'Home' },
-    { href: '/products?category=Dog+Food', label: 'For Dogs' }, // Example, adjust query as needed
-    { href: '/products?category=Cat+Supplies', label: 'For Cats' }, // Example, adjust query as needed
+    { href: '/products?category=Dog+Food', label: 'For Dogs' },
+    { href: '/products?category=Cat+Supplies', label: 'For Cats' },
     { href: '/products', label: 'All Products' },
     // { href: '/about', label: 'About Us' },
     // { href: '/contact', label: 'Contact' },
@@ -66,13 +83,13 @@ export default function Header() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className={mobile ? "w-[calc(100%-2rem)]" : ""}>
-        <DropdownMenuItem onSelect={() => { setSelectedLanguage('EN'); if (mobile) setIsMobileMenuOpen(false); }}>
+        <DropdownMenuItem onSelect={() => handleLanguageChange('EN')}>
           English (EN)
         </DropdownMenuItem>
-        <DropdownMenuItem onSelect={() => { setSelectedLanguage('RO'); if (mobile) setIsMobileMenuOpen(false); }}>
+        <DropdownMenuItem onSelect={() => handleLanguageChange('RO')}>
           Română (RO)
         </DropdownMenuItem>
-        <DropdownMenuItem onSelect={() => { setSelectedLanguage('RU'); if (mobile) setIsMobileMenuOpen(false); }}>
+        <DropdownMenuItem onSelect={() => handleLanguageChange('RU')}>
           Русский (RU)
         </DropdownMenuItem>
       </DropdownMenuContent>
