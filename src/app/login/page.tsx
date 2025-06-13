@@ -22,7 +22,7 @@ export default function LoginPage() {
     setIsLoading(true);
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1000));
-    
+
     // Mock login logic
     if (email === 'buyer@example.com' && password === 'password123') {
       // In a real app, you'd call an auth service and store session/token
@@ -40,7 +40,7 @@ export default function LoginPage() {
     <div className="flex min-h-screen items-center justify-center bg-secondary/30 p-4">
       <Card className="w-full max-w-md shadow-xl">
         <CardHeader className="text-center">
-          <CardTitle className="font-headline text-3xl text-primary">EcoShop Moldova</CardTitle>
+          <CardTitle className="font-headline text-3xl text-primary">Natural Protection</CardTitle>
           <CardDescription>Login to your account to continue</CardDescription>
         </CardHeader>
         <CardContent>

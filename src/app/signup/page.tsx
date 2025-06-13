@@ -39,7 +39,7 @@ export default function SignupPage() {
 
     toast({ title: "Signup Successful", description: "Your account has been created." });
     router.push('/account'); // Redirect to account page or dashboard
-    
+
     setIsLoading(false);
   };
 
@@ -47,7 +47,7 @@ export default function SignupPage() {
     <div className="flex min-h-screen items-center justify-center bg-secondary/30 p-4">
       <Card className="w-full max-w-md shadow-xl">
         <CardHeader className="text-center">
-          <CardTitle className="font-headline text-3xl text-primary">EcoShop Moldova</CardTitle>
+          <CardTitle className="font-headline text-3xl text-primary">Natural Protection</CardTitle>
           <CardDescription>Create your account to start shopping</CardDescription>
         </CardHeader>
         <CardContent>

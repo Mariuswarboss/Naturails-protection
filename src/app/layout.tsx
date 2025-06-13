@@ -4,7 +4,7 @@ import { Toaster } from "@/components/ui/toaster";
 import AppProviders from '@/components/AppProviders'; // Renamed from Providers to AppProviders
 
 export const metadata: Metadata = {
-  title: 'EcoShop Moldova',
+  title: 'Natural Protection',
   description: 'Natural protection products for Moldova.',
 };
 
