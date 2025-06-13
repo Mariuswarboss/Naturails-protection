@@ -18,8 +18,8 @@ const serverT = (key: string, replacements?: Record<string, string | number>) =>
     if (key === 'productPage.productNotFound') return 'Product not found';
     if (key === 'productPage.backToProducts') return 'Back to products';
     if (key === 'productPage.category') return `Category: ${replacements?.category}`;
-    if (key === 'productPage.stockAvailable') return `Stock: ${replacements?.stock} available`;
-    if (key === 'productPage.outOfStock') return 'Stock: Out of Stock';
+    // productPage.stockAvailable is no longer used here
+    if (key === 'productPage.outOfStock') return 'Stock: Out of Stock'; // Or just "Out of Stock" if preferred
     if (key === 'productPage.relatedProducts') return 'Related Products';
     return key;
 };
@@ -84,13 +84,14 @@ export default async function ProductPage({ params }: { params: { id: string } }
           
           <ProductDetailsClient product={product} />
 
-          <div className="border-t pt-6">
-            <h3 className="text-sm font-medium text-muted-foreground mb-1">{serverT('productPage.category', { category: product.category })}</h3>
-            <h3 className="text-sm font-medium text-muted-foreground">
-              {product.stock > 0 
-                ? serverT('productPage.stockAvailable', { stock: product.stock }) 
-                : serverT('productPage.outOfStock')}
-            </h3>
+          <div className="border-t pt-6 space-y-1">
+            <p className="text-sm text-muted-foreground">{serverT('productPage.category', { category: product.category })}</p>
+            {/* Conditionally render stock status */}
+            {product.stock <= 0 && (
+              <p className="text-sm font-semibold text-destructive">
+                {serverT('productPage.outOfStock')}
+              </p>
+            )}
           </div>
         </div>
       </div>
@@ -111,4 +112,3 @@ export default async function ProductPage({ params }: { params: { id: string } }
     </SiteLayout>
   );
 }
-
