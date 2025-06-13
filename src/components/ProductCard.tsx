@@ -9,26 +9,28 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/componen
 import { ShoppingBag, Info } from 'lucide-react';
 import { useCart } from '@/hooks/useCart';
 import { useToast } from '@/hooks/use-toast';
+import { useTranslation } from '@/contexts/LanguageContext';
 
 export default function ProductCard({ product }: { product: Product }) {
   const { addToCart } = useCart();
   const { toast } = useToast();
+  const { t } = useTranslation();
 
   const handleAddToCart = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault(); 
     e.stopPropagation(); 
     if (product.stock <= 0) {
         toast({
-            title: "Out of Stock",
-            description: `${product.name} is currently out of stock.`,
+            title: t('productPage.outOfStockToastTitle'),
+            description: t('productPage.outOfStockToastDescription', { productName: product.name }),
             variant: "destructive",
         });
         return;
     }
     addToCart(product, 1);
     toast({
-      title: "Added to cart!",
-      description: `1 x ${product.name} added to your cart.`,
+      title: t('productPage.addedToCartTitle'),
+      description: t('productPage.addedToCartDescription', { quantity: 1, productName: product.name }),
     });
   };
 
@@ -38,7 +40,7 @@ export default function ProductCard({ product }: { product: Product }) {
         <CardHeader className="p-0 relative aspect-square overflow-hidden border-b">
           <Image
             src={product.imageUrl}
-            alt={product.name}
+            alt={product.name} // Product name not translated
             width={400}
             height={400}
             className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
@@ -47,9 +49,9 @@ export default function ProductCard({ product }: { product: Product }) {
         </CardHeader>
         <CardContent className="flex-grow p-4">
           <CardTitle className="font-headline text-base md:text-lg mb-1 leading-tight group-hover:text-primary transition-colors">
-            {product.name}
+            {product.name} {/* Product name not translated */}
           </CardTitle>
-          <p className="text-xs text-muted-foreground mb-2 line-clamp-2">{product.description}</p>
+          <p className="text-xs text-muted-foreground mb-2 line-clamp-2">{product.description}</p> {/* Product description not translated */}
           <p className="text-lg font-semibold text-foreground">${product.price.toFixed(2)}</p>
         </CardContent>
       </Link>
@@ -61,7 +63,7 @@ export default function ProductCard({ product }: { product: Product }) {
               className="w-full text-xs h-9"
               aria-label={`View details for ${product.name}`}
             >
-              <Info className="mr-1.5 h-3.5 w-3.5" /> Details
+              <Info className="mr-1.5 h-3.5 w-3.5" /> {t('productPage.viewDetails')}
             </Button>
           </Link>
           <Button
@@ -70,7 +72,8 @@ export default function ProductCard({ product }: { product: Product }) {
             aria-label={`Add ${product.name} to cart`}
             disabled={product.stock <= 0}
           >
-            <ShoppingBag className="mr-1.5 h-3.5 w-3.5" /> {product.stock > 0 ? 'Add to Cart' : 'Out of Stock'}
+            <ShoppingBag className="mr-1.5 h-3.5 w-3.5" /> 
+            {product.stock > 0 ? t('productPage.addToCart') : t('productPage.outOfStockButton')}
           </Button>
         </div>
       </CardFooter>

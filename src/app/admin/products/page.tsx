@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from 'react';
@@ -16,12 +17,12 @@ import {
   DialogTitle,
   DialogDescription,
   DialogFooter,
-  DialogTrigger,
   DialogClose
 } from "@/components/ui/dialog";
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
+import { useTranslation } from '@/contexts/LanguageContext';
 
 
 const ProductForm = ({ product, onSave, onCancel }: { product?: Product | null, onSave: (productData: Omit<Product, 'id'> | Product) => void, onCancel: () => void }) => {
@@ -32,11 +33,12 @@ const ProductForm = ({ product, onSave, onCancel }: { product?: Product | null, 
   const [stock, setStock] = useState(product?.stock || 0);
   const [imageUrl, setImageUrl] = useState(product?.imageUrl || 'https://placehold.co/600x400.png');
   const { toast } = useToast();
+  const { t } = useTranslation();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!name || price <= 0 || !category || stock < 0) {
-        toast({ title: "Validation Error", description: "Please fill all required fields correctly.", variant: "destructive"});
+        toast({ title: t('admin.validationErrorToastTitle'), description: t('admin.validationErrorToastDescription'), variant: "destructive"});
         return;
     }
     const productData = { name, description, price, category, stock, imageUrl };
@@ -49,15 +51,15 @@ const ProductForm = ({ product, onSave, onCancel }: { product?: Product | null, 
   
   return (
     <form onSubmit={handleSubmit} className="space-y-4 max-h-[70vh] overflow-y-auto p-1">
-        <div><Label htmlFor="name">Product Name</Label><Input id="name" value={name} onChange={e => setName(e.target.value)} required /></div>
-        <div><Label htmlFor="description">Description</Label><Textarea id="description" value={description} onChange={e => setDescription(e.target.value)} /></div>
-        <div><Label htmlFor="price">Price</Label><Input id="price" type="number" step="0.01" value={price} onChange={e => setPrice(parseFloat(e.target.value))} required /></div>
-        <div><Label htmlFor="category">Category</Label><Input id="category" value={category} onChange={e => setCategory(e.target.value)} required /></div>
-        <div><Label htmlFor="stock">Stock</Label><Input id="stock" type="number" value={stock} onChange={e => setStock(parseInt(e.target.value))} required /></div>
-        <div><Label htmlFor="imageUrl">Image URL</Label><Input id="imageUrl" value={imageUrl} onChange={e => setImageUrl(e.target.value)} /></div>
+        <div><Label htmlFor="name">{t('admin.productFormProductNameLabel')}</Label><Input id="name" value={name} onChange={e => setName(e.target.value)} required /></div>
+        <div><Label htmlFor="description">{t('admin.productFormDescriptionLabel')}</Label><Textarea id="description" value={description} onChange={e => setDescription(e.target.value)} /></div>
+        <div><Label htmlFor="price">{t('admin.productFormPriceLabel')}</Label><Input id="price" type="number" step="0.01" value={price} onChange={e => setPrice(parseFloat(e.target.value))} required /></div>
+        <div><Label htmlFor="category">{t('admin.productFormCategoryLabel')}</Label><Input id="category" value={category} onChange={e => setCategory(e.target.value)} required /></div>
+        <div><Label htmlFor="stock">{t('admin.productFormStockLabel')}</Label><Input id="stock" type="number" value={stock} onChange={e => setStock(parseInt(e.target.value))} required /></div>
+        <div><Label htmlFor="imageUrl">{t('admin.productFormImageUrlLabel')}</Label><Input id="imageUrl" value={imageUrl} onChange={e => setImageUrl(e.target.value)} /></div>
         <DialogFooter className="pt-4">
-            <DialogClose asChild><Button type="button" variant="outline" onClick={onCancel}>Cancel</Button></DialogClose>
-            <Button type="submit">Save Product</Button>
+            <DialogClose asChild><Button type="button" variant="outline" onClick={onCancel}>{t('admin.productFormCancelButton')}</Button></DialogClose>
+            <Button type="submit">{t('admin.productFormSaveButton')}</Button>
         </DialogFooter>
     </form>
   )
@@ -70,9 +72,9 @@ export default function AdminProductsPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingProduct, setEditingProduct] = useState<Product | null>(null);
   const { toast } = useToast();
+  const { t } = useTranslation();
 
   useEffect(() => {
-    // In a real app, fetch products from an API
     setProducts(mockProducts);
   }, []);
 
@@ -92,21 +94,20 @@ export default function AdminProductsPage() {
   }
 
   const handleDeleteProduct = (productId: string) => {
-    // Confirm deletion
-    if (window.confirm("Are you sure you want to delete this product?")) {
+    if (window.confirm("Are you sure you want to delete this product?")) { // This alert won't be translated by `t`
         setProducts(prev => prev.filter(p => p.id !== productId));
-        toast({ title: "Product Deleted", description: "The product has been removed."});
+        toast({ title: t('admin.productDeletedToastTitle'), description: t('admin.productDeletedToastDescription')});
     }
   }
 
   const handleSaveProduct = (productData: Omit<Product, 'id'> | Product) => {
-    if ('id' in productData) { // Editing existing product
+    if ('id' in productData) { 
         setProducts(prev => prev.map(p => p.id === productData.id ? productData : p));
-        toast({ title: "Product Updated", description: `${productData.name} has been updated.`});
-    } else { // Adding new product
-        const newProduct = { ...productData, id: `prod-${Date.now()}` }; // Mock ID generation
+        toast({ title: t('admin.productUpdatedToastTitle'), description: t('admin.productUpdatedToastDescription', {productName: productData.name})});
+    } else { 
+        const newProduct = { ...productData, id: `prod-${Date.now()}` }; 
         setProducts(prev => [newProduct, ...prev]);
-        toast({ title: "Product Added", description: `${newProduct.name} has been added.`});
+        toast({ title: t('admin.productAddedToastTitle'), description: t('admin.productAddedToastDescription', {productName: newProduct.name})});
     }
     setIsModalOpen(false);
     setEditingProduct(null);
@@ -116,16 +117,16 @@ export default function AdminProductsPage() {
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
-        <h1 className="text-3xl font-bold">Manage Products</h1>
-        <Button onClick={handleAddProduct}><PlusCircle className="mr-2 h-5 w-5" /> Add Product</Button>
+        <h1 className="text-3xl font-bold">{t('admin.manageProductsTitle')}</h1>
+        <Button onClick={handleAddProduct}><PlusCircle className="mr-2 h-5 w-5" /> {t('admin.addProductButton')}</Button>
       </div>
 
         <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
             <DialogContent className="sm:max-w-lg">
                 <DialogHeader>
-                    <DialogTitle>{editingProduct ? 'Edit Product' : 'Add New Product'}</DialogTitle>
+                    <DialogTitle>{editingProduct ? t('admin.editProductModalTitle') : t('admin.addProductModalTitle')}</DialogTitle>
                     <DialogDescription>
-                        {editingProduct ? `Update details for ${editingProduct.name}.` : 'Fill in the details for the new product.'}
+                        {editingProduct ? t('admin.editProductModalDescription', {productName: editingProduct.name}) : t('admin.addProductModalDescription')}
                     </DialogDescription>
                 </DialogHeader>
                 <ProductForm 
@@ -138,12 +139,12 @@ export default function AdminProductsPage() {
 
       <Card>
         <CardHeader>
-          <CardTitle>Product List</CardTitle>
-          <CardDescription>View, edit, or delete products.</CardDescription>
+          <CardTitle>{t('admin.productListCardTitle')}</CardTitle>
+          <CardDescription>{t('admin.productListCardDescription')}</CardDescription>
           <div className="relative mt-4">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
             <Input 
-                placeholder="Search by name or category..."
+                placeholder={t('admin.searchProductsPlaceholder')}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="pl-10 w-full md:w-1/3"
@@ -154,12 +155,12 @@ export default function AdminProductsPage() {
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead className="w-[80px]">Image</TableHead>
-                <TableHead>Name</TableHead>
-                <TableHead>Category</TableHead>
-                <TableHead className="text-right">Price</TableHead>
-                <TableHead className="text-right">Stock</TableHead>
-                <TableHead className="text-center w-[120px]">Actions</TableHead>
+                <TableHead className="w-[80px]">{t('admin.imageColumn')}</TableHead>
+                <TableHead>{t('admin.nameColumn')}</TableHead>
+                <TableHead>{t('admin.categoryColumn')}</TableHead>
+                <TableHead className="text-right">{t('admin.priceColumn')}</TableHead>
+                <TableHead className="text-right">{t('admin.stockColumn')}</TableHead>
+                <TableHead className="text-center w-[120px]">{t('admin.actionsColumn')}</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -168,8 +169,8 @@ export default function AdminProductsPage() {
                   <TableCell>
                     <Image src={product.imageUrl} alt={product.name} width={50} height={50} className="rounded-md object-cover" data-ai-hint={product.dataAiHint || "product image"}/>
                   </TableCell>
-                  <TableCell className="font-medium">{product.name}</TableCell>
-                  <TableCell>{product.category}</TableCell>
+                  <TableCell className="font-medium">{product.name}</TableCell> {/* Product name not translated */}
+                  <TableCell>{product.category}</TableCell> {/* Category not translated */}
                   <TableCell className="text-right">${product.price.toFixed(2)}</TableCell>
                   <TableCell className="text-right">{product.stock}</TableCell>
                   <TableCell className="text-center">
@@ -183,7 +184,7 @@ export default function AdminProductsPage() {
                 </TableRow>
               )) : (
                 <TableRow>
-                    <TableCell colSpan={6} className="text-center h-24">No products found.</TableCell>
+                    <TableCell colSpan={6} className="text-center h-24">{t('admin.noProductsFoundAdmin')}</TableCell>
                 </TableRow>
               )}
             </TableBody>

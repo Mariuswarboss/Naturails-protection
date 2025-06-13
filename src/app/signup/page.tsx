@@ -10,6 +10,7 @@ import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
 import { ShieldCheck } from 'lucide-react';
+import { useTranslation } from '@/contexts/LanguageContext';
 
 export default function SignupPage() {
   const [name, setName] = useState('');
@@ -19,26 +20,27 @@ export default function SignupPage() {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
   const { toast } = useToast();
+  const { t } = useTranslation();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (password !== confirmPassword) {
-      toast({ title: "Error", description: "Passwords do not match.", variant: "destructive" });
+      toast({ title: t('signupPage.passwordMismatchToastTitle'), description: t('signupPage.passwordMismatchToastDescription'), variant: "destructive" });
       return;
     }
     if (password.length < 6) {
-      toast({ title: "Error", description: "Password must be at least 6 characters long.", variant: "destructive" });
+      toast({ title: t('signupPage.passwordLengthToastTitle'), description: t('signupPage.passwordLengthToastDescription'), variant: "destructive" });
       return;
     }
     setIsLoading(true);
-    await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate API call
+    await new Promise(resolve => setTimeout(resolve, 1000)); 
 
     console.log('Signing up user:', { name, email, password });
     localStorage.setItem('authToken', 'mockAuthToken'); 
     localStorage.setItem('userEmail', email);
     localStorage.setItem('userName', name);
 
-    toast({ title: "Signup Successful", description: "Your account has been created." });
+    toast({ title: t('signupPage.signupSuccessToastTitle'), description: t('signupPage.signupSuccessToastDescription') });
     router.push('/account'); 
 
     setIsLoading(false);
@@ -51,13 +53,13 @@ export default function SignupPage() {
            <Link href="/" className="inline-block">
             <ShieldCheck className="h-16 w-16 text-primary mx-auto" />
           </Link>
-          <CardTitle className="font-headline text-3xl text-primary">Nature's Protection</CardTitle>
-          <CardDescription>Create your account to start shopping</CardDescription>
+          <CardTitle className="font-headline text-3xl text-primary">{t('signupPage.siteTitle')}</CardTitle>
+          <CardDescription>{t('signupPage.createAccount')}</CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <Label htmlFor="name">Full Name</Label>
+              <Label htmlFor="name">{t('signupPage.fullNameLabel')}</Label>
               <Input
                 id="name"
                 type="text"
@@ -69,7 +71,7 @@ export default function SignupPage() {
               />
             </div>
             <div>
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email">{t('signupPage.emailLabel')}</Label>
               <Input
                 id="email"
                 type="email"
@@ -81,11 +83,11 @@ export default function SignupPage() {
               />
             </div>
             <div>
-              <Label htmlFor="password">Password</Label>
+              <Label htmlFor="password">{t('signupPage.passwordLabel')}</Label>
               <Input
                 id="password"
                 type="password"
-                placeholder="•••••••• (min. 6 characters)"
+                placeholder="••••••••"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
@@ -94,7 +96,7 @@ export default function SignupPage() {
               />
             </div>
             <div>
-              <Label htmlFor="confirmPassword">Confirm Password</Label>
+              <Label htmlFor="confirmPassword">{t('signupPage.confirmPasswordLabel')}</Label>
               <Input
                 id="confirmPassword"
                 type="password"
@@ -107,13 +109,13 @@ export default function SignupPage() {
               />
             </div>
             <Button type="submit" className="w-full h-11 text-base" disabled={isLoading}>
-              {isLoading ? 'Creating Account...' : 'Sign Up'}
+              {isLoading ? t('signupPage.creatingAccountButton') : t('signupPage.signUpButton')}
             </Button>
           </form>
           <p className="mt-6 text-center text-sm text-muted-foreground">
-            Already have an account?{' '}
+            {t('signupPage.alreadyHaveAccount')}{' '}
             <Link href="/login" className="font-medium text-primary hover:underline">
-              Log in
+              {t('signupPage.logInLink')}
             </Link>
           </p>
         </CardContent>

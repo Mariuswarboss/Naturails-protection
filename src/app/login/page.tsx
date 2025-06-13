@@ -10,7 +10,7 @@ import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
 import { ShieldCheck } from 'lucide-react';
-
+import { useTranslation } from '@/contexts/LanguageContext';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -19,22 +19,21 @@ export default function LoginPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { toast } = useToast();
+  const { t } = useTranslation();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate API call
+    await new Promise(resolve => setTimeout(resolve, 1000)); 
 
-    // Mock login logic
     if ((email === 'buyer@example.com' && password === 'password123') || (email === 'admin@ecoshop.md' && password === 'adminpass')) {
-      localStorage.setItem('authToken', 'mockAuthToken'); // Mock session
+      localStorage.setItem('authToken', 'mockAuthToken'); 
       localStorage.setItem('userEmail', email);
-      // For admin, we don't explicitly set a name here, account page might handle it or it's fixed.
       if (email === 'buyer@example.com') {
-        localStorage.setItem('userName', 'Alex Buyer'); // Mock name for buyer
+        localStorage.setItem('userName', 'Alex Buyer'); 
       }
 
-      toast({ title: "Login Successful", description: "Welcome back!" });
+      toast({ title: t('loginPage.loginSuccessToastTitle'), description: t('loginPage.loginSuccessToastDescription') });
       
       const redirectUrl = searchParams.get('redirect');
       if (email === 'admin@ecoshop.md' && (redirectUrl || '/admin').startsWith('/admin')) {
@@ -42,11 +41,11 @@ export default function LoginPage() {
       } else if (email === 'buyer@example.com') {
         router.push(redirectUrl || '/account');
       } else {
-         router.push('/'); // Fallback redirect
+         router.push('/'); 
       }
 
     } else {
-      toast({ title: "Login Failed", description: "Invalid email or password.", variant: "destructive" });
+      toast({ title: t('loginPage.loginFailedToastTitle'), description: t('loginPage.loginFailedToastDescription'), variant: "destructive" });
     }
     setIsLoading(false);
   };
@@ -58,13 +57,13 @@ export default function LoginPage() {
           <Link href="/" className="inline-block">
             <ShieldCheck className="h-16 w-16 text-primary mx-auto" />
           </Link>
-          <CardTitle className="font-headline text-3xl text-primary">Nature's Protection</CardTitle>
-          <CardDescription>Login to your account to continue</CardDescription>
+          <CardTitle className="font-headline text-3xl text-primary">{t('loginPage.siteTitle')}</CardTitle>
+          <CardDescription>{t('loginPage.loginToAccount')}</CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email">{t('loginPage.emailLabel')}</Label>
               <Input
                 id="email"
                 type="email"
@@ -76,7 +75,7 @@ export default function LoginPage() {
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="password">Password</Label>
+              <Label htmlFor="password">{t('loginPage.passwordLabel')}</Label>
               <Input
                 id="password"
                 type="password"
@@ -88,13 +87,13 @@ export default function LoginPage() {
               />
             </div>
             <Button type="submit" className="w-full h-11 text-base" disabled={isLoading}>
-              {isLoading ? 'Logging in...' : 'Login'}
+              {isLoading ? t('loginPage.loggingInButton') : t('loginPage.loginButton')}
             </Button>
           </form>
           <p className="mt-6 text-center text-sm text-muted-foreground">
-            Don't have an account?{' '}
+            {t('loginPage.noAccount')}{' '}
             <Link href="/signup" className="font-medium text-primary hover:underline">
-              Sign up
+              {t('loginPage.signUpLink')}
             </Link>
           </p>
         </CardContent>

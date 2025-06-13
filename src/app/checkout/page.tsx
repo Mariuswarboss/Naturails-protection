@@ -9,14 +9,14 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { useCart } from '@/hooks/useCart';
-import { mockUsers } from '@/lib/data'; // For default address
+import { mockUsers } from '@/lib/data'; 
 import type { User, Address } from '@/types';
 import Image from 'next/image';
 import { useToast } from '@/hooks/use-toast';
 import { ChevronLeft, Lock } from 'lucide-react';
 import Link from 'next/link';
+import { useTranslation } from '@/contexts/LanguageContext';
 
-// Mock function to get current user
 const getCurrentUser = (): User | null => {
   if (typeof window !== 'undefined') {
     const token = localStorage.getItem('authToken');
@@ -32,18 +32,19 @@ export default function CheckoutPage() {
   const router = useRouter();
   const { cartItems, cartTotal, clearCart, itemCount } = useCart();
   const { toast } = useToast();
+  const { t } = useTranslation();
   const [currentUser, setCurrentUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
   const [shippingAddress, setShippingAddress] = useState<Partial<Address>>({
     street: '', city: '', postalCode: '', country: 'Moldova',
   });
-  const [paymentMethod, setPaymentMethod] = useState('card'); // 'card', 'cash'
+  const [paymentMethod, setPaymentMethod] = useState('card');
 
   useEffect(() => {
     const user = getCurrentUser();
     if (!user) {
-      toast({ title: "Authentication Required", description: "Please log in to proceed to checkout.", variant: "destructive" });
+      toast({ title: t('checkoutPage.authRequiredToastTitle'), description: t('checkoutPage.authRequiredToastDescription'), variant: "destructive" });
       router.push('/login?redirect=/checkout');
       return;
     }
@@ -53,12 +54,12 @@ export default function CheckoutPage() {
       setShippingAddress(defaultAddress);
     }
 
-    if (itemCount === 0) {
-        toast({ title: "Empty Cart", description: "Your cart is empty. Add some products to checkout.", variant: "default" });
+    if (itemCount === 0 && !isLoading) { // Check isLoading to prevent redirect during order placement
+        toast({ title: t('checkoutPage.emptyCartToastTitle'), description: t('checkoutPage.emptyCartToastDescription'), variant: "default" });
         router.push('/products');
     }
 
-  }, [router, toast, itemCount]);
+  }, [router, toast, itemCount, t, isLoading]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -69,14 +70,12 @@ export default function CheckoutPage() {
     e.preventDefault();
     setIsLoading(true);
 
-    // Basic validation
     if (!shippingAddress.street || !shippingAddress.city || !shippingAddress.postalCode || !shippingAddress.country) {
-      toast({ title: "Missing Information", description: "Please fill in all shipping address fields.", variant: "destructive" });
+      toast({ title: t('checkoutPage.missingInfoToastTitle'), description: t('checkoutPage.missingInfoToastDescription'), variant: "destructive" });
       setIsLoading(false);
       return;
     }
-
-    // Simulate order placement
+    
     console.log("Placing order:", {
       userId: currentUser?.id,
       items: cartItems,
@@ -85,23 +84,18 @@ export default function CheckoutPage() {
       paymentMethod,
     });
 
-    await new Promise(resolve => setTimeout(resolve, 1500)); // Simulate API delay
+    await new Promise(resolve => setTimeout(resolve, 1500)); 
 
-    // Create a mock order ID
     const mockOrderId = `ECO-${Date.now()}`;
-
-    // Mock adding order to a list (in real app, this is backend)
-    // For now, we could store it in localStorage for demo purposes or just clear cart.
     
-    toast({ title: "Order Placed!", description: `Your order ${mockOrderId} has been successfully placed.` });
+    toast({ title: t('checkoutPage.orderPlacedToastTitle'), description: t('checkoutPage.orderPlacedToastDescription', { orderId: mockOrderId }) });
     clearCart();
-    router.push(`/account/orders/${mockOrderId}`); // Navigate to a mock order confirmation/details page
-    setIsLoading(false);
+    router.push(`/account/orders/${mockOrderId}`); 
+    // setIsLoading(false); // This will be set after redirection usually.
   };
 
-  if (!currentUser || itemCount === 0) {
-    // Handled by useEffect redirect or early return if cart is empty
-    return <SiteLayout><p className="text-center py-10">Loading checkout...</p></SiteLayout>;
+  if (!currentUser || (itemCount === 0 && !isLoading)) {
+    return <SiteLayout><p className="text-center py-10">{t('checkoutPage.loadingCheckout')}</p></SiteLayout>;
   }
 
   return (
@@ -109,36 +103,35 @@ export default function CheckoutPage() {
       <div className="mb-6">
         <Link href="/cart" className="text-sm text-muted-foreground hover:text-primary inline-flex items-center">
             <ChevronLeft className="h-4 w-4 mr-1" />
-            Back to Cart
+            {t('checkoutPage.backToCart')}
         </Link>
       </div>
-      <h1 className="font-headline text-3xl md:text-4xl font-bold mb-8">Checkout</h1>
+      <h1 className="font-headline text-3xl md:text-4xl font-bold mb-8">{t('checkoutPage.checkoutTitle')}</h1>
       
       <form onSubmit={handleSubmitOrder}>
         <div className="grid lg:grid-cols-3 gap-8 md:gap-12">
-          {/* Shipping and Payment Details */}
           <div className="lg:col-span-2 space-y-8">
             <Card>
               <CardHeader>
-                <CardTitle>Shipping Address</CardTitle>
+                <CardTitle>{t('checkoutPage.shippingAddressTitle')}</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div>
-                  <Label htmlFor="street">Street Address</Label>
+                  <Label htmlFor="street">{t('checkoutPage.streetAddressLabel')}</Label>
                   <Input id="street" name="street" value={shippingAddress.street} onChange={handleInputChange} required />
                 </div>
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <Label htmlFor="city">City</Label>
+                    <Label htmlFor="city">{t('checkoutPage.cityLabel')}</Label>
                     <Input id="city" name="city" value={shippingAddress.city} onChange={handleInputChange} required />
                   </div>
                   <div>
-                    <Label htmlFor="postalCode">Postal Code</Label>
+                    <Label htmlFor="postalCode">{t('checkoutPage.postalCodeLabel')}</Label>
                     <Input id="postalCode" name="postalCode" value={shippingAddress.postalCode} onChange={handleInputChange} required />
                   </div>
                 </div>
                 <div>
-                  <Label htmlFor="country">Country</Label>
+                  <Label htmlFor="country">{t('checkoutPage.countryLabel')}</Label>
                   <Input id="country" name="country" value={shippingAddress.country} onChange={handleInputChange} required />
                 </div>
               </CardContent>
@@ -146,39 +139,37 @@ export default function CheckoutPage() {
 
             <Card>
               <CardHeader>
-                <CardTitle>Payment Method</CardTitle>
+                <CardTitle>{t('checkoutPage.paymentMethodTitle')}</CardTitle>
               </CardHeader>
               <CardContent>
-                {/* Simplified payment - in real app use Stripe Elements or similar */}
                 <div className="space-y-2">
                     <div className="flex items-center space-x-2">
                         <Input type="radio" id="payment-card" name="paymentMethod" value="card" checked={paymentMethod === 'card'} onChange={() => setPaymentMethod('card')} />
-                        <Label htmlFor="payment-card">Credit/Debit Card (Mock)</Label>
+                        <Label htmlFor="payment-card">{t('checkoutPage.creditCardMockLabel')}</Label>
                     </div>
                     {paymentMethod === 'card' && (
                         <div className="p-4 border rounded-md space-y-3 bg-muted/30">
-                            <Input placeholder="Card Number (e.g., 4242...)" disabled />
+                            <Input placeholder={t('checkoutPage.cardNumberPlaceholder')} disabled />
                             <div className="grid grid-cols-2 gap-3">
-                                <Input placeholder="MM/YY" disabled />
-                                <Input placeholder="CVC" disabled />
+                                <Input placeholder={t('checkoutPage.expiryPlaceholder')} disabled />
+                                <Input placeholder={t('checkoutPage.cvcPlaceholder')} disabled />
                             </div>
-                            <p className="text-xs text-muted-foreground flex items-center"><Lock className="w-3 h-3 mr-1"/> Secure payment simulation.</p>
+                            <p className="text-xs text-muted-foreground flex items-center"><Lock className="w-3 h-3 mr-1"/>{t('checkoutPage.securePaymentSimulation')}</p>
                         </div>
                     )}
                      <div className="flex items-center space-x-2">
                         <Input type="radio" id="payment-cash" name="paymentMethod" value="cash" checked={paymentMethod === 'cash'} onChange={() => setPaymentMethod('cash')} />
-                        <Label htmlFor="payment-cash">Cash on Delivery</Label>
+                        <Label htmlFor="payment-cash">{t('checkoutPage.cashOnDeliveryLabel')}</Label>
                     </div>
                 </div>
               </CardContent>
             </Card>
           </div>
 
-          {/* Order Summary */}
           <div className="lg:col-span-1">
             <Card className="sticky top-24">
               <CardHeader>
-                <CardTitle>Order Summary</CardTitle>
+                <CardTitle>{t('checkoutPage.orderSummaryTitle')}</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 {cartItems.map(item => (
@@ -186,8 +177,8 @@ export default function CheckoutPage() {
                     <div className="flex items-center gap-2">
                       <Image src={item.imageUrl} alt={item.name} width={40} height={40} className="rounded" data-ai-hint="product small" />
                       <div>
-                        <p className="font-medium truncate max-w-[150px]">{item.name}</p>
-                        <p className="text-xs text-muted-foreground">Qty: {item.quantity}</p>
+                        <p className="font-medium truncate max-w-[150px]">{item.name}</p> {/* Product name not translated */}
+                        <p className="text-xs text-muted-foreground">{t('checkoutPage.quantityShort', { quantity: item.quantity })}</p>
                       </div>
                     </div>
                     <p>${(item.price * item.quantity).toFixed(2)}</p>
@@ -195,22 +186,22 @@ export default function CheckoutPage() {
                 ))}
                 <div className="border-t pt-4 space-y-2">
                   <div className="flex justify-between text-sm">
-                    <span className="text-muted-foreground">Subtotal</span>
+                    <span className="text-muted-foreground">{t('cartPage.subtotal', {itemCount: itemCount})}</span>
                     <span>${cartTotal.toFixed(2)}</span>
                   </div>
                   <div className="flex justify-between text-sm">
-                    <span className="text-muted-foreground">Shipping</span>
-                    <span>FREE</span>
+                    <span className="text-muted-foreground">{t('cartPage.shipping')}</span>
+                    <span>{t('cartPage.free')}</span>
                   </div>
                   <div className="flex justify-between font-bold text-lg">
-                    <span>Total</span>
+                    <span>{t('cartPage.total')}</span>
                     <span>${cartTotal.toFixed(2)}</span>
                   </div>
                 </div>
               </CardContent>
               <CardFooter>
                 <Button type="submit" size="lg" className="w-full" disabled={isLoading}>
-                  {isLoading ? 'Placing Order...' : 'Place Order'}
+                  {isLoading ? t('checkoutPage.placingOrder') : t('checkoutPage.placeOrder')}
                 </Button>
               </CardFooter>
             </Card>

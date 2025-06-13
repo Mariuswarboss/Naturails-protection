@@ -7,11 +7,13 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { mockOrders } from "@/lib/data";
 import type { Order } from "@/types";
-import { Eye, Edit, Search, Filter } from "lucide-react";
+import { Eye, Search, Filter } from "lucide-react";
 import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import Link from 'next/link';
 import { useToast } from '@/hooks/use-toast';
+import { useTranslation } from '@/contexts/LanguageContext';
 
 
 export default function AdminOrdersPage() {
@@ -19,9 +21,9 @@ export default function AdminOrdersPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState('all');
   const { toast } = useToast();
+  const { t } = useTranslation();
 
   useEffect(() => {
-    // In a real app, fetch orders from an API
     setOrders(mockOrders);
   }, []);
 
@@ -37,7 +39,7 @@ export default function AdminOrdersPage() {
             order.id === orderId ? { ...order, status: newStatus } : order
         )
     );
-    toast({title: "Order Status Updated", description: `Order ${orderId} is now ${newStatus}.`});
+    toast({title: t('admin.orderStatusUpdatedToastTitle'), description: t('admin.orderStatusUpdatedToastDescription', {orderId, newStatus})});
   };
 
   const orderStatuses: Order['status'][] = ['Pending', 'Processing', 'Shipped', 'Delivered', 'Cancelled'];
@@ -45,35 +47,35 @@ export default function AdminOrdersPage() {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-3xl font-bold">Manage Orders</h1>
+      <h1 className="text-3xl font-bold">{t('admin.manageOrdersTitle')}</h1>
       
       <Card>
         <CardHeader>
-          <CardTitle>Order List</CardTitle>
-          <CardDescription>View and manage customer orders.</CardDescription>
+          <CardTitle>{t('admin.orderListCardTitle')}</CardTitle>
+          <CardDescription>{t('admin.orderListCardDescription')}</CardDescription>
           <div className="flex flex-wrap gap-4 mt-4 items-end">
             <div className="relative flex-grow min-w-[200px]">
-                <Label htmlFor="search-orders" className="sr-only">Search Orders</Label>
+                <Label htmlFor="search-orders" className="sr-only">{t('admin.searchOrdersLabel')}</Label>
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                 <Input 
                     id="search-orders"
-                    placeholder="Search by Order ID or User ID..."
+                    placeholder={t('admin.searchOrdersPlaceholder')}
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                     className="pl-10"
                 />
             </div>
             <div className="flex-grow min-w-[150px]">
-                <Label htmlFor="status-filter" className="sr-only">Filter by Status</Label>
+                <Label htmlFor="status-filter" className="sr-only">{t('admin.filterByStatusLabel')}</Label>
                 <Select value={statusFilter} onValueChange={(value) => setStatusFilter(value)}>
                     <SelectTrigger id="status-filter">
                         <Filter className="h-4 w-4 mr-2 text-muted-foreground" />
-                        <SelectValue placeholder="Filter by status" />
+                        <SelectValue placeholder={t('admin.filterByStatusPlaceholder')} />
                     </SelectTrigger>
                     <SelectContent>
-                        <SelectItem value="all">All Statuses</SelectItem>
+                        <SelectItem value="all">{t('admin.allStatuses')}</SelectItem>
                         {orderStatuses.map(status => (
-                            <SelectItem key={status} value={status}>{status}</SelectItem>
+                            <SelectItem key={status} value={status}>{status}</SelectItem> // Statuses are data
                         ))}
                     </SelectContent>
                 </Select>
@@ -84,12 +86,12 @@ export default function AdminOrdersPage() {
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Order ID</TableHead>
-                <TableHead>Customer ID</TableHead>
-                <TableHead>Date</TableHead>
-                <TableHead className="text-right">Total</TableHead>
-                <TableHead>Status</TableHead>
-                <TableHead className="text-center w-[120px]">Actions</TableHead>
+                <TableHead>{t('admin.orderIdColumn')}</TableHead>
+                <TableHead>{t('admin.customerIdColumn')}</TableHead>
+                <TableHead>{t('admin.dateColumn')}</TableHead>
+                <TableHead className="text-right">{t('admin.totalColumn')}</TableHead>
+                <TableHead>{t('admin.statusColumn')}</TableHead>
+                <TableHead className="text-center w-[120px]">{t('admin.actionsColumn')}</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -106,26 +108,22 @@ export default function AdminOrdersPage() {
                         </SelectTrigger>
                         <SelectContent>
                              {orderStatuses.map(status => (
-                                <SelectItem key={status} value={status}>{status}</SelectItem>
+                                <SelectItem key={status} value={status}>{status}</SelectItem> // Statuses are data
                             ))}
                         </SelectContent>
                     </Select>
                   </TableCell>
                   <TableCell className="text-center">
                     <Link href={`/account/orders/${order.id}`}>
-                       {/* This link might need to be an admin specific order view if different from user view */}
-                       <Button variant="ghost" size="icon" className="mr-1 hover:text-primary" title="View Order">
+                       <Button variant="ghost" size="icon" className="mr-1 hover:text-primary" title={t('admin.viewOrderTooltip')}>
                          <Eye className="h-4 w-4" />
                        </Button>
                     </Link>
-                    {/* <Button variant="ghost" size="icon" className="hover:text-destructive" title="Delete Order (use with caution)">
-                      <Trash2 className="h-4 w-4" />
-                    </Button> */}
                   </TableCell>
                 </TableRow>
               )) : (
                 <TableRow>
-                    <TableCell colSpan={6} className="text-center h-24">No orders found.</TableCell>
+                    <TableCell colSpan={6} className="text-center h-24">{t('admin.noOrdersFound')}</TableCell>
                 </TableRow>
               )}
             </TableBody>
