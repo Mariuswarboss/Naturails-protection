@@ -31,10 +31,10 @@
     "heroSubtitle": "Nutriție premium pentru animalele tale. Descoperă gama noastră largă de produse naturale și sănătoase, concepute pentru bunăstarea câinilor și pisicilor tale.",
     "shopAllProducts": "Cumpără Toate Produsele",
     "forDogsCardTitle": "Pentru Câini",
-    "forDogsCardSubtitle": "Hrană de înaltă calitate, recompense și produse de îngrijire.",
+    "forDogsCardSubtitle": "Hrană de înaltă calitate, recompense, jucării și produse de îngrijire.",
     "shopDogProducts": "Produse Pentru Câini",
     "forCatsCardTitle": "Pentru Pisici",
-    "forCatsCardSubtitle": "Mese nutritive, jucării distractive și accesorii esențiale.",
+    "forCatsCardSubtitle": "Mese nutritive, jucării distractive, nisip și accesorii esențiale.",
     "shopCatProducts": "Produse Pentru Pisici",
     "featuredDogProducts": "Produse Recomandate Pentru Câini",
     "viewAllDogProducts": "Vezi Toate Produsele Pentru Câini",
@@ -75,6 +75,10 @@
   "productsPage": {
     "title": "Produsele Noastre",
     "subtitle": "Răsfoiți colecția noastră de produse naturale și ecologice pentru animale.",
+    "titleDog": "Produse Pentru Câini",
+    "subtitleDog": "Tot ce are nevoie câinele tău: hrană, recompense, jucării, îngrijire și altele.",
+    "titleCat": "Produse Pentru Pisici",
+    "subtitleCat": "Totul pentru prietenul tău felin: hrană, jucării, nisip, recompense și altele.",
     "showFilters": "Arată Filtrele",
     "hideFilters": "Ascunde Filtrele",
     "searchLabel": "Caută",
@@ -137,7 +141,7 @@
     "orderPlacedToastTitle": "Comandă Plasată!",
     "orderPlacedToastDescription": "Comanda dvs. {orderId} a fost plasată cu succes.",
     "shippingLabel": "Cost Livrare",
-    "freeShipping": "Livrare Gratuită",
+    "freeShipping": "Livrare Gratuită (Chișinău sub 1000 MDL)",
     "standardShippingRate": "{rate} MDL"
   },
   "loginPage": {
@@ -310,4 +314,3 @@
     "addressLabel": "Adresă:"
   }
 }
-

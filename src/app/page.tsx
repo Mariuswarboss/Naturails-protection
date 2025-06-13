@@ -12,8 +12,14 @@ import { useTranslation } from '@/contexts/LanguageContext';
 
 export default function HomePage() {
   const { t } = useTranslation();
-  const featuredDogProducts = mockProducts.filter(p => p.category === 'Dog Food' || p.category === 'Dog Supplies').slice(0, 4);
-  const featuredCatProducts = mockProducts.filter(p => p.category === 'Cat Supplies').slice(0, 4);
+  
+  const featuredDogProducts = mockProducts
+    .filter(p => p.productFor === 'dog' || p.productFor === 'both')
+    .slice(0, 4);
+  
+  const featuredCatProducts = mockProducts
+    .filter(p => p.productFor === 'cat' || p.productFor === 'both')
+    .slice(0, 4);
 
   return (
     <SiteLayout>
@@ -51,7 +57,7 @@ export default function HomePage() {
       <section className="py-12 md:py-16">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12">
-            <Link href="/products?category=Dog+Food" className="block group">
+            <Link href="/products?type=dog" className="block group">
               <div className="relative rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 aspect-[16/10]">
                 <Image
                   src="https://placehold.co/600x375.png"
@@ -71,7 +77,7 @@ export default function HomePage() {
               </div>
             </Link>
 
-            <Link href="/products?category=Cat+Supplies" className="block group">
+            <Link href="/products?type=cat" className="block group">
               <div className="relative rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 aspect-[16/10]">
                 <Image
                   src="https://placehold.co/600x375.png"
@@ -104,7 +110,7 @@ export default function HomePage() {
               ))}
             </div>
              <div className="text-center mt-10">
-              <Link href="/products?category=Dog+Food">
+              <Link href="/products?type=dog">
                 <Button variant="outline" size="lg">{t('homepage.viewAllDogProducts')}</Button>
               </Link>
             </div>
@@ -122,7 +128,7 @@ export default function HomePage() {
               ))}
             </div>
             <div className="text-center mt-10">
-              <Link href="/products?category=Cat+Supplies">
+              <Link href="/products?type=cat">
                 <Button variant="outline" size="lg">{t('homepage.viewAllCatProducts')}</Button>
               </Link>
             </div>

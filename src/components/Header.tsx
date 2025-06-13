@@ -41,8 +41,8 @@ export default function Header() {
 
   const navLinks = [
     { href: '/', labelKey: 'header.home' },
-    { href: '/products?category=Dog+Food', labelKey: 'header.forDogs' },
-    { href: '/products?category=Cat+Supplies', labelKey: 'header.forCats' },
+    { href: '/products?type=dog', labelKey: 'header.forDogs' },
+    { href: '/products?type=cat', labelKey: 'header.forCats' },
     { href: '/products', labelKey: 'header.allProducts' },
   ];
 

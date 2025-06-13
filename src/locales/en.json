@@ -31,10 +31,10 @@
     "heroSubtitle": "Premium nutrition for your pets. Discover our wide range of natural and healthy products designed for the well-being of your dogs and cats.",
     "shopAllProducts": "Shop All Products",
     "forDogsCardTitle": "For Dogs",
-    "forDogsCardSubtitle": "High-quality food, treats, and care products.",
+    "forDogsCardSubtitle": "High-quality food, treats, toys, and care products.",
     "shopDogProducts": "Shop Dog Products",
     "forCatsCardTitle": "For Cats",
-    "forCatsCardSubtitle": "Nutritious meals, fun toys, and essential supplies.",
+    "forCatsCardSubtitle": "Nutritious meals, fun toys, litter, and essential supplies.",
     "shopCatProducts": "Shop Cat Products",
     "featuredDogProducts": "Featured Dog Products",
     "viewAllDogProducts": "View All Dog Products",
@@ -75,6 +75,10 @@
   "productsPage": {
     "title": "Our Products",
     "subtitle": "Browse our collection of natural and eco-friendly pet products.",
+    "titleDog": "Dog Products",
+    "subtitleDog": "Everything your dog needs: food, treats, toys, grooming & more.",
+    "titleCat": "Cat Products",
+    "subtitleCat": "Everything for your feline friend: food, toys, litter, treats & more.",
     "showFilters": "Show Filters",
     "hideFilters": "Hide Filters",
     "searchLabel": "Search",
@@ -137,7 +141,7 @@
     "orderPlacedToastTitle": "Order Placed!",
     "orderPlacedToastDescription": "Your order {orderId} has been successfully placed.",
     "shippingLabel": "Shipping Cost",
-    "freeShipping": "Free Shipping",
+    "freeShipping": "Free Shipping (Chisinau under 1000 MDL)",
     "standardShippingRate": "{rate} MDL"
   },
   "loginPage": {
@@ -310,4 +314,3 @@
     "addressLabel": "Address:"
   }
 }
-

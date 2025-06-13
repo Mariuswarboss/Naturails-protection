@@ -1,3 +1,4 @@
+
 import type { Product, User, Order } from '@/types';
 
 export const mockProducts: Product[] = [
@@ -9,8 +10,9 @@ export const mockProducts: Product[] = [
     imageUrl: 'https://placehold.co/600x400.png',
     dataAiHint: 'dog food bag',
     category: 'Dog Food',
+    productFor: 'dog',
     stock: 100,
-    relatedProductIds: ['2', '5'],
+    relatedProductIds: ['5', '7'],
   },
   {
     id: '2',
@@ -19,9 +21,10 @@ export const mockProducts: Product[] = [
     price: 22.50,
     imageUrl: 'https://placehold.co/600x400.png',
     dataAiHint: 'cat food bag',
-    category: 'Cat Supplies', // Changed category to be more specific
+    category: 'Cat Food',
+    productFor: 'cat',
     stock: 150,
-    relatedProductIds: ['1', '4'],
+    relatedProductIds: ['4', '9'],
   },
   {
     id: '3',
@@ -30,7 +33,8 @@ export const mockProducts: Product[] = [
     price: 12.75,
     imageUrl: 'https://placehold.co/600x400.png',
     dataAiHint: 'pet care water',
-    category: 'Pet Care',
+    category: 'Pet Wellness',
+    productFor: 'both',
     stock: 80,
   },
   {
@@ -40,9 +44,10 @@ export const mockProducts: Product[] = [
     price: 9.00,
     imageUrl: 'https://placehold.co/600x400.png',
     dataAiHint: 'cat toy mouse',
-    category: 'Cat Supplies',
+    category: 'Cat Toys',
+    productFor: 'cat',
     stock: 200,
-    relatedProductIds: ['2'],
+    relatedProductIds: ['2', '10'],
   },
   {
     id: '5',
@@ -51,8 +56,10 @@ export const mockProducts: Product[] = [
     price: 18.99,
     imageUrl: 'https://placehold.co/600x400.png',
     dataAiHint: 'dog supplement bottle',
-    category: 'Dog Supplements', // Changed category
+    category: 'Dog Supplements',
+    productFor: 'dog',
     stock: 120,
+    relatedProductIds: ['1'],
   },
   {
     id: '6',
@@ -61,7 +68,8 @@ export const mockProducts: Product[] = [
     price: 15.99,
     imageUrl: 'https://placehold.co/600x400.png',
     dataAiHint: 'puppy pads stack',
-    category: 'Dog Supplies',
+    category: 'Dog Training Aids',
+    productFor: 'dog',
     stock: 300,
   },
   {
@@ -71,9 +79,66 @@ export const mockProducts: Product[] = [
     price: 19.99,
     imageUrl: 'https://placehold.co/600x400.png',
     dataAiHint: 'dog dental chew',
-    category: 'Dog Treats',
+    category: 'Dog Dental Care',
+    productFor: 'dog',
     stock: 75,
     relatedProductIds: ['1', '5'],
+  },
+  {
+    id: '8',
+    name: 'Durable Rubber Ball for Dogs - Large',
+    description: 'A virtually indestructible rubber ball designed for heavy chewers. Great for fetch and solo play.',
+    price: 14.50,
+    imageUrl: 'https://placehold.co/600x400.png',
+    dataAiHint: 'dog toy ball',
+    category: 'Dog Toys',
+    productFor: 'dog',
+    stock: 90,
+  },
+  {
+    id: '9',
+    name: 'Crunchy Cat Treats - Salmon Flavor',
+    description: 'Delicious and crunchy salmon-flavored treats that cats love. Fortified with vitamins.',
+    price: 6.99,
+    imageUrl: 'https://placehold.co/600x400.png',
+    dataAiHint: 'cat treats bag',
+    category: 'Cat Treats',
+    productFor: 'cat',
+    stock: 180,
+    relatedProductIds: ['2', '4']
+  },
+  {
+    id: '10',
+    name: 'Feather Wand Interactive Cat Toy',
+    description: 'Interactive feather wand to engage your cat in playful hunting behavior. Promotes exercise.',
+    price: 7.50,
+    imageUrl: 'https://placehold.co/600x400.png',
+    dataAiHint: 'cat toy wand',
+    category: 'Cat Toys',
+    productFor: 'cat',
+    stock: 110,
+  },
+  {
+    id: '11',
+    name: 'Gentle Oatmeal Dog Shampoo',
+    description: 'Soothing oatmeal shampoo for dogs with sensitive skin. Cleans gently and leaves coat soft.',
+    price: 16.25,
+    imageUrl: 'https://placehold.co/600x400.png',
+    dataAiHint: 'dog shampoo bottle',
+    category: 'Dog Grooming',
+    productFor: 'dog',
+    stock: 60,
+  },
+  {
+    id: '12',
+    name: 'Clumping Cat Litter - Odor Control',
+    description: 'High-performance clumping cat litter with superior odor control. Low dust formula.',
+    price: 25.00,
+    imageUrl: 'https://placehold.co/600x400.png',
+    dataAiHint: 'cat litter bag',
+    category: 'Cat Litter',
+    productFor: 'cat',
+    stock: 70,
   }
 ];
 

@@ -1,12 +1,15 @@
+
 export interface Product {
   id: string;
   name: string;
   description: string;
   price: number;
   imageUrl: string;
-  category: string;
+  dataAiHint?: string; // Added dataAiHint to Product type
+  category: string; // e.g., "Dog Food", "Cat Toys", "Dog Grooming"
   stock: number;
   relatedProductIds?: string[];
+  productFor?: 'dog' | 'cat' | 'both'; // To specify if product is for dogs, cats, or both
 }
 
 export interface CartItem {
@@ -18,7 +21,7 @@ export interface CartItem {
 }
 
 export interface User {
-  id: string;
+  id:string;
   email: string;
   name?: string;
   addresses?: Address[];
