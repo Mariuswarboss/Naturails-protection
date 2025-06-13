@@ -64,6 +64,17 @@ export const mockProducts: Product[] = [
     category: 'Dog Supplies',
     stock: 300,
   },
+  {
+    id: '7',
+    name: 'NP Hypoallergenic Dental Chews for Dogs',
+    description: 'Tasty and effective dental chews designed for dogs with sensitivities. Helps reduce plaque and tartar buildup for fresh breath.',
+    price: 19.99,
+    imageUrl: 'https://placehold.co/600x400.png',
+    dataAiHint: 'dog dental chew',
+    category: 'Dog Treats',
+    stock: 75,
+    relatedProductIds: ['1', '5'],
+  }
 ];
 
 export const mockUsers: User[] = [

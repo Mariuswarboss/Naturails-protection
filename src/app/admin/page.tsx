@@ -4,15 +4,22 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { DollarSign, Package, Users, ShoppingCart } from "lucide-react";
 import { useTranslation } from '@/contexts/LanguageContext';
+import { mockProducts, mockOrders, mockUsers } from "@/lib/data"; // Import mockData
 
 export default function AdminDashboardPage() {
   const { t } = useTranslation();
 
+  // Calculate dynamic stats
+  const totalRevenue = mockOrders.reduce((sum, order) => sum + order.totalAmount, 0);
+  const totalOrdersCount = mockOrders.length;
+  const totalProductsCount = mockProducts.length; 
+  const activeUsersCount = mockUsers.filter(user => user.email !== 'admin@ecoshop.md').length; // Example: non-admin users
+
   const stats = [
-    { titleKey: "admin.totalRevenue", value: "$12,345", icon: DollarSign, change: "+5.2%" },
-    { titleKey: "admin.totalOrders", value: "230", icon: ShoppingCart, change: "+10" },
-    { titleKey: "admin.totalProducts", value: "6", icon: Package, change: "+1" },
-    { titleKey: "admin.activeUsers", value: "150", icon: Users, change: "-2" },
+    { titleKey: "admin.totalRevenue", value: `$${totalRevenue.toFixed(2)}`, icon: DollarSign, change: "+5.2%" }, // Change is mock
+    { titleKey: "admin.totalOrders", value: totalOrdersCount.toString(), icon: ShoppingCart, change: "+10" }, // Change is mock
+    { titleKey: "admin.totalProducts", value: totalProductsCount.toString(), icon: Package, change: "+1" }, // Change is mock, value is dynamic
+    { titleKey: "admin.activeUsers", value: activeUsersCount.toString(), icon: Users, change: "-2" }, // Change is mock
   ];
 
   return (
