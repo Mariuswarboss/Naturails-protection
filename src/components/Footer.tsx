@@ -2,7 +2,7 @@
 "use client";
 
 import Link from 'next/link';
-import { Facebook, Instagram, Youtube, ShieldCheck } from 'lucide-react';
+import { Facebook, Instagram, Youtube, ShieldCheck, ExternalLink } from 'lucide-react';
 import { useTranslation } from '@/contexts/LanguageContext';
 
 export default function Footer() {
@@ -38,6 +38,16 @@ export default function Footer() {
               <li><Link href="/faq" className="hover:text-primary hover:underline">{t('footer.faq')}</Link></li>
               <li><Link href="/privacy" className="hover:text-primary hover:underline">{t('footer.privacyPolicy')}</Link></li>
               <li><Link href="/terms" className="hover:text-primary hover:underline">{t('footer.termsOfService')}</Link></li>
+              <li>
+                <a 
+                  href="https://naturesprotection.eu/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="hover:text-primary hover:underline inline-flex items-center"
+                >
+                  {t('footer.officialSite')} <ExternalLink className="h-3 w-3 ml-1" />
+                </a>
+              </li>
             </ul>
           </div>
           <div>
