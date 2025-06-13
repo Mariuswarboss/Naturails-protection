@@ -3,34 +3,48 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
-import { useRouter } from 'next/navigation'; // Corrected import for App Router
+import { useRouter, useSearchParams } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
-// import { login } from '@/lib/auth'; // Mock auth function
+import { ShieldCheck } from 'lucide-react';
+
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
+  const searchParams = useSearchParams();
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate API call
 
     // Mock login logic
-    if (email === 'buyer@example.com' && password === 'password123') {
-      // In a real app, you'd call an auth service and store session/token
+    if ((email === 'buyer@example.com' && password === 'password123') || (email === 'admin@ecoshop.md' && password === 'adminpass')) {
       localStorage.setItem('authToken', 'mockAuthToken'); // Mock session
       localStorage.setItem('userEmail', email);
+      // For admin, we don't explicitly set a name here, account page might handle it or it's fixed.
+      if (email === 'buyer@example.com') {
+        localStorage.setItem('userName', 'Alex Buyer'); // Mock name for buyer
+      }
+
       toast({ title: "Login Successful", description: "Welcome back!" });
-      router.push('/account'); // Redirect to account page or dashboard
+      
+      const redirectUrl = searchParams.get('redirect');
+      if (email === 'admin@ecoshop.md' && (redirectUrl || '/admin').startsWith('/admin')) {
+        router.push(redirectUrl || '/admin');
+      } else if (email === 'buyer@example.com') {
+        router.push(redirectUrl || '/account');
+      } else {
+         router.push('/'); // Fallback redirect
+      }
+
     } else {
       toast({ title: "Login Failed", description: "Invalid email or password.", variant: "destructive" });
     }
@@ -38,10 +52,13 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-secondary/30 p-4">
-      <Card className="w-full max-w-md shadow-xl">
-        <CardHeader className="text-center">
-          <CardTitle className="font-headline text-3xl text-primary">Natural Protection</CardTitle>
+    <div className="flex min-h-screen items-center justify-center bg-secondary/50 p-4">
+      <Card className="w-full max-w-md shadow-xl border-primary/20">
+        <CardHeader className="text-center space-y-2">
+          <Link href="/" className="inline-block">
+            <ShieldCheck className="h-16 w-16 text-primary mx-auto" />
+          </Link>
+          <CardTitle className="font-headline text-3xl text-primary">Nature's Protection</CardTitle>
           <CardDescription>Login to your account to continue</CardDescription>
         </CardHeader>
         <CardContent>
@@ -55,7 +72,7 @@ export default function LoginPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="text-base"
+                className="text-base h-11 rounded-md border-border focus:border-primary"
               />
             </div>
             <div className="space-y-2">
@@ -67,10 +84,10 @@ export default function LoginPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="text-base"
+                className="text-base h-11 rounded-md border-border focus:border-primary"
               />
             </div>
-            <Button type="submit" className="w-full" disabled={isLoading}>
+            <Button type="submit" className="w-full h-11 text-base" disabled={isLoading}>
               {isLoading ? 'Logging in...' : 'Login'}
             </Button>
           </form>
