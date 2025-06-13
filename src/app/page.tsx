@@ -1,3 +1,4 @@
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
@@ -17,8 +18,8 @@ export default function HomePage() {
         <p className="text-lg md:text-xl text-foreground/80 mb-8 max-w-2xl mx-auto">
           Discover the best natural protection products for your beloved pets. Quality and care, delivered to your doorstep.
         </p>
-        <Link href="/products" legacyBehavior>
-          <a><Button size="lg" className="font-headline">Shop All Products</Button></a>
+        <Link href="/products">
+          <Button size="lg" className="font-headline">Shop All Products</Button>
         </Link>
       </section>
 
@@ -44,8 +45,8 @@ export default function HomePage() {
               <li>Fast and reliable delivery</li>
               <li>Dedicated customer support</li>
             </ul>
-            <Link href="/about" legacyBehavior>
-              <a><Button variant="outline">Learn More About Us</Button></a>
+            <Link href="/about">
+              <Button variant="outline">Learn More About Us</Button>
             </Link>
           </div>
           <div className="relative h-64 md:h-80 w-full rounded-lg overflow-hidden shadow-md">

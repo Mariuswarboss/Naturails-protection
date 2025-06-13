@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useEffect, useState } from 'react';
@@ -55,11 +56,9 @@ export default function OrderDetailsPage() {
   return (
     <SiteLayout>
       <div className="mb-6">
-        <Link href="/account" legacyBehavior>
-          <a className="text-sm text-muted-foreground hover:text-primary inline-flex items-center">
+        <Link href="/account" className="text-sm text-muted-foreground hover:text-primary inline-flex items-center">
             <ChevronLeft className="h-4 w-4 mr-1" />
             Back to Account
-          </a>
         </Link>
       </div>
 

@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from 'react';
@@ -111,7 +112,7 @@ export default function AdminOrdersPage() {
                     </Select>
                   </TableCell>
                   <TableCell className="text-center">
-                    <Link href={`/account/orders/${order.id}`} legacyBehavior>
+                    <Link href={`/account/orders/${order.id}`}>
                        {/* This link might need to be an admin specific order view if different from user view */}
                        <Button variant="ghost" size="icon" className="mr-1 hover:text-primary" title="View Order">
                          <Eye className="h-4 w-4" />

@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from 'next/link';
@@ -34,13 +35,13 @@ export default function Header() {
   const NavLinksComponent = ({ mobile = false }: { mobile?: boolean }) => (
     <nav className={`flex ${mobile ? 'flex-col space-y-2 p-4' : 'space-x-4 items-center'}`}>
       {navLinks.map(link => (
-        <Link key={link.href} href={link.href} legacyBehavior>
-          <a
-            onClick={() => mobile && setIsMobileMenuOpen(false)}
-            className={`text-sm font-medium transition-colors hover:text-primary ${mobile ? 'block py-2' : ''}`}
-          >
-            {link.label}
-          </a>
+        <Link
+          key={link.href}
+          href={link.href}
+          onClick={() => mobile && setIsMobileMenuOpen(false)}
+          className={`text-sm font-medium transition-colors hover:text-primary ${mobile ? 'block py-2' : ''}`}
+        >
+          {link.label}
         </Link>
       ))}
     </nav>
@@ -83,10 +84,8 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between">
-        <Link href="/" legacyBehavior>
-          <a className="mr-6 flex items-center space-x-2">
-            <span className="font-headline text-xl font-bold text-primary">Natural Protection</span>
-          </a>
+        <Link href="/" className="mr-6 flex items-center space-x-2">
+          <span className="font-headline text-xl font-bold text-primary">Natural Protection</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -105,32 +104,26 @@ export default function Header() {
             <LanguageSwitcherDropdown />
           </div>
 
-          <Link href="/cart" legacyBehavior>
-            <a className="relative">
-              <Button variant="ghost" size="icon" aria-label="Shopping Cart">
-                <ShoppingBag className="h-5 w-5" />
-              </Button>
-              {itemCount > 0 && (
-                <Badge variant="destructive" className="absolute -top-1 -right-1 h-5 w-5 justify-center rounded-full p-0 text-xs">
-                  {itemCount}
-                </Badge>
-              )}
-            </a>
+          <Link href="/cart" className="relative">
+            <Button variant="ghost" size="icon" aria-label="Shopping Cart">
+              <ShoppingBag className="h-5 w-5" />
+            </Button>
+            {itemCount > 0 && (
+              <Badge variant="destructive" className="absolute -top-1 -right-1 h-5 w-5 justify-center rounded-full p-0 text-xs">
+                {itemCount}
+              </Badge>
+            )}
           </Link>
 
           {user ? (
-            <Link href="/account" legacyBehavior>
-              <a>
-                <Button variant="ghost" size="icon" aria-label="My Account">
-                  <User className="h-5 w-5" />
-                </Button>
-              </a>
+            <Link href="/account">
+              <Button variant="ghost" size="icon" aria-label="My Account">
+                <User className="h-5 w-5" />
+              </Button>
             </Link>
           ) : (
-            <Link href="/login" legacyBehavior>
-              <a>
-                <Button variant="outline" size="sm">Login</Button>
-              </a>
+            <Link href="/login">
+              <Button variant="outline" size="sm">Login</Button>
             </Link>
           )}
 
@@ -145,10 +138,8 @@ export default function Header() {
               </SheetTrigger>
               <SheetContent side="right" className="w-[300px] sm:w-[400px]">
                 <div className="p-4 flex flex-col h-full">
-                  <Link href="/" legacyBehavior>
-                    <a className="mb-4 flex items-center space-x-2" onClick={() => setIsMobileMenuOpen(false)}>
-                      <span className="font-headline text-lg font-bold text-primary">Natural Protection</span>
-                    </a>
+                  <Link href="/" className="mb-4 flex items-center space-x-2" onClick={() => setIsMobileMenuOpen(false)}>
+                    <span className="font-headline text-lg font-bold text-primary">Natural Protection</span>
                   </Link>
                   <div className="relative mb-4">
                     <Input type="search" placeholder="Search products..." className="h-9 w-full pl-8" />

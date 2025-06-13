@@ -1,3 +1,4 @@
+
 import { getProductById, mockProducts } from '@/lib/data';
 import type { Product } from '@/types';
 import SiteLayout from '@/components/SiteLayout';
@@ -24,11 +25,9 @@ export default async function ProductPage({ params }: { params: { id: string } }
       <SiteLayout>
         <div className="text-center py-10">
           <h1 className="text-2xl font-bold">Product not found</h1>
-          <Link href="/products" legacyBehavior>
-            <a className="text-primary hover:underline mt-4 inline-block">
+          <Link href="/products" className="text-primary hover:underline mt-4 inline-block">
               <ChevronLeft className="inline h-4 w-4 mr-1" />
               Back to products
-            </a>
           </Link>
         </div>
       </SiteLayout>
@@ -42,11 +41,9 @@ export default async function ProductPage({ params }: { params: { id: string } }
   return (
     <SiteLayout>
       <div className="mb-6">
-        <Link href="/products" legacyBehavior>
-          <a className="text-sm text-muted-foreground hover:text-primary inline-flex items-center">
+        <Link href="/products" className="text-sm text-muted-foreground hover:text-primary inline-flex items-center">
             <ChevronLeft className="h-4 w-4 mr-1" />
             Back to Products
-          </a>
         </Link>
       </div>
 

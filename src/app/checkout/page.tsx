@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useEffect, useState } from 'react';
@@ -106,11 +107,9 @@ export default function CheckoutPage() {
   return (
     <SiteLayout>
       <div className="mb-6">
-        <Link href="/cart" legacyBehavior>
-          <a className="text-sm text-muted-foreground hover:text-primary inline-flex items-center">
+        <Link href="/cart" className="text-sm text-muted-foreground hover:text-primary inline-flex items-center">
             <ChevronLeft className="h-4 w-4 mr-1" />
             Back to Cart
-          </a>
         </Link>
       </div>
       <h1 className="font-headline text-3xl md:text-4xl font-bold mb-8">Checkout</h1>

@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useEffect, useState } from 'react';
@@ -158,8 +159,8 @@ export default function AccountPage() {
                            <span className={`px-2 py-1 text-xs rounded-full ${order.status === 'Delivered' ? 'bg-green-100 text-green-700' : order.status === 'Shipped' ? 'bg-blue-100 text-blue-700' : 'bg-yellow-100 text-yellow-700'}`}>
                             {order.status}
                           </span>
-                          <Link href={`/account/orders/${order.id}`} legacyBehavior>
-                            <a className="mt-2 block text-sm text-primary hover:underline">View Details</a>
+                          <Link href={`/account/orders/${order.id}`} className="mt-2 block text-sm text-primary hover:underline">
+                            View Details
                           </Link>
                         </div>
                       </div>

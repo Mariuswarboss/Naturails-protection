@@ -1,3 +1,4 @@
+
 "use client"; // SidebarProvider and useSidebar require client context
 
 import type React from 'react';
@@ -78,16 +79,13 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           <SidebarMenu>
             {adminNavItems.map((item) => (
               <SidebarMenuItem key={item.href}>
-                <Link href={item.href} legacyBehavior passHref>
+                <Link href={item.href}>
                   <SidebarMenuButton
-                    asChild
                     isActive={pathname === item.href || (item.href !== '/admin' && pathname.startsWith(item.href))}
                     tooltip={{ children: item.label, side: 'right', align: 'center' }}
                   >
-                    <a>
-                      <item.icon className="h-5 w-5" />
-                      <span className="group-data-[collapsible=icon]:hidden">{item.label}</span>
-                    </a>
+                    <item.icon className="h-5 w-5" />
+                    <span className="group-data-[collapsible=icon]:hidden">{item.label}</span>
                   </SidebarMenuButton>
                 </Link>
               </SidebarMenuItem>
@@ -95,14 +93,12 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           </SidebarMenu>
         </SidebarContent>
         <SidebarFooter className="p-2">
-           <Link href="/" legacyBehavior passHref>
+           <Link href="/">
               <SidebarMenuButton
                 tooltip={{ children: "Back to Site", side: 'right', align: 'center' }}
               >
-                <a>
-                    <PanelLeft className="h-5 w-5 rotate-180" />
-                    <span className="group-data-[collapsible=icon]:hidden">Back to Site</span>
-                </a>
+                <PanelLeft className="h-5 w-5 rotate-180" />
+                <span className="group-data-[collapsible=icon]:hidden">Back to Site</span>
               </SidebarMenuButton>
             </Link>
         </SidebarFooter>

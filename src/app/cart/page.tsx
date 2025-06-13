@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useCart } from '@/hooks/useCart';
@@ -29,8 +30,8 @@ export default function CartPage() {
           <ShoppingBag className="mx-auto h-16 w-16 text-muted-foreground mb-6" />
           <h1 className="font-headline text-3xl font-semibold mb-4">Your Cart is Empty</h1>
           <p className="text-muted-foreground mb-8">Looks like you haven't added anything to your cart yet.</p>
-          <Link href="/products" legacyBehavior>
-            <a><Button size="lg">Continue Shopping</Button></a>
+          <Link href="/products">
+            <Button size="lg">Continue Shopping</Button>
           </Link>
         </div>
       </SiteLayout>
@@ -48,8 +49,8 @@ export default function CartPage() {
                 <Image src={item.imageUrl} alt={item.name} layout="fill" objectFit="cover" data-ai-hint="product image" />
               </div>
               <div className="flex-grow">
-                <Link href={`/products/${item.productId}`} legacyBehavior>
-                  <a className="font-semibold text-lg hover:text-primary">{item.name}</a>
+                <Link href={`/products/${item.productId}`} className="font-semibold text-lg hover:text-primary">
+                  {item.name}
                 </Link>
                 <p className="text-sm text-muted-foreground">${item.price.toFixed(2)} each</p>
               </div>
@@ -97,8 +98,8 @@ export default function CartPage() {
                 <span>${cartTotal.toFixed(2)}</span>
               </div>
             </div>
-            <Link href="/checkout" legacyBehavior>
-              <a><Button size="lg" className="w-full">Proceed to Checkout</Button></a>
+            <Link href="/checkout">
+              <Button size="lg" className="w-full">Proceed to Checkout</Button>
             </Link>
           </div>
         </div>
