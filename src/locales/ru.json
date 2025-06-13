@@ -101,11 +101,12 @@
     "orderSummary": "Итог Заказа",
     "subtotal": "Подытог ({itemCount} товаров)",
     "shipping": "Доставка",
-    "free": "БЕСПЛАТНО",
+    "shippingCalculated": "Рассчитывается при оформлении",
     "total": "Всего",
     "proceedToCheckout": "Перейти к Оформлению",
     "productNameQuantityAria": "Количество для {productName}",
-    "removeProductAria": "Удалить {productName} из корзины"
+    "removeProductAria": "Удалить {productName} из корзины",
+    "each": "шт."
   },
   "checkoutPage": {
     "loadingCheckout": "Загрузка оформления заказа...",
@@ -134,7 +135,10 @@
     "missingInfoToastTitle": "Отсутствует Информация",
     "missingInfoToastDescription": "Пожалуйста, заполните все поля адреса доставки.",
     "orderPlacedToastTitle": "Заказ Оформлен!",
-    "orderPlacedToastDescription": "Ваш заказ {orderId} успешно оформлен."
+    "orderPlacedToastDescription": "Ваш заказ {orderId} успешно оформлен.",
+    "shippingLabel": "Стоимость Доставки",
+    "freeShipping": "Бесплатная Доставка",
+    "standardShippingRate": "{rate} MDL"
   },
   "loginPage": {
     "siteTitle": "Nature's Protection",
@@ -179,7 +183,7 @@
     "orderHistoryCardDescription": "Просмотр ваших прошлых заказов и их статуса.",
     "orderIdLabel": "ID Заказа: {orderId}",
     "dateLabel": "Дата: {date}",
-    "totalLabel": "Всего: ${total}",
+    "totalLabel": "Всего: {total} MDL",
     "viewDetailsLink": "Смотреть Детали",
     "noPastOrders": "У вас нет прошлых заказов.",
     "editProfileCardTitle": "Редактировать Профиль",
@@ -209,7 +213,9 @@
     "trackingNumberLabel": "Номер Отслеживания",
     "shippingAddressLabel": "Адрес Доставки",
     "itemsInOrderTitle": "Товары в этом заказе",
-    "quantityLabel": "Количество: {quantity}"
+    "quantityLabel": "Количество: {quantity}",
+    "orderConfirmationTitle": "Подтверждение Заказа",
+    "orderProcessingMessage": "Ваш заказ обрабатывается. Детали будут доступны в ближайшее время."
   },
   "admin": {
     "adminPanel": "Панель Администратора",
@@ -270,6 +276,7 @@
     "productAddedToastDescription": "{productName} был добавлен.",
     "productDeletedToastTitle": "Товар Удален",
     "productDeletedToastDescription": "Товар был удален.",
+    "confirmDeleteProduct": "Вы уверены, что хотите удалить этот товар?",
     "productListCardTitle": "Список Товаров",
     "productListCardDescription": "Просмотр, редактирование или удаление товаров.",
     "searchProductsPlaceholder": "Поиск по названию или категории...",
@@ -297,7 +304,10 @@
     "visitUsAt": "Найдите нас на карте ниже:",
     "contactDetailsTitle": "Контактные Данные",
     "contactInfoPlaceholder": "Контактная информация (телефон, email) будет отображена здесь.",
-    "phoneLabel": "Телефон",
-    "emailLabel": "Электронная почта"
+    "phoneLabel": "Телефон:",
+    "emailLabel": "Электронная почта:",
+    "companyNameLabel": "Название Компании:",
+    "addressLabel": "Адрес:"
   }
 }
+

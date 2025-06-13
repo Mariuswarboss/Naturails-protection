@@ -101,11 +101,12 @@
     "orderSummary": "Order Summary",
     "subtotal": "Subtotal ({itemCount} items)",
     "shipping": "Shipping",
-    "free": "FREE",
+    "shippingCalculated": "Calculated at checkout",
     "total": "Total",
     "proceedToCheckout": "Proceed to Checkout",
     "productNameQuantityAria": "{productName} quantity",
-    "removeProductAria": "Remove {productName} from cart"
+    "removeProductAria": "Remove {productName} from cart",
+    "each": "each"
   },
   "checkoutPage": {
     "loadingCheckout": "Loading checkout...",
@@ -134,7 +135,10 @@
     "missingInfoToastTitle": "Missing Information",
     "missingInfoToastDescription": "Please fill in all shipping address fields.",
     "orderPlacedToastTitle": "Order Placed!",
-    "orderPlacedToastDescription": "Your order {orderId} has been successfully placed."
+    "orderPlacedToastDescription": "Your order {orderId} has been successfully placed.",
+    "shippingLabel": "Shipping Cost",
+    "freeShipping": "Free Shipping",
+    "standardShippingRate": "{rate} MDL"
   },
   "loginPage": {
     "siteTitle": "Nature's Protection",
@@ -179,7 +183,7 @@
     "orderHistoryCardDescription": "View your past orders and their status.",
     "orderIdLabel": "Order ID: {orderId}",
     "dateLabel": "Date: {date}",
-    "totalLabel": "Total: ${total}",
+    "totalLabel": "Total: {total} MDL",
     "viewDetailsLink": "View Details",
     "noPastOrders": "You have no past orders.",
     "editProfileCardTitle": "Edit Profile",
@@ -209,7 +213,9 @@
     "trackingNumberLabel": "Tracking Number",
     "shippingAddressLabel": "Shipping Address",
     "itemsInOrderTitle": "Items in this order",
-    "quantityLabel": "Quantity: {quantity}"
+    "quantityLabel": "Quantity: {quantity}",
+    "orderConfirmationTitle": "Order Confirmation",
+    "orderProcessingMessage": "Your order is being processed. Details will be available soon."
   },
   "admin": {
     "adminPanel": "Admin Panel",
@@ -270,6 +276,7 @@
     "productAddedToastDescription": "{productName} has been added.",
     "productDeletedToastTitle": "Product Deleted",
     "productDeletedToastDescription": "The product has been removed.",
+    "confirmDeleteProduct": "Are you sure you want to delete this product?",
     "productListCardTitle": "Product List",
     "productListCardDescription": "View, edit, or delete products.",
     "searchProductsPlaceholder": "Search by name or category...",
@@ -297,7 +304,10 @@
     "visitUsAt": "Find us on the map below:",
     "contactDetailsTitle": "Contact Details",
     "contactInfoPlaceholder": "Contact information (phone, email) will be displayed here.",
-    "phoneLabel": "Phone",
-    "emailLabel": "Email"
+    "phoneLabel": "Phone:",
+    "emailLabel": "Email:",
+    "companyNameLabel": "Company Name:",
+    "addressLabel": "Address:"
   }
 }
+

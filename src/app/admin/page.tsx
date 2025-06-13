@@ -16,7 +16,7 @@ export default function AdminDashboardPage() {
   const activeUsersCount = mockUsers.filter(user => user.email !== 'admin@ecoshop.md').length; // Example: non-admin users
 
   const stats = [
-    { titleKey: "admin.totalRevenue", value: `$${totalRevenue.toFixed(2)}`, icon: DollarSign, change: "+5.2%" }, // Change is mock
+    { titleKey: "admin.totalRevenue", value: `${totalRevenue.toFixed(2)} MDL`, icon: DollarSign, change: "+5.2%" }, // Change is mock
     { titleKey: "admin.totalOrders", value: totalOrdersCount.toString(), icon: ShoppingCart, change: "+10" }, // Change is mock
     { titleKey: "admin.totalProducts", value: totalProductsCount.toString(), icon: Package, change: "+1" }, // Change is mock, value is dynamic
     { titleKey: "admin.activeUsers", value: activeUsersCount.toString(), icon: Users, change: "-2" }, // Change is mock
@@ -62,3 +62,4 @@ export default function AdminDashboardPage() {
     </div>
   );
 }
+

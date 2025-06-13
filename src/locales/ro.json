@@ -101,11 +101,12 @@
     "orderSummary": "Sumar Comandă",
     "subtotal": "Subtotal ({itemCount} produse)",
     "shipping": "Livrare",
-    "free": "GRATUIT",
+    "shippingCalculated": "Calculat la finalizare",
     "total": "Total",
     "proceedToCheckout": "Continuă spre Finalizare Comandă",
     "productNameQuantityAria": "Cantitatea pentru {productName}",
-    "removeProductAria": "Elimină {productName} din coș"
+    "removeProductAria": "Elimină {productName} din coș",
+    "each": "buc."
   },
   "checkoutPage": {
     "loadingCheckout": "Se încarcă finalizarea comenzii...",
@@ -134,7 +135,10 @@
     "missingInfoToastTitle": "Informații Lipsă",
     "missingInfoToastDescription": "Vă rugăm completați toate câmpurile pentru adresa de livrare.",
     "orderPlacedToastTitle": "Comandă Plasată!",
-    "orderPlacedToastDescription": "Comanda dvs. {orderId} a fost plasată cu succes."
+    "orderPlacedToastDescription": "Comanda dvs. {orderId} a fost plasată cu succes.",
+    "shippingLabel": "Cost Livrare",
+    "freeShipping": "Livrare Gratuită",
+    "standardShippingRate": "{rate} MDL"
   },
   "loginPage": {
     "siteTitle": "Nature's Protection",
@@ -209,7 +213,9 @@
     "trackingNumberLabel": "Număr de Urmărire",
     "shippingAddressLabel": "Adresă de Livrare",
     "itemsInOrderTitle": "Produse în această comandă",
-    "quantityLabel": "Cantitate: {quantity}"
+    "quantityLabel": "Cantitate: {quantity}",
+    "orderConfirmationTitle": "Confirmare Comandă",
+    "orderProcessingMessage": "Comanda dvs. este în curs de procesare. Detaliile vor fi disponibile în curând."
   },
   "admin": {
     "adminPanel": "Panou Admin",
@@ -270,6 +276,7 @@
     "productAddedToastDescription": "{productName} a fost adăugat.",
     "productDeletedToastTitle": "Produs Șters",
     "productDeletedToastDescription": "Produsul a fost eliminat.",
+    "confirmDeleteProduct": "Sigur doriți să ștergeți acest produs?",
     "productListCardTitle": "Listă Produse",
     "productListCardDescription": "Vizualizați, editați sau ștergeți produse.",
     "searchProductsPlaceholder": "Căutați după nume sau categorie...",
@@ -297,7 +304,10 @@
     "visitUsAt": "Găsiți-ne pe harta de mai jos:",
     "contactDetailsTitle": "Detalii de Contact",
     "contactInfoPlaceholder": "Informațiile de contact (telefon, email) vor fi afișate aici.",
-    "phoneLabel": "Telefon",
-    "emailLabel": "Email"
+    "phoneLabel": "Telefon:",
+    "emailLabel": "Email:",
+    "companyNameLabel": "Denumire Firmă:",
+    "addressLabel": "Adresă:"
   }
 }
+

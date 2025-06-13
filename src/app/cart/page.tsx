@@ -54,7 +54,7 @@ export default function CartPage() {
                 <Link href={`/products/${item.productId}`} className="font-semibold text-lg hover:text-primary">
                   {item.name} {/* Product name not translated */}
                 </Link>
-                <p className="text-sm text-muted-foreground">${item.price.toFixed(2)} each</p>
+                <p className="text-sm text-muted-foreground">{item.price.toFixed(2)} MDL {t('cartPage.each')}</p>
               </div>
               <div className="flex items-center space-x-2">
                 <Button variant="outline" size="icon" className="h-8 w-8" onClick={() => updateQuantity(item.productId, item.quantity - 1)} aria-label={t('productPage.decreaseQuantity')}>
@@ -75,7 +75,7 @@ export default function CartPage() {
                   <Plus className="h-4 w-4" />
                 </Button>
               </div>
-              <p className="font-semibold w-20 text-right">${(item.price * item.quantity).toFixed(2)}</p>
+              <p className="font-semibold w-24 text-right">{(item.price * item.quantity).toFixed(2)} MDL</p>
               <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-destructive" onClick={() => removeFromCart(item.productId)} aria-label={t('cartPage.removeProductAria', { productName: item.name })}>
                 <Trash2 className="h-5 w-5" />
               </Button>
@@ -89,15 +89,15 @@ export default function CartPage() {
             <div className="space-y-3 mb-6">
               <div className="flex justify-between">
                 <span className="text-muted-foreground">{t('cartPage.subtotal', {itemCount: itemCount})}</span>
-                <span>${cartTotal.toFixed(2)}</span>
+                <span>{cartTotal.toFixed(2)} MDL</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-muted-foreground">{t('cartPage.shipping')}</span>
-                <span>{t('cartPage.free')}</span>
+                <span>{t('cartPage.shippingCalculated')}</span>
               </div>
               <div className="flex justify-between font-bold text-lg border-t pt-3">
                 <span>{t('cartPage.total')}</span>
-                <span>${cartTotal.toFixed(2)}</span>
+                <span>{cartTotal.toFixed(2)} MDL</span> 
               </div>
             </div>
             <Link href="/checkout">
@@ -109,3 +109,4 @@ export default function CartPage() {
     </SiteLayout>
   );
 }
+

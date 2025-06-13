@@ -100,7 +100,7 @@ export default function AdminOrdersPage() {
                   <TableCell className="font-medium">{order.id}</TableCell>
                   <TableCell>{order.userId}</TableCell>
                   <TableCell>{new Date(order.orderDate).toLocaleDateString()}</TableCell>
-                  <TableCell className="text-right">${order.totalAmount.toFixed(2)}</TableCell>
+                  <TableCell className="text-right">{order.totalAmount.toFixed(2)} MDL</TableCell>
                   <TableCell>
                     <Select value={order.status} onValueChange={(newStatus) => handleStatusChange(order.id, newStatus as Order['status'])}>
                         <SelectTrigger className={`h-8 text-xs w-[120px] ${order.status === 'Delivered' ? 'border-green-500 text-green-700' : order.status === 'Shipped' ? 'border-blue-500 text-blue-700' : 'border-yellow-500 text-yellow-700'}`}>
@@ -133,3 +133,4 @@ export default function AdminOrdersPage() {
     </div>
   );
 }
+

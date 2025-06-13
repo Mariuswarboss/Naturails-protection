@@ -94,7 +94,7 @@ export default function AdminProductsPage() {
   }
 
   const handleDeleteProduct = (productId: string) => {
-    if (window.confirm("Are you sure you want to delete this product?")) { // This alert won't be translated by `t`
+    if (window.confirm(t('admin.confirmDeleteProduct'))) { 
         setProducts(prev => prev.filter(p => p.id !== productId));
         toast({ title: t('admin.productDeletedToastTitle'), description: t('admin.productDeletedToastDescription')});
     }
@@ -171,7 +171,7 @@ export default function AdminProductsPage() {
                   </TableCell>
                   <TableCell className="font-medium">{product.name}</TableCell> {/* Product name not translated */}
                   <TableCell>{product.category}</TableCell> {/* Category not translated */}
-                  <TableCell className="text-right">${product.price.toFixed(2)}</TableCell>
+                  <TableCell className="text-right">{product.price.toFixed(2)} MDL</TableCell>
                   <TableCell className="text-right">{product.stock}</TableCell>
                   <TableCell className="text-center">
                     <Button variant="ghost" size="icon" className="mr-1 hover:text-primary" onClick={() => handleEditProduct(product)}>
@@ -194,3 +194,4 @@ export default function AdminProductsPage() {
     </div>
   );
 }
+

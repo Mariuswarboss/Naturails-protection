@@ -44,7 +44,28 @@ export default function OrderDetailsPage() {
     if (foundOrder) {
       setOrder(foundOrder);
     } else {
-      router.push('/account'); 
+      // If not found in mockOrders (e.g. new order made in session not yet in mockData)
+      // or if orderId doesn't match pattern, consider it potentially invalid for this mock setup
+      // For a real app, you'd fetch from a DB. Here, we can assume it's a newly created order
+      // that isn't in our static mockOrders.
+      // A better approach for a prototype with dynamic orders would be to store them in localStorage
+      // or a temporary state. For now, we'll just show a simplified message or redirect.
+      // console.log(`Order ${orderId} not found in mockOrders or doesn't match user.`);
+      // For now, if it's not a mockOrder, it implies it might be a newly placed one
+      // (though this page is designed to display from mockOrders)
+      // To handle new orders, one might pass order details via route state or fetch if API existed.
+      // If order ID pattern suggests it's a newly created one (e.g., starts with ECO-),
+      // we could display a generic "processing" message.
+      // However, without a mechanism to retrieve its details, we redirect for non-mock orders.
+      if (!orderId.startsWith('ECO-')) {
+         router.push('/account'); 
+      } else {
+        // It's a newly created order not in mockData. We can't display details yet.
+        // This is a limitation of the current mock data setup.
+        // For this iteration, we keep the redirect.
+        // A more robust solution would involve a state management for recent orders or temporary storage.
+        router.push('/account');
+      }
     }
   }, [orderId, router]);
 
@@ -57,6 +78,29 @@ export default function OrderDetailsPage() {
   };
 
   if (!currentUser || !order) {
+     // Handle case for newly created orders that aren't in mockOrders
+    if (currentUser && orderId && orderId.startsWith('ECO-')) {
+        return (
+            <SiteLayout>
+                <div className="mb-6">
+                    <Link href="/account" className="text-sm text-muted-foreground hover:text-primary inline-flex items-center">
+                        <ChevronLeft className="h-4 w-4 mr-1" />
+                        {t('orderDetailsPage.backToAccount')}
+                    </Link>
+                </div>
+                <Card className="shadow-lg">
+                    <CardHeader>
+                        <CardTitle className="font-headline text-2xl md:text-3xl">{t('orderDetailsPage.orderConfirmationTitle') || "Order Confirmation"}</CardTitle>
+                        <CardDescription>{t('orderDetailsPage.orderIdLabel', {orderId: orderId})}</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                        <p>{t('orderDetailsPage.orderProcessingMessage') || "Your order is being processed. Details will be available soon."}</p>
+                        {/* More details could be shown here if passed via state or fetched */}
+                    </CardContent>
+                </Card>
+            </SiteLayout>
+        );
+    }
     return <SiteLayout><p className="text-center py-10">{t('orderDetailsPage.loadingOrderDetails')}</p></SiteLayout>;
   }
 
@@ -87,7 +131,7 @@ export default function OrderDetailsPage() {
               <DollarSign className="h-5 w-5 mt-0.5 text-primary shrink-0" />
               <div>
                 <p className="font-medium">{t('orderDetailsPage.totalAmountLabel')}</p>
-                <p className="text-muted-foreground">${order.totalAmount.toFixed(2)}</p>
+                <p className="text-muted-foreground">{order.totalAmount.toFixed(2)} MDL</p>
               </div>
             </div>
             <div className="flex items-start space-x-3">
@@ -132,7 +176,7 @@ export default function OrderDetailsPage() {
                     <p className="font-medium">{item.name}</p>
                     <p className="text-sm text-muted-foreground">{t('orderDetailsPage.quantityLabel', {quantity: item.quantity})}</p>
                   </div>
-                  <p className="text-sm font-medium">${(item.price * item.quantity).toFixed(2)}</p>
+                  <p className="text-sm font-medium">{(item.price * item.quantity).toFixed(2)} MDL</p>
                 </li>
               ))}
             </ul>
@@ -142,3 +186,4 @@ export default function OrderDetailsPage() {
     </SiteLayout>
   );
 }
+

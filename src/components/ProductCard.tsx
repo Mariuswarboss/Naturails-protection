@@ -52,7 +52,7 @@ export default function ProductCard({ product }: { product: Product }) {
             {product.name} {/* Product name not translated */}
           </CardTitle>
           <p className="text-xs text-muted-foreground mb-2 line-clamp-2">{product.description}</p> {/* Product description not translated */}
-          <p className="text-lg font-semibold text-foreground">${product.price.toFixed(2)}</p>
+          <p className="text-lg font-semibold text-foreground">{product.price.toFixed(2)} MDL</p>
         </CardContent>
       </Link>
       <CardFooter className="p-3 pt-0 border-t mt-auto">
@@ -80,3 +80,4 @@ export default function ProductCard({ product }: { product: Product }) {
     </Card>
   );
 }
+

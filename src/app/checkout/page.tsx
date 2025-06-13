@@ -28,6 +28,9 @@ const getCurrentUser = (): User | null => {
   return null;
 };
 
+const STANDARD_SHIPPING_COST = 250;
+const FREE_SHIPPING_THRESHOLD = 1000; // MDL
+
 export default function CheckoutPage() {
   const router = useRouter();
   const { cartItems, cartTotal, clearCart, itemCount } = useCart();
@@ -40,6 +43,7 @@ export default function CheckoutPage() {
     street: '', city: '', postalCode: '', country: 'Moldova',
   });
   const [paymentMethod, setPaymentMethod] = useState('card');
+  const [shippingCost, setShippingCost] = useState(STANDARD_SHIPPING_COST);
 
   useEffect(() => {
     const user = getCurrentUser();
@@ -54,17 +58,29 @@ export default function CheckoutPage() {
       setShippingAddress(defaultAddress);
     }
 
-    if (itemCount === 0 && !isLoading) { // Check isLoading to prevent redirect during order placement
+    if (itemCount === 0 && !isLoading) { 
         toast({ title: t('checkoutPage.emptyCartToastTitle'), description: t('checkoutPage.emptyCartToastDescription'), variant: "default" });
         router.push('/products');
     }
 
-  }, [router, toast, itemCount, t, isLoading]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [router, toast, itemCount, t, isLoading]); // Removed currentUser from deps to avoid re-triggering on profile update
+
+  useEffect(() => {
+    const city = shippingAddress.city?.trim().toLowerCase();
+    if (cartTotal < FREE_SHIPPING_THRESHOLD && city === 'chisinau') {
+      setShippingCost(0);
+    } else {
+      setShippingCost(STANDARD_SHIPPING_COST);
+    }
+  }, [cartTotal, shippingAddress.city]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setShippingAddress(prev => ({ ...prev, [name]: value }));
   };
+
+  const finalTotal = cartTotal + shippingCost;
 
   const handleSubmitOrder = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -79,9 +95,10 @@ export default function CheckoutPage() {
     console.log("Placing order:", {
       userId: currentUser?.id,
       items: cartItems,
-      totalAmount: cartTotal,
+      totalAmount: finalTotal, // Use finalTotal here
       shippingAddress,
       paymentMethod,
+      shippingCost: shippingCost,
     });
 
     await new Promise(resolve => setTimeout(resolve, 1500)); 
@@ -90,8 +107,9 @@ export default function CheckoutPage() {
     
     toast({ title: t('checkoutPage.orderPlacedToastTitle'), description: t('checkoutPage.orderPlacedToastDescription', { orderId: mockOrderId }) });
     clearCart();
+    // This is a mock, in a real app you'd save the order (including shippingCost and finalTotal)
+    // For now, we push the mock ID, the order details page will display based on mockOrders
     router.push(`/account/orders/${mockOrderId}`); 
-    // setIsLoading(false); // This will be set after redirection usually.
   };
 
   if (!currentUser || (itemCount === 0 && !isLoading)) {
@@ -181,26 +199,30 @@ export default function CheckoutPage() {
                         <p className="text-xs text-muted-foreground">{t('checkoutPage.quantityShort', { quantity: item.quantity })}</p>
                       </div>
                     </div>
-                    <p>${(item.price * item.quantity).toFixed(2)}</p>
+                    <p>{(item.price * item.quantity).toFixed(2)} MDL</p>
                   </div>
                 ))}
                 <div className="border-t pt-4 space-y-2">
                   <div className="flex justify-between text-sm">
                     <span className="text-muted-foreground">{t('cartPage.subtotal', {itemCount: itemCount})}</span>
-                    <span>${cartTotal.toFixed(2)}</span>
+                    <span>{cartTotal.toFixed(2)} MDL</span>
                   </div>
                   <div className="flex justify-between text-sm">
-                    <span className="text-muted-foreground">{t('cartPage.shipping')}</span>
-                    <span>{t('cartPage.free')}</span>
+                    <span className="text-muted-foreground">{t('checkoutPage.shippingLabel')}</span>
+                    <span>
+                      {shippingCost === 0 
+                        ? t('checkoutPage.freeShipping') 
+                        : `${shippingCost.toFixed(2)} MDL`}
+                    </span>
                   </div>
                   <div className="flex justify-between font-bold text-lg">
                     <span>{t('cartPage.total')}</span>
-                    <span>${cartTotal.toFixed(2)}</span>
+                    <span>{finalTotal.toFixed(2)} MDL</span>
                   </div>
                 </div>
               </CardContent>
               <CardFooter>
-                <Button type="submit" size="lg" className="w-full" disabled={isLoading}>
+                <Button type="submit" size="lg" className="w-full" disabled={isLoading || itemCount === 0}>
                   {isLoading ? t('checkoutPage.placingOrder') : t('checkoutPage.placeOrder')}
                 </Button>
               </CardFooter>
@@ -211,3 +233,4 @@ export default function CheckoutPage() {
     </SiteLayout>
   );
 }
+
