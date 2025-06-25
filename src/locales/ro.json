@@ -144,6 +144,12 @@
     "ro": "Română (RO)",
     "ru": "Русский (RU)"
   },
+  "theme": {
+    "toggle": "Comută tema",
+    "light": "Luminos",
+    "dark": "Întunecat",
+    "system": "Sistem"
+  },
   "productRecommendations": {
     "loading": "Se încarcă recomandările...",
     "error": "Nu s-au putut încărca recomandările în acest moment.",

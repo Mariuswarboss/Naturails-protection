@@ -16,6 +16,7 @@ import {
 import { useState } from 'react';
 import { useTranslation } from '@/contexts/LanguageContext';
 import { useRouter } from 'next/navigation';
+import { ThemeSwitcher } from '@/components/ThemeSwitcher';
 
 
 export default function Header() {
@@ -119,6 +120,8 @@ export default function Header() {
             <LanguageSwitcherDropdown />
           </div>
 
+          <ThemeSwitcher />
+
           <div className="lg:hidden">
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
               <SheetTrigger asChild>
@@ -154,8 +157,9 @@ export default function Header() {
                   </form>
                   <NavLinksComponent mobile />
                 </div>
-                <div className="p-4 border-t mt-auto">
+                <div className="p-4 border-t mt-auto flex items-center justify-between">
                   <LanguageSwitcherDropdown mobile />
+                  <ThemeSwitcher />
                 </div>
               </SheetContent>
             </Sheet>

@@ -3,6 +3,7 @@
 
 import type React from 'react';
 import { LanguageProvider } from '@/contexts/LanguageContext';
+import { ThemeProvider } from '@/components/ThemeProvider';
 // import { AuthProvider } from '@/contexts/AuthContext'; // Placeholder for AuthProvider
 
 interface AppProvidersProps {
@@ -12,9 +13,16 @@ interface AppProvidersProps {
 export default function AppProviders({ children }: AppProvidersProps) {
   return (
     // <AuthProvider> // Placeholder for AuthProvider
-    <LanguageProvider>
-      {children}
-    </LanguageProvider>
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="system"
+      enableSystem
+      disableTransitionOnChange
+    >
+      <LanguageProvider>
+        {children}
+      </LanguageProvider>
+    </ThemeProvider>
     // </AuthProvider> // Placeholder for AuthProvider
   );
 }

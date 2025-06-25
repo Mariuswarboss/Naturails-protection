@@ -144,6 +144,12 @@
     "ro": "Română (RO)",
     "ru": "Русский (RU)"
   },
+  "theme": {
+    "toggle": "Toggle theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
   "productRecommendations": {
     "loading": "Loading recommendations...",
     "error": "Could not load recommendations at this time.",
