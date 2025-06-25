@@ -10,7 +10,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { mockOrders, mockUsers } from '@/lib/data'; 
 import type { Order, User, Address as AddressType } from '@/types';
 import Link from 'next/link';
-import { Package, MapPin, User as UserIcon, CreditCard, LogOut, Edit3 } from 'lucide-react';
+import { Package, MapPin, User as UserIcon, CreditCard, LogOut, Edit3, Loader2 } from 'lucide-react';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
@@ -116,7 +116,14 @@ export default function AccountPage() {
   };
 
   if (!currentUser) {
-    return <SiteLayout><p className="text-center py-10">{t('accountPage.loadingAccount')}</p></SiteLayout>;
+    return (
+        <SiteLayout>
+            <div className="flex min-h-[50vh] flex-col items-center justify-center gap-4">
+                <Loader2 className="h-12 w-12 animate-spin text-primary" />
+                <p className="text-muted-foreground">{t('loading.text')}</p>
+            </div>
+        </SiteLayout>
+    );
   }
 
   return (
@@ -201,4 +208,3 @@ export default function AccountPage() {
     </SiteLayout>
   );
 }
-

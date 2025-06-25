@@ -163,5 +163,8 @@
     "companyNameLabel": "Название Компании:",
     "addressLabel": "Адрес:",
     "addressValue": "Мун. Кишинёв, ул. Василе Лупу 33"
+  },
+  "loading": {
+    "text": "Загрузка..."
   }
 }

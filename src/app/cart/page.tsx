@@ -5,7 +5,7 @@ import { useCart } from '@/hooks/useCart';
 import SiteLayout from '@/components/SiteLayout';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Trash2, Plus, Minus, ShoppingBag } from 'lucide-react';
+import { Trash2, Plus, Minus, ShoppingBag, Loader2 } from 'lucide-react';
 import Image from 'next/image';
 import { Input } from '@/components/ui/input';
 import { useTranslation } from '@/contexts/LanguageContext';
@@ -17,9 +17,9 @@ export default function CartPage() {
   if (!isCartRestored) {
     return (
         <SiteLayout>
-            <div className="text-center py-20">
-                <ShoppingBag className="mx-auto h-12 w-12 text-muted-foreground mb-4" />
-                <p className="text-xl text-muted-foreground">{t('cartPage.loadingCart')}</p>
+            <div className="flex min-h-[50vh] flex-col items-center justify-center gap-4">
+                <Loader2 className="h-12 w-12 animate-spin text-primary" />
+                <p className="text-muted-foreground">{t('loading.text')}</p>
             </div>
         </SiteLayout>
     );
@@ -109,4 +109,3 @@ export default function CartPage() {
     </SiteLayout>
   );
 }
-

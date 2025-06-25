@@ -13,7 +13,7 @@ import { mockUsers } from '@/lib/data';
 import type { User, Address } from '@/types';
 import Image from 'next/image';
 import { useToast } from '@/hooks/use-toast';
-import { ChevronLeft, Lock } from 'lucide-react';
+import { ChevronLeft, Lock, Loader2 } from 'lucide-react';
 import Link from 'next/link';
 import { useTranslation } from '@/contexts/LanguageContext';
 
@@ -113,7 +113,14 @@ export default function CheckoutPage() {
   };
 
   if (!currentUser || (itemCount === 0 && !isLoading)) {
-    return <SiteLayout><p className="text-center py-10">{t('checkoutPage.loadingCheckout')}</p></SiteLayout>;
+    return (
+        <SiteLayout>
+            <div className="flex min-h-[50vh] flex-col items-center justify-center gap-4">
+                <Loader2 className="h-12 w-12 animate-spin text-primary" />
+                <p className="text-muted-foreground">{t('loading.text')}</p>
+            </div>
+        </SiteLayout>
+    );
   }
 
   return (
@@ -233,4 +240,3 @@ export default function CheckoutPage() {
     </SiteLayout>
   );
 }
-

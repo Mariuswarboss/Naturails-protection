@@ -9,7 +9,7 @@ import type { Order, User, OrderItem } from '@/types';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ChevronLeft, Package, MapPin, CalendarDays, DollarSign, Truck } from 'lucide-react';
+import { ChevronLeft, Package, MapPin, CalendarDays, DollarSign, Truck, Loader2 } from 'lucide-react';
 import { useTranslation } from '@/contexts/LanguageContext';
 
 const getCurrentUser = (): User | null => {
@@ -101,7 +101,14 @@ export default function OrderDetailsPage() {
             </SiteLayout>
         );
     }
-    return <SiteLayout><p className="text-center py-10">{t('orderDetailsPage.loadingOrderDetails')}</p></SiteLayout>;
+    return (
+        <SiteLayout>
+            <div className="flex min-h-[50vh] flex-col items-center justify-center gap-4">
+                <Loader2 className="h-12 w-12 animate-spin text-primary" />
+                <p className="text-muted-foreground">{t('loading.text')}</p>
+            </div>
+        </SiteLayout>
+    );
   }
 
   return (
@@ -186,4 +193,3 @@ export default function OrderDetailsPage() {
     </SiteLayout>
   );
 }
-
