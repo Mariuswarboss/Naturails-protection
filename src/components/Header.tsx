@@ -92,9 +92,9 @@ export default function Header() {
           <Image
             src={logoUrl}
             alt={t('header.siteTitle')}
-            width={170}
-            height={50}
-            className="object-contain h-12 w-auto"
+            width={225}
+            height={65}
+            className="object-contain h-16 w-auto"
             data-ai-hint="company logo"
             priority
           />
@@ -138,7 +138,7 @@ export default function Header() {
                         alt={t('header.siteTitle')}
                         width={170} 
                         height={50}
-                        className="object-contain h-10 w-auto"
+                        className="object-contain h-12 w-auto"
                         data-ai-hint="company logo"
                         priority
                       />
