@@ -24,9 +24,9 @@ export default function Footer() {
   return (
     <footer className="border-t bg-secondary text-secondary-foreground">
       <div className="container py-12 px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-center md:text-left">
           <div>
-            <Link href="/" className="flex items-center space-x-2 mb-4">
+            <Link href="/" className="inline-flex items-center justify-center md:justify-start space-x-2 mb-4">
               <ShieldCheck className="h-8 w-8 text-primary" />
               <span className="font-headline text-xl font-bold text-primary">{t('header.siteTitle')}</span>
             </Link>
@@ -35,14 +35,9 @@ export default function Footer() {
             </p>
           </div>
           <div>
-            <h5 className="font-semibold mb-3 text-lg text-foreground">{t('footer.productsTitle')}</h5>
-            <ul className="space-y-2 text-sm">
-              <li><Link href="/products" className="hover:text-primary hover:underline">{t('header.allProducts')}</Link></li>
-            </ul>
-          </div>
-          <div>
             <h5 className="font-semibold mb-3 text-lg text-foreground">{t('footer.informationTitle')}</h5>
             <ul className="space-y-2 text-sm">
+              <li><Link href="/products" className="hover:text-primary hover:underline">{t('header.allProducts')}</Link></li>
               <li><Link href="/about" className="hover:text-primary hover:underline">{t('footer.aboutUs')}</Link></li>
               <li><Link href="/contact" className="hover:text-primary hover:underline">{t('footer.contactUs')}</Link></li>
               <li><Link href="/faq" className="hover:text-primary hover:underline">{t('footer.faq')}</Link></li>
@@ -53,7 +48,7 @@ export default function Footer() {
                   href="https://naturesprotection.eu/" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="hover:text-primary hover:underline inline-flex items-center"
+                  className="hover:text-primary hover:underline inline-flex items-center justify-center md:justify-start"
                 >
                   {t('footer.officialSite')} <ExternalLink className="h-3 w-3 ml-1" />
                 </a>
@@ -62,7 +57,7 @@ export default function Footer() {
           </div>
           <div>
             <h5 className="font-semibold mb-3 text-lg text-foreground">{t('footer.followUsTitle')}</h5>
-            <div className="flex space-x-4">
+            <div className="flex space-x-4 justify-center md:justify-start">
               <Link href="https://www.facebook.com/profile.php?id=100094522227719&locale=ro_RO" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-muted-foreground hover:text-primary"><Facebook size={24} /></Link>
               <Link href="https://www.instagram.com/naturesprotection_md/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-muted-foreground hover:text-primary"><Instagram size={24} /></Link>
               <Link href="https://www.tiktok.com/@naturesprotection.md" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className="text-muted-foreground hover:text-primary"><TikTokIcon className="h-6 w-6" /></Link>
