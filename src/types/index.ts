@@ -6,8 +6,15 @@ export interface Product {
   price: number;
   imageUrl: string;
   dataAiHint?: string;
-  category: string; // e.g., "Dog Food", "Cat Toys", "Dog Grooming"
+  category: string; 
   stock: number;
   relatedProductIds?: string[];
-  productFor?: 'dog'; // To specify if product is for dogs
+  productFor?: 'dog';
+  // New filterable attributes
+  breedSize?: string;
+  lifestage?: string;
+  flavour?: string;
+  purpose?: string;
+  coatColor?: string;
+  weight?: number; // in kg
 }

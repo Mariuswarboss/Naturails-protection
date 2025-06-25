@@ -13,7 +13,7 @@ import { useTranslation } from '@/contexts/LanguageContext';
 export default function HomePage() {
   const { t } = useTranslation();
   
-  const featuredDogProducts = mockProducts.filter(p => p.productFor === 'dog').slice(0, 4);
+  const featuredProducts = mockProducts.filter(p => p.productFor === 'dog').slice(0, 4);
 
   return (
     <SiteLayout>
@@ -63,10 +63,10 @@ export default function HomePage() {
                 className="transition-transform duration-500 group-hover:scale-105 opacity-60 group-hover:opacity-50"
               />
               <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
-                <h3 className="font-headline text-4xl md:text-5xl font-bold text-white mb-4">{t('homepage.forDogsCardTitle')}</h3>
-                <p className="text-gray-200 mb-6 text-md md:text-lg max-w-xl">{t('homepage.forDogsCardSubtitle')}</p>
+                <h3 className="font-headline text-4xl md:text-5xl font-bold text-white mb-4">{t('homepage.productsCardTitle')}</h3>
+                <p className="text-gray-200 mb-6 text-md md:text-lg max-w-xl">{t('homepage.productsCardSubtitle')}</p>
                 <Button variant="secondary" className="bg-white/90 hover:bg-white text-primary group-hover:bg-primary group-hover:text-white transition-colors rounded-full px-8 py-3 text-lg">
-                  {t('homepage.shopDogProducts')} <ChevronRight className="ml-1 h-5 w-5" />
+                  {t('homepage.shopNow')} <ChevronRight className="ml-1 h-5 w-5" />
                 </Button>
               </div>
             </div>
@@ -75,20 +75,20 @@ export default function HomePage() {
       </section>
       
       {/* Featured Products Section */}
-      {featuredDogProducts.length > 0 && (
+      {featuredProducts.length > 0 && (
         <section className="py-16 md:py-24 bg-secondary/30 dark:bg-background/50">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
-                <h2 className="font-headline text-3xl md:text-4xl font-bold text-foreground">{t('homepage.featuredDogProducts')}</h2>
+                <h2 className="font-headline text-3xl md:text-4xl font-bold text-foreground">{t('homepage.featuredProducts')}</h2>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-              {featuredDogProducts.map(product => (
+              {featuredProducts.map(product => (
                 <ProductCard key={product.id} product={product} />
               ))}
             </div>
              <div className="text-center mt-12">
               <Link href="/products">
-                <Button variant="outline" size="lg" className="rounded-full px-8">{t('homepage.viewAllDogProducts')}</Button>
+                <Button variant="outline" size="lg" className="rounded-full px-8">{t('homepage.viewAllProducts')}</Button>
               </Link>
             </div>
           </div>
