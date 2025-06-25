@@ -1,5 +1,5 @@
 
-import type { Product, User, Order } from '@/types';
+import type { Product } from '@/types';
 
 export const mockProducts: Product[] = [
   {
@@ -138,67 +138,8 @@ export const mockProducts: Product[] = [
     dataAiHint: 'cat litter bag',
     category: 'Cat Litter',
     productFor: 'cat',
-    stock: 70,
+    stock: 0,
   }
-];
-
-export const mockUsers: User[] = [
-  {
-    id: 'user1',
-    email: 'buyer@example.com',
-    name: 'Alex Buyer',
-    addresses: [
-      {
-        id: 'addr1',
-        street: '123 Nature Lane',
-        city: 'Chisinau',
-        postalCode: 'MD-2000',
-        country: 'Moldova',
-        isDefault: true,
-      },
-    ],
-  },
-  {
-    id: 'admin1',
-    email: 'admin@ecoshop.md',
-    name: 'Admin EcoShop',
-     addresses: [
-      {
-        id: 'addr2',
-        street: '456 Admin Road',
-        city: 'Chisinau',
-        postalCode: 'MD-2001',
-        country: 'Moldova',
-        isDefault: true,
-      },
-    ],
-  },
-];
-
-export const mockOrders: Order[] = [
-  {
-    id: 'order1',
-    userId: 'user1',
-    items: [
-      { productId: '1', name: 'NP Superior Care White Dogs Adult Small Breeds Lamb', quantity: 1, price: 29.99 },
-      { productId: '3', name: 'Tauros Pro Line Pure Mist Alkaline Water', quantity: 2, price: 12.75 },
-    ],
-    totalAmount: 29.99 + 2 * 12.75,
-    status: 'Delivered',
-    shippingAddress: mockUsers[0].addresses![0],
-    orderDate: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString(), // 7 days ago
-    trackingNumber: 'MD123456789',
-  },
-  {
-    id: 'order2',
-    userId: 'user1',
-    items: [{ productId: '2', name: 'NP Lifestyle Grain Free Salmon for Adult Cats', quantity: 3, price: 22.50 }],
-    totalAmount: 3 * 22.50,
-    status: 'Shipped',
-    shippingAddress: mockUsers[0].addresses![0],
-    orderDate: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString(), // 2 days ago
-    trackingNumber: 'MD987654321',
-  },
 ];
 
 export function getProductById(id: string): Product | undefined {

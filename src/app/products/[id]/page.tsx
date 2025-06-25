@@ -1,25 +1,19 @@
 
 import { getProductById, mockProducts } from '@/lib/data';
-import type { Product } from '@/types';
 import SiteLayout from '@/components/SiteLayout';
 import Image from 'next/image';
 import { ChevronLeft } from 'lucide-react';
 import Link from 'next/link';
 import ProductCard from '@/components/ProductCard';
 import ProductRecommendations from '@/components/ProductRecommendations';
-import ProductDetailsClient from './ProductDetailsClient'; // Client component for interactivity
-import { LanguageProvider, useTranslation } from '@/contexts/LanguageContext'; // For server components if needed, or pass t function
 
 // Mock t function for server components if not using a full i18n server solution
 const serverT = (key: string, replacements?: Record<string, string | number>) => {
     // This is a mock. In a real scenario, you'd load translations based on request locale.
-    // For simplicity, we're focusing on client-side translation here.
-    // However, titles and static text on server pages might need a server-side solution.
     if (key === 'productPage.productNotFound') return 'Product not found';
     if (key === 'productPage.backToProducts') return 'Back to products';
     if (key === 'productPage.category') return `Category: ${replacements?.category}`;
-    // productPage.stockAvailable is no longer used here
-    if (key === 'productPage.outOfStock') return 'Stock: Out of Stock'; // Or just "Out of Stock" if preferred
+    if (key === 'productPage.outOfStockButton') return 'Out of Stock';
     if (key === 'productPage.relatedProducts') return 'Related Products';
     return key;
 };
@@ -33,8 +27,6 @@ export async function generateStaticParams() {
 
 export default async function ProductPage({ params }: { params: { id: string } }) {
   const product = getProductById(params.id);
-  // For a server component, you'd ideally get 't' from a server-side i18n setup.
-  // Here, we use a mock or assume client components will handle most text.
 
   if (!product) {
     return (
@@ -67,31 +59,28 @@ export default async function ProductPage({ params }: { params: { id: string } }
         <div className="relative aspect-square rounded-lg overflow-hidden shadow-lg border">
           <Image
             src={product.imageUrl}
-            alt={product.name} // Product name is not translated
+            alt={product.name}
             layout="fill"
             objectFit="cover"
             priority
             data-ai-hint={product.dataAiHint || "product image"}
           />
+           {product.stock <= 0 && (
+            <div className="absolute top-3 right-3 bg-destructive text-destructive-foreground text-sm font-bold px-3 py-1.5 rounded-md">
+              {serverT('productPage.outOfStockButton')}
+            </div>
+          )}
         </div>
 
         <div className="space-y-6">
-          <h1 className="font-headline text-3xl md:text-4xl font-bold">{product.name}</h1> {/* Product name not translated */}
+          <h1 className="font-headline text-3xl md:text-4xl font-bold">{product.name}</h1>
           <p className="text-2xl font-semibold text-primary">{product.price.toFixed(2)} MDL</p>
           <div className="prose prose-sm sm:prose-base text-foreground/80">
-            <p>{product.description}</p> {/* Product description not translated */}
+            <p>{product.description}</p>
           </div>
           
-          <ProductDetailsClient product={product} />
-
           <div className="border-t pt-6 space-y-1">
             <p className="text-sm text-muted-foreground">{serverT('productPage.category', { category: product.category })}</p>
-            {/* Conditionally render stock status */}
-            {product.stock <= 0 && (
-              <p className="text-sm font-semibold text-destructive">
-                {serverT('productPage.outOfStock')}
-              </p>
-            )}
           </div>
         </div>
       </div>

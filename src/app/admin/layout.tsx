@@ -3,7 +3,7 @@
 
 import type React from 'react';
 import Link from 'next/link';
-import { LayoutDashboard, ShoppingCart, Users, Settings, Package, ListOrdered, PanelLeft } from 'lucide-react';
+import { LayoutDashboard, Settings, Package, PanelLeft } from 'lucide-react';
 import {
   SidebarProvider,
   Sidebar,
@@ -16,7 +16,6 @@ import {
   SidebarInset,
   SidebarTrigger,
 } from '@/components/ui/sidebar'; 
-import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
@@ -59,7 +58,6 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const adminNavItems = [
     { href: '/admin', labelKey: 'admin.dashboard', icon: LayoutDashboard },
     { href: '/admin/products', labelKey: 'admin.products', icon: Package },
-    { href: '/admin/orders', labelKey: 'admin.orders', icon: ListOrdered },
   ];
 
   return (
@@ -67,7 +65,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       <Sidebar collapsible="icon" className="border-r">
         <SidebarHeader className="p-4">
           <Link href="/admin" className="flex items-center gap-2 group-data-[collapsible=icon]:justify-center">
-            <ShoppingCart className="h-6 w-6 text-primary" />
+            <Package className="h-6 w-6 text-primary" />
             <span className="font-headline text-xl font-semibold group-data-[collapsible=icon]:hidden">{t('admin.adminPanel')}</span>
           </Link>
         </SidebarHeader>

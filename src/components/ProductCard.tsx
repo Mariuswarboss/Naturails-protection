@@ -4,35 +4,11 @@
 import type { Product } from '@/types';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { ShoppingBag, Info } from 'lucide-react';
-import { useCart } from '@/hooks/useCart';
-import { useToast } from '@/hooks/use-toast';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useTranslation } from '@/contexts/LanguageContext';
 
 export default function ProductCard({ product }: { product: Product }) {
-  const { addToCart } = useCart();
-  const { toast } = useToast();
   const { t } = useTranslation();
-
-  const handleAddToCart = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault(); 
-    e.stopPropagation(); 
-    if (product.stock <= 0) {
-        toast({
-            title: t('productPage.outOfStockToastTitle'),
-            description: t('productPage.outOfStockToastDescription', { productName: product.name }),
-            variant: "destructive",
-        });
-        return;
-    }
-    addToCart(product, 1);
-    toast({
-      title: t('productPage.addedToCartTitle'),
-      description: t('productPage.addedToCartDescription', { quantity: 1, productName: product.name }),
-    });
-  };
 
   return (
     <Card className="h-full flex flex-col overflow-hidden transition-all duration-300 ease-in-out hover:shadow-xl hover:border-primary/50 bg-card">
@@ -46,38 +22,20 @@ export default function ProductCard({ product }: { product: Product }) {
             className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
             data-ai-hint={product.dataAiHint || "pet product"}
           />
+           {product.stock <= 0 && (
+            <div className="absolute top-2 right-2 bg-destructive text-destructive-foreground text-xs font-bold px-2 py-1 rounded-md">
+              {t('productPage.outOfStockButton')}
+            </div>
+          )}
         </CardHeader>
-        <CardContent className="flex-grow p-4">
+        <CardContent className="flex-grow p-4 flex flex-col">
           <CardTitle className="font-headline text-base md:text-lg mb-1 leading-tight group-hover:text-primary transition-colors">
-            {product.name} {/* Product name not translated */}
+            {product.name}
           </CardTitle>
-          <p className="text-xs text-muted-foreground mb-2 line-clamp-2">{product.description}</p> {/* Product description not translated */}
-          <p className="text-lg font-semibold text-foreground">{product.price.toFixed(2)} MDL</p>
+          <p className="text-xs text-muted-foreground mb-2 line-clamp-2 flex-grow">{product.description}</p>
+          <p className="text-lg font-semibold text-foreground mt-auto pt-2">{product.price.toFixed(2)} MDL</p>
         </CardContent>
       </Link>
-      <CardFooter className="p-3 pt-0 border-t mt-auto">
-        <div className="w-full flex items-center gap-2">
-           <Link href={`/products/${product.id}`} className="flex-1">
-            <Button
-              variant="outline"
-              className="w-full text-xs h-9"
-              aria-label={`View details for ${product.name}`}
-            >
-              <Info className="mr-1.5 h-3.5 w-3.5" /> {t('productPage.viewDetails')}
-            </Button>
-          </Link>
-          <Button
-            onClick={handleAddToCart}
-            className="flex-1 text-xs h-9"
-            aria-label={`Add ${product.name} to cart`}
-            disabled={product.stock <= 0}
-          >
-            <ShoppingBag className="mr-1.5 h-3.5 w-3.5" /> 
-            {product.stock > 0 ? t('productPage.addToCart') : t('productPage.outOfStockButton')}
-          </Button>
-        </div>
-      </CardFooter>
     </Card>
   );
 }
-

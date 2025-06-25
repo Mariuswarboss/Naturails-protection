@@ -2,12 +2,10 @@
 "use client";
 
 import Link from 'next/link';
-import Image from 'next/image'; // Added Image import
-import { ShoppingBag, User, Search, Menu, Languages } from 'lucide-react'; // Removed ShieldCheck
+import Image from 'next/image';
+import { Search, Menu, Languages } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { useCart } from '@/hooks/useCart';
-import { Badge } from '@/components/ui/badge';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import {
   DropdownMenu,
@@ -15,26 +13,14 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useTranslation } from '@/contexts/LanguageContext';
 
 
 export default function Header() {
-  const { itemCount } = useCart();
   const { language, setLanguage, t } = useTranslation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [userName, setUserName] = useState<string | null>(null);
   const logoUrl = "https://s3.eu-central-1.amazonaws.com/uploads.mangoweb.org/shared-prod/samohyl.cz/uploads/2017/09/natures-protection-logo.jpg";
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const token = localStorage.getItem('authToken');
-      const name = localStorage.getItem('userName');
-      setIsAuthenticated(!!token);
-      setUserName(name);
-    }
-  }, []);
 
   const handleLanguageChange = (lang: string) => {
     setLanguage(lang);
@@ -46,6 +32,7 @@ export default function Header() {
     { href: '/products?type=dog', labelKey: 'header.forDogs' },
     { href: '/products?type=cat', labelKey: 'header.forCats' },
     { href: '/products', labelKey: 'header.allProducts' },
+    { href: '/contact', labelKey: 'footer.contactUs' },
   ];
 
   const NavLinksComponent = ({ mobile = false }: { mobile?: boolean }) => (
@@ -93,9 +80,9 @@ export default function Header() {
           <Image
             src={logoUrl}
             alt={t('header.siteTitle')}
-            width={150}
-            height={40}
-            className="object-contain h-10 w-auto" // Adjusted for better aspect ratio display
+            width={170}
+            height={45}
+            className="object-contain h-12 w-auto"
             data-ai-hint="company logo"
             priority
           />
@@ -115,48 +102,6 @@ export default function Header() {
             <LanguageSwitcherDropdown />
           </div>
 
-          <Link href="/cart" className="relative p-2 rounded-full hover:bg-secondary transition-colors">
-            <ShoppingBag className="h-6 w-6" />
-            {itemCount > 0 && (
-              <Badge variant="destructive" className="absolute -top-1 -right-1 h-5 w-5 justify-center rounded-full p-0 text-xs">
-                {itemCount}
-              </Badge>
-            )}
-            <span className="sr-only">Shopping Cart</span>
-          </Link>
-
-          {isAuthenticated ? (
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="icon" className="rounded-full">
-                  <User className="h-6 w-6" />
-                  <span className="sr-only">{t('header.myAccount')}</span>
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                {userName && <DropdownMenuItem disabled>Hi, {userName}</DropdownMenuItem>}
-                <Link href="/account"><DropdownMenuItem>{t('header.myAccount')}</DropdownMenuItem></Link>
-                <DropdownMenuItem onClick={() => {
-                  localStorage.removeItem('authToken');
-                  localStorage.removeItem('userEmail');
-                  localStorage.removeItem('userName');
-                  setIsAuthenticated(false);
-                  setUserName(null);
-                }}>{t('header.logout')}</DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          ) : (
-            <Link href="/login">
-              <Button variant="ghost" size="sm" className="px-2 hidden sm:inline-flex">
-                <User className="h-5 w-5 mr-1" /> {t('header.login')}
-              </Button>
-               <Button variant="ghost" size="icon" className="sm:hidden rounded-full">
-                <User className="h-6 w-6" />
-                 <span className="sr-only">{t('header.login')}</span>
-              </Button>
-            </Link>
-          )}
-
           <div className="lg:hidden">
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
               <SheetTrigger asChild>
@@ -171,9 +116,9 @@ export default function Header() {
                      <Image
                         src={logoUrl}
                         alt={t('header.siteTitle')}
-                        width={130} 
-                        height={35}
-                        className="object-contain h-9 w-auto" // Adjusted for better aspect ratio display
+                        width={150} 
+                        height={40}
+                        className="object-contain h-10 w-auto"
                         data-ai-hint="company logo"
                         priority
                       />
