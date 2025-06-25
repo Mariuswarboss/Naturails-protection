@@ -15,16 +15,29 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { useState } from 'react';
 import { useTranslation } from '@/contexts/LanguageContext';
+import { useRouter } from 'next/navigation';
 
 
 export default function Header() {
   const { language, setLanguage, t } = useTranslation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const logoUrl = "https://s3.eu-central-1.amazonaws.com/uploads.mangoweb.org/shared-prod/samohyl.cz/uploads/2017/09/natures-protection-logo.jpg";
+  const router = useRouter();
+  const [searchQuery, setSearchQuery] = useState('');
 
   const handleLanguageChange = (lang: string) => {
     setLanguage(lang);
     if (isMobileMenuOpen) setIsMobileMenuOpen(false);
+  };
+
+  const handleSearchSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+        router.push(`/products?search=${encodeURIComponent(searchQuery.trim())}`);
+        if (isMobileMenuOpen) {
+            setIsMobileMenuOpen(false);
+        }
+    }
   };
 
   const navLinks = [
@@ -79,7 +92,7 @@ export default function Header() {
             src={logoUrl}
             alt={t('header.siteTitle')}
             width={170}
-            height={45}
+            height={50}
             className="object-contain h-12 w-auto"
             data-ai-hint="company logo"
             priority
@@ -91,10 +104,16 @@ export default function Header() {
         </div>
 
         <div className="flex items-center space-x-2">
-          <div className="relative hidden md:block">
-            <Input type="search" placeholder={t('header.searchPlaceholder')} className="h-10 w-full sm:w-48 lg:w-64 pl-10 pr-4 rounded-full border-border focus:border-primary" />
-            <Search className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground" />
-          </div>
+          <form onSubmit={handleSearchSubmit} className="relative hidden md:block">
+            <Input 
+              type="search" 
+              placeholder={t('header.searchPlaceholder')} 
+              className="h-10 w-full sm:w-48 lg:w-64 pl-10 pr-4 rounded-full border-border focus:border-primary"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+            <Search className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground pointer-events-none" />
+          </form>
           
           <div className="hidden md:block">
             <LanguageSwitcherDropdown />
@@ -123,10 +142,16 @@ export default function Header() {
                   </Link>
                 </div>
                 <div className="p-4 flex-grow overflow-y-auto">
-                  <div className="relative mb-6">
-                    <Input type="search" placeholder={t('header.searchPlaceholder')} className="h-10 w-full pl-10 pr-4 rounded-full border-border focus:border-primary" />
-                    <Search className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground" />
-                  </div>
+                  <form onSubmit={handleSearchSubmit} className="relative mb-6">
+                    <Input 
+                        type="search" 
+                        placeholder={t('header.searchPlaceholder')} 
+                        className="h-10 w-full pl-10 pr-4 rounded-full border-border focus:border-primary"
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                    />
+                    <Search className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground pointer-events-none" />
+                  </form>
                   <NavLinksComponent mobile />
                 </div>
                 <div className="p-4 border-t mt-auto">

@@ -1,7 +1,8 @@
 
 "use client";
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import ProductCard from '@/components/ProductCard';
 import { mockProducts } from '@/lib/data';
 import type { Product } from '@/types';
@@ -93,20 +94,31 @@ const FilterControls = ({
 
 export default function ProductsPage() {
   const { t } = useTranslation();
+  const searchParams = useSearchParams();
 
   const [searchTerm, setSearchTerm] = useState('');
   const [appliedSearchTerm, setAppliedSearchTerm] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('all');
   const [sortOption, setSortOption] = useState('name-asc');
   const [showFilters, setShowFilters] = useState(false);
+  
+  const dogProducts = useMemo(() => mockProducts.filter(p => p.productFor === 'dog'), []);
+
+  useEffect(() => {
+    const searchFromUrl = searchParams.get('search');
+    if (searchFromUrl) {
+        setSearchTerm(searchFromUrl);
+        setAppliedSearchTerm(searchFromUrl);
+    }
+  }, [searchParams]);
 
   const categories = useMemo(() => {
-    const allCategories = mockProducts.map(p => p.category);
+    const allCategories = dogProducts.map(p => p.category);
     return ['all', ...Array.from(new Set(allCategories))];
-  }, []);
+  }, [dogProducts]);
 
   const filteredAndSortedProducts = useMemo(() => {
-    let products = [...mockProducts];
+    let products = [...dogProducts];
 
     if (appliedSearchTerm) {
       products = products.filter(p =>
@@ -134,7 +146,7 @@ export default function ProductsPage() {
         break;
     }
     return products;
-  }, [appliedSearchTerm, categoryFilter, sortOption]);
+  }, [appliedSearchTerm, categoryFilter, sortOption, dogProducts]);
   
   const resetFilters = () => {
     setSearchTerm('');
