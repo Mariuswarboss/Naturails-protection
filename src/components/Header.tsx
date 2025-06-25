@@ -136,8 +136,8 @@ export default function Header() {
                      <Image
                         src={logoUrl}
                         alt={t('header.siteTitle')}
-                        width={150} 
-                        height={40}
+                        width={170} 
+                        height={50}
                         className="object-contain h-10 w-auto"
                         data-ai-hint="company logo"
                         priority
