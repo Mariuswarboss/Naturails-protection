@@ -1,8 +1,7 @@
 
 "use client";
 
-import { useState, useMemo, useEffect } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { useState, useMemo } from 'react';
 import ProductCard from '@/components/ProductCard';
 import { mockProducts } from '@/lib/data';
 import type { Product } from '@/types';
@@ -15,33 +14,19 @@ import { useTranslation } from '@/contexts/LanguageContext';
 
 export default function ProductsPage() {
   const { t } = useTranslation();
-  const searchParams = useSearchParams();
-  const initialTypeFilter = searchParams.get('type') || 'all'; // 'dog', 'cat', or 'all'
 
   const [searchTerm, setSearchTerm] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('all');
   const [sortOption, setSortOption] = useState('name-asc');
   const [showFilters, setShowFilters] = useState(false);
-  const [productTypeFilter, setProductTypeFilter] = useState(initialTypeFilter);
-
-  useEffect(() => {
-    setProductTypeFilter(searchParams.get('type') || 'all');
-  }, [searchParams]);
-
-  const baseFilteredProducts = useMemo(() => {
-    if (productTypeFilter === 'all') {
-      return mockProducts;
-    }
-    return mockProducts.filter(p => p.productFor === productTypeFilter || p.productFor === 'both');
-  }, [productTypeFilter]);
 
   const categories = useMemo(() => {
-    const allCategories = baseFilteredProducts.map(p => p.category);
+    const allCategories = mockProducts.map(p => p.category);
     return ['all', ...Array.from(new Set(allCategories))];
-  }, [baseFilteredProducts]);
+  }, []);
 
   const filteredAndSortedProducts = useMemo(() => {
-    let products = [...baseFilteredProducts]; // Start with products filtered by type
+    let products = [...mockProducts];
 
     if (searchTerm) {
       products = products.filter(p =>
@@ -69,13 +54,12 @@ export default function ProductsPage() {
         break;
     }
     return products;
-  }, [baseFilteredProducts, searchTerm, categoryFilter, sortOption]);
+  }, [searchTerm, categoryFilter, sortOption]);
   
   const resetFilters = () => {
     setSearchTerm('');
     setCategoryFilter('all');
     setSortOption('name-asc');
-    // We don't reset productTypeFilter here as it's controlled by URL param
   }
 
   const FilterControls = () => (
@@ -134,10 +118,10 @@ export default function ProductsPage() {
     <SiteLayout>
       <div className="mb-8 text-center">
         <h1 className="font-headline text-4xl font-bold text-primary">
-          {productTypeFilter === 'dog' ? t('productsPage.titleDog') : productTypeFilter === 'cat' ? t('productsPage.titleCat') : t('productsPage.title')}
+          {t('productsPage.titleDog')}
         </h1>
         <p className="text-lg text-foreground/80 mt-2">
-          {productTypeFilter === 'dog' ? t('productsPage.subtitleDog') : productTypeFilter === 'cat' ? t('productsPage.subtitleCat') : t('productsPage.subtitle')}
+          {t('productsPage.subtitleDog')}
         </p>
       </div>
       

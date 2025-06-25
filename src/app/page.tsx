@@ -13,13 +13,7 @@ import { useTranslation } from '@/contexts/LanguageContext';
 export default function HomePage() {
   const { t } = useTranslation();
   
-  const featuredDogProducts = mockProducts
-    .filter(p => p.productFor === 'dog' || p.productFor === 'both')
-    .slice(0, 4);
-  
-  const featuredCatProducts = mockProducts
-    .filter(p => p.productFor === 'cat' || p.productFor === 'both')
-    .slice(0, 4);
+  const featuredDogProducts = mockProducts.slice(0, 4);
 
   return (
     <SiteLayout>
@@ -42,11 +36,11 @@ export default function HomePage() {
             <div className="relative h-64 md:h-96 w-full max-w-md mx-auto md:max-w-none">
               <Image
                 src="https://placehold.co/700x500.png"
-                alt="Happy dog and cat"
+                alt="Happy dog"
                 layout="fill"
                 objectFit="contain"
                 className="rounded-lg"
-                data-ai-hint="happy dog cat pets"
+                data-ai-hint="happy dog pet"
                 priority
               />
             </div>
@@ -56,8 +50,8 @@ export default function HomePage() {
 
       <section className="py-12 md:py-16">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12">
-            <Link href="/products?type=dog" className="block group">
+          <div className="grid grid-cols-1 md:max-w-xl mx-auto gap-8 md:gap-12">
+            <Link href="/products" className="block group">
               <div className="relative rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 aspect-[16/10]">
                 <Image
                   src="https://placehold.co/600x375.png"
@@ -76,26 +70,6 @@ export default function HomePage() {
                 </div>
               </div>
             </Link>
-
-            <Link href="/products?type=cat" className="block group">
-              <div className="relative rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 aspect-[16/10]">
-                <Image
-                  src="https://placehold.co/600x375.png"
-                  alt="Products for Cats"
-                  layout="fill"
-                  objectFit="cover"
-                  data-ai-hint="cat playing toy"
-                  className="transition-transform duration-300 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col items-center justify-center p-6 text-center">
-                  <h3 className="font-headline text-3xl md:text-4xl font-bold text-white mb-3">{t('homepage.forCatsCardTitle')}</h3>
-                  <p className="text-gray-200 mb-4 text-sm md:text-base">{t('homepage.forCatsCardSubtitle')}</p>
-                  <Button variant="secondary" className="bg-white/90 hover:bg-white text-primary group-hover:bg-primary group-hover:text-white transition-colors">
-                    {t('homepage.shopCatProducts')} <ChevronRight className="ml-1 h-4 w-4" />
-                  </Button>
-                </div>
-              </div>
-            </Link>
           </div>
         </div>
       </section>
@@ -110,26 +84,8 @@ export default function HomePage() {
               ))}
             </div>
              <div className="text-center mt-10">
-              <Link href="/products?type=dog">
+              <Link href="/products">
                 <Button variant="outline" size="lg">{t('homepage.viewAllDogProducts')}</Button>
-              </Link>
-            </div>
-          </div>
-        </section>
-      )}
-
-      {featuredCatProducts.length > 0 && (
-         <section className="py-12 md:py-16">
-          <div className="container mx-auto px-4">
-            <h2 className="font-headline text-3xl font-semibold mb-8 text-center text-foreground">{t('homepage.featuredCatProducts')}</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-              {featuredCatProducts.map(product => (
-                <ProductCard key={product.id} product={product} />
-              ))}
-            </div>
-            <div className="text-center mt-10">
-              <Link href="/products?type=cat">
-                <Button variant="outline" size="lg">{t('homepage.viewAllCatProducts')}</Button>
               </Link>
             </div>
           </div>

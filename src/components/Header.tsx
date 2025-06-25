@@ -29,8 +29,6 @@ export default function Header() {
 
   const navLinks = [
     { href: '/', labelKey: 'header.home' },
-    { href: '/products?type=dog', labelKey: 'header.forDogs' },
-    { href: '/products?type=cat', labelKey: 'header.forCats' },
     { href: '/products', labelKey: 'header.allProducts' },
     { href: '/contact', labelKey: 'footer.contactUs' },
   ];

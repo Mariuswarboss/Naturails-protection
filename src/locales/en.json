@@ -2,9 +2,7 @@
 {
   "header": {
     "home": "Home",
-    "forDogs": "For Dogs",
-    "forCats": "For Cats",
-    "allProducts": "All Products",
+    "allProducts": "Our Products",
     "searchPlaceholder": "Search...",
     "toggleMenu": "Toggle menu",
     "siteTitle": "Nature's Protection"
@@ -30,13 +28,8 @@
     "forDogsCardTitle": "For Dogs",
     "forDogsCardSubtitle": "High-quality food, treats, toys, and care products.",
     "shopDogProducts": "View Dog Products",
-    "forCatsCardTitle": "For Cats",
-    "forCatsCardSubtitle": "Nutritious meals, fun toys, litter, and essential supplies.",
-    "shopCatProducts": "View Cat Products",
     "featuredDogProducts": "Featured Dog Products",
     "viewAllDogProducts": "View All Dog Products",
-    "featuredCatProducts": "Featured Cat Products",
-    "viewAllCatProducts": "View All Cat Products",
     "whyChooseUsTitle": "Why Choose Nature's Protection?",
     "whyChooseUsSubtitle": "We are dedicated to providing your pets with the highest quality nutrition, crafted from natural ingredients to support their health and vitality at every stage of life.",
     "naturalIngredientsTitle": "Natural Ingredients",
@@ -62,8 +55,6 @@
     "subtitle": "Browse our collection of natural and eco-friendly pet products.",
     "titleDog": "Dog Products",
     "subtitleDog": "Everything your dog needs: food, treats, toys, grooming & more.",
-    "titleCat": "Cat Products",
-    "subtitleCat": "Everything for your feline friend: food, toys, litter, treats & more.",
     "showFilters": "Show Filters",
     "hideFilters": "Hide Filters",
     "searchLabel": "Search",

@@ -2,9 +2,7 @@
 {
   "header": {
     "home": "Acasă",
-    "forDogs": "Pentru Câini",
-    "forCats": "Pentru Pisici",
-    "allProducts": "Toate Produsele",
+    "allProducts": "Produsele Noastre",
     "searchPlaceholder": "Caută...",
     "toggleMenu": "Comută meniul",
     "siteTitle": "Nature's Protection"
@@ -30,13 +28,8 @@
     "forDogsCardTitle": "Pentru Câini",
     "forDogsCardSubtitle": "Hrană de înaltă calitate, recompense, jucării și produse de îngrijire.",
     "shopDogProducts": "Vezi Produse Pentru Câini",
-    "forCatsCardTitle": "Pentru Pisici",
-    "forCatsCardSubtitle": "Mese nutritive, jucării distractive, nisip și accesorii esențiale.",
-    "shopCatProducts": "Vezi Produse Pentru Pisici",
     "featuredDogProducts": "Produse Recomandate Pentru Câini",
     "viewAllDogProducts": "Vezi Toate Produsele Pentru Câini",
-    "featuredCatProducts": "Produse Recomandate Pentru Pisici",
-    "viewAllCatProducts": "Vezi Toate Produsele Pentru Pisici",
     "whyChooseUsTitle": "De Ce Să Alegi Nature's Protection?",
     "whyChooseUsSubtitle": "Suntem dedicați să oferim animalelor dvs. de companie nutriție de cea mai înaltă calitate, creată din ingrediente naturale pentru a le susține sănătatea și vitalitatea în fiecare etapă a vieții.",
     "naturalIngredientsTitle": "Ingrediente Naturale",
@@ -62,8 +55,6 @@
     "subtitle": "Răsfoiți colecția noastră de produse naturale și ecologice pentru animale.",
     "titleDog": "Produse Pentru Câini",
     "subtitleDog": "Tot ce are nevoie câinele tău: hrană, recompense, jucării, îngrijire și altele.",
-    "titleCat": "Produse Pentru Pisici",
-    "subtitleCat": "Totul pentru prietenul tău felin: hrană, jucării, nisip, recompense și altele.",
     "showFilters": "Arată Filtrele",
     "hideFilters": "Ascunde Filtrele",
     "searchLabel": "Caută",
