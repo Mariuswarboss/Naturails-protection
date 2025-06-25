@@ -5,13 +5,14 @@ import type { Product } from '@/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 import { useTranslation } from '@/contexts/LanguageContext';
 
 export default function ProductCard({ product }: { product: Product }) {
   const { t } = useTranslation();
 
   return (
-    <Card className="h-full flex flex-col overflow-hidden transition-all duration-300 ease-in-out hover:shadow-xl hover:border-primary/50 bg-card">
+    <Card className="h-full flex flex-col overflow-hidden transition-all duration-300 ease-in-out hover:shadow-xl hover:border-primary/50 bg-card hover:-translate-y-2">
       <Link href={`/products/${product.id}`} className="block group flex-grow flex flex-col">
         <CardHeader className="p-0 relative aspect-square overflow-hidden border-b">
           <Image
@@ -36,6 +37,11 @@ export default function ProductCard({ product }: { product: Product }) {
           <p className="text-lg font-semibold text-foreground mt-auto pt-2">{product.price.toFixed(2)} MDL</p>
         </CardContent>
       </Link>
+      <div className="p-4 pt-0">
+          <Link href={`/products/${product.id}`} className="w-full">
+            <Button className="w-full">{t('productPage.viewDetails')}</Button>
+          </Link>
+      </div>
     </Card>
   );
 }

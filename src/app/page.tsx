@@ -39,7 +39,7 @@ export default function HomePage() {
                 alt="Happy dog"
                 layout="fill"
                 objectFit="contain"
-                className="rounded-lg"
+                className="rounded-lg animate-float"
                 data-ai-hint="happy dog pet"
                 priority
               />
