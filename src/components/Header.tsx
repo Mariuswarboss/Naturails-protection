@@ -22,7 +22,7 @@ import { ThemeSwitcher } from '@/components/ThemeSwitcher';
 export default function Header() {
   const { language, setLanguage, t } = useTranslation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const logoUrl = "https://s3.eu-central-1.amazonaws.com/uploads.mangoweb.org/shared-prod/samohyl.cz/uploads/2017/09/natures-protection-logo.jpg";
+  const logoUrl = "https://naturesprotection.eu/wp-content/uploads/2021/01/np-logo-life-at-its-best-1.png";
   const router = useRouter();
   const [searchQuery, setSearchQuery] = useState('');
 
