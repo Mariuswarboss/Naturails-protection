@@ -40,8 +40,6 @@ export default function Footer() {
               <li><Link href="/products" className="hover:text-primary hover:underline">{t('header.allProducts')}</Link></li>
               <li><Link href="/about" className="hover:text-primary hover:underline">{t('footer.aboutUs')}</Link></li>
               <li><Link href="/contact" className="hover:text-primary hover:underline">{t('footer.contactUs')}</Link></li>
-              <li><Link href="/faq" className="hover:text-primary hover:underline">{t('footer.faq')}</Link></li>
-              <li><Link href="/privacy" className="hover:text-primary hover:underline">{t('footer.privacyPolicy')}</Link></li>
               <li><Link href="/terms" className="hover:text-primary hover:underline">{t('footer.termsOfService')}</Link></li>
               <li>
                 <a 
