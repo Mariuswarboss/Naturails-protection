@@ -135,10 +135,9 @@
     "title": "Свяжитесь с Нами",
     "subtitle": "Свяжитесь с нами или посетите нас.",
     "ourLocation": "Наше Местоположение",
-    "visitUsAt": "Найдите нас на карте ниже:",
     "contactDetailsTitle": "Контактные Данные",
-    "phoneLabel": "Телефон:",
     "companyNameLabel": "Название Компании:",
-    "addressLabel": "Адрес:"
+    "addressLabel": "Адрес:",
+    "addressValue": "Мун. Кишинёв, ул. Василе Лупу 33"
   }
 }

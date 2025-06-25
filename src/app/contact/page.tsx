@@ -1,10 +1,9 @@
-
 "use client";
 
 import SiteLayout from '@/components/SiteLayout';
 import { useTranslation } from '@/contexts/LanguageContext';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { MapPin } from 'lucide-react';
+import { MapPin, Phone } from 'lucide-react';
 
 export default function ContactPage() {
   const { t } = useTranslation();
@@ -16,24 +15,25 @@ export default function ContactPage() {
         <p className="text-lg text-foreground/80 mt-2">{t('contactPage.subtitle')}</p>
       </div>
 
-      <div className="grid md:grid-cols-1 gap-8 md:gap-12">
-        <Card className="shadow-lg">
+      <div className="grid md:grid-cols-2 gap-8 md:gap-12">
+        <Card className="shadow-lg flex flex-col">
           <CardHeader>
             <CardTitle className="flex items-center">
               <MapPin className="h-6 w-6 mr-2 text-primary" />
               {t('contactPage.ourLocation')}
             </CardTitle>
           </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground mb-4">
-              {t('contactPage.visitUsAt')}
-            </p>
-            <div className="aspect-w-16 aspect-h-9 rounded-md overflow-hidden border">
+          <CardContent className="flex-grow flex flex-col">
+            <div className="space-y-2 text-muted-foreground mb-4">
+                <p><strong>{t('contactPage.companyNameLabel')}</strong> DIABRAVO SRL</p>
+                <p><strong>{t('contactPage.addressLabel')}</strong> {t('contactPage.addressValue')}</p>
+            </div>
+            <div className="aspect-w-16 aspect-h-9 rounded-md overflow-hidden border flex-grow">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d838.8138695822078!2d28.805689240415884!3d47.02155713074227!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40c97d9b229b0d93%3A0xbc94fa08481ef5cf!2sNatures%20Protection%20Moldova!5e1!3m2!1sen!2s!4v1749818509323!5m2!1sen!2s"
                 width="100%"
-                height="450"
-                style={{ border: 0 }}
+                height="100%"
+                style={{ border: 0, minHeight: '400px' }}
                 allowFullScreen={true}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
@@ -43,17 +43,24 @@ export default function ContactPage() {
           </CardContent>
         </Card>
 
-        {/* You can add more contact information here if needed, like phone, email, contact form */}
-        <Card>
+        <Card className="shadow-lg">
             <CardHeader>
-                <CardTitle>{t('contactPage.contactDetailsTitle')}</CardTitle>
+                <CardTitle className="flex items-center">
+                    <Phone className="h-6 w-6 mr-2 text-primary" />
+                    {t('contactPage.contactDetailsTitle')}
+                </CardTitle>
             </CardHeader>
             <CardContent>
-                <p className="text-muted-foreground">{t('contactPage.contactInfoPlaceholder')}</p>
-                {/* Example:
-                <p><strong>{t('contactPage.phoneLabel')}:</strong> +373 XX XXX XXX</p>
-                <p><strong>{t('contactPage.emailLabel')}:</strong> info@naturesprotection.md</p>
-                */}
+                <div className="space-y-4 text-foreground/90 text-lg">
+                    <div className="flex flex-col">
+                        <span className="font-semibold">Angela Chistrea</span>
+                        <a href="tel:+37369110316" className="text-primary hover:underline">(+373) 069110316</a>
+                    </div>
+                    <div className="flex flex-col">
+                        <span className="font-semibold">Igor Chistrea</span>
+                        <a href="tel:+37369149646" className="text-primary hover:underline">(+373) 069149646</a>
+                    </div>
+                </div>
             </CardContent>
         </Card>
       </div>

@@ -135,10 +135,9 @@
     "title": "Contact Us",
     "subtitle": "Get in touch or visit us at our location.",
     "ourLocation": "Our Location",
-    "visitUsAt": "Find us on the map below:",
     "contactDetailsTitle": "Contact Details",
-    "phoneLabel": "Phone:",
     "companyNameLabel": "Company Name:",
-    "addressLabel": "Address:"
+    "addressLabel": "Address:",
+    "addressValue": "Mun. Chișinău, str. Vasile Lupu 33"
   }
 }
