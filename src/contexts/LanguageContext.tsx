@@ -30,7 +30,7 @@ interface LanguageContextType {
 }
 
 const LANGUAGE_STORAGE_KEY = 'selectedLanguage';
-const DEFAULT_LANGUAGE = 'EN';
+const DEFAULT_LANGUAGE = 'RO';
 
 const translationsMap: Record<string, Translations> = {
   EN: enTranslations as Translations,
