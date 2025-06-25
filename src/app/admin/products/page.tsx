@@ -69,6 +69,7 @@ const ProductForm = ({ product, onSave, onCancel }: { product?: Product | null, 
 export default function AdminProductsPage() {
   const [products, setProducts] = useState<Product[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const [appliedSearchTerm, setAppliedSearchTerm] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingProduct, setEditingProduct] = useState<Product | null>(null);
   const { toast } = useToast();
@@ -79,8 +80,8 @@ export default function AdminProductsPage() {
   }, []);
 
   const filteredProducts = products.filter(product =>
-    product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    product.category.toLowerCase().includes(searchTerm.toLowerCase())
+    product.name.toLowerCase().includes(appliedSearchTerm.toLowerCase()) ||
+    product.category.toLowerCase().includes(appliedSearchTerm.toLowerCase())
   );
 
   const handleAddProduct = () => {
@@ -113,6 +114,11 @@ export default function AdminProductsPage() {
     setEditingProduct(null);
   }
 
+  const handleSearchSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setAppliedSearchTerm(searchTerm);
+  };
+
 
   return (
     <div className="space-y-6">
@@ -141,15 +147,18 @@ export default function AdminProductsPage() {
         <CardHeader>
           <CardTitle>{t('admin.productListCardTitle')}</CardTitle>
           <CardDescription>{t('admin.productListCardDescription')}</CardDescription>
-          <div className="relative mt-4">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-            <Input 
-                placeholder={t('admin.searchProductsPlaceholder')}
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10 w-full md:w-1/3"
-            />
-          </div>
+          <form onSubmit={handleSearchSubmit} className="relative mt-4 flex gap-2 md:w-1/2">
+            <div className="relative flex-grow">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                <Input 
+                    placeholder={t('admin.searchProductsPlaceholder')}
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className="pl-10 w-full"
+                />
+            </div>
+            <Button type="submit">{t('admin.searchButton')}</Button>
+          </form>
         </CardHeader>
         <CardContent>
           <Table>
@@ -194,4 +203,3 @@ export default function AdminProductsPage() {
     </div>
   );
 }
-

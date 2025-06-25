@@ -19,6 +19,7 @@ import { useTranslation } from '@/contexts/LanguageContext';
 export default function AdminOrdersPage() {
   const [orders, setOrders] = useState<Order[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const [appliedSearchTerm, setAppliedSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState('all');
   const { toast } = useToast();
   const { t } = useTranslation();
@@ -28,8 +29,8 @@ export default function AdminOrdersPage() {
   }, []);
 
   const filteredOrders = orders.filter(order => 
-    (order.id.toLowerCase().includes(searchTerm.toLowerCase()) || 
-     order.userId.toLowerCase().includes(searchTerm.toLowerCase())) &&
+    (order.id.toLowerCase().includes(appliedSearchTerm.toLowerCase()) || 
+     order.userId.toLowerCase().includes(appliedSearchTerm.toLowerCase())) &&
     (statusFilter === 'all' || order.status === statusFilter)
   );
 
@@ -40,6 +41,11 @@ export default function AdminOrdersPage() {
         )
     );
     toast({title: t('admin.orderStatusUpdatedToastTitle'), description: t('admin.orderStatusUpdatedToastDescription', {orderId, newStatus})});
+  };
+
+  const handleSearchSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setAppliedSearchTerm(searchTerm);
   };
 
   const orderStatuses: Order['status'][] = ['Pending', 'Processing', 'Shipped', 'Delivered', 'Cancelled'];
@@ -54,17 +60,20 @@ export default function AdminOrdersPage() {
           <CardTitle>{t('admin.orderListCardTitle')}</CardTitle>
           <CardDescription>{t('admin.orderListCardDescription')}</CardDescription>
           <div className="flex flex-wrap gap-4 mt-4 items-end">
-            <div className="relative flex-grow min-w-[200px]">
-                <Label htmlFor="search-orders" className="sr-only">{t('admin.searchOrdersLabel')}</Label>
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                <Input 
-                    id="search-orders"
-                    placeholder={t('admin.searchOrdersPlaceholder')}
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    className="pl-10"
-                />
-            </div>
+            <form onSubmit={handleSearchSubmit} className="flex gap-2 flex-grow min-w-[250px]">
+                <div className="relative flex-grow">
+                  <Label htmlFor="search-orders" className="sr-only">{t('admin.searchOrdersLabel')}</Label>
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                  <Input 
+                      id="search-orders"
+                      placeholder={t('admin.searchOrdersPlaceholder')}
+                      value={searchTerm}
+                      onChange={(e) => setSearchTerm(e.target.value)}
+                      className="pl-10"
+                  />
+                </div>
+                <Button type="submit">{t('admin.searchButton')}</Button>
+            </form>
             <div className="flex-grow min-w-[150px]">
                 <Label htmlFor="status-filter" className="sr-only">{t('admin.filterByStatusLabel')}</Label>
                 <Select value={statusFilter} onValueChange={(value) => setStatusFilter(value)}>
@@ -133,4 +142,3 @@ export default function AdminOrdersPage() {
     </div>
   );
 }
-

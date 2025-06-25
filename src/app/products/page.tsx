@@ -16,6 +16,7 @@ export default function ProductsPage() {
   const { t } = useTranslation();
 
   const [searchTerm, setSearchTerm] = useState('');
+  const [appliedSearchTerm, setAppliedSearchTerm] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('all');
   const [sortOption, setSortOption] = useState('name-asc');
   const [showFilters, setShowFilters] = useState(false);
@@ -28,10 +29,10 @@ export default function ProductsPage() {
   const filteredAndSortedProducts = useMemo(() => {
     let products = [...mockProducts];
 
-    if (searchTerm) {
+    if (appliedSearchTerm) {
       products = products.filter(p =>
-        p.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        p.description.toLowerCase().includes(searchTerm.toLowerCase())
+        p.name.toLowerCase().includes(appliedSearchTerm.toLowerCase()) ||
+        p.description.toLowerCase().includes(appliedSearchTerm.toLowerCase())
       );
     }
 
@@ -54,27 +55,38 @@ export default function ProductsPage() {
         break;
     }
     return products;
-  }, [searchTerm, categoryFilter, sortOption]);
+  }, [appliedSearchTerm, categoryFilter, sortOption]);
   
   const resetFilters = () => {
     setSearchTerm('');
+    setAppliedSearchTerm('');
     setCategoryFilter('all');
     setSortOption('name-asc');
   }
 
+  const handleSearchSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setAppliedSearchTerm(searchTerm);
+  };
+
   const FilterControls = () => (
     <div className="space-y-4 md:space-y-0 md:flex md:flex-wrap md:items-end md:gap-4 p-4 bg-card rounded-lg shadow mb-8">
-        <div className="relative flex-grow min-w-[200px]">
+        <div className="flex-grow min-w-[250px]">
           <label htmlFor="search" className="block text-sm font-medium text-muted-foreground mb-1">{t('productsPage.searchLabel')}</label>
-          <Input
-            id="search"
-            type="text"
-            placeholder={t('productsPage.searchPlaceholder')}
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="pl-10"
-          />
-          <Search className="absolute left-3 top-[calc(50%+theme(spacing.1))] -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+          <form onSubmit={handleSearchSubmit} className="flex gap-2">
+            <div className="relative flex-grow">
+              <Input
+                id="search"
+                type="text"
+                placeholder={t('productsPage.searchPlaceholder')}
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="pl-10"
+              />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+            </div>
+            <Button type="submit">{t('productsPage.searchButton')}</Button>
+          </form>
         </div>
 
         <div className="flex-grow min-w-[200px]">
