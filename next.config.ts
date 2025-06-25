@@ -33,6 +33,12 @@ const nextConfig: NextConfig = {
         hostname: 'naturesprotection.eu',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'elpida-varna.bg',
+        port: '',
+        pathname: '/**',
       }
     ],
   },

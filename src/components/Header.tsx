@@ -22,7 +22,7 @@ import { ThemeSwitcher } from '@/components/ThemeSwitcher';
 export default function Header() {
   const { language, setLanguage, t } = useTranslation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const logoUrl = "https://s3.eu-central-1.amazonaws.com/codepiper-ws-snapshots-production/a2185c70-e4b2-4d51-9310-53d3957bd9d8.png";
+  const logoUrl = "https://elpida-varna.bg/shop/image/cache/catalog/brand/logo_bg-1500x1500.png";
   const router = useRouter();
   const [searchQuery, setSearchQuery] = useState('');
 
