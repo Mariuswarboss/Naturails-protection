@@ -78,6 +78,8 @@
     "dashboard": "Tablou de Bord",
     "products": "Produse",
     "orders": "Comenzi",
+    "featureRemoved": "Funcționalitate Eliminată",
+    "ordersRemovedDescription": "Gestionarea comenzilor a fost eliminată deoarece site-ul este acum un catalog de produse.",
     "backToSite": "Înapoi la Site",
     "adminUser": "Utilizator Admin",
     "accessDeniedToastTitle": "Acces Refuzat",

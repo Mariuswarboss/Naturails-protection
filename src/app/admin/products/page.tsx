@@ -24,7 +24,6 @@ import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { useTranslation } from '@/contexts/LanguageContext';
 
-
 const ProductForm = ({ product, onSave, onCancel }: { product?: Product | null, onSave: (productData: Omit<Product, 'id'> | Product) => void, onCancel: () => void }) => {
   const [name, setName] = useState(product?.name || '');
   const [description, setDescription] = useState(product?.description || '');
@@ -64,6 +63,31 @@ const ProductForm = ({ product, onSave, onCancel }: { product?: Product | null, 
     </form>
   )
 }
+
+const ProductSearch = ({
+    searchTerm,
+    setSearchTerm,
+    handleSearchSubmit,
+    t
+}: {
+    searchTerm: string,
+    setSearchTerm: (value: string) => void,
+    handleSearchSubmit: (e: React.FormEvent) => void,
+    t: (key: string) => string
+}) => (
+    <form onSubmit={handleSearchSubmit} className="relative mt-4 flex gap-2 md:w-1/2">
+        <div className="relative flex-grow">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+            <Input 
+                placeholder={t('admin.searchProductsPlaceholder')}
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="pl-10 w-full"
+            />
+        </div>
+        <Button type="submit">{t('admin.searchButton')}</Button>
+    </form>
+);
 
 
 export default function AdminProductsPage() {
@@ -147,18 +171,12 @@ export default function AdminProductsPage() {
         <CardHeader>
           <CardTitle>{t('admin.productListCardTitle')}</CardTitle>
           <CardDescription>{t('admin.productListCardDescription')}</CardDescription>
-          <form onSubmit={handleSearchSubmit} className="relative mt-4 flex gap-2 md:w-1/2">
-            <div className="relative flex-grow">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                <Input 
-                    placeholder={t('admin.searchProductsPlaceholder')}
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    className="pl-10 w-full"
-                />
-            </div>
-            <Button type="submit">{t('admin.searchButton')}</Button>
-          </form>
+          <ProductSearch
+            searchTerm={searchTerm}
+            setSearchTerm={setSearchTerm}
+            handleSearchSubmit={handleSearchSubmit}
+            t={t}
+          />
         </CardHeader>
         <CardContent>
           <Table>
@@ -178,8 +196,8 @@ export default function AdminProductsPage() {
                   <TableCell>
                     <Image src={product.imageUrl} alt={product.name} width={50} height={50} className="rounded-md object-cover" data-ai-hint={product.dataAiHint || "product image"}/>
                   </TableCell>
-                  <TableCell className="font-medium">{product.name}</TableCell> {/* Product name not translated */}
-                  <TableCell>{product.category}</TableCell> {/* Category not translated */}
+                  <TableCell className="font-medium">{product.name}</TableCell>
+                  <TableCell>{product.category}</TableCell>
                   <TableCell className="text-right">{product.price.toFixed(2)} MDL</TableCell>
                   <TableCell className="text-right">{product.stock}</TableCell>
                   <TableCell className="text-center">

@@ -12,6 +12,85 @@ import { Button } from '@/components/ui/button';
 import { Filter, Search, X } from 'lucide-react';
 import { useTranslation } from '@/contexts/LanguageContext';
 
+const FilterControls = ({
+  searchTerm,
+  setSearchTerm,
+  handleSearchSubmit,
+  categoryFilter,
+  setCategoryFilter,
+  categories,
+  sortOption,
+  setSortOption,
+  resetFilters,
+  t
+}: {
+  searchTerm: string;
+  setSearchTerm: (value: string) => void;
+  handleSearchSubmit: (e: React.FormEvent) => void;
+  categoryFilter: string;
+  setCategoryFilter: (value: string) => void;
+  categories: string[];
+  sortOption: string;
+  setSortOption: (value: string) => void;
+  resetFilters: () => void;
+  t: (key: string) => string;
+}) => (
+    <div className="space-y-4 md:space-y-0 md:flex md:flex-wrap md:items-end md:gap-4 p-4 bg-card rounded-lg shadow mb-8">
+        <div className="flex-grow min-w-[250px]">
+          <label htmlFor="search" className="block text-sm font-medium text-muted-foreground mb-1">{t('productsPage.searchLabel')}</label>
+          <form onSubmit={handleSearchSubmit} className="flex gap-2">
+            <div className="relative flex-grow">
+              <Input
+                id="search"
+                type="text"
+                placeholder={t('productsPage.searchPlaceholder')}
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="pl-10"
+              />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+            </div>
+            <Button type="submit">{t('productsPage.searchButton')}</Button>
+          </form>
+        </div>
+
+        <div className="flex-grow min-w-[200px]">
+          <label htmlFor="category" className="block text-sm font-medium text-muted-foreground mb-1">{t('productsPage.categoryLabel')}</label>
+          <Select value={categoryFilter} onValueChange={setCategoryFilter}>
+            <SelectTrigger id="category">
+              <SelectValue placeholder={t('productsPage.selectCategory')} />
+            </SelectTrigger>
+            <SelectContent>
+              {categories.map(cat => (
+                <SelectItem key={cat} value={cat}>
+                  {cat === 'all' ? t('productsPage.allCategories') : cat}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+
+        <div className="flex-grow min-w-[200px]">
+          <label htmlFor="sort" className="block text-sm font-medium text-muted-foreground mb-1">{t('productsPage.sortByLabel')}</label>
+          <Select value={sortOption} onValueChange={setSortOption}>
+            <SelectTrigger id="sort">
+              <SelectValue placeholder={t('productsPage.selectSortBy')} />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="name-asc">{t('productsPage.sortNameAsc')}</SelectItem>
+              <SelectItem value="name-desc">{t('productsPage.sortNameDesc')}</SelectItem>
+              <SelectItem value="price-asc">{t('productsPage.sortPriceAsc')}</SelectItem>
+              <SelectItem value="price-desc">{t('productsPage.sortPriceDesc')}</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+        
+        <Button variant="ghost" onClick={resetFilters} className="text-muted-foreground hover:text-primary">
+            <X className="mr-2 h-4 w-4" /> {t('productsPage.clearFilters')}
+        </Button>
+      </div>
+  );
+
 export default function ProductsPage() {
   const { t } = useTranslation();
 
@@ -69,63 +148,6 @@ export default function ProductsPage() {
     setAppliedSearchTerm(searchTerm);
   };
 
-  const FilterControls = () => (
-    <div className="space-y-4 md:space-y-0 md:flex md:flex-wrap md:items-end md:gap-4 p-4 bg-card rounded-lg shadow mb-8">
-        <div className="flex-grow min-w-[250px]">
-          <label htmlFor="search" className="block text-sm font-medium text-muted-foreground mb-1">{t('productsPage.searchLabel')}</label>
-          <form onSubmit={handleSearchSubmit} className="flex gap-2">
-            <div className="relative flex-grow">
-              <Input
-                id="search"
-                type="text"
-                placeholder={t('productsPage.searchPlaceholder')}
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10"
-              />
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-            </div>
-            <Button type="submit">{t('productsPage.searchButton')}</Button>
-          </form>
-        </div>
-
-        <div className="flex-grow min-w-[200px]">
-          <label htmlFor="category" className="block text-sm font-medium text-muted-foreground mb-1">{t('productsPage.categoryLabel')}</label>
-          <Select value={categoryFilter} onValueChange={setCategoryFilter}>
-            <SelectTrigger id="category">
-              <SelectValue placeholder={t('productsPage.selectCategory')} />
-            </SelectTrigger>
-            <SelectContent>
-              {categories.map(cat => (
-                <SelectItem key={cat} value={cat}>
-                  {cat === 'all' ? t('productsPage.allCategories') : cat}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
-
-        <div className="flex-grow min-w-[200px]">
-          <label htmlFor="sort" className="block text-sm font-medium text-muted-foreground mb-1">{t('productsPage.sortByLabel')}</label>
-          <Select value={sortOption} onValueChange={setSortOption}>
-            <SelectTrigger id="sort">
-              <SelectValue placeholder={t('productsPage.selectSortBy')} />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="name-asc">{t('productsPage.sortNameAsc')}</SelectItem>
-              <SelectItem value="name-desc">{t('productsPage.sortNameDesc')}</SelectItem>
-              <SelectItem value="price-asc">{t('productsPage.sortPriceAsc')}</SelectItem>
-              <SelectItem value="price-desc">{t('productsPage.sortPriceDesc')}</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
-        
-        <Button variant="ghost" onClick={resetFilters} className="text-muted-foreground hover:text-primary">
-            <X className="mr-2 h-4 w-4" /> {t('productsPage.clearFilters')}
-        </Button>
-      </div>
-  );
-
   return (
     <SiteLayout>
       <div className="mb-8 text-center">
@@ -144,7 +166,18 @@ export default function ProductsPage() {
       </div>
 
       <div className={`${showFilters ? 'block' : 'hidden'} md:block`}>
-        <FilterControls />
+        <FilterControls 
+            searchTerm={searchTerm}
+            setSearchTerm={setSearchTerm}
+            handleSearchSubmit={handleSearchSubmit}
+            categoryFilter={categoryFilter}
+            setCategoryFilter={setCategoryFilter}
+            categories={categories}
+            sortOption={sortOption}
+            setSortOption={setSortOption}
+            resetFilters={resetFilters}
+            t={t}
+        />
       </div>
 
       {filteredAndSortedProducts.length > 0 ? (

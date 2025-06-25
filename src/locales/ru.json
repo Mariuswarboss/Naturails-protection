@@ -78,6 +78,8 @@
     "dashboard": "Панель Управления",
     "products": "Товары",
     "orders": "Заказы",
+    "featureRemoved": "Функция Удалена",
+    "ordersRemovedDescription": "Управление заказами было удалено, так как сайт теперь является каталогом продукции.",
     "backToSite": "Вернуться на Сайт",
     "adminUser": "Администратор",
     "accessDeniedToastTitle": "Доступ Запрещен",

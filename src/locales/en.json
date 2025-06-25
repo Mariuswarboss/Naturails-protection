@@ -78,6 +78,8 @@
     "dashboard": "Dashboard",
     "products": "Products",
     "orders": "Orders",
+    "featureRemoved": "Feature Removed",
+    "ordersRemovedDescription": "Order management has been removed as the site is now a product catalog.",
     "backToSite": "Back to Site",
     "adminUser": "Admin User",
     "accessDeniedToastTitle": "Access Denied",
