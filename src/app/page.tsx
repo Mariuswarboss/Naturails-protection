@@ -7,28 +7,29 @@ import { Button } from '@/components/ui/button';
 import { mockProducts } from '@/lib/data';
 import ProductCard from '@/components/ProductCard';
 import SiteLayout from '@/components/SiteLayout';
-import { ChevronRight, ShieldCheck } from 'lucide-react';
+import { ChevronRight, Leaf, FlaskConical, Award } from 'lucide-react';
 import { useTranslation } from '@/contexts/LanguageContext';
 
 export default function HomePage() {
   const { t } = useTranslation();
   
-  const featuredDogProducts = mockProducts.slice(0, 4);
+  const featuredDogProducts = mockProducts.filter(p => p.productFor === 'dog').slice(0, 4);
 
   return (
     <SiteLayout>
-      <section className="relative bg-gradient-to-r from-green-100 via-lime-50 to-emerald-100 dark:from-green-900 dark:via-lime-950 dark:to-emerald-900 py-16 md:py-24 rounded-lg shadow-lg overflow-hidden mb-12 md:mb-16">
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-r from-gray-50 to-gray-100 dark:from-zinc-900 dark:to-zinc-800 py-20 md:py-32 rounded-lg shadow-lg overflow-hidden mb-16 md:mb-24">
         <div className="container mx-auto px-4 z-10 relative">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="text-center md:text-left">
-              <h1 className="font-headline text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 text-primary dark:text-green-300">
+              <h1 className="font-headline text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 text-primary dark:text-green-300 tracking-tight">
                 {t('homepage.heroTitle')}
               </h1>
-              <p className="text-lg md:text-xl text-foreground/90 dark:text-gray-300 mb-8 max-w-lg mx-auto md:mx-0">
+              <p className="text-lg md:text-xl text-foreground/80 dark:text-gray-300 mb-8 max-w-lg mx-auto md:mx-0">
                 {t('homepage.heroSubtitle')}
               </p>
               <Link href="/products">
-                <Button size="lg" className="font-headline text-lg px-8 py-3">
+                <Button size="lg" className="font-headline text-lg px-8 py-3 rounded-full">
                   {t('homepage.shopAllProducts')} <ChevronRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
@@ -48,76 +49,87 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-12 md:py-16">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:max-w-xl mx-auto gap-8 md:gap-12">
-            <Link href="/products" className="block group">
-              <div className="relative rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 aspect-[16/10]">
-                <Image
-                  src="https://placehold.co/600x375.png"
-                  alt="Products for Dogs"
-                  layout="fill"
-                  objectFit="cover"
-                  data-ai-hint="dog eating food"
-                  className="transition-transform duration-300 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col items-center justify-center p-6 text-center">
-                  <h3 className="font-headline text-3xl md:text-4xl font-bold text-white mb-3">{t('homepage.forDogsCardTitle')}</h3>
-                  <p className="text-gray-200 mb-4 text-sm md:text-base">{t('homepage.forDogsCardSubtitle')}</p>
-                  <Button variant="secondary" className="bg-white/90 hover:bg-white text-primary group-hover:bg-primary group-hover:text-white transition-colors">
-                    {t('homepage.shopDogProducts')} <ChevronRight className="ml-1 h-4 w-4" />
-                  </Button>
-                </div>
+      {/* Category Section */}
+      <section className="py-16 md:py-24 container mx-auto px-4">
+        <div className="grid grid-cols-1 gap-8 md:gap-12">
+          <Link href="/products" className="block group">
+            <div className="relative rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 aspect-video bg-gray-900">
+              <Image
+                src="https://placehold.co/1200x675.png"
+                alt="Products for Dogs"
+                layout="fill"
+                objectFit="cover"
+                data-ai-hint="dog eating food"
+                className="transition-transform duration-500 group-hover:scale-105 opacity-60 group-hover:opacity-50"
+              />
+              <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
+                <h3 className="font-headline text-4xl md:text-5xl font-bold text-white mb-4">{t('homepage.forDogsCardTitle')}</h3>
+                <p className="text-gray-200 mb-6 text-md md:text-lg max-w-xl">{t('homepage.forDogsCardSubtitle')}</p>
+                <Button variant="secondary" className="bg-white/90 hover:bg-white text-primary group-hover:bg-primary group-hover:text-white transition-colors rounded-full px-8 py-3 text-lg">
+                  {t('homepage.shopDogProducts')} <ChevronRight className="ml-1 h-5 w-5" />
+                </Button>
               </div>
-            </Link>
-          </div>
+            </div>
+          </Link>
         </div>
       </section>
       
+      {/* Featured Products Section */}
       {featuredDogProducts.length > 0 && (
-        <section className="py-12 md:py-16 bg-secondary/30 dark:bg-background/50 rounded-lg">
+        <section className="py-16 md:py-24 bg-secondary/30 dark:bg-background/50">
           <div className="container mx-auto px-4">
-            <h2 className="font-headline text-3xl font-semibold mb-8 text-center text-foreground">{t('homepage.featuredDogProducts')}</h2>
+            <div className="text-center mb-12">
+                <h2 className="font-headline text-3xl md:text-4xl font-bold text-foreground">{t('homepage.featuredDogProducts')}</h2>
+            </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
               {featuredDogProducts.map(product => (
                 <ProductCard key={product.id} product={product} />
               ))}
             </div>
-             <div className="text-center mt-10">
+             <div className="text-center mt-12">
               <Link href="/products">
-                <Button variant="outline" size="lg">{t('homepage.viewAllDogProducts')}</Button>
+                <Button variant="outline" size="lg" className="rounded-full px-8">{t('homepage.viewAllDogProducts')}</Button>
               </Link>
             </div>
           </div>
         </section>
       )}
 
-      <section className="py-12 md:py-16 bg-card border-t border-b">
+      {/* Why Choose Us Section */}
+      <section className="py-16 md:py-24 bg-card border-y">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-10">
-            <ShieldCheck className="h-16 w-16 text-primary mx-auto mb-4" />
-            <h3 className="font-headline text-3xl font-semibold mb-4 text-primary">{t('homepage.whyChooseUsTitle')}</h3>
-            <p className="text-foreground/80 max-w-2xl mx-auto">
+          <div className="text-center mb-12">
+            <h3 className="font-headline text-3xl md:text-4xl font-bold mb-4 text-primary">{t('homepage.whyChooseUsTitle')}</h3>
+            <p className="text-foreground/80 max-w-3xl mx-auto text-lg">
               {t('homepage.whyChooseUsSubtitle')}
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8 text-center">
-            <div>
+          <div className="grid md:grid-cols-3 gap-10 text-center max-w-5xl mx-auto">
+            <div className="flex flex-col items-center">
+              <div className="flex items-center justify-center h-16 w-16 rounded-full bg-primary/10 text-primary mb-4">
+                <Leaf className="h-8 w-8" />
+              </div>
               <h4 className="text-xl font-semibold mb-2 text-foreground">{t('homepage.naturalIngredientsTitle')}</h4>
-              <p className="text-sm text-foreground/70">{t('homepage.naturalIngredientsText')}</p>
+              <p className="text-base text-foreground/70">{t('homepage.naturalIngredientsText')}</p>
             </div>
-            <div>
+            <div className="flex flex-col items-center">
+              <div className="flex items-center justify-center h-16 w-16 rounded-full bg-primary/10 text-primary mb-4">
+                <FlaskConical className="h-8 w-8" />
+              </div>
               <h4 className="text-xl font-semibold mb-2 text-foreground">{t('homepage.scientificallyFormulatedTitle')}</h4>
-              <p className="text-sm text-foreground/70">{t('homepage.scientificallyFormulatedText')}</p>
+              <p className="text-base text-foreground/70">{t('homepage.scientificallyFormulatedText')}</p>
             </div>
-            <div>
+            <div className="flex flex-col items-center">
+              <div className="flex items-center justify-center h-16 w-16 rounded-full bg-primary/10 text-primary mb-4">
+                <Award className="h-8 w-8" />
+              </div>
               <h4 className="text-xl font-semibold mb-2 text-foreground">{t('homepage.trustedQualityTitle')}</h4>
-              <p className="text-sm text-foreground/70">{t('homepage.trustedQualityText')}</p>
+              <p className="text-base text-foreground/70">{t('homepage.trustedQualityText')}</p>
             </div>
           </div>
-           <div className="text-center mt-10">
+           <div className="text-center mt-12">
             <Link href="/about">
-              <Button variant="outline" size="lg">{t('homepage.learnMoreAboutUs')}</Button>
+              <Button variant="outline" size="lg" className="rounded-full px-8">{t('homepage.learnMoreAboutUs')}</Button>
             </Link>
           </div>
         </div>
