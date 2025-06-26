@@ -10,7 +10,7 @@ import SiteLayout from '@/components/SiteLayout';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Button } from '@/components/ui/button';
-import { Filter, Search, X } from 'lucide-react';
+import { Filter, Search, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useTranslation } from '@/contexts/LanguageContext';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
@@ -64,6 +64,56 @@ const FilterSidebar = ({
   </Card>
 );
 
+const Pagination = ({ currentPage, totalPages, onPageChange, t }: { currentPage: number, totalPages: number, onPageChange: (page: number) => void, t: (key: string) => string }) => {
+  const handlePrevious = () => {
+    onPageChange(Math.max(1, currentPage - 1));
+  };
+
+  const handleNext = () => {
+    onPageChange(Math.min(totalPages, currentPage + 1));
+  };
+
+  const getPageNumbers = () => {
+    const pages = new Set<number | string>();
+    pages.add(1);
+    if (currentPage > 3) pages.add('...');
+    if (currentPage > 2) pages.add(currentPage - 1);
+    if (currentPage > 1 && currentPage < totalPages) pages.add(currentPage);
+    if (currentPage < totalPages - 1) pages.add(currentPage + 1);
+    if (currentPage < totalPages - 2) pages.add('...');
+    if (totalPages > 1) pages.add(totalPages);
+    return Array.from(pages);
+  };
+
+  return (
+    <div className="flex items-center justify-center space-x-1 md:space-x-2 mt-12">
+      <Button variant="outline" size="icon" onClick={handlePrevious} disabled={currentPage === 1}>
+        <ChevronLeft className="h-4 w-4" />
+        <span className="sr-only">{t('productsPage.previousPage')}</span>
+      </Button>
+      {getPageNumbers().map((page, index) =>
+        typeof page === 'number' ? (
+          <Button
+            key={index}
+            variant={currentPage === page ? 'default' : 'outline'}
+            size="icon"
+            onClick={() => onPageChange(page)}
+          >
+            {page}
+          </Button>
+        ) : (
+          <span key={index} className="px-2 py-2 text-sm">...</span>
+        )
+      )}
+      <Button variant="outline" size="icon" onClick={handleNext} disabled={currentPage === totalPages}>
+        <ChevronRight className="h-4 w-4" />
+         <span className="sr-only">{t('productsPage.nextPage')}</span>
+      </Button>
+    </div>
+  );
+};
+
+
 export default function ProductsPage() {
   const { t } = useTranslation();
   const searchParams = useSearchParams();
@@ -74,6 +124,8 @@ export default function ProductsPage() {
   const [appliedSearchTerm, setAppliedSearchTerm] = useState('');
   const [sortOption, setSortOption] = useState('name-asc');
   const [showFilters, setShowFilters] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const ITEMS_PER_PAGE = 12;
 
   const initialFilters = {
     category: 'all',
@@ -148,11 +200,23 @@ export default function ProductsPage() {
     return products;
   }, [appliedSearchTerm, filters, sortOption, dogProducts]);
   
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [appliedSearchTerm, filters, sortOption]);
+  
+  const totalPages = Math.ceil(filteredAndSortedProducts.length / ITEMS_PER_PAGE);
+  const paginatedProducts = useMemo(() => {
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+    return filteredAndSortedProducts.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+  }, [currentPage, filteredAndSortedProducts]);
+
+
   const resetFilters = () => {
     setSearchTerm('');
     setAppliedSearchTerm('');
     setSortOption('name-asc');
     setFilters(initialFilters);
+    setCurrentPage(1);
   }
 
   const handleSearchSubmit = (e: React.FormEvent) => {
@@ -229,12 +293,22 @@ export default function ProductsPage() {
             ))}
           </div>
 
-          {filteredAndSortedProducts.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-              {filteredAndSortedProducts.map((product: Product) => (
-                <ProductCard key={product.id} product={product} />
-              ))}
-            </div>
+          {paginatedProducts.length > 0 ? (
+             <>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                {paginatedProducts.map((product: Product) => (
+                    <ProductCard key={product.id} product={product} />
+                ))}
+                </div>
+                {totalPages > 1 && (
+                <Pagination
+                    currentPage={currentPage}
+                    totalPages={totalPages}
+                    onPageChange={setCurrentPage}
+                    t={t}
+                />
+                )}
+            </>
           ) : (
             <div className="text-center py-10">
               <p className="text-xl text-muted-foreground">{t('productsPage.noProductsFound')}</p>
