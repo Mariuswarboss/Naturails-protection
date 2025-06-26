@@ -91,6 +91,24 @@ export const mockProducts: Product[] = [
     purpose: 'Grooming',
     breedSize: 'All Breeds',
     lifestage: 'All Stages',
+  },
+  {
+    id: '12',
+    name: 'NP Superior Care Red Coat Adult Small Breeds Lamb',
+    description: 'A unique, grain-free formula with lamb for adult small breed dogs, designed to protect and enhance the natural red pigment of their coat.',
+    price: 32.99,
+    imageUrl: 'https://placehold.co/600x400.png',
+    dataAiHint: 'dog food bag',
+    category: 'Dry Food',
+    productFor: 'dog',
+    stock: 80,
+    relatedProductIds: ['1', '7'],
+    breedSize: 'Small',
+    lifestage: 'Adult',
+    flavour: 'Lamb',
+    purpose: 'Red Coat',
+    coatColor: 'Red',
+    weight: 1.5,
   }
 ];
 
