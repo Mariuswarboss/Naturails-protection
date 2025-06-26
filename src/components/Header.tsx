@@ -87,14 +87,14 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow-sm">
-      <div className="container flex h-20 items-center justify-between">
+      <div className="container flex h-24 items-center justify-between">
         <Link href="/" className="mr-4 flex items-center">
           <Image
             src={logoUrl}
             alt={t('header.siteTitle')}
-            width={225}
-            height={65}
-            className="object-contain h-16 w-auto"
+            width={280}
+            height={80}
+            className="object-contain h-20 w-auto"
             data-ai-hint="company logo"
             priority
           />
@@ -136,9 +136,9 @@ export default function Header() {
                      <Image
                         src={logoUrl}
                         alt={t('header.siteTitle')}
-                        width={170} 
-                        height={50}
-                        className="object-contain h-12 w-auto"
+                        width={225} 
+                        height={65}
+                        className="object-contain h-16 w-auto"
                         data-ai-hint="company logo"
                         priority
                       />
