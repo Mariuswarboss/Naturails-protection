@@ -177,7 +177,7 @@ export default function OrderDetailsPage() {
                 <li key={item.productId} className="flex items-center gap-4 p-3 border rounded-md bg-muted/30">
                   <div className="relative h-16 w-16 rounded overflow-hidden shrink-0">
                     {/* Product image and name are not translated from keys */}
-                    <Image src={`https://placehold.co/100x100.png`} alt={item.name} layout="fill" objectFit="cover" data-ai-hint="product small" />
+                    <Image src={`https://placehold.co/100x100.png`} alt={item.name} fill className="object-cover" data-ai-hint="product small" />
                   </div>
                   <div className="flex-grow">
                     <p className="font-medium">{item.name}</p>

@@ -6,6 +6,7 @@ import { ChevronLeft } from 'lucide-react';
 import Link from 'next/link';
 import ProductCard from '@/components/ProductCard';
 import ProductRecommendations from '@/components/ProductRecommendations';
+import ProductDetailsClient from './ProductDetailsClient';
 
 // Mock t function for server components if not using a full i18n server solution
 const serverT = (key: string, replacements?: Record<string, string | number>) => {
@@ -60,8 +61,8 @@ export default async function ProductPage({ params }: { params: { id: string } }
           <Image
             src={product.imageUrl}
             alt={product.name}
-            layout="fill"
-            objectFit="cover"
+            fill
+            className="object-cover"
             priority
             data-ai-hint={product.dataAiHint || "product image"}
           />
@@ -82,6 +83,9 @@ export default async function ProductPage({ params }: { params: { id: string } }
           <div className="border-t pt-6 space-y-1">
             <p className="text-sm text-muted-foreground">{serverT('productPage.category', { category: product.category })}</p>
           </div>
+
+          <ProductDetailsClient product={product} />
+
         </div>
       </div>
 

@@ -38,9 +38,8 @@ export default function HomePage() {
               <Image
                 src="https://storage.googleapis.com/aide-39b15-preview/f2479e0a-5c12-4091-a185-9b2f6b86d9a3.png"
                 alt="Assortment of Nature's Protection dog food bags"
-                layout="fill"
-                objectFit="cover"
-                className="rounded-lg animate-float"
+                fill
+                className="rounded-lg animate-float object-cover"
                 data-ai-hint="dog food products"
                 priority
               />
@@ -57,10 +56,9 @@ export default function HomePage() {
               <Image
                 src="https://placehold.co/1200x675.png"
                 alt="Products for Dogs"
-                layout="fill"
-                objectFit="cover"
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105 opacity-60 group-hover:opacity-50"
                 data-ai-hint="dog eating food"
-                className="transition-transform duration-500 group-hover:scale-105 opacity-60 group-hover:opacity-50"
               />
               <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
                 <h3 className="font-headline text-4xl md:text-5xl font-bold text-white mb-4">{t('homepage.productsCardTitle')}</h3>
