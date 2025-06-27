@@ -34,6 +34,12 @@ const nextConfig: NextConfig = {
         hostname: 'elpida-varna.bg',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'storage.googleapis.com',
+        port: '',
+        pathname: '/**',
       }
     ],
   },

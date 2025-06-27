@@ -36,12 +36,12 @@ export default function HomePage() {
             </div>
             <div className="relative h-64 md:h-96 w-full max-w-md mx-auto md:max-w-none">
               <Image
-                src="https://placehold.co/700x500.png"
-                alt="Happy dog"
+                src="https://storage.googleapis.com/aide-39b15-preview/f2479e0a-5c12-4091-a185-9b2f6b86d9a3.png"
+                alt="Assortment of Nature's Protection dog food bags"
                 layout="fill"
-                objectFit="contain"
+                objectFit="cover"
                 className="rounded-lg animate-float"
-                data-ai-hint="happy dog pet"
+                data-ai-hint="dog food products"
                 priority
               />
             </div>
