@@ -54,11 +54,11 @@ export default function HomePage() {
           <Link href="/products" className="block group">
             <div className="relative rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 aspect-video bg-gray-900">
               <Image
-                src="https://placehold.co/1200x675.png"
-                alt="Products for Dogs"
+                src="https://img.lazcdn.com/g/p/63abcb2518898a6b70cdd3027235cea6.png_720x720q80.png"
+                alt="Nature's Protection dog food products"
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105 opacity-60 group-hover:opacity-50"
-                data-ai-hint="dog eating food"
+                data-ai-hint="dog food products"
               />
               <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
                 <h3 className="font-headline text-4xl md:text-5xl font-bold text-white mb-4">{t('homepage.productsCardTitle')}</h3>
