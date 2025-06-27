@@ -1,4 +1,3 @@
-
 "use client";
 
 import Link from 'next/link';
@@ -54,11 +53,11 @@ export default function HomePage() {
           <Link href="/products" className="block group">
             <div className="relative rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 aspect-video bg-gray-900">
               <Image
-                src="https://storage.googleapis.com/aide-39b15-preview/82672520-21a1-4384-a82f-b44c219ec243.png"
-                alt="Nature's Protection veterinary diet products"
+                src="https://images.unsplash.com/photo-1536809188428-e8ecf663d0be?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Happy dog playing outdoors"
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105 opacity-60 group-hover:opacity-50"
-                data-ai-hint="veterinary diet dog"
+                data-ai-hint="dog playing"
               />
               <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
                 <h3 className="font-headline text-4xl md:text-5xl font-bold text-white mb-4">{t('homepage.productsCardTitle')}</h3>
