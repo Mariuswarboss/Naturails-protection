@@ -18,14 +18,14 @@ export default function HomePage() {
   return (
     <SiteLayout>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-gray-50 to-gray-100 dark:from-zinc-900 dark:to-zinc-800 py-20 md:py-32 rounded-lg shadow-lg overflow-hidden mb-16 md:mb-24">
+      <section className="relative bg-gradient-to-r from-gray-50 to-gray-100 py-20 md:py-32 rounded-lg shadow-lg overflow-hidden mb-16 md:mb-24">
         <div className="container mx-auto px-4 z-10 relative">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="text-center md:text-left">
-              <h1 className="font-headline text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 text-primary dark:text-green-300 tracking-tight">
+              <h1 className="font-headline text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 text-primary tracking-tight">
                 {t('homepage.heroTitle')}
               </h1>
-              <p className="text-lg md:text-xl text-foreground/80 dark:text-gray-300 mb-8 max-w-lg mx-auto md:mx-0">
+              <p className="text-lg md:text-xl text-foreground/80 mb-8 max-w-lg mx-auto md:mx-0">
                 {t('homepage.heroSubtitle')}
               </p>
               <Link href="/products">
@@ -74,7 +74,7 @@ export default function HomePage() {
       
       {/* Featured Products Section */}
       {featuredProducts.length > 0 && (
-        <section className="py-16 md:py-24 bg-secondary/30 dark:bg-background/50">
+        <section className="py-16 md:py-24 bg-secondary/30">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
                 <h2 className="font-headline text-3xl md:text-4xl font-bold text-foreground">{t('homepage.featuredProducts')}</h2>

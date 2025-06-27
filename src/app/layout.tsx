@@ -20,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${inter.variable}`}>
       <head>
         {/* Removed Google Font links for Alegreya as Inter is now self-hosted via next/font */}
       </head>
