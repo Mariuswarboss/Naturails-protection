@@ -36,7 +36,7 @@ export default function HomePage() {
             </div>
             <div className="relative h-64 md:h-96 w-full max-w-md mx-auto md:max-w-none">
               <Image
-                src="https://storage.googleapis.com/aide-39b15-preview/f2479e0a-5c12-4091-a185-9b2f6b86d9a3.png"
+                src="https://img.lazcdn.com/g/p/63abcb2518898a6b70cdd3027235cea6.png_720x720q80.png"
                 alt="Assortment of Nature's Protection dog food bags"
                 fill
                 className="rounded-lg animate-float object-cover"
