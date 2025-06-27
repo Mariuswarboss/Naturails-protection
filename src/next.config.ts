@@ -3,11 +3,9 @@ import type {NextConfig} from 'next';
 
 const nextConfig: NextConfig = {
   /* config options here */
-  devServer: {
-    allowedDevOrigins: [
+  allowedDevOrigins: [
       'https://6000-firebase-studio-1749817101482.cluster-6vyo4gb53jczovun3dxslzjahs.cloudworkstations.dev',
-    ],
-  },
+  ],
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -31,6 +29,24 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'naturesprotection.eu',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'elpida-varna.bg',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'storage.googleapis.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'img.lazcdn.com',
         port: '',
         pathname: '/**',
       }
