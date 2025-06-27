@@ -20,7 +20,7 @@ import { useRouter } from 'next/navigation';
 export default function Header() {
   const { language, setLanguage, t } = useTranslation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const logoUrl = "https://elpida-varna.bg/shop/image/cache/catalog/brand/logo_bg-1500x1500.png";
+  const logoUrl = "https://s3.eu-central-1.amazonaws.com/uploads.mangoweb.org/shared-prod/samohyl.cz/uploads/2017/09/natures-protection-logo.jpg";
   const router = useRouter();
   const [searchQuery, setSearchQuery] = useState('');
 
