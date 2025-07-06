@@ -7,16 +7,19 @@ import Link from 'next/link';
 import ProductCard from '@/components/ProductCard';
 import ProductRecommendations from '@/components/ProductRecommendations';
 import ProductDetailsClient from './ProductDetailsClient';
+import ProductDescription from './ProductDescription';
 
 // Mock t function for server components if not using a full i18n server solution
 const serverT = (key: string, replacements?: Record<string, string | number>) => {
     // This is a mock. In a real scenario, you'd load translations based on request locale.
-    if (key === 'productPage.productNotFound') return 'Product not found';
-    if (key === 'productPage.backToProducts') return 'Back to products';
-    if (key === 'productPage.category') return `Category: ${replacements?.category}`;
-    if (key === 'productPage.outOfStockButton') return 'Out of Stock';
-    if (key === 'productPage.relatedProducts') return 'Related Products';
-    return key;
+    const texts: Record<string, string> = {
+        'productPage.productNotFound': 'Product not found',
+        'productPage.backToProducts': 'Back to products',
+        'productPage.category': `Category: ${replacements?.category}`,
+        'productPage.outOfStockButton': 'Out of Stock',
+        'productPage.relatedProducts': 'Related Products',
+    };
+    return texts[key] || key;
 };
 
 
@@ -77,7 +80,7 @@ export default async function ProductPage({ params }: { params: { id: string } }
           <h1 className="font-headline text-3xl md:text-4xl font-bold">{product.name}</h1>
           <p className="text-2xl font-semibold text-primary">{product.price.toFixed(2)} MDL</p>
           <div className="prose prose-sm sm:prose-base text-foreground/80">
-            <p>{product.description}</p>
+            <ProductDescription descriptionKey={product.description} />
           </div>
           
           <div className="border-t pt-6 space-y-1">
@@ -105,3 +108,5 @@ export default async function ProductPage({ params }: { params: { id: string } }
     </SiteLayout>
   );
 }
+
+    

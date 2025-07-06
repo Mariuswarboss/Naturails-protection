@@ -46,7 +46,8 @@
     "outOfStockButton": "Out of Stock",
     "relatedProducts": "Related Products",
     "youMightAlsoLike": "You Might Also Like",
-    "viewDetails": "Details"
+    "viewDetails": "Details",
+    "noDescriptionAvailable": "No description available for this product."
   },
   "productsPage": {
     "title": "Our Products",
@@ -164,5 +165,33 @@
   },
   "loading": {
     "text": "Loading..."
+  },
+  "product_descriptions": {
+    "prod_47231": "Complete grain-free dry food with lamb, for adult small and mini breed dogs with white coats. Formulated to help remove tear stains and maintain a bright white coat.",
+    "prod_45834": "Complete food for adult dogs of all breeds. Specially formulated to support healthy skin and a shiny coat, rich in omega fatty acids.",
+    "prod_45835": "Complete food for growing puppies of all breeds. Provides all the necessary nutrients for healthy development, strong bones, and a robust immune system.",
+    "prod_45829": "Complete food for adult small breed dogs. A balanced formula to meet the high energy needs of small dogs while supporting their overall health.",
+    "prod_45830": "Complete food for growing small breed puppies. Enriched with essential vitamins and minerals for optimal growth and development in the early stages of life.",
+    "prod_45671": "Grain-free dry food with salmon and krill for sterilised adult dogs. Helps maintain a healthy weight and supports urinary tract health.",
+    "prod_47592": "Complete dry food with insects for small breed puppies with white coats. A hypoallergenic and sustainable protein source, ideal for sensitive puppies.",
+    "prod_45662": "Dry food for small breed dogs, with salmon. A tasty and easily digestible formula that supports skin and coat health.",
+    "prod_45661": "Dry food for small breed dogs, with lamb. A classic choice for dogs with sensitive digestive systems, providing high-quality protein.",
+    "prod_45666": "Complete food with lamb meat, for adult large breed dogs. Formulated to support joint health and maintain muscle mass.",
+    "prod_45667": "Complete food for growing large breed puppies. Supports controlled growth to prevent skeletal issues, with added nutrients for joint protection.",
+    "prod_45663": "Complete food for adult large breed dogs. Made with poultry for a highly digestible and palatable meal that provides sustained energy.",
+    "prod_70012": "Dry starter food for puppies (3-16 weeks) with white coats. An easily digestible formula to support the transition from mother's milk to solid food.",
+    "prod_70010": "Grain-free dry food with salmon for puppies with white coats. Rich in Omega-3 to support brain development and maintain a bright coat.",
+    "prod_63999": "Grain-free dry food with herring for adult small breed dogs with white coats. A unique protein source that helps reduce the risk of allergies.",
+    "prod_15119": "Grain-free dry food with salmon for adult small breed dogs with red coats. Specially formulated with amino acids to enhance and maintain a vibrant red coat color.",
+    "prod_47230": "Grain-free dry food with salmon for adult small and mini breed dogs with white coats. Helps prevent tear stains and supports skin health.",
+    "prod_47232": "Grain-free dry food with insects for adult small and mini breed dogs with white coats. A sustainable and hypoallergenic option for sensitive dogs.",
+    "prod_47654": "Grain-free dry food with lamb for adult small breed dogs with red coats. Designed to enhance the red pigment in the coat while being gentle on the stomach.",
+    "prod_45735": "Hypoallergenic treats for oral hygiene. Fragrance-free and designed to help clean teeth and freshen breath with every bite.",
+    "prod_171458": "Functional treats to support urinary tract health. Contains ingredients like cranberry extract to help prevent urinary issues.",
+    "prod_17278": "Dental care treats for dogs with white coats. Helps reduce tartar and plaque buildup while supporting coat health.",
+    "prod_17272": "Functional treats for the health of hips and joints in dogs with white coats. Contains glucosamine and chondroitin for joint support.",
+    "prod_47233": "Grain-free dry food with chicken and turkey for puppies of all breeds. A high-protein formula to support active and growing puppies."
   }
 }
+
+    
