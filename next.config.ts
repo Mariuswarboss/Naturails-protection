@@ -52,6 +52,12 @@ const nextConfig: NextConfig = {
         hostname: 'images.unsplash.com',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'static.petshop.md',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
