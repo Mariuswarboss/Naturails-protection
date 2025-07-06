@@ -3,9 +3,9 @@ import type { Product, User, Order, Address, OrderItem } from '@/types';
 
 export const mockProducts: Product[] = [
   {
-    id: 'prod-47231',
+    id: '47231',
     name: "Nature's Protection SUPERIOR CARE WHITE DOGS GRAIN FREE LAMB ADULT SMALL AND MINI BREEDS",
-    description: 'prod_47231',
+    description: '47231',
     price: 245,
     imageUrl: 'https://placehold.co/600x400.png',
     dataAiHint: 'dog food',
@@ -19,9 +19,9 @@ export const mockProducts: Product[] = [
     weight: 1.7
   },
   {
-    id: 'prod-45834',
+    id: '45834',
     name: "Nature's Protection HEALTHY SKIN & COAT",
-    description: 'prod_45834',
+    description: '45834',
     price: 350,
     imageUrl: 'https://placehold.co/600x400.png',
     dataAiHint: 'dog food',
@@ -35,9 +35,9 @@ export const mockProducts: Product[] = [
     weight: 2
   },
   {
-    id: 'prod-45835',
+    id: '45835',
     name: "Nature's Protection HEALTHY GROWTH",
-    description: 'prod_45835',
+    description: '45835',
     price: 350,
     imageUrl: 'https://placehold.co/600x400.png',
     dataAiHint: 'dog food',
@@ -51,9 +51,9 @@ export const mockProducts: Product[] = [
     weight: 2
   },
   {
-    id: 'prod-45829',
+    id: '45829',
     name: "Nature's Protection MINI ADULT",
-    description: 'prod_45829',
+    description: '45829',
     price: 295,
     imageUrl: 'https://placehold.co/600x400.png',
     dataAiHint: 'dog food',
@@ -66,9 +66,9 @@ export const mockProducts: Product[] = [
     weight: 2
   },
   {
-    id: 'prod-45830',
+    id: '45830',
     name: "Nature's Protection MINI JUNIOR",
-    description: 'prod_45830',
+    description: '45830',
     price: 295,
     imageUrl: 'https://placehold.co/600x400.png',
     dataAiHint: 'dog food',
@@ -81,9 +81,9 @@ export const mockProducts: Product[] = [
     weight: 2
   },
   {
-    id: 'prod-45671',
+    id: '45671',
     name: "Nature's Protection LIFESTYLE GRAIN FREE SALMON WITH KRILL STERILISED ADULT ALL BREEDS",
-    description: 'prod_45671',
+    description: '45671',
     price: 265,
     imageUrl: 'https://placehold.co/600x400.png',
     dataAiHint: 'dog food',
@@ -97,9 +97,9 @@ export const mockProducts: Product[] = [
     weight: 1.5
   },
   {
-    id: 'prod-47592',
+    id: '47592',
     name: "Nature's Protection SUPERIOR CARE WHITE DOGS GRAIN FREE INSECTS JUNIOR SMALL AND MINI BREEDS",
-    description: 'prod_47592',
+    description: '47592',
     price: 275,
     imageUrl: 'https://placehold.co/600x400.png',
     dataAiHint: 'dog food',
@@ -113,9 +113,9 @@ export const mockProducts: Product[] = [
     weight: 1.5
   },
   {
-    id: 'prod-45662',
+    id: '45662',
     name: "Nature's Protection MINI EXTRA SALMON",
-    description: 'prod_45662',
+    description: '45662',
     price: 295,
     imageUrl: 'https://placehold.co/600x400.png',
     dataAiHint: 'dog food',
@@ -128,9 +128,9 @@ export const mockProducts: Product[] = [
     weight: 2
   },
   {
-    id: 'prod-45661',
+    id: '45661',
     name: "Nature's Protection MINI ADULT LAMB",
-    description: 'prod_45661',
+    description: '45661',
     price: 295,
     imageUrl: 'https://placehold.co/600x400.png',
     dataAiHint: 'dog food',
@@ -143,9 +143,9 @@ export const mockProducts: Product[] = [
     weight: 2
   },
   {
-    id: 'prod-45666',
+    id: '45666',
     name: "Nature's Protection LAMB",
-    description: 'prod_45666',
+    description: '45666',
     price: 980,
     imageUrl: 'https://placehold.co/600x400.png',
     dataAiHint: 'dog food',
@@ -158,9 +158,9 @@ export const mockProducts: Product[] = [
     weight: 12
   },
   {
-    id: 'prod-45667',
+    id: '45667',
     name: "Nature's Protection MAXI JUNIOR",
-    description: 'prod_45667',
+    description: '45667',
     price: 990,
     imageUrl: 'https://placehold.co/600x400.png',
     dataAiHint: 'dog food',
@@ -173,9 +173,9 @@ export const mockProducts: Product[] = [
     weight: 12
   },
   {
-    id: 'prod-45663',
+    id: '45663',
     name: "Nature's Protection ADULT POULTRY",
-    description: 'prod_45663',
+    description: '45663',
     price: 850,
     imageUrl: 'https://placehold.co/600x400.png',
     dataAiHint: 'dog food',
@@ -188,9 +188,9 @@ export const mockProducts: Product[] = [
     weight: 12
   },
   {
-    id: 'prod-70012',
+    id: '70012',
     name: "Nature's Protection SUPERIOR CARE WHITE DOGS STARTER ALL BREEDS",
-    description: 'prod_70012',
+    description: '70012',
     price: 120,
     imageUrl: 'https://placehold.co/600x400.png',
     dataAiHint: 'dog food',
@@ -204,9 +204,9 @@ export const mockProducts: Product[] = [
     weight: 0.4
   },
   {
-    id: 'prod-70010',
+    id: '70010',
     name: "Nature's Protection SUPERIOR CARE WHITE DOGS GRAIN FREE SALMON JUNIOR SMALL AND MINI BREEDS",
-    description: 'prod_70010',
+    description: '70010',
     price: 275,
     imageUrl: 'https://placehold.co/600x400.png',
     dataAiHint: 'dog food',
@@ -220,9 +220,9 @@ export const mockProducts: Product[] = [
     weight: 1.5
   },
   {
-    id: 'prod-63999',
+    id: '63999',
     name: "Nature's Protection SUPERIOR CARE WHITE DOGS GRAIN FREE HERRING ADULT SMALL AND MINI BREEDS",
-    description: 'prod_63999',
+    description: '63999',
     price: 275,
     imageUrl: 'https://placehold.co/600x400.png',
     dataAiHint: 'dog food',
@@ -236,9 +236,9 @@ export const mockProducts: Product[] = [
     weight: 1.5
   },
   {
-    id: 'prod-15119',
+    id: '15119',
     name: "Nature's Protection SUPERIOR CARE RED COAT GRAIN FREE SALMON ADULT SMALL AND MINI BREEDS",
-    description: 'prod_15119',
+    description: '15119',
     price: 275,
     imageUrl: 'https://placehold.co/600x400.png',
     dataAiHint: 'dog food',
@@ -252,9 +252,9 @@ export const mockProducts: Product[] = [
     weight: 1.5
   },
   {
-    id: 'prod-47230',
+    id: '47230',
     name: "Nature's Protection SUPERIOR CARE WHITE DOGS GRAIN FREE SALMON ADULT SMALL AND MINI BREEDS",
-    description: 'prod_47230',
+    description: '47230',
     price: 245,
     imageUrl: 'https://placehold.co/600x400.png',
     dataAiHint: 'dog food',
@@ -268,9 +268,9 @@ export const mockProducts: Product[] = [
     weight: 1.7
   },
   {
-    id: 'prod-47232',
+    id: '47232',
     name: "Nature's Protection SUPERIOR CARE WHITE DOGS GRAIN FREE INSECTS ADULT SMALL AND MINI BREEDS",
-    description: 'prod_47232',
+    description: '47232',
     price: 275,
     imageUrl: 'https://placehold.co/600x400.png',
     dataAiHint: 'dog food',
@@ -284,9 +284,9 @@ export const mockProducts: Product[] = [
     weight: 1.5
   },
   {
-    id: 'prod-47654',
+    id: '47654',
     name: "Nature's Protection SUPERIOR CARE RED COAT GRAIN FREE LAMB ADULT SMALL AND MINI BREEDS",
-    description: 'prod_47654',
+    description: '47654',
     price: 275,
     imageUrl: 'https://placehold.co/600x400.png',
     dataAiHint: 'dog food',
@@ -300,9 +300,9 @@ export const mockProducts: Product[] = [
     weight: 1.5
   },
   {
-    id: 'prod-45735',
+    id: '45735',
     name: "Nature's Protection SUPERIOR CARE HYPOALLERGENIC DENTAL FRAGRANCE FREE",
-    description: 'prod_45735',
+    description: '45735',
     price: 70,
     imageUrl: 'https://placehold.co/600x400.png',
     dataAiHint: 'dog treats',
@@ -313,9 +313,9 @@ export const mockProducts: Product[] = [
     weight: 0.15
   },
   {
-    id: 'prod-171458',
+    id: '171458',
     name: "Nature's Protection Urinary Health",
-    description: 'prod_171458',
+    description: '171458',
     price: 130,
     imageUrl: 'https://placehold.co/600x400.png',
     dataAiHint: 'dog treats',
@@ -326,9 +326,9 @@ export const mockProducts: Product[] = [
     weight: 0.16
   },
   {
-    id: 'prod-17278',
+    id: '17278',
     name: "Nature's Protection SUPERIOR CARE WHITE COAT DENTAL CARE",
-    description: 'prod_17278',
+    description: '17278',
     price: 90,
     imageUrl: 'https://placehold.co/600x400.png',
     dataAiHint: 'dog treats',
@@ -340,9 +340,9 @@ export const mockProducts: Product[] = [
     weight: 0.16
   },
   {
-    id: 'prod-17272',
+    id: '17272',
     name: "Nature's Protection SUPERIOR CARE WHITE COAT HEALTHY HIPS & JOINTS",
-    description: 'prod_17272',
+    description: '17272',
     price: 110,
     imageUrl: 'https://placehold.co/600x400.png',
     dataAiHint: 'dog treats',
@@ -354,9 +354,9 @@ export const mockProducts: Product[] = [
     weight: 0.16
   },
   {
-    id: 'prod-47233',
+    id: '47233',
     name: "Nature's Protection LIFESTYLE GRAIN FREE CHICKEN & TURKEY PUPPY ALL BREEDS",
-    description: 'prod_47233',
+    description: '47233',
     price: 265,
     imageUrl: 'https://placehold.co/600x400.png',
     dataAiHint: 'dog food',
@@ -407,9 +407,9 @@ export const mockOrders: Order[] = [
     shippingAddress: { street: '123 Pet Lane', city: 'Chisinau', postalCode: 'MD-2001', country: 'Moldova' },
     trackingNumber: 'NP123456789MD',
     items: [
-      { productId: 'prod-4', name: "Nature's Protection SUPERIOR CARE WHITE DOGS GRAIN FREE LAMB ADULT SMALL AND MINI BREEDS", quantity: 1, price: 245 },
-      { productId: 'prod-11', name: "Nature's Protection HEALTHY SKIN & COAT", quantity: 1, price: 350 },
-      { productId: 'prod-12', name: 'Nature\'s Protection SUPERIOR CARE HYPOALLERGENIC DENTAL FRAGRANCE FREE', quantity: 2, price: 70 },
+      { productId: '47231', name: "Nature's Protection SUPERIOR CARE WHITE DOGS GRAIN FREE LAMB ADULT SMALL AND MINI BREEDS", quantity: 1, price: 245 },
+      { productId: '45834', name: "Nature's Protection HEALTHY SKIN & COAT", quantity: 1, price: 350 },
+      { productId: '45735', name: 'Nature\'s Protection SUPERIOR CARE HYPOALLERGENIC DENTAL FRAGRANCE FREE', quantity: 2, price: 70 },
     ],
   },
   {
@@ -421,8 +421,8 @@ export const mockOrders: Order[] = [
     shippingAddress: { street: '123 Pet Lane', city: 'Chisinau', postalCode: 'MD-2001', country: 'Moldova' },
     trackingNumber: 'NP987654321MD',
     items: [
-      { productId: 'prod-6', name: "Nature's Protection LIFESTYLE GRAIN FREE SALMON WITH KRILL STERILISED ADULT ALL BREEDS", quantity: 1, price: 265 },
-      { productId: 'prod-7', name: "Nature's Protection MINI EXTRA SALMON", quantity: 1, price: 295 },
+      { productId: '45671', name: "Nature's Protection LIFESTYLE GRAIN FREE SALMON WITH KRILL STERILISED ADULT ALL BREEDS", quantity: 1, price: 265 },
+      { productId: '45662', name: "Nature's Protection MINI EXTRA SALMON", quantity: 1, price: 295 },
     ],
   },
 ];
