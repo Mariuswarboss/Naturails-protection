@@ -27,6 +27,7 @@ interface LanguageContextType {
   setLanguage: (lang: string) => void;
   translations: Translations;
   t: (key: string, replacements?: Record<string, string | number>) => string; // key can be dot-separated for nesting
+  isLanguageRestored: boolean;
 }
 
 const LANGUAGE_STORAGE_KEY = 'selectedLanguage';
@@ -47,6 +48,7 @@ interface LanguageProviderProps {
 export function LanguageProvider({ children }: LanguageProviderProps) {
   const [language, setLanguageState] = useState<string>(DEFAULT_LANGUAGE);
   const [loadedTranslations, setLoadedTranslations] = useState<Translations>(translationsMap[DEFAULT_LANGUAGE]);
+  const [isLanguageRestored, setIsLanguageRestored] = useState(false);
 
   useEffect(() => {
     let storedLanguage = localStorage.getItem(LANGUAGE_STORAGE_KEY);
@@ -58,6 +60,7 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
     
     setLanguageState(storedLanguage);
     setLoadedTranslations(translationsMap[storedLanguage]);
+    setIsLanguageRestored(true);
   }, []);
 
   const setLanguage = useCallback((lang: string) => {
@@ -96,7 +99,7 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
   }, [loadedTranslations, language]);
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, translations: loadedTranslations, t }}>
+    <LanguageContext.Provider value={{ language, setLanguage, translations: loadedTranslations, t, isLanguageRestored }}>
       {children}
     </LanguageContext.Provider>
   );
