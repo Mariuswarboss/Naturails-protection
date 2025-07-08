@@ -45,6 +45,10 @@ export default async function ProductPage({ params }: { params: { id: string } }
       </SiteLayout>
     );
   }
+  
+  const variants = product.variantGroupId
+    ? mockProducts.filter(p => p.variantGroupId === product.variantGroupId).sort((a, b) => (a.weight || 0) - (b.weight || 0))
+    : [];
 
   const relatedProducts = product.relatedProductIds
     ? mockProducts.filter(p => product.relatedProductIds!.includes(p.id) && p.id !== product.id)
@@ -88,7 +92,7 @@ export default async function ProductPage({ params }: { params: { id: string } }
             <p className="text-sm text-muted-foreground">{serverT('productPage.category', { category: product.category })}</p>
           </div>
 
-          <ProductDetailsClient product={product} />
+          <ProductDetailsClient product={product} variants={variants} />
 
         </div>
       </div>
@@ -109,5 +113,3 @@ export default async function ProductPage({ params }: { params: { id: string } }
     </SiteLayout>
   );
 }
-
-    

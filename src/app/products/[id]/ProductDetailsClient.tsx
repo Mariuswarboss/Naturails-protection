@@ -9,12 +9,14 @@ import { useCart } from '@/hooks/useCart';
 import { ShoppingBag, Plus, Minus } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { useTranslation } from '@/contexts/LanguageContext';
+import Link from 'next/link';
 
 interface ProductDetailsClientProps {
   product: Product;
+  variants: Product[];
 }
 
-export default function ProductDetailsClient({ product }: ProductDetailsClientProps) {
+export default function ProductDetailsClient({ product, variants }: ProductDetailsClientProps) {
   const [quantity, setQuantity] = useState(1);
   const { addToCart } = useCart();
   const { toast } = useToast();
@@ -63,6 +65,24 @@ export default function ProductDetailsClient({ product }: ProductDetailsClientPr
 
   return (
     <div className="space-y-6">
+        {variants.length > 1 && (
+            <div className="space-y-3">
+                <p className="text-sm font-medium">{t('productPage.weightLabel') || 'Weight'}</p>
+                <div className="flex flex-wrap gap-2">
+                    {variants.map(variant => (
+                        <Link href={`/products/${variant.id}`} key={variant.id}>
+                            <Button
+                                variant={product.id === variant.id ? 'default' : 'outline'}
+                                aria-current={product.id === variant.id ? 'page' : undefined}
+                            >
+                                {`${variant.weight} kg`}
+                            </Button>
+                        </Link>
+                    ))}
+                </div>
+            </div>
+        )}
+
         <div className="flex items-center space-x-3">
             <p className="text-sm font-medium">{t('productPage.quantity')}</p>
             <div className="flex items-center border rounded-md">

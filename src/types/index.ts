@@ -17,6 +17,7 @@ export interface Product {
   purpose?: string;
   coatColor?: string;
   weight?: number; // in kg
+  variantGroupId?: string;
 }
 
 export interface CartItem {

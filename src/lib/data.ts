@@ -103,6 +103,42 @@ export const mockProducts: Product[] = [
     purpose: 'Red Coat Care',
     coatColor: 'Red',
     weight: 1.5,
+  },
+  {
+    id: 'NPSC45834',
+    name: "NATURE'S PROTECTION SUPERIOR CARE dry grain free food for adult, small and mini breed dogs with salmon",
+    description: 'NPSC45834',
+    price: 140,
+    imageUrl: 'https://naturesprotection.eu/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_NPSC45834680_680resizebg.webp',
+    dataAiHint: 'dog food',
+    category: 'Dry Food',
+    stock: 45,
+    productFor: 'dog',
+    breedSize: 'Small Breeds',
+    lifestage: 'Adult',
+    flavour: 'Salmon',
+    purpose: 'Tear Stain Prevention',
+    coatColor: 'White',
+    weight: 1.5,
+    variantGroupId: 'npsc-white-dog-salmon-adult'
+  },
+  {
+    id: 'NPSC45834-10',
+    name: "NATURE'S PROTECTION SUPERIOR CARE dry grain free food for adult, small and mini breed dogs with salmon",
+    description: 'NPSC45834',
+    price: 1250,
+    imageUrl: 'https://d3gr7hv60ouvr1.cloudfront.net/CACHE/images/products/281c7561-ed7d-47b0-8212-b57add94c1b8/c2178b6042f05a485822eb122fdefeb8.jpg',
+    dataAiHint: 'dog food',
+    category: 'Dry Food',
+    stock: 20,
+    productFor: 'dog',
+    breedSize: 'Small Breeds',
+    lifestage: 'Adult',
+    flavour: 'Salmon',
+    purpose: 'Tear Stain Prevention',
+    coatColor: 'White',
+    weight: 10,
+    variantGroupId: 'npsc-white-dog-salmon-adult'
   }
 ];
 
