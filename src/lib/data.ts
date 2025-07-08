@@ -18,6 +18,23 @@ export const mockProducts: Product[] = [
     purpose: 'Red Coat Care',
     coatColor: 'Red',
     weight: 4,
+  },
+  {
+    id: 'NPSC47230',
+    name: "NATURE'S PROTECTION SUPERIOR CARE Sample Red Coat Grain Free Salmon Adult Small Breed dry food for dogs",
+    description: 'NPSC47230',
+    price: 130.00,
+    imageUrl: 'https://placehold.co/600x400.png',
+    dataAiHint: 'dog food',
+    category: 'Dry Food',
+    stock: 50,
+    productFor: 'dog',
+    breedSize: 'Small Breeds',
+    lifestage: 'Adult',
+    flavour: 'Salmon',
+    purpose: 'Red Coat Care',
+    coatColor: 'Red',
+    weight: 1.5,
   }
 ];
 
