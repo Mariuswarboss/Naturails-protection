@@ -1,7 +1,25 @@
 
 import type { Product, User, Order, Address, OrderItem } from '@/types';
 
-export const mockProducts: Product[] = [];
+export const mockProducts: Product[] = [
+  {
+    id: 'NPSC47236',
+    name: "NATURE'S PROTECTION SUPERIOR CARE dry grain free food for adult dogs of all breeds with red coat, with lamb",
+    description: 'NPSC47236_desc',
+    price: 1250.00,
+    imageUrl: 'https://placehold.co/600x400.png',
+    dataAiHint: 'dog food',
+    category: 'Dry Food',
+    stock: 50,
+    productFor: 'dog',
+    breedSize: 'All Breeds',
+    lifestage: 'Adult',
+    flavour: 'Lamb',
+    purpose: 'Red Coat Care',
+    coatColor: 'Red',
+    weight: 4,
+  }
+];
 
 export function getProductById(id: string): Product | undefined {
   return mockProducts.find(p => p.id === id);
