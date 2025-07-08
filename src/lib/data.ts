@@ -70,6 +70,23 @@ export const mockProducts: Product[] = [
     coatColor: 'White',
     weight: 1.5,
   },
+  {
+    id: 'NPSC45829',
+    name: "NATURE'S PROTECTION SUPERIOR CARE dry grain free food for junior small and mini breed dogs with white coat, with white fish",
+    description: 'NPSC45829',
+    price: 130,
+    imageUrl: 'https://naturesprotection.eu/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_npsc45829680_680resizebg.webp',
+    dataAiHint: 'dog food',
+    category: 'Dry Food',
+    stock: 50,
+    productFor: 'dog',
+    breedSize: 'Small Breeds',
+    lifestage: 'Junior',
+    flavour: 'White Fish',
+    purpose: 'White Coat Care',
+    coatColor: 'White',
+    weight: 1.5,
+  },
 ];
 
 export function getProductById(id: string): Product | undefined {
