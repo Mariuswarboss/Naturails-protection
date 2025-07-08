@@ -64,6 +64,12 @@ const nextConfig: NextConfig = {
         hostname: 'static.petshop.md',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'c.scdn.gr',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
