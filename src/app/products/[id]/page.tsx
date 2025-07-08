@@ -79,7 +79,8 @@ export default async function ProductPage({ params }: { params: { id: string } }
         <div className="space-y-6">
           <h1 className="font-headline text-3xl md:text-4xl font-bold">{product.name}</h1>
           <p className="text-2xl font-semibold text-primary">{product.price.toFixed(2)} MDL</p>
-          <div className="prose prose-sm sm:prose-base text-foreground/80">
+          
+          <div>
             <ProductDescription descriptionKey={product.description} />
           </div>
           
