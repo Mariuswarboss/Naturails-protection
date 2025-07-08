@@ -87,6 +87,23 @@ export const mockProducts: Product[] = [
     coatColor: 'White',
     weight: 1.5,
   },
+  {
+    id: 'NPSC47232',
+    name: "NATURE'S PROTECTION SUPERIOR CARE dry grain free food for adult dogs of small breeds with red coat, with lamb",
+    description: 'NPSC47232',
+    price: 130,
+    imageUrl: 'https://naturesprotection.eu/vendor/laravel-files/files/import/Nuotraukos/NP%20SC/RC%20Adult%20Small%20Breeds%20Lamb/__thumbnails__/vc_2_NPSC_RED_COAT_Adult_Small%20breeds_Lamb_1,5kg_FRONT_3D680_680resizebg.webp',
+    dataAiHint: 'dog food',
+    category: 'Dry Food',
+    stock: 50,
+    productFor: 'dog',
+    breedSize: 'Small Breeds',
+    lifestage: 'Adult',
+    flavour: 'Lamb',
+    purpose: 'Red Coat Care',
+    coatColor: 'Red',
+    weight: 1.5,
+  }
 ];
 
 export function getProductById(id: string): Product | undefined {
