@@ -6,7 +6,7 @@ export const mockProducts: Product[] = [
     id: 'NPSC47236',
     name: "NATURE'S PROTECTION SUPERIOR CARE dry grain free food for adult dogs of all breeds with red coat, with lamb",
     description: 'NPSC47236',
-    price: 320.00,
+    price: 320,
     imageUrl: 'https://placehold.co/600x400.png',
     dataAiHint: 'dog food',
     category: 'Dry Food',
@@ -23,7 +23,7 @@ export const mockProducts: Product[] = [
     id: 'NPSC47230',
     name: "NATURE'S PROTECTION SUPERIOR CARE Sample Red Coat Grain Free Salmon Adult Small Breed dry food for dogs",
     description: 'NPSC47230',
-    price: 130.00,
+    price: 130,
     imageUrl: 'https://naturesprotection.eu/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_NPSC47230680_680resizebg.webp',
     dataAiHint: 'dog food',
     category: 'Dry Food',
@@ -40,7 +40,7 @@ export const mockProducts: Product[] = [
     id: 'NPSC47228',
     name: "NATURE'S PROTECTION SUPERIOR CARE dry grain free food for junior dogs of small breeds with red coat, with salmon",
     description: 'NPSC47228',
-    price: 130.00,
+    price: 130,
     imageUrl: 'https://naturesprotection.eu/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_NPSC47228680_680resizebg.webp',
     dataAiHint: 'dog food',
     category: 'Dry Food',
@@ -57,8 +57,8 @@ export const mockProducts: Product[] = [
     id: 'NPSC45667',
     name: "NATURE'S PROTECTION SUPERIOR CARE dry grain free food for adult, small and mini breed dogs with white fish",
     description: 'NPSC45667',
-    price: 130.00,
-    imageUrl: 'https://placehold.co/600x400.png',
+    price: 130,
+    imageUrl: 'https://naturesprotection.eu/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_npsc45667680_680resizebg.webp',
     dataAiHint: 'dog food',
     category: 'Dry Food',
     stock: 50,
@@ -69,7 +69,7 @@ export const mockProducts: Product[] = [
     purpose: 'White Coat Care',
     coatColor: 'White',
     weight: 1.5,
-  }
+  },
 ];
 
 export function getProductById(id: string): Product | undefined {
