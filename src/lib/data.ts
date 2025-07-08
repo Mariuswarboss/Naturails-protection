@@ -7,7 +7,7 @@ export const mockProducts: Product[] = [
     name: "NATURE'S PROTECTION SUPERIOR CARE dry grain free food for adult dogs of all breeds with red coat, with lamb",
     description: 'NPSC47236',
     price: 320,
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://naturesprotection.eu/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_NPSC47236680_680resizebg.webp',
     dataAiHint: 'dog food',
     category: 'Dry Food',
     stock: 50,
