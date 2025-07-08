@@ -139,6 +139,23 @@ export const mockProducts: Product[] = [
     coatColor: 'White',
     weight: 10,
     variantGroupId: 'npsc-white-dog-salmon-adult'
+  },
+  {
+    id: 'NPSC45671',
+    name: "NATURE'S PROTECTION SUPERIOR CARE dry grain free food for junior dogs of all breeds with white coat, with salmon",
+    description: 'NPSC45671',
+    price: 140,
+    imageUrl: 'https://naturesprotection.eu/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_npsc45671680_680resizebg.webp',
+    dataAiHint: 'dog food',
+    category: 'Dry Food',
+    stock: 50,
+    productFor: 'dog',
+    breedSize: 'All Breeds',
+    lifestage: 'Junior',
+    flavour: 'Salmon',
+    purpose: 'White Coat Care',
+    coatColor: 'White',
+    weight: 1.5,
   }
 ];
 
