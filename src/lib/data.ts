@@ -295,6 +295,22 @@ export const mockProducts: Product[] = [
     coatColor: 'Red',
     weight: 10,
     variantGroupId: 'npsc-red-coat-salmon-junior-small',
+  },
+  {
+    id: 'KIKNPSC47201',
+    name: "NATURE'S PROTECTION SUPERIOR CARE snacks with salmon for adult dogs with white and light coat",
+    description: 'KIKNPSC47201',
+    price: 85,
+    imageUrl: 'https://naturesprotection.eu/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_KIKNPSC47201680_680resizebg.webp',
+    dataAiHint: 'dog snacks',
+    category: 'Snacks',
+    stock: 100,
+    productFor: 'dog',
+    lifestage: 'Adult',
+    coatColor: 'White',
+    flavour: 'Salmon',
+    purpose: 'Tear Stain Prevention',
+    weight: 0.11
   }
 ];
 
