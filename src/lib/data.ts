@@ -6,7 +6,7 @@ export const mockProducts: Product[] = [
     id: 'NPSC47236',
     name: "NATURE'S PROTECTION SUPERIOR CARE dry grain free food for adult dogs of all breeds with red coat, with lamb",
     description: 'NPSC47236',
-    price: 320,
+    price: 700,
     imageUrl: 'https://naturesprotection.eu/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_NPSC47236680_680resizebg.webp',
     dataAiHint: 'dog food',
     category: 'Dry Food',
@@ -172,6 +172,23 @@ export const mockProducts: Product[] = [
     flavour: 'Lamb',
     purpose: 'Sensitive Skin & Stomach',
     weight: 1.5,
+  },
+  {
+    id: 'NPSC47592',
+    name: "NATURE'S PROTECTION SUPERIOR CARE dry grain free pet food with white fish for dogs of all sizes and life stages with white coat",
+    description: 'NPSC47592',
+    price: 700,
+    imageUrl: 'https://naturesprotection.eu/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_NPSC47592680_680resizebg.webp',
+    dataAiHint: 'dog food',
+    category: 'Dry Food',
+    stock: 50,
+    productFor: 'dog',
+    breedSize: 'All Breeds',
+    lifestage: 'All Life Stages',
+    flavour: 'White Fish',
+    purpose: 'White Coat Care',
+    coatColor: 'White',
+    weight: 4,
   }
 ];
 
