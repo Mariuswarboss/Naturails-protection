@@ -189,6 +189,22 @@ export const mockProducts: Product[] = [
     purpose: 'White Coat Care',
     coatColor: 'White',
     weight: 4,
+  },
+  {
+    id: 'NPS45746',
+    name: "NATURE'S PROTECTION dry food for junior all breed dogs with lamb",
+    description: 'NPS45746',
+    price: 400,
+    imageUrl: 'https://naturesprotection.eu/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_NPS45746680_680resizebg.webp',
+    dataAiHint: 'dog food',
+    category: 'Dry Food',
+    stock: 50,
+    productFor: 'dog',
+    breedSize: 'All Breeds',
+    lifestage: 'Junior',
+    flavour: 'Lamb',
+    purpose: 'Healthy Growth & Joint Protection',
+    weight: 2,
   }
 ];
 
