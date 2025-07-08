@@ -52,6 +52,23 @@ export const mockProducts: Product[] = [
     purpose: 'Red Coat Care',
     coatColor: 'Red',
     weight: 1.5,
+  },
+  {
+    id: 'NPSC45667',
+    name: "NATURE'S PROTECTION SUPERIOR CARE dry grain free food for adult, small and mini breed dogs with white fish",
+    description: 'NPSC45667',
+    price: 130.00,
+    imageUrl: 'https://placehold.co/600x400.png',
+    dataAiHint: 'dog food',
+    category: 'Dry Food',
+    stock: 50,
+    productFor: 'dog',
+    breedSize: 'Small Breeds',
+    lifestage: 'Adult',
+    flavour: 'White Fish',
+    purpose: 'White Coat Care',
+    coatColor: 'White',
+    weight: 1.5,
   }
 ];
 
