@@ -311,6 +311,22 @@ export const mockProducts: Product[] = [
     flavour: 'Salmon',
     purpose: 'Tear Stain Prevention',
     weight: 0.11
+  },
+  {
+    id: 'KIKNPSC47655',
+    name: "product_names.KIKNPSC47655",
+    description: 'KIKNPSC47655',
+    price: 85,
+    imageUrl: 'https://naturesprotection.eu/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_KIKNPSC47655680_680resizebg.webp',
+    dataAiHint: 'dog snacks',
+    category: 'Snacks',
+    stock: 100,
+    productFor: 'dog',
+    lifestage: 'Adult',
+    coatColor: 'White',
+    flavour: 'Lamb',
+    purpose: 'Mobility and Joint Health',
+    weight: 0.150
   }
 ];
 
