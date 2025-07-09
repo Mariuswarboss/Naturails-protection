@@ -407,6 +407,22 @@ export const mockProducts: Product[] = [
     flavour: 'Salmon',
     purpose: 'Oral & Intestinal Care',
     weight: 0.15
+  },
+  {
+    id: 'KIKNPSC47651',
+    name: 'product_names.KIKNPSC47651',
+    description: 'KIKNPSC47651',
+    price: 85,
+    imageUrl: 'https://naturesprotection.eu/vendor/laravel-files/files/import/Nuotraukos/SKANESTAI/SKU/NP%20SC/SUPPLEMENTAL/__thumbnails__/vc_1_KIKNPSC47651680_680resizebg.webp',
+    dataAiHint: 'dog snacks',
+    category: 'Snacks',
+    stock: 100,
+    productFor: 'dog',
+    lifestage: 'Junior',
+    coatColor: 'White',
+    flavour: 'Insects',
+    purpose: 'Healthy Growth & Development',
+    weight: 0.150
   }
 ];
 
