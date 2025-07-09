@@ -56,7 +56,7 @@ export const mockProducts: Product[] = [
   },
   {
     id: 'NPSC45833',
-    name: "product_names.NPSC45664",
+    name: "product_names.NPSC45833",
     description: 'NPSC45664',
     price: 700,
     imageUrl: 'https://naturesprotection.eu/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_NPSC45833680_680resizebg.webp',
@@ -376,6 +376,22 @@ export const mockProducts: Product[] = [
     purpose: 'Immune Health',
     weight: 0.15
   },
+  {
+    id: 'KIKNPSC47660',
+    name: 'product_names.KIKNPSC47660',
+    description: 'KIKNPSC47660',
+    price: 85,
+    imageUrl: 'https://naturesprotection.eu/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_KIKNPSC47660680_680resizebg.webp',
+    dataAiHint: 'dog snacks',
+    category: 'Snacks',
+    stock: 100,
+    productFor: 'dog',
+    lifestage: 'Adult',
+    coatColor: 'Red',
+    flavour: 'Lamb',
+    purpose: 'Healthy Body & Stamina',
+    weight: 0.15
+  }
 ];
 
 export function getProductById(id: string): Product | undefined {
