@@ -6,13 +6,12 @@ import { createContext, useState, useEffect, useCallback, useContext } from 'rea
 
 // Import translations directly for simplicity in this setup
 // In a larger app, dynamic imports or a dedicated i18n library might be better.
-import enTranslations from '@/locales/en.json';
 import roTranslations from '@/locales/ro.json';
 import ruTranslations from '@/locales/ru.json';
 
 // Define a type for the translation keys based on one of the files (e.g., en.json)
 // This provides some type safety, though it's not exhaustive for nested structures without deeper typing.
-type TranslationKeys = keyof typeof enTranslations; // Or a more complex recursive type
+type TranslationKeys = keyof typeof ruTranslations; // Or a more complex recursive type
 type NestedTranslationKeys<T> = {
   [K in keyof T]: T[K] extends string ? K : K extends string ? `${K}.${NestedTranslationKeys<T[K]>}` : never;
 }[keyof T];
@@ -20,7 +19,7 @@ type NestedTranslationKeys<T> = {
 
 // A more robust way to type deeply nested keys, but can be complex.
 // For now, we'll keep it simpler and rely on developers to use correct keys.
-type Translations = typeof enTranslations;
+type Translations = typeof ruTranslations;
 
 interface LanguageContextType {
   language: string;
@@ -31,10 +30,9 @@ interface LanguageContextType {
 }
 
 const LANGUAGE_STORAGE_KEY = 'selectedLanguage';
-const DEFAULT_LANGUAGE = 'RO';
+const DEFAULT_LANGUAGE = 'RU';
 
 const translationsMap: Record<string, Translations> = {
-  EN: enTranslations as Translations,
   RO: roTranslations as Translations,
   RU: ruTranslations as Translations,
 };

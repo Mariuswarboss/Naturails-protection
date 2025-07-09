@@ -48,11 +48,11 @@ export default function CartPage() {
           {cartItems.map(item => (
             <div key={item.productId} className="flex items-center gap-4 p-4 border rounded-lg shadow-sm bg-card">
               <div className="relative h-24 w-24 rounded-md overflow-hidden shrink-0">
-                <Image src={item.imageUrl} alt={item.name} fill className="object-cover" data-ai-hint="product image" />
+                <Image src={item.imageUrl} alt={t(item.name)} fill className="object-cover" data-ai-hint="product image" />
               </div>
               <div className="flex-grow">
                 <Link href={`/products/${item.productId}`} className="font-semibold text-lg hover:text-primary">
-                  {item.name} {/* Product name not translated */}
+                  {t(item.name)}
                 </Link>
                 <p className="text-sm text-muted-foreground">{item.price.toFixed(2)} MDL {t('cartPage.each')}</p>
               </div>
@@ -69,14 +69,14 @@ export default function CartPage() {
                   }}
                   min="1"
                   className="h-8 w-12 text-center"
-                  aria-label={t('cartPage.productNameQuantityAria', { productName: item.name })}
+                  aria-label={t('cartPage.productNameQuantityAria', { productName: t(item.name) })}
                 />
                 <Button variant="outline" size="icon" className="h-8 w-8" onClick={() => updateQuantity(item.productId, item.quantity + 1)} aria-label={t('productPage.increaseQuantity')}>
                   <Plus className="h-4 w-4" />
                 </Button>
               </div>
               <p className="font-semibold w-24 text-right">{(item.price * item.quantity).toFixed(2)} MDL</p>
-              <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-destructive" onClick={() => removeFromCart(item.productId)} aria-label={t('cartPage.removeProductAria', { productName: item.name })}>
+              <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-destructive" onClick={() => removeFromCart(item.productId)} aria-label={t('cartPage.removeProductAria', { productName: t(item.name) })}>
                 <Trash2 className="h-5 w-5" />
               </Button>
             </div>

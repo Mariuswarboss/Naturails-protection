@@ -4,7 +4,7 @@ import type { Product, User, Order, Address, OrderItem } from '@/types';
 export const mockProducts: Product[] = [
   {
     id: 'NPSC47236',
-    name: "NATURE'S PROTECTION SUPERIOR CARE dry grain free food for adult dogs of all breeds with red coat, with lamb",
+    name: "product_names.NPSC47236",
     description: 'NPSC47236',
     price: 700,
     imageUrl: 'https://naturesprotection.eu/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_NPSC47236680_680resizebg.webp',
@@ -21,7 +21,7 @@ export const mockProducts: Product[] = [
   },
   {
     id: 'NPSC47230',
-    name: "NATURE'S PROTECTION SUPERIOR CARE Sample Red Coat Grain Free Salmon Adult Small Breed dry food for dogs",
+    name: "product_names.NPSC47230",
     description: 'NPSC47230',
     price: 320,
     imageUrl: 'https://naturesprotection.eu/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_NPSC47230680_680resizebg.webp',
@@ -38,7 +38,7 @@ export const mockProducts: Product[] = [
   },
   {
     id: 'NPSC47228',
-    name: "NATURE'S PROTECTION SUPERIOR CARE dry grain free food for junior dogs of small breeds with red coat, with salmon",
+    name: "product_names.NPSC47228",
     description: 'NPSC47228',
     price: 320,
     imageUrl: 'https://naturesprotection.eu/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_NPSC47228680_680resizebg.webp',
@@ -56,7 +56,7 @@ export const mockProducts: Product[] = [
   },
   {
     id: 'NPSC45833',
-    name: "NATURE'S PROTECTION SUPERIOR CARE dry food for adult, small and mini breed dogs with white coat, with lamb",
+    name: "product_names.NPSC45833",
     description: 'NPSC45664',
     price: 700,
     imageUrl: 'https://naturesprotection.eu/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_NPSC45833680_680resizebg.webp',
@@ -74,7 +74,7 @@ export const mockProducts: Product[] = [
   },
   {
     id: 'NPSC45664',
-    name: "NATURE'S PROTECTION SUPERIOR CARE dry food for adult, small and mini breed dogs with white coat, with lamb",
+    name: "product_names.NPSC45664",
     description: 'NPSC45664',
     price: 1450,
     imageUrl: 'https://naturesprotection.eu/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_NPSC45664680_680resizebg.webp',
@@ -92,7 +92,7 @@ export const mockProducts: Product[] = [
   },
   {
     id: 'NPSC45667',
-    name: "NATURE'S PROTECTION SUPERIOR CARE dry grain free food for adult, small and mini breed dogs with white fish",
+    name: "product_names.NPSC45667",
     description: 'NPSC45667',
     price: 320,
     imageUrl: 'https://naturesprotection.eu/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_npsc45667680_680resizebg.webp',
@@ -109,7 +109,7 @@ export const mockProducts: Product[] = [
   },
   {
     id: 'NPSC45829',
-    name: "NATURE'S PROTECTION SUPERIOR CARE dry grain free food for junior small and mini breed dogs with white coat, with white fish",
+    name: "product_names.NPSC45829",
     description: 'NPSC45829',
     price: 320,
     imageUrl: 'https://naturesprotection.eu/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_npsc45829680_680resizebg.webp',
@@ -126,7 +126,7 @@ export const mockProducts: Product[] = [
   },
   {
     id: 'NPSC47232',
-    name: "NATURE'S PROTECTION SUPERIOR CARE dry grain free food for adult dogs of small breeds with red coat, with lamb",
+    name: "product_names.NPSC47232",
     description: 'NPSC47232',
     price: 320,
     imageUrl: 'https://naturesprotection.eu/vendor/laravel-files/files/import/Nuotraukos/NP%20SC/RC%20Adult%20Small%20Breeds%20Lamb/__thumbnails__/vc_2_NPSC_RED_COAT_Adult_Small%20breeds_Lamb_1,5kg_FRONT_3D680_680resizebg.webp',
@@ -144,7 +144,7 @@ export const mockProducts: Product[] = [
   },
   {
     id: 'NPSC45834',
-    name: "NATURE'S PROTECTION SUPERIOR CARE dry grain free food for adult, small and mini breed dogs with salmon",
+    name: "product_names.NPSC45834",
     description: 'NPSC45834',
     price: 320,
     imageUrl: 'https://naturesprotection.eu/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_NPSC45834680_680resizebg.webp',
@@ -162,7 +162,7 @@ export const mockProducts: Product[] = [
   },
   {
     id: 'NPSC45834-10',
-    name: "NATURE'S PROTECTION SUPERIOR CARE dry grain free food for adult, small and mini breed dogs with salmon",
+    name: "product_names.NPSC45834-10",
     description: 'NPSC45834',
     price: 1450,
     imageUrl: 'https://d3gr7hv60ouvr1.cloudfront.net/CACHE/images/products/281c7561-ed7d-47b0-8212-b57add94c1b8/c2178b6042f05a485822eb122fdefeb8.jpg',
@@ -180,7 +180,7 @@ export const mockProducts: Product[] = [
   },
   {
     id: 'NPSC45671',
-    name: "NATURE'S PROTECTION SUPERIOR CARE dry grain free food for junior dogs of all breeds with white coat, with salmon",
+    name: "product_names.NPSC45671",
     description: 'NPSC45671',
     price: 320,
     imageUrl: 'https://naturesprotection.eu/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_npsc45671680_680resizebg.webp',
@@ -197,7 +197,7 @@ export const mockProducts: Product[] = [
   },
   {
     id: 'NPSC45794',
-    name: "NATURE'S PROTECTION SUPERIOR CARE dry food for adult dogs of small breeds with sensitive skin and stomach, with lamb",
+    name: "product_names.NPSC45794",
     description: 'NPSC45794',
     price: 320,
     imageUrl: 'https://naturesprotection.eu/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_npsc45794680_680resizebg.webp',
@@ -213,7 +213,7 @@ export const mockProducts: Product[] = [
   },
   {
     id: 'NPSC47592',
-    name: "NATURE'S PROTECTION SUPERIOR CARE dry grain free pet food with white fish for dogs of all sizes and life stages with white coat",
+    name: "product_names.NPSC47592",
     description: 'NPSC47592',
     price: 700,
     imageUrl: 'https://naturesprotection.eu/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_NPSC47592680_680resizebg.webp',
@@ -230,7 +230,7 @@ export const mockProducts: Product[] = [
   },
   {
     id: 'NPS45746',
-    name: "NATURE'S PROTECTION dry food for junior all breed dogs with lamb",
+    name: "product_names.NPS45746",
     description: 'NPS45746',
     price: 400,
     imageUrl: 'https://naturesprotection.eu/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_NPS45746680_680resizebg.webp',
@@ -246,7 +246,7 @@ export const mockProducts: Product[] = [
   },
   {
     id: 'NPS45750',
-    name: "NATURE'S PROTECTION dry food for adult dogs of all breeds with lamb",
+    name: "product_names.NPS45750",
     description: 'NPS45750',
     price: 2200,
     imageUrl: 'https://c.scdn.gr/images/sku_main_images/031700/31700513/xlarge_20211014155846_nature_s_protection_adult_lamb_all_breeds_xira_trofi_skylon_18kg.jpeg',
@@ -262,7 +262,7 @@ export const mockProducts: Product[] = [
   },
   {
     id: 'NPSC47232-10',
-    name: "NATURE'S PROTECTION SUPERIOR CARE dry grain free food for adult dogs of small breeds with red coat, with lamb",
+    name: "product_names.NPSC47232-10",
     description: 'NPSC47232',
     price: 1450,
     imageUrl: 'https://naturesprotection.eu/vendor/laravel-files/files/import/Nuotraukos/NP%20SC/RC%20Adult%20Small%20Breeds%20Lamb/__thumbnails__/vc_2_NPSC_RED_COAT__Adult_Small%20breeds_Lamb__10kg_FRONT_3D680_680resizebg.webp',
@@ -280,7 +280,7 @@ export const mockProducts: Product[] = [
   },
   {
     id: 'NPSC47229',
-    name: "NATURE'S PROTECTION SUPERIOR CARE dry grain free food for junior dogs of small breeds with red coat, with salmon",
+    name: "product_names.NPSC47229",
     description: 'NPSC47228',
     price: 1450,
     imageUrl: 'https://naturesprotection.eu/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_NPSC47229680_680resizebg.webp',
@@ -298,7 +298,7 @@ export const mockProducts: Product[] = [
   },
   {
     id: 'KIKNPSC47201',
-    name: "NATURE'S PROTECTION SUPERIOR CARE snacks with salmon for adult dogs with white and light coat",
+    name: "product_names.KIKNPSC47201",
     description: 'KIKNPSC47201',
     price: 85,
     imageUrl: 'https://naturesprotection.eu/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_KIKNPSC47201680_680resizebg.webp',

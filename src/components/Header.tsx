@@ -69,9 +69,6 @@ export default function Header() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className={mobile ? "w-[calc(100%-2rem)]" : ""}>
-        <DropdownMenuItem onSelect={() => handleLanguageChange('EN')}>
-          {t('languages.en')}
-        </DropdownMenuItem>
         <DropdownMenuItem onSelect={() => handleLanguageChange('RO')}>
           {t('languages.ro')}
         </DropdownMenuItem>

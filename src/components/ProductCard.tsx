@@ -17,7 +17,7 @@ export default function ProductCard({ product }: { product: Product }) {
         <CardHeader className="p-0 relative aspect-square overflow-hidden border-b">
           <Image
             src={product.imageUrl}
-            alt={product.name} // Product name not translated
+            alt={t(product.name)}
             width={400}
             height={400}
             className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
@@ -31,9 +31,9 @@ export default function ProductCard({ product }: { product: Product }) {
         </CardHeader>
         <CardContent className="flex-grow p-4 flex flex-col">
           <CardTitle className="font-headline text-base md:text-lg mb-1 leading-tight group-hover:text-primary transition-colors">
-            {product.name}
+            {t(product.name)}
           </CardTitle>
-          <p className="text-xs text-muted-foreground mb-2 line-clamp-2 flex-grow">{product.description}</p>
+          <p className="text-xs text-muted-foreground mb-2 line-clamp-2 flex-grow">{t(product.description)}</p>
           <p className="text-lg font-semibold text-foreground mt-auto pt-2">{product.price.toFixed(2)} MDL</p>
         </CardContent>
       </Link>

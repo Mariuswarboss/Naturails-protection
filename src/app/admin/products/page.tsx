@@ -128,11 +128,11 @@ export default function AdminProductsPage() {
   const handleSaveProduct = (productData: Omit<Product, 'id'> | Product) => {
     if ('id' in productData) { 
         setProducts(prev => prev.map(p => p.id === productData.id ? productData : p));
-        toast({ title: t('admin.productUpdatedToastTitle'), description: t('admin.productUpdatedToastDescription', {productName: productData.name})});
+        toast({ title: t('admin.productUpdatedToastTitle'), description: t('admin.productUpdatedToastDescription', {productName: t(productData.name)})});
     } else { 
         const newProduct = { ...productData, id: `prod-${Date.now()}` }; 
         setProducts(prev => [newProduct, ...prev]);
-        toast({ title: t('admin.productAddedToastTitle'), description: t('admin.productAddedToastDescription', {productName: newProduct.name})});
+        toast({ title: t('admin.productAddedToastTitle'), description: t('admin.productAddedToastDescription', {productName: t(newProduct.name)})});
     }
     setIsModalOpen(false);
     setEditingProduct(null);
@@ -156,7 +156,7 @@ export default function AdminProductsPage() {
                 <DialogHeader>
                     <DialogTitle>{editingProduct ? t('admin.editProductModalTitle') : t('admin.addProductModalTitle')}</DialogTitle>
                     <DialogDescription>
-                        {editingProduct ? t('admin.editProductModalDescription', {productName: editingProduct.name}) : t('admin.addProductModalDescription')}
+                        {editingProduct ? t('admin.editProductModalDescription', {productName: t(editingProduct.name)}) : t('admin.addProductModalDescription')}
                     </DialogDescription>
                 </DialogHeader>
                 <ProductForm 
@@ -196,7 +196,7 @@ export default function AdminProductsPage() {
                   <TableCell>
                     <Image src={product.imageUrl} alt={product.name} width={50} height={50} className="rounded-md object-cover" data-ai-hint={product.dataAiHint || "product image"}/>
                   </TableCell>
-                  <TableCell className="font-medium">{product.name}</TableCell>
+                  <TableCell className="font-medium">{t(product.name)}</TableCell>
                   <TableCell>{product.category}</TableCell>
                   <TableCell className="text-right">{product.price.toFixed(2)} MDL</TableCell>
                   <TableCell className="text-right">{product.stock}</TableCell>

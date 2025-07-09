@@ -200,9 +200,9 @@ export default function CheckoutPage() {
                 {cartItems.map(item => (
                   <div key={item.productId} className="flex items-center justify-between text-sm">
                     <div className="flex items-center gap-2">
-                      <Image src={item.imageUrl} alt={item.name} width={40} height={40} className="rounded" data-ai-hint="product small" />
+                      <Image src={item.imageUrl} alt={t(item.name)} width={40} height={40} className="rounded" data-ai-hint="product small" />
                       <div>
-                        <p className="font-medium truncate max-w-[150px]">{item.name}</p> {/* Product name not translated */}
+                        <p className="font-medium truncate max-w-[150px]">{t(item.name)}</p>
                         <p className="text-xs text-muted-foreground">{t('checkoutPage.quantityShort', { quantity: item.quantity })}</p>
                       </div>
                     </div>

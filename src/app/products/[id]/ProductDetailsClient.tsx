@@ -26,7 +26,7 @@ export default function ProductDetailsClient({ product, variants }: ProductDetai
     if (product.stock <= 0) {
         toast({
             title: t('productPage.outOfStockToastTitle'),
-            description: t('productPage.outOfStockToastDescription', { productName: product.name }),
+            description: t('productPage.outOfStockToastDescription', { productName: t(product.name) }),
             variant: "destructive",
         });
         return;
@@ -34,7 +34,7 @@ export default function ProductDetailsClient({ product, variants }: ProductDetai
     if (quantity > product.stock) {
         toast({
             title: t('productPage.limitedStockToastTitle'),
-            description: t('productPage.limitedStockToastDescription', { stock: product.stock, productName: product.name }),
+            description: t('productPage.limitedStockToastDescription', { stock: product.stock, productName: t(product.name) }),
             variant: "destructive",
         });
         return;
@@ -42,7 +42,7 @@ export default function ProductDetailsClient({ product, variants }: ProductDetai
     addToCart(product, quantity);
     toast({
       title: t('productPage.addedToCartTitle'),
-      description: t('productPage.addedToCartDescription', { quantity, productName: product.name }),
+      description: t('productPage.addedToCartDescription', { quantity, productName: t(product.name) }),
     });
   };
 

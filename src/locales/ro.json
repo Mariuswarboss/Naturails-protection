@@ -158,7 +158,6 @@
     "noProductsFoundAdmin": "Niciun produs găsit."
   },
   "languages": {
-    "en": "English (EN)",
     "ro": "Română (RO)",
     "ru": "Русский (RU)"
   },
@@ -305,6 +304,26 @@
     "passwordLengthToastDescription": "Parola trebuie să aibă cel puțin 6 caractere.",
     "signupSuccessToastTitle": "Cont Creat!",
     "signupSuccessToastDescription": "Bun venit! Te-ai autentificat cu succes."
+  },
+  "product_names": {
+    "NPSC47236": "NATURE'S PROTECTION SUPERIOR CARE hrană uscată fără cereale pentru câini adulți de toate rasele cu blană roșie, cu miel",
+    "NPSC47230": "NATURE'S PROTECTION SUPERIOR CARE mostră hrană uscată fără cereale Red Coat cu somon pentru câini adulți de talie mică",
+    "NPSC47228": "NATURE'S PROTECTION SUPERIOR CARE hrană uscată fără cereale pentru juniori de talie mică cu blană roșie, cu somon",
+    "NPSC45833": "NATURE'S PROTECTION SUPERIOR CARE hrană uscată pentru câini adulți de talie mică și mini cu blană albă, cu miel",
+    "NPSC45664": "NATURE'S PROTECTION SUPERIOR CARE hrană uscată pentru câini adulți de talie mică și mini cu blană albă, cu miel",
+    "NPSC45667": "NATURE'S PROTECTION SUPERIOR CARE hrană uscată fără cereale pentru câini adulți de talie mică și mini, cu pește alb",
+    "NPSC45829": "NATURE'S PROTECTION SUPERIOR CARE hrană uscată fără cereale pentru juniori de talie mică și mini cu blană albă, cu pește alb",
+    "NPSC47232": "NATURE'S PROTECTION SUPERIOR CARE hrană uscată fără cereale pentru câini adulți de talie mică cu blană roșie, cu miel",
+    "NPSC45834": "NATURE'S PROTECTION SUPERIOR CARE hrană uscată fără cereale pentru câini adulți de talie mică și mini, cu somon",
+    "NPSC45834-10": "NATURE'S PROTECTION SUPERIOR CARE hrană uscată fără cereale pentru câini adulți de talie mică și mini, cu somon",
+    "NPSC45671": "NATURE'S PROTECTION SUPERIOR CARE hrană uscată fără cereale pentru juniori de toate rasele cu blană albă, cu somon",
+    "NPSC45794": "NATURE'S PROTECTION SUPERIOR CARE hrană uscată pentru câini adulți de talie mică cu piele și stomac sensibil, cu miel",
+    "NPSC47592": "NATURE'S PROTECTION SUPERIOR CARE hrană uscată fără cereale cu pește alb pentru câini de toate taliile și vârstele cu blană albă",
+    "NPS45746": "NATURE'S PROTECTION hrană uscată pentru juniori de toate rasele, cu miel",
+    "NPS45750": "NATURE'S PROTECTION hrană uscată pentru câini adulți de toate rasele, cu miel",
+    "NPSC47232-10": "NATURE'S PROTECTION SUPERIOR CARE hrană uscată fără cereale pentru câini adulți de talie mică cu blană roșie, cu miel",
+    "NPSC47229": "NATURE'S PROTECTION SUPERIOR CARE hrană uscată fără cereale pentru juniori de talie mică cu blană roșie, cu somon",
+    "KIKNPSC47201": "NATURE'S PROTECTION SUPERIOR CARE recompense cu somon pentru câini adulți cu blană albă și deschisă"
   },
   "product_descriptions": {
     "NPSC45664": {

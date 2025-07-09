@@ -176,11 +176,10 @@ export default function OrderDetailsPage() {
               {order.items.map((item: OrderItem) => (
                 <li key={item.productId} className="flex items-center gap-4 p-3 border rounded-md bg-muted/30">
                   <div className="relative h-16 w-16 rounded overflow-hidden shrink-0">
-                    {/* Product image and name are not translated from keys */}
-                    <Image src={`https://placehold.co/100x100.png`} alt={item.name} fill className="object-cover" data-ai-hint="product small" />
+                    <Image src={`https://placehold.co/100x100.png`} alt={t(item.name)} fill className="object-cover" data-ai-hint="product small" />
                   </div>
                   <div className="flex-grow">
-                    <p className="font-medium">{item.name}</p>
+                    <p className="font-medium">{t(item.name)}</p>
                     <p className="text-sm text-muted-foreground">{t('orderDetailsPage.quantityLabel', {quantity: item.quantity})}</p>
                   </div>
                   <p className="text-sm font-medium">{(item.price * item.quantity).toFixed(2)} MDL</p>
