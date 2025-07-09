@@ -365,7 +365,7 @@ export const mockProducts: Product[] = [
     name: 'product_names.KIKNPSC47654',
     description: 'KIKNPSC47654',
     price: 85,
-    imageUrl: 'https://naturesprotection.eu/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_KIKNPSC47654680_680resizebg.webp',
+    imageUrl: 'https://naturesprotection.eu/vendor/laravel-files/files/import/Eshop/thumbnails/vc_1_KIKNPSC47654680_680resizebg.webp',
     dataAiHint: 'dog snacks',
     category: 'Snacks',
     stock: 100,
@@ -390,6 +390,22 @@ export const mockProducts: Product[] = [
     coatColor: 'Red',
     flavour: 'Lamb',
     purpose: 'Healthy Body & Stamina',
+    weight: 0.15
+  },
+  {
+    id: 'KIKNPSC47271',
+    name: 'product_names.KIKNPSC47271',
+    description: 'KIKNPSC47271',
+    price: 85,
+    imageUrl: 'https://naturesprotection.eu/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_KIKNPSC47271680_680resizebg.webp',
+    dataAiHint: 'dog snacks',
+    category: 'Snacks',
+    stock: 100,
+    productFor: 'dog',
+    lifestage: 'Adult',
+    coatColor: 'Red',
+    flavour: 'Salmon',
+    purpose: 'Oral & Intestinal Care',
     weight: 0.15
   }
 ];
