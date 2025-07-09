@@ -1,6 +1,7 @@
 
 "use client";
 
+import { useParams } from 'next/navigation';
 import { getProductById, mockProducts } from '@/lib/data';
 import SiteLayout from '@/components/SiteLayout';
 import Image from 'next/image';
@@ -12,9 +13,12 @@ import ProductDetailsClient from './ProductDetailsClient';
 import ProductDescription from './ProductDescription';
 import { useTranslation } from '@/contexts/LanguageContext';
 
-export default function ProductPage({ params }: { params: { id: string } }) {
+export default function ProductPage() {
+  const params = useParams();
   const { t } = useTranslation();
-  const product = getProductById(params.id);
+  
+  const id = Array.isArray(params.id) ? params.id[0] : params.id as string;
+  const product = getProductById(id);
 
   if (!product) {
     return (
