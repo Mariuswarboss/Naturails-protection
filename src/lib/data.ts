@@ -359,7 +359,23 @@ export const mockProducts: Product[] = [
     flavour: 'Herring',
     purpose: 'Immune Health',
     weight: 0.15
-  }
+  },
+  {
+    id: 'KIKNPSC47273',
+    name: 'product_names.KIKNPSC47273',
+    description: 'KIKNPSC47273',
+    price: 85,
+    imageUrl: 'https://naturesprotection.eu/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_KIKNPSC47273680_680resizebg.webp',
+    dataAiHint: 'dog snacks',
+    category: 'Snacks',
+    stock: 100,
+    productFor: 'dog',
+    lifestage: 'Adult',
+    coatColor: 'Red',
+    flavour: 'Salmon',
+    purpose: 'Skin & Coat Health',
+    weight: 0.160,
+  },
 ];
 
 export function getProductById(id: string): Product | undefined {
