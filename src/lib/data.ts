@@ -343,6 +343,22 @@ export const mockProducts: Product[] = [
     flavour: 'Salmon',
     purpose: 'Hypoallergenic & Digestive Care',
     weight: 0.110
+  },
+  {
+    id: 'KIKNPSC47654',
+    name: 'product_names.KIKNPSC47654',
+    description: 'KIKNPSC47654',
+    price: 85,
+    imageUrl: 'https://naturesprotection.eu/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_KIKNPSC47654680_680resizebg.webp',
+    dataAiHint: 'dog snacks',
+    category: 'Snacks',
+    stock: 100,
+    productFor: 'dog',
+    lifestage: 'Adult',
+    coatColor: 'White',
+    flavour: 'Herring',
+    purpose: 'Immune Health',
+    weight: 0.15
   }
 ];
 
