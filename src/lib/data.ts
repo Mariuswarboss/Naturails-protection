@@ -314,7 +314,7 @@ export const mockProducts: Product[] = [
   },
   {
     id: 'KIKNPSC47655',
-    name: "product_names.KIKNPSC47655",
+    name: 'product_names.KIKNPSC47655',
     description: 'KIKNPSC47655',
     price: 85,
     imageUrl: 'https://naturesprotection.eu/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_KIKNPSC47655680_680resizebg.webp',
@@ -345,22 +345,6 @@ export const mockProducts: Product[] = [
     weight: 0.110
   },
   {
-    id: 'KIKNPSC47654',
-    name: 'product_names.KIKNPSC47654',
-    description: 'KIKNPSC47654',
-    price: 85,
-    imageUrl: 'https://naturesprotection.eu/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_KIKNPSC47654680_680resizebg.webp',
-    dataAiHint: 'dog snacks',
-    category: 'Snacks',
-    stock: 100,
-    productFor: 'dog',
-    lifestage: 'Adult',
-    coatColor: 'White',
-    flavour: 'Herring',
-    purpose: 'Immune Health',
-    weight: 0.15
-  },
-  {
     id: 'KIKNPSC47273',
     name: 'product_names.KIKNPSC47273',
     description: 'KIKNPSC47273',
@@ -375,6 +359,22 @@ export const mockProducts: Product[] = [
     flavour: 'Salmon',
     purpose: 'Skin & Coat Health',
     weight: 0.160,
+  },
+  {
+    id: 'KIKNPSC47654',
+    name: 'product_names.KIKNPSC47654',
+    description: 'KIKNPSC47654',
+    price: 85,
+    imageUrl: 'https://naturesprotection.eu/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_KIKNPSC47654680_680resizebg.webp',
+    dataAiHint: 'dog snacks',
+    category: 'Snacks',
+    stock: 100,
+    productFor: 'dog',
+    lifestage: 'Adult',
+    coatColor: 'White',
+    flavour: 'Herring',
+    purpose: 'Immune Health',
+    weight: 0.15
   },
 ];
 
