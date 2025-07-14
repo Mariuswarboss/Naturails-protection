@@ -79,6 +79,12 @@ const nextConfig: NextConfig = {
         hostname: 'www.naturesprotection.pet',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'tauroproline.com',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
