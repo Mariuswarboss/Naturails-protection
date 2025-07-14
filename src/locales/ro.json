@@ -334,7 +334,8 @@
     "KIKNPSC47657": "NATURE'S PROTECTION SUPERIOR CARE hrană complementară fără cereale - gustări pentru îngrijire sensibilă cu somon pentru juniori de toate rasele cu blană albă",
     "KIKNPSC-BRAIN-SALMON": "NATURE'S PROTECTION SUPERIOR CARE gustări suplimentare pentru dezvoltarea creierului la câinii cu blană albă, cu somon",
     "SNK46125": "NATURE'S PROTECTION LIFESTYLE gustare pentru câini bastonașe de miel",
-    "SNK46121": "NATURE'S PROTECTION SUPERIOR CARE gustări pentru câini mușcături de inimă de iepure"
+    "SNK46121": "NATURE'S PROTECTION SUPERIOR CARE gustări pentru câini mușcături de inimă de iepure",
+    "SNK46122": "NATURE'S PROTECTION SUPERIOR CARE gustări pentru câini felii moi de rață"
   },
   "product_descriptions": {
     "NPSC45664": {
@@ -486,6 +487,12 @@
       "components": "Compoziție: pui 44,5 %, inimă de iepure 25 %, amidon 15 %, glicerină 6 %, proteină vegetală 5 %, sorbitol 4 %, sare 0,5 %.",
       "vitaminsAndMinerals": "Constituenți analitici: proteină brută – 21 %, fibre brute – 1 %, grăsimi brute – 7 %, cenușă brută – 4 %, umiditate – 23 %.",
       "instructions": "Instrucțiuni de hrănire: doza zilnică poate varia în funcție de temperatura exterioară, stilul de viață, temperamentul și activitatea animalului. Apă curată și proaspătă trebuie să fie disponibilă în permanență."
+    },
+    "SNK46122": {
+      "details": "Gustările Nature's Protection Superior Care sunt recompense naturale de înaltă calitate, create special pentru a satisface nevoile diverse ale animalelor de companie. Cu aromele lor unice și o varietate largă, aceste gustări sunt o alegere perfectă pentru proprietarii de animale de companie care acordă prioritate atât sănătății, cât și gustului în dieta animalului lor. Aceste gustări sunt complet lipsite de coloranți și potențiatori de aromă artificiali, asigurând un produs pur, natural, care susține bunăstarea generală a animalului dvs. de companie. Compoziția lor atent echilibrată le face nu numai o recompensă delicioasă, ci și un adaos sănătos la dieta zilnică a animalului dvs. Ingredientul principal din aceste gustări este rața de înaltă calitate, o sursă de proteine slabă și ușor de digerat. Carnea de rață este bogată în nutrienți esențiali, precum fierul și aminoacizii, iar proprietățile sale hipoalergenice o fac potrivită pentru animalele de companie cu sensibilități alimentare sau alergii. Conținutul scăzut de grăsimi ajută, de asemenea, la menținerea unei greutăți sănătoase și susține dezvoltarea musculară. Gustările Nature's Protection Superior Care sunt concepute pentru a oferi o recompensă sănătoasă, delicioasă și naturală, pe care animalele de companie o iubesc, promovând în același timp sănătatea și fericirea lor.",
+      "components": "Compoziție: rață 92,8 %, glicerină 5 %, amidon 1 %, proteină vegetală 1 %, sare 0,2 %.",
+      "vitaminsAndMinerals": "Constituenți analitici: proteină brută – 38 %, fibre brute – 0,2 %, grăsimi brute – 3,5 %, cenușă brută – 4 %, umiditate – 23 %.",
+      "instructions": "Recomandări de hrănire: Se administrează între mesele principale în funcție de greutatea, vârsta și activitatea animalului. Nu este potrivit pentru cățeii sub 3 luni. Un bol cu apă proaspătă și curată trebuie să fie întotdeauna la dispoziția animalului. A se păstra într-un loc uscat și răcoros, ferit de lumina soarelui - la o temperatură care să nu depășească +25 ⁰C. Odată deschis, a se utiliza în termen de 3 zile."
     }
   }
 }
