@@ -358,14 +358,14 @@ export const mockProducts: Product[] = [
     coatColor: 'Red',
     flavour: 'Salmon',
     purpose: 'Skin & Coat Health',
-    weight: 0.160,
+    weight: 0.160
   },
   {
     id: 'KIKNPSC47654',
     name: 'product_names.KIKNPSC47654',
     description: 'KIKNPSC47654',
     price: 85,
-    imageUrl: 'https://naturesprotection.eu/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_KIKNPSC47654680_680resizebg.webp',
+    imageUrl: 'https://naturesprotection.eu/vendor/laravel-files/files/import/Eshop/thumbnails/vc_1_KIKNPSC47654680_680resizebg.webp',
     dataAiHint: 'dog snacks',
     category: 'Snacks',
     stock: 100,
@@ -439,6 +439,22 @@ export const mockProducts: Product[] = [
     flavour: 'Salmon',
     purpose: 'Sensitive Care',
     weight: 0.150
+  },
+  {
+    id: 'KIKNPSC-BRAIN-SALMON',
+    name: 'product_names.KIKNPSC-BRAIN-SALMON',
+    description: 'KIKNPSC-BRAIN-SALMON',
+    price: 85,
+    imageUrl: 'https://www.naturesprotection.pet/s/files/1/0615/3895/9522/products/Mazas_isdidintas.png?v=1662130057',
+    dataAiHint: 'dog snacks',
+    category: 'Snacks',
+    stock: 100,
+    productFor: 'dog',
+    lifestage: 'Adult',
+    coatColor: 'White',
+    flavour: 'Salmon',
+    purpose: 'Brain Development',
+    weight: 0.110
   }
 ];
 
