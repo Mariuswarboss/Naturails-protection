@@ -21,9 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable}`}>
-      <head>
-        {/* Removed Google Font links for Alegreya as Inter is now self-hosted via next/font */}
-      </head>
+      <head />
       <body className="font-body antialiased">
         <AppProviders>
           {children}

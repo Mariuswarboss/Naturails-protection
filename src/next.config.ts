@@ -1,1 +1,0 @@
-// This file is obsolete and will be deleted. Configuration has been moved to the root next.config.ts
