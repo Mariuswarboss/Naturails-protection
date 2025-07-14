@@ -469,6 +469,20 @@ export const mockProducts: Product[] = [
     lifestage: 'Adult',
     flavour: 'Lamb',
     weight: 0.075,
+  },
+  {
+    id: 'SNK46121',
+    name: 'product_names.SNK46121',
+    description: 'SNK46121',
+    price: 85,
+    imageUrl: 'https://naturesprotection.eu/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_SNK46121680_680resizebg.webp',
+    dataAiHint: 'dog snacks',
+    category: 'Snacks',
+    stock: 100,
+    productFor: 'dog',
+    lifestage: 'Adult',
+    flavour: 'Rabbit',
+    weight: 0.075,
   }
 ];
 
