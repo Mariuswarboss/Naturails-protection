@@ -118,7 +118,7 @@ export default function ProductsPage() {
   const { t } = useTranslation();
   const searchParams = useSearchParams();
   
-  const dogProducts = useMemo(() => mockProducts.filter(p => p.productFor === 'dog'), []);
+  const dogProducts = useMemo(() => mockProducts.filter(p => p.productFor === 'dog' || p.productFor === 'both'), []);
 
   const [searchTerm, setSearchTerm] = useState('');
   const [appliedSearchTerm, setAppliedSearchTerm] = useState('');
