@@ -558,6 +558,45 @@ export const mockProducts: Product[] = [
     lifestage: 'Adult',
     flavour: 'Duck',
     weight: 0.075,
+  },
+  {
+    id: 'TPL63602',
+    name: 'product_names.TPL63602',
+    description: 'TPL63767',
+    price: 150,
+    imageUrl: 'https://tauroproline.com/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_TPL63602680_680resizebg.webp',
+    dataAiHint: 'pet shampoo',
+    category: 'Shampoo',
+    stock: 50,
+    productFor: 'both',
+    weight: 0.4,
+    variantGroupId: 'tpl-repair-nourish-shampoo'
+  },
+  {
+    id: 'TPL63603',
+    name: 'product_names.TPL63603',
+    description: 'TPL63767',
+    price: 300,
+    imageUrl: 'https://tauroproline.com/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_TPL63603680_680resizebg.webp',
+    dataAiHint: 'pet shampoo',
+    category: 'Shampoo',
+    stock: 30,
+    productFor: 'both',
+    weight: 1,
+    variantGroupId: 'tpl-repair-nourish-shampoo'
+  },
+  {
+    id: 'TPL63767',
+    name: 'product_names.TPL63767',
+    description: 'TPL63767',
+    price: 800,
+    imageUrl: 'https://tauroproline.com/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_TPL63767680_680resizebg.webp',
+    dataAiHint: 'pet shampoo',
+    category: 'Shampoo',
+    stock: 15,
+    productFor: 'both',
+    weight: 3.785,
+    variantGroupId: 'tpl-repair-nourish-shampoo'
   }
 ];
 

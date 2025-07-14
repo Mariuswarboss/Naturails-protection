@@ -9,7 +9,7 @@ export interface Product {
   category: string; 
   stock: number;
   relatedProductIds?: string[];
-  productFor?: 'dog';
+  productFor?: 'dog' | 'cat' | 'both';
   // New filterable attributes
   breedSize?: string;
   lifestage?: string;
