@@ -52,7 +52,7 @@ export const mockProducts: Product[] = [
     name: 'product_names.NPSC-DENTAL-WHITEFISH',
     description: 'NPSC-DENTAL-WHITEFISH',
     price: 85,
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://www.naturesprotection.pet/s/files/1/0615/3895/9522/products/5_3508x4961px.png?v=1662190331',
     dataAiHint: 'dog snacks',
     category: 'Snacks',
     stock: 100,
