@@ -426,7 +426,7 @@ export const mockProducts: Product[] = [
     name: 'product_names.KIKNPSC47654',
     description: 'KIKNPSC47654',
     price: 85,
-    imageUrl: 'https://naturesprotection.eu/vendor/laravel-files/files/import/Eshop/thumbnails/vc_1_KIKNPSC47654680_680resizebg.webp',
+    imageUrl: 'https://naturesprotection.eu/vendor/laravel-files/files/import/Nuotraukos/SKANESTAI/SKU/NP%20SC/SUPPLEMENTAL/__thumbnails__/vc_1_KIKNPSC47654680_680resizebg.webp',
     dataAiHint: 'dog snacks',
     category: 'Snacks',
     stock: 100,
