@@ -73,6 +73,12 @@ const nextConfig: NextConfig = {
         hostname: 'c.scdn.gr',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.naturesprotection.pet',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
