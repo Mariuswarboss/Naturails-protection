@@ -365,7 +365,7 @@ export const mockProducts: Product[] = [
     name: 'product_names.KIKNPSC47654',
     description: 'KIKNPSC47654',
     price: 85,
-    imageUrl: 'https://naturesprotection.eu/vendor/laravel-files/files/import/Eshop/thumbnails/vc_1_KIKNPSC47654680_680resizebg.webp',
+    imageUrl: 'https://naturesprotection.eu/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_KIKNPSC47654680_680resizebg.webp',
     dataAiHint: 'dog snacks',
     category: 'Snacks',
     stock: 100,
@@ -455,6 +455,20 @@ export const mockProducts: Product[] = [
     flavour: 'Salmon',
     purpose: 'Brain Development',
     weight: 0.110
+  },
+  {
+    id: 'SNK46125',
+    name: 'product_names.SNK46125',
+    description: 'SNK46125',
+    price: 85,
+    imageUrl: 'https://naturesprotection.eu/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_SNK46125680_680resizebg.webp',
+    dataAiHint: 'dog snacks',
+    category: 'Snacks',
+    stock: 100,
+    productFor: 'dog',
+    lifestage: 'Adult',
+    flavour: 'Lamb',
+    weight: 0.075,
   }
 ];
 
