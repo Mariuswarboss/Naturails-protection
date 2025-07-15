@@ -686,6 +686,32 @@ export const mockProducts: Product[] = [
     productFor: 'both',
     weight: 3.785,
     variantGroupId: 'tpl-gentle-scrub-shampoo',
+  },
+  {
+    id: 'TPL63604-400',
+    name: 'product_names.TPL63604',
+    description: 'TPL63604',
+    price: 150,
+    imageUrl: 'https://tauroproline.com/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_TPL63604680_680resizebg.webp',
+    dataAiHint: 'pet mask',
+    category: 'Mask',
+    stock: 40,
+    productFor: 'both',
+    weight: 0.4,
+    variantGroupId: 'tpl-repair-nourish-mask'
+  },
+  {
+    id: 'TPL63604-3785',
+    name: 'product_names.TPL63768',
+    description: 'TPL63604',
+    price: 1700,
+    imageUrl: 'https://tauroproline.com/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_TPL63768680_680resizebg.webp',
+    dataAiHint: 'pet mask',
+    category: 'Mask',
+    stock: 10,
+    productFor: 'both',
+    weight: 3.785,
+    variantGroupId: 'tpl-repair-nourish-mask'
   }
 ];
 

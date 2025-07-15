@@ -349,7 +349,9 @@
     "TPL63612": "TAURO PRO LINE Ultra Natural Care отбеливающий шампунь для собак и кошек с белой и светлой шерстью",
     "TPL63591": "TAURO PRO LINE Ultra Natural Care шампунь для глубокой очистки кожи и шерсти собак и кошек",
     "TPL63598": "TAURO PRO LINE Ultra Natural Care нежный скраб-шампунь для кожи и шерсти собак и кошек 400ml",
-    "TPL63600": "TAURO PRO LINE Ultra Natural Care нежный скраб-шампунь для кожи и шерсти собак и кошек 3785ml"
+    "TPL63600": "TAURO PRO LINE Ultra Natural Care нежный скраб-шампунь для кожи и шерсти собак и кошек 3785ml",
+    "TPL63604": "TAURO PRO LINE Ultra Natural Care маска для восстановления и питания кожи и шерсти собак и кошек 400ml",
+    "TPL63768": "TAURO PRO LINE Ultra Natural Care маска для восстановления и питания кожи и шерсти собак и кошек 3785ml"
   },
   "product_descriptions": {
     "UNINPSC63999": {
@@ -561,6 +563,12 @@
         "components": "Состав: Aqua, Disodium Cocoyl Glutamate, Glycerin, Cocamidopropyl Betaine, Acrylate Copolymer, Lauryl Glucoside, Sodium Chloride, Sorbitol, Propanediol, Hydrogenated Castor Oil, Hydrogenated Jojoba Oil, Sodium Glutamate, Sodium Cocoate, Coco-Glucoside, Glyceryl Oleate, Dicaprylyl Ether, Lauryl Alcohol, Sodium Hydroxide, Ethyhexylglycerin, Phenoxyethanol, Citric Acid, PEG-40 Hydrogenated Castor Oil, Parfum, CI 77007.",
         "vitaminsAndMinerals": "Этот продукт является косметическим средством; раздел витаминов и минералов не применяется.",
         "instructions": "Применение: разведите шампунь с теплой водой в соотношении 1:10, смочите шерсть и распределите продукт. Массируйте около 3 минут и хорошо смойте теплой водой. Предупреждение: Только для наружного применения. Хранить в недоступном для детей месте."
+    },
+    "TPL63604": {
+      "details": "Маска Tauro Pro Line ULTRA NATURAL CARE Repair & Nourish с высококачественными ингредиентами предназначена для укрепления волос, глубокого увлажнения кожи и шерсти, а также придания ей блеска. Маска подходит для всех типов шерсти собак и кошек. Это 3-й шаг – фиксация – в трехступенчатой системе: шерсть кондиционируется, результат закрепляется и поддерживается влажность шерсти и кожи. С маслом ши и экстрактом авокадо: питает и увлажняет сухие, ослабленные волосы, может помочь восстановить здоровый блеск и мягкость волос. УФ-защита: Содержащийся в ней гидролизованный шелк может помочь защитить от УФ-повреждений. Распутывание: Маска с увлажняющими и восстанавливающими свойствами, идеально подходит для распутывания колтунов. Для чувствительных питомцев: Благодаря нежной формуле, маска идеально подходит для питомцев с чувствительной кожей. В ее состав не входят SLS, парабены, минеральные масла и силиконы.",
+      "components": "Состав: Aqua, Glycerin, Butyrospermum Parkii (Shea) Butter, Cetearyl Alcohol, Glyceryl Stearate SE, Behentrimonium Chloride, Hydrolyzed Silk, Persea Gratissima (Avocado) Fruit Extract, Urea, Guar Hydroxypropyltrimonium Chloride, Sodium Lactate, Starch Hydroxypropyltrimonium Chloride, Lactic Acid, Potassium Sorbate, Sodium Benzoate, Isopropyl Alcohol, Sodium Chloride, Ethylhexylglycerin, Phenoxyethanol, Parfum, Linalool.",
+      "vitaminsAndMinerals": "Этот продукт является косметическим средством; раздел витаминов и минералов не применяется.",
+      "instructions": "Применение: разведите маску теплой водой в соотношении 1:10. Аккуратно вмассируйте в шерсть. Оставьте на 3 минуты. Тщательно смойте теплой водой. Предупреждение: Только для наружного применения. Хранить в недоступном для детей месте."
     }
   }
 }
