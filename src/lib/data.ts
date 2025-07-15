@@ -751,6 +751,30 @@ export const mockProducts: Product[] = [
     productFor: 'both',
     weight: 3.785,
     variantGroupId: 'tpl-keratin-gloss-conditioner'
+  },
+  {
+    id: 'TPL63790',
+    name: "product_names.TPL63790",
+    description: 'TPL63790',
+    price: 150,
+    imageUrl: 'https://tauroproline.com/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_TPL63790680_680resizebg.webp',
+    dataAiHint: 'pet shampoo growth',
+    category: 'Shampoo',
+    stock: 50,
+    productFor: 'both',
+    weight: 0.4
+  },
+  {
+    id: 'TPL47281',
+    name: 'product_names.TPL47281',
+    description: 'TPL47281',
+    price: 200,
+    imageUrl: 'https://placehold.co/400x400.png',
+    dataAiHint: 'pet paw balm',
+    category: 'Balm',
+    stock: 50,
+    productFor: 'both',
+    weight: 0.075
   }
 ];
 
