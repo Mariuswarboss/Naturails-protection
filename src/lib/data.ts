@@ -688,7 +688,7 @@ export const mockProducts: Product[] = [
     variantGroupId: 'tpl-gentle-scrub-shampoo',
   },
   {
-    id: 'TPL63604-400',
+    id: 'TPL63604',
     name: 'product_names.TPL63604',
     description: 'TPL63604',
     price: 150,
@@ -701,7 +701,7 @@ export const mockProducts: Product[] = [
     variantGroupId: 'tpl-repair-nourish-mask'
   },
   {
-    id: 'TPL63604-3785',
+    id: 'TPL63768',
     name: 'product_names.TPL63768',
     description: 'TPL63604',
     price: 1700,
@@ -712,6 +712,45 @@ export const mockProducts: Product[] = [
     productFor: 'both',
     weight: 3.785,
     variantGroupId: 'tpl-repair-nourish-mask'
+  },
+  {
+    id: 'TPL63609',
+    name: 'product_names.TPL63609',
+    description: 'TPL63609',
+    price: 150,
+    imageUrl: 'https://tauroproline.com/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_TPL63609680_680resizebg.webp',
+    dataAiHint: 'pet conditioner',
+    category: 'Conditioner',
+    stock: 50,
+    productFor: 'both',
+    weight: 0.4,
+    variantGroupId: 'tpl-keratin-gloss-conditioner'
+  },
+  {
+    id: 'TPL63610',
+    name: 'product_names.TPL63610',
+    description: 'TPL63609',
+    price: 300,
+    imageUrl: 'https://tauroproline.com/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_TPL63610680_680resizebg.webp',
+    dataAiHint: 'pet conditioner',
+    category: 'Conditioner',
+    stock: 30,
+    productFor: 'both',
+    weight: 1,
+    variantGroupId: 'tpl-keratin-gloss-conditioner'
+  },
+  {
+    id: 'TPL63611',
+    name: 'product_names.TPL63611',
+    description: 'TPL63609',
+    price: 1700,
+    imageUrl: 'https://tauroproline.com/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_TPL63611680_680resizebg.webp',
+    dataAiHint: 'pet conditioner',
+    category: 'Conditioner',
+    stock: 15,
+    productFor: 'both',
+    weight: 3.785,
+    variantGroupId: 'tpl-keratin-gloss-conditioner'
   }
 ];
 
