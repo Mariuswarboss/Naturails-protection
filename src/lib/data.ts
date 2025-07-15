@@ -597,6 +597,45 @@ export const mockProducts: Product[] = [
     productFor: 'both',
     weight: 3.785,
     variantGroupId: 'tpl-repair-nourish-shampoo'
+  },
+  {
+    id: 'TPL63606',
+    name: 'product_names.TPL63606',
+    description: 'TPL63608',
+    price: 150,
+    imageUrl: 'https://tauroproline.com/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_TPL63606680_680resizebg.webp',
+    dataAiHint: 'pet shampoo keratin',
+    category: 'Shampoo',
+    stock: 50,
+    productFor: 'both',
+    weight: 0.4,
+    variantGroupId: 'tpl-keratin-gloss-shampoo'
+  },
+  {
+    id: 'TPL63607',
+    name: 'product_names.TPL63607',
+    description: 'TPL63608',
+    price: 300,
+    imageUrl: 'https://tauroproline.com/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_TPL63607680_680resizebg.webp',
+    dataAiHint: 'pet shampoo keratin',
+    category: 'Shampoo',
+    stock: 30,
+    productFor: 'both',
+    weight: 1,
+    variantGroupId: 'tpl-keratin-gloss-shampoo'
+  },
+  {
+    id: 'TPL63608',
+    name: 'product_names.TPL63608',
+    description: 'TPL63608',
+    price: 1700,
+    imageUrl: 'https://tauroproline.com/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_TPL63608680_680resizebg.webp',
+    dataAiHint: 'pet shampoo keratin',
+    category: 'Shampoo',
+    stock: 15,
+    productFor: 'both',
+    weight: 3.785,
+    variantGroupId: 'tpl-keratin-gloss-shampoo'
   }
 ];
 

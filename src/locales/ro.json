@@ -342,7 +342,10 @@
     "SNK46122": "NATURE'S PROTECTION SUPERIOR CARE gustări pentru câini felii moi de rață",
     "TPL63602": "TAURO PRO LINE Ultra Natural Care șampon pentru repararea și hrănirea pielii și blănii la câini și pisici 400ml",
     "TPL63603": "TAURO PRO LINE Ultra Natural Care șampon pentru repararea și hrănirea pielii și blănii la câini și pisici 1000ml",
-    "TPL63767": "TAURO PRO LINE Ultra Natural Care șampon pentru repararea și hrănirea pielii și blănii la câini și pisici 3785ml"
+    "TPL63767": "TAURO PRO LINE Ultra Natural Care șampon pentru repararea și hrănirea pielii și blănii la câini și pisici 3785ml",
+    "TPL63606": "TAURO PRO LINE Ultra Natural Care șampon cu cheratină pentru blana câinilor și pisicilor 400ml",
+    "TPL63607": "TAURO PRO LINE Ultra Natural Care șampon cu cheratină pentru blana câinilor și pisicilor 1000ml",
+    "TPL63608": "TAURO PRO LINE Ultra Natural Care șampon cu cheratină pentru blana câinilor și pisicilor 3785ml"
   },
   "product_descriptions": {
     "UNINPSC63999": {
@@ -528,6 +531,12 @@
     "TPL63767": {
       "details": "Șamponul Tauro Pro Line ULTRA NATURAL CARE Repair & Nourish, cu ingrediente de cea mai înaltă calitate, este conceput pentru a întări părul, a hidrata în profunzime pielea și blana și a-i conferi strălucire. Șamponul este potrivit pentru toate tipurile de blană ale câinilor și pisicilor. Acest șampon este al doilea pas – funcția – într-un sistem în trei pași: a doua spălare îmbunătățește funcția dorită. Special conceput pentru câini și pisici cu blană albă sau deschisă la culoare. Îndepărtează temeinic și fără a dăuna pielii și blănii petele galbene și maronii și sporește în mod natural culoarea albă. Datorită unei compoziții unice de ingrediente active, structura părului este hidratată și refăcută, părul devine mai moale, mai maleabil, neted și ușor de pieptănat. Datorită extractului de avocado și mătăsii hidrolizate, produsul este perfect absorbit în păr, hrănindu-l din interior, astfel încât blana capătă hidratare și strălucire mătăsoasă. Mătasea hidrolizată conținută în acesta poate ajuta la protejarea împotriva daunelor UV. Glicerina din compoziția produsului servește ca un hidratant natural: saturează în profunzime pielea și părul cu umiditate, poate îmbunătăți elasticitatea părului și reduce căderea acestuia.",
       "components": "Compoziție: Aqua, Sodium Coco-Sulfate, Coco-Glucoside, Glycerin, Cocamidopropyl Betaine, Glyceryl Oleate, Persea Gratissima (Avocado) Fruit Extract, Hydrolyzed Silk, Urea, Guar Hydroxypropyltrimonium Chloride, Sodium Lactate, Starch Hydroxypropyltrimonium Chloride, Lactic Acid, PEG-18 Glyceryl Oleate/Cocoate, Sodium Chloride, Citric Acid, Sodium Benzoate, Potassium Sorbate, Ethylhexylglycerin, Phneoxyethanol, PEG-40 Hydrogenated Castor Oil, Parfum, Linalool.",
+      "vitaminsAndMinerals": "Acest produs este un produs cosmetic; secțiunea de vitamine și minerale nu se aplică.",
+      "instructions": "Utilizare: diluați șamponul cu apă călduță în raport de 1:10, umeziți blana și distribuiți produsul. Masați timp de aproximativ 3 minute și clătiți bine cu apă călduță. Avertisment: Doar pentru uz extern. A nu se lăsa la îndemâna copiilor."
+    },
+    "TPL63608": {
+      "details": "Șamponul Tauro Pro Line ULTRA NATURAL CARE Keratin & Gloss, cu ingrediente de cea mai înaltă calitate și cheratină, este conceput pentru a hrăni și a hidrata blana și pielea animalului de companie. Șamponul este potrivit pentru toate tipurile de blană ale câinilor și pisicilor. Cu cheratină, principalul bloc de construcție al părului, acesta reface eficient părul, hidratează profund și întărește firul de păr din interior și exterior. Produsul conține pantenol, care face blana ușor de pieptănat, moale și îi conferă o strălucire sănătoasă. Datorită formulei sale delicate, șamponul este ideal pentru animalele de companie cu piele sensibilă.",
+      "components": "Compoziție: Aqua, Sodium Coco-Sulfate, Coco-Glucoside, Glycerin, Cocamidopropyl Betaine, Glyceryl Oleate, Hydrolyzed Keratin, Panthenol, Betula Alba Leaf Extract, Achillea Millefolium Extract, Salvia Officinalis Leaf Extract, Rosmarinus Officinalis Leaf Extract, Urtica Dioica Extract, Equisetum Arvense Extract, Tilia Cordata Extract, Polyquaternium-10, Lactic Acid, Citric Acid, Sodium Chloride, PEG-40 Hydrogenated Castor Oil, Ethylhexylglycerin, Phenoxyethanol, Sodium Benzoate, Parfum.",
       "vitaminsAndMinerals": "Acest produs este un produs cosmetic; secțiunea de vitamine și minerale nu se aplică.",
       "instructions": "Utilizare: diluați șamponul cu apă călduță în raport de 1:10, umeziți blana și distribuiți produsul. Masați timp de aproximativ 3 minute și clătiți bine cu apă călduță. Avertisment: Doar pentru uz extern. A nu se lăsa la îndemâna copiilor."
     }
