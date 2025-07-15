@@ -765,6 +765,18 @@ export const mockProducts: Product[] = [
     weight: 0.075
   },
   {
+    id: 'TPL47282',
+    name: 'product_names.TPL47282',
+    description: 'TPL47282',
+    price: 200,
+    imageUrl: 'https://tauroproline.com/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_TPL47282680_680resizebg.webp',
+    dataAiHint: 'pet paw balm',
+    category: 'Balm',
+    stock: 50,
+    productFor: 'both',
+    weight: 0.075
+  },
+  {
     id: 'TPL63790',
     name: 'product_names.TPL63790',
     description: 'TPL63790',
