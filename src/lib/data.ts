@@ -636,6 +636,18 @@ export const mockProducts: Product[] = [
     productFor: 'both',
     weight: 3.785,
     variantGroupId: 'tpl-keratin-gloss-shampoo'
+  },
+  {
+    id: 'TPL63612',
+    name: 'product_names.TPL63612',
+    description: 'TPL63612',
+    price: 150,
+    imageUrl: 'https://tauroproline.com/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_TPL63612680_680resizebg.webp',
+    dataAiHint: 'pet shampoo whitening',
+    category: 'Shampoo',
+    stock: 50,
+    productFor: 'both',
+    weight: 0.4,
   }
 ];
 
