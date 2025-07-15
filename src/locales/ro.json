@@ -347,7 +347,9 @@
     "TPL63607": "TAURO PRO LINE Ultra Natural Care șampon cu cheratină pentru blana câinilor și pisicilor 1000ml",
     "TPL63608": "TAURO PRO LINE Ultra Natural Care șampon cu cheratină pentru blana câinilor și pisicilor 3785ml",
     "TPL63612": "TAURO PRO LINE Ultra Natural Care șampon de albire pentru câini și pisici cu blană albă și deschisă",
-    "TPL63591": "TAURO PRO LINE Ultra Natural Care șampon de curățare profundă pentru pielea și blana câinilor și pisicilor"
+    "TPL63591": "TAURO PRO LINE Ultra Natural Care șampon de curățare profundă pentru pielea și blana câinilor și pisicilor",
+    "TPL63598": "TAURO PRO LINE Ultra Natural Care șampon exfoliant delicat pentru pielea și blana câinilor și pisicilor 400ml",
+    "TPL63600": "TAURO PRO LINE Ultra Natural Care șampon exfoliant delicat pentru pielea și blana câinilor și pisicilor 3785ml"
   },
   "product_descriptions": {
     "UNINPSC63999": {
@@ -553,6 +555,12 @@
       "components": "Compoziție: Aqua, Glycerin, Sodium Coco-Sulfate, Coco-Glucoside, Betaine, Coco-Betaine, Salvia Officinalis (Sage) Extract, Panthenol, Glyceryl Oleate, Guar Hydroxypropyltrimonium Chloride, Tocopheryl Acetate, Lactic Acid, Polysorbate 80, Citric Acid, PEG-40 Hydrogenated Castor Oil, Ethylhexylglycerin, Phenoxyethanol, Sodium Benzoate, Potassium Sorbate, Disodium EDTA, Parfum, Linalool.",
       "vitaminsAndMinerals": "Acest produs este un produs cosmetic; secțiunea de vitamine și minerale nu se aplică.",
       "instructions": "Utilizare: diluați șamponul cu apă călduță în raport de 1:10, umeziți blana și distribuiți produsul. Masați timp de aproximativ 3 minute și clătiți bine cu apă călduță. Avertisment: Doar pentru uz extern. A nu se lăsa la îndemâna copiilor."
+    },
+    "TPL63598": {
+        "details": "Șamponul Tauro Pro Line ULTRA NATURAL CARE Gentle Scrub, cu ingrediente de cea mai înaltă calitate, este destinat curățării perfecte a pielii și blănii animalului de companie. Produsul este potrivit pentru toate tipurile de blană la câini și pisici. Premiat cu medalia de aur drept „Produsul lituanian al anului” în 2023. Cu funcție exfoliantă: particulele micro-exfoliante ajută la îndepărtarea delicată, dar eficientă a murdăriei acumulate, lăsând pielea curată și fără celule moarte. Hrănitor: ajută la restabilirea echilibrului hidric al pielii și blănii. Cu ulei de ricin: întărește rădăcinile părului, îmbunătățește elasticitatea și poate reduce căderea părului. Cu ulei de jojoba: hidratează pielea uscată, iritată și reduce roșeața. Blană sănătoasă de la rădăcini: stimulează circulația sângelui, promovând creșterea unei blăni sănătoase și puternice. Ideal pentru animalele de companie sensibile, datorită formulei sale delicate, fără SLS, parabeni, uleiuri minerale și siliconi.",
+        "components": "Compoziție: Aqua, Disodium Cocoyl Glutamate, Glycerin, Cocamidopropyl Betaine, Acrylate Copolymer, Lauryl Glucoside, Sodium Chloride, Sorbitol, Propanediol, Hydrogenated Castor Oil, Hydrogenated Jojoba Oil, Sodium Glutamate, Sodium Cocoate, Coco-Glucoside, Glyceryl Oleate, Dicaprylyl Ether, Lauryl Alcohol, Sodium Hydroxide, Ethyhexylglycerin, Phenoxyethanol, Citric Acid, PEG-40 Hydrogenated Castor Oil, Parfum, CI 77007.",
+        "vitaminsAndMinerals": "Acest produs este un produs cosmetic; secțiunea de vitamine și minerale nu se aplică.",
+        "instructions": "Utilizare: diluați șamponul cu apă călduță în raport de 1:10, umeziți blana și distribuiți produsul. Masați timp de aproximativ 3 minute și clătiți bine cu apă călduță. Avertisment: Doar pentru uz extern. A nu se lăsa la îndemâna copiilor."
     }
   }
 }
