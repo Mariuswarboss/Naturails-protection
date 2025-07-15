@@ -346,7 +346,8 @@
     "TPL63606": "TAURO PRO LINE Ultra Natural Care șampon cu cheratină pentru blana câinilor și pisicilor 400ml",
     "TPL63607": "TAURO PRO LINE Ultra Natural Care șampon cu cheratină pentru blana câinilor și pisicilor 1000ml",
     "TPL63608": "TAURO PRO LINE Ultra Natural Care șampon cu cheratină pentru blana câinilor și pisicilor 3785ml",
-    "TPL63612": "TAURO PRO LINE Ultra Natural Care șampon de albire pentru câini și pisici cu blană albă și deschisă"
+    "TPL63612": "TAURO PRO LINE Ultra Natural Care șampon de albire pentru câini și pisici cu blană albă și deschisă",
+    "TPL63591": "TAURO PRO LINE Ultra Natural Care șampon de curățare profundă pentru pielea și blana câinilor și pisicilor"
   },
   "product_descriptions": {
     "UNINPSC63999": {
@@ -544,6 +545,12 @@
     "TPL63612": {
       "details": "Șamponul de albire Tauro Pro Line ULTRA NATURAL CARE este un șampon hrănitor special formulat pentru câini și pisici cu blană albă sau deschisă, pentru a ajuta la menținerea culorii albe naturale a blănii animalelor dumneavoastră. Este un produs de curățare în primul pas dintr-un sistem în trei pași: îndepărtează murdăria, excesul de sebum, particulele de praf, murdăria și produsele de îngrijire a pielii și blănii. Cu pantenol și glicerină, face blana ușor de pieptănat, moale și strălucitoare. Extractul de miere înmoaie și hrănește pielea, prevenind uscăciunea și conferind blănii o strălucire mătăsoasă. Datorită formulei sale delicate, șamponul este ideal pentru animalele de companie cu piele sensibilă și ajută la menținerea echilibrului optim al pH-ului pielii.",
       "components": "Compoziție: Aqua, Coco-Glucoside, Cocamidopropyl Betaine, Sodium Coco-Sulfate, Hydrogenated Starch Hydrolysate, PEG-18 Glyceryl Oleate/Cocoate, Glyceryl Oleate, Sodium Chloride, Panthenol, Saccharomyces Cerevisiae Extract, Glycerin, Dicaprylyl Ether, Polyquaternium-10, Tocopherol, Lauryl Alcohol, Lactic Acid, Citric Acid, Sodium Benzoate, Potassium Sorbate, PEG-40 Hydrogenated Castor Oil, Sodium Hydroxide, Phenoxyethanol, Ethylhexylglycerin, CI 60730 (Ext. Violet 2), Parfum, Linalool.",
+      "vitaminsAndMinerals": "Acest produs este un produs cosmetic; secțiunea de vitamine și minerale nu se aplică.",
+      "instructions": "Utilizare: diluați șamponul cu apă călduță în raport de 1:10, umeziți blana și distribuiți produsul. Masați timp de aproximativ 3 minute și clătiți bine cu apă călduță. Avertisment: Doar pentru uz extern. A nu se lăsa la îndemâna copiilor."
+    },
+    "TPL63591": {
+      "details": "Șamponul Tauro Pro Line ULTRA NATURAL CARE Deep Clean, cu ingrediente de cea mai înaltă calitate și extract de salvie, pentru curățarea profundă a blănii și pielii animalului de companie. Șamponul este potrivit pentru toate tipurile de blană. Compoziția îmbogățită a șamponului protejează bariera lipidică a pielii, previne descuamarea pielii, conferă blănii strălucire și are un miros foarte plăcut. Acesta este primul pas - curățarea - într-un sistem în trei pași. Curăță profund și eficient pielea și blana. Extractul de salvie controlează secreția de sebum și conferă blănii o strălucire sănătoasă. Salvia are, de asemenea, efecte antibacteriene și calmante. Pantenolul face blana ușor de pieptănat, moale și îi conferă o strălucire sănătoasă. Glicerina servește ca un hidratant natural. Datorită formulei sale delicate, șamponul este ideal pentru animalele de companie cu piele sensibilă.",
+      "components": "Compoziție: Aqua, Glycerin, Sodium Coco-Sulfate, Coco-Glucoside, Betaine, Coco-Betaine, Salvia Officinalis (Sage) Extract, Panthenol, Glyceryl Oleate, Guar Hydroxypropyltrimonium Chloride, Tocopheryl Acetate, Lactic Acid, Polysorbate 80, Citric Acid, PEG-40 Hydrogenated Castor Oil, Ethylhexylglycerin, Phenoxyethanol, Sodium Benzoate, Potassium Sorbate, Disodium EDTA, Parfum, Linalool.",
       "vitaminsAndMinerals": "Acest produs este un produs cosmetic; secțiunea de vitamine și minerale nu se aplică.",
       "instructions": "Utilizare: diluați șamponul cu apă călduță în raport de 1:10, umeziți blana și distribuiți produsul. Masați timp de aproximativ 3 minute și clătiți bine cu apă călduță. Avertisment: Doar pentru uz extern. A nu se lăsa la îndemâna copiilor."
     }
