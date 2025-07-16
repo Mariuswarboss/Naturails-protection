@@ -2,6 +2,7 @@
 "use client";
 
 import type React from 'react';
+import { useEffect } from 'react';
 import { LanguageProvider, useTranslation } from '@/contexts/LanguageContext';
 import { Loader2 } from 'lucide-react';
 
@@ -10,7 +11,14 @@ interface AppProvidersProps {
 }
 
 const AppContent = ({ children }: { children: React.ReactNode }) => {
-  const { isLanguageRestored } = useTranslation();
+  const { language, isLanguageRestored } = useTranslation();
+
+  useEffect(() => {
+    if (isLanguageRestored) {
+      document.documentElement.lang = language.toLowerCase();
+    }
+  }, [language, isLanguageRestored]);
+
 
   if (!isLanguageRestored) {
     return (
