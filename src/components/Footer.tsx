@@ -22,7 +22,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t bg-secondary text-secondary-foreground">
+    <footer className="border-t bg-card text-secondary-foreground">
       <div className="container py-12 px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-center md:text-left">
           <div>
