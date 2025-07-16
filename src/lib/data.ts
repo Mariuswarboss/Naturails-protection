@@ -837,6 +837,18 @@ export const mockProducts: Product[] = [
     stock: 50,
     productFor: 'both',
     weight: 0.03
+  },
+  {
+    id: 'TPL63380',
+    name: 'product_names.TPL63380',
+    description: 'TPL63380',
+    price: 180,
+    imageUrl: 'https://tauroproline.com/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_TPL63380680_680resizebg.webp',
+    dataAiHint: 'pet tear stain remover',
+    category: 'Mask',
+    stock: 40,
+    productFor: 'both',
+    weight: 0.05
   }
 ];
 
