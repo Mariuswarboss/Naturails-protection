@@ -362,7 +362,8 @@
     "TPL63579": "TAURO PRO LINE Ultra Natural Care 6in1 Pure Mist, produs multifuncțional pentru îngrijirea zilnică a corpului",
     "TPLM46214": "TAURO PRO LINE Pure Mist",
     "CAN451432": "Pudră de îngrijire a pielii TAURO PRO LINE Pure Nature pentru tăieturi și zgârieturi minore",
-    "TPL63380": "TAURO PRO LINE Pure Nature Stainless look 3in1, mască naturală de argilă pentru prevenirea petelor de lacrimi pe blană la câini"
+    "TPL63380": "TAURO PRO LINE Pure Nature Stainless look 3in1, mască naturală de argilă pentru prevenirea petelor de lacrimi pe blană la câini",
+    "TPL47414": "TAURO PRO LINE Pure Nature magic coat oil, ulei pentru îngrijirea blănii la câini"
   },
   "product_descriptions": {
     "UNINPSC63999": {
@@ -628,6 +629,12 @@
       "components": "INGREDIENTE: AQUA, KAOLIN, ZEOLIT (MZG), LEVULINAT DE SODIU, BENZOAT DE SODIU, ARGINT (CI 77820), ACID LACTIC.",
       "vitaminsAndMinerals": "Acest produs este un produs cosmetic; secțiunea de vitamine și minerale nu se aplică.",
       "instructions": "INSTRUCȚIUNI DE UTILIZARE: agitați bine înainte de utilizare. Aplicați numai pe blana curată. Pentru prevenirea petelor maronii: aplicați temeinic produsul pe locurile care se pot păta, așteptați câteva minute să se usuce și lăsați-l. Utilizați produsul după necesități. Pentru îndepărtarea petelor maronii: aplicați temeinic produsul pe locurile care sunt în prezent pătate, așteptați să se usuce și pieptănați. Aplicați de 1-2 ori pe zi sau după necesități, până la dispariția petelor. INFORMAȚII DE AVERTIZARE: doar pentru uz extern. Evitați contactul cu ochii și gura. Dacă are loc contactul, clătiți bine ochii și gura cu apă. A se păstra într-un loc uscat - păstrați la temperaturi de 5-25 °C pentru depozitare. A nu se lăsa la îndemâna copiilor. Doar pentru animalele de companie."
+    },
+    "TPL47414": {
+      "details": "Uleiul pentru blană Tauro Pro Line Pure Nature Magic Coat Oil este conceput pentru a hidrata intens și a reface blana uscată sau deshidratată, sporindu-i rezistența. Formula unică și concentrată, ce cuprinde ingrediente active naturale, promovează hidratarea profundă a pielii și a părului și este deosebit de potrivită pentru blana uscată, deoarece pătrunde adânc în diferitele straturi ale firului de păr, de la rădăcină până la vârf. Acest ulei ajută la descurcarea blănii și la repararea eficientă a părului deteriorat și fragil. Este ideal pentru a fi folosit ca mască sau ca ulei de finisare pe blana umedă sau uscată.",
+      "components": "INGREDIENTE: Ulei din semințe de bumbac (Gossypium Herbaceum), ulei din semințe de struguri (Vitis Vinifera), ulei din sâmburi de caise (Prunus Armeniaca), ulei de migdale dulci (Prunus Amygdalus Dulcis), acid lauric, ulei de ricin hidrogenat PEG-40, acetat de tocoferil.",
+      "vitaminsAndMinerals": "Acest produs este un produs cosmetic; secțiunea de vitamine și minerale nu se aplică.",
+      "instructions": "INSTRUCȚIUNI DE UTILIZARE: distribuiți uleiul pe blana curată și uscată înainte de a lega papilotele. ATENȚIE: Numai pentru uz extern. Reacția alergică apare rar. Dacă apare o reacție alergică, întrerupeți utilizarea produsului. A nu se lăsa la îndemâna copiilor."
     }
   }
 }

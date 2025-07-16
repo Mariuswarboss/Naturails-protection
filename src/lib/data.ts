@@ -849,6 +849,18 @@ export const mockProducts: Product[] = [
     stock: 40,
     productFor: 'both',
     weight: 0.05
+  },
+  {
+    id: 'TPL47414',
+    name: 'product_names.TPL47414',
+    description: 'TPL47414',
+    price: 200,
+    imageUrl: 'https://tauroproline.com/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_TPL47414680_680resizebg.webp',
+    dataAiHint: 'pet coat oil',
+    category: 'Care Oil',
+    stock: 50,
+    productFor: 'both',
+    weight: 0.25
   }
 ];
 
