@@ -3,7 +3,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Search, Menu, Languages, User } from 'lucide-react';
+import { Search, Menu, Languages } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
@@ -41,7 +41,8 @@ export default function Header() {
 
   const navLinks = [
     { href: '/', labelKey: 'header.home' },
-    { href: '/products', labelKey: 'header.allProducts' },
+    { href: '/products?category=Food', labelKey: 'header.food' },
+    { href: '/products?category=Cosmetics', labelKey: 'header.cosmetics' },
     { href: '/contact', labelKey: 'footer.contactUs' },
   ];
 
@@ -114,13 +115,6 @@ export default function Header() {
           <div className="hidden md:block">
             <LanguageSwitcherDropdown />
           </div>
-
-          <Link href="/admin">
-            <Button variant="ghost" size="icon" className="rounded-full">
-              <User className="h-6 w-6" />
-              <span className="sr-only">Admin Panel</span>
-            </Button>
-          </Link>
 
           <div className="lg:hidden">
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>

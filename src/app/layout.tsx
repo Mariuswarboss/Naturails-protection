@@ -10,8 +10,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Nature's Protection",
-  description: 'High-quality pet food and supplies by Nature\'s Protection.',
+  title: "Nature's Protection Moldova",
+  description: 'High-quality pet food and supplies by Nature\'s Protection in Moldova. Hrană și accesorii de înaltă calitate pentru animalele de companie în Moldova.',
+  keywords: "Nature Protection Moldova, pet food, hrana animale, Chisinau, Moldova, caini, pisici, Tauro Pro Line",
 };
 
 export default function RootLayout({

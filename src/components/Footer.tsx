@@ -38,7 +38,6 @@ export default function Footer() {
             <h5 className="font-semibold mb-3 text-lg text-foreground">{t('footer.informationTitle')}</h5>
             <ul className="space-y-2 text-sm">
               <li><Link href="/products" className="hover:text-primary hover:underline">{t('header.allProducts')}</Link></li>
-              <li><Link href="/about" className="hover:text-primary hover:underline">{t('footer.aboutUs')}</Link></li>
               <li><Link href="/contact" className="hover:text-primary hover:underline">{t('footer.contactUs')}</Link></li>
               <li><Link href="/terms" className="hover:text-primary hover:underline">{t('footer.termsOfService')}</Link></li>
               <li>

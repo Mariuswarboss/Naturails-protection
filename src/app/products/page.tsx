@@ -14,6 +14,10 @@ import { Filter, Search, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useTranslation } from '@/contexts/LanguageContext';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
+const foodCategories = ['Wet Food', 'Dry Food', 'Snacks'];
+const cosmeticsCategories = ['Shampoo', 'Mask', 'Conditioner', 'Balm', 'Care Mist', 'Care Powder', 'Care Oil', 'Care Elixir', 'Toothpaste', 'Accessories'];
+
+
 const FilterSidebar = ({
   filters,
   setFilters,
@@ -118,7 +122,7 @@ export default function ProductsPage() {
   const { t } = useTranslation();
   const searchParams = useSearchParams();
   
-  const dogProducts = useMemo(() => mockProducts.filter(p => p.productFor === 'dog' || p.productFor === 'both'), []);
+  const allProducts = useMemo(() => mockProducts, []);
 
   const [searchTerm, setSearchTerm] = useState('');
   const [appliedSearchTerm, setAppliedSearchTerm] = useState('');
@@ -138,37 +142,54 @@ export default function ProductsPage() {
   };
 
   const [filters, setFilters] = useState(initialFilters);
+  const [mainCategory, setMainCategory] = useState<'Food' | 'Cosmetics' | 'all'>('all');
 
   useEffect(() => {
     const searchFromUrl = searchParams.get('search');
+    const categoryFromUrl = searchParams.get('category');
+
     if (searchFromUrl) {
         setSearchTerm(searchFromUrl);
         setAppliedSearchTerm(searchFromUrl);
     }
-    const categoryFromUrl = searchParams.get('category');
-    if (categoryFromUrl) {
+    if (categoryFromUrl === 'Food' || categoryFromUrl === 'Cosmetics') {
+      setMainCategory(categoryFromUrl);
+      setFilters(initialFilters); // Reset other filters when main category changes
+    } else if (categoryFromUrl) {
       setFilters(prev => ({...prev, category: categoryFromUrl}));
+    } else {
+      setMainCategory('all');
     }
   }, [searchParams]);
 
+  const filteredProductsByMainCategory = useMemo(() => {
+    if (mainCategory === 'Food') {
+      return allProducts.filter(p => foodCategories.includes(p.category));
+    }
+    if (mainCategory === 'Cosmetics') {
+      return allProducts.filter(p => cosmeticsCategories.includes(p.category));
+    }
+    return allProducts;
+  }, [mainCategory, allProducts]);
+
   const dynamicOptions = useMemo(() => {
-    const createOptions = (key: keyof Product) => [
+    const createOptions = (key: keyof Product, productSet: Product[]) => [
       'all', 
-      ...Array.from(new Set(dogProducts.map(p => p[key]).filter(Boolean) as string[]))
+      ...Array.from(new Set(productSet.map(p => p[key]).filter(Boolean) as string[]))
     ];
     return {
-      categories: createOptions('category'),
-      breedSize: createOptions('breedSize'),
-      lifestage: createOptions('lifestage'),
-      flavour: createOptions('flavour'),
-      purpose: createOptions('purpose'),
-      coatColor: createOptions('coatColor'),
-      weight: ['all', ...Array.from(new Set(dogProducts.map(p => p.weight).filter(Boolean))).sort((a,b) => a-b).map(String)]
+      categories: createOptions('category', filteredProductsByMainCategory),
+      breedSize: createOptions('breedSize', filteredProductsByMainCategory),
+      lifestage: createOptions('lifestage', filteredProductsByMainCategory),
+      flavour: createOptions('flavour', filteredProductsByMainCategory),
+      purpose: createOptions('purpose', filteredProductsByMainCategory),
+      coatColor: createOptions('coatColor', filteredProductsByMainCategory),
+      weight: ['all', ...Array.from(new Set(filteredProductsByMainCategory.map(p => p.weight).filter(Boolean))).sort((a,b) => a-b).map(String)]
     };
-  }, [dogProducts]);
+  }, [filteredProductsByMainCategory]);
 
   const filteredAndSortedProducts = useMemo(() => {
-    let products = [...dogProducts];
+    let products = [...filteredProductsByMainCategory];
 
     if (appliedSearchTerm) {
       products = products.filter(p =>
@@ -198,11 +219,11 @@ export default function ProductsPage() {
         break;
     }
     return products;
-  }, [appliedSearchTerm, filters, sortOption, dogProducts]);
+  }, [appliedSearchTerm, filters, sortOption, filteredProductsByMainCategory]);
   
   useEffect(() => {
     setCurrentPage(1);
-  }, [appliedSearchTerm, filters, sortOption]);
+  }, [appliedSearchTerm, filters, sortOption, mainCategory]);
   
   const totalPages = Math.ceil(filteredAndSortedProducts.length / ITEMS_PER_PAGE);
   const paginatedProducts = useMemo(() => {
@@ -223,15 +244,18 @@ export default function ProductsPage() {
     e.preventDefault();
     setAppliedSearchTerm(searchTerm);
   };
+  
+  const pageTitle = mainCategory === 'Food' ? t('productsPage.titleFood') : mainCategory === 'Cosmetics' ? t('productsPage.titleCosmetics') : t('productsPage.title');
+  const pageSubtitle = mainCategory === 'Food' ? t('productsPage.subtitleFood') : mainCategory === 'Cosmetics' ? t('productsPage.subtitleCosmetics') : t('productsPage.subtitle');
 
   return (
     <SiteLayout>
       <div className="mb-8 text-center">
         <h1 className="font-headline text-4xl font-bold text-primary">
-          {t('productsPage.titleDog')}
+          {pageTitle}
         </h1>
         <p className="text-lg text-foreground/80 mt-2">
-          {t('productsPage.subtitleDog')}
+          {pageSubtitle}
         </p>
       </div>
 
@@ -282,15 +306,26 @@ export default function ProductsPage() {
           </div>
           
           <div className="flex flex-wrap gap-2 mb-6">
-            {(dynamicOptions.categories as string[]).map(cat => (
-              <Button 
-                key={cat}
-                variant={filters.category === cat ? 'default' : 'outline'}
-                onClick={() => setFilters({...filters, category: cat})}
-              >
-                {cat === 'all' ? t('productsPage.allCategories') : cat}
-              </Button>
-            ))}
+            {(dynamicOptions.categories as string[]).map(cat => {
+              if (cat === 'all') return (
+                <Button 
+                  key={cat}
+                  variant={filters.category === cat ? 'default' : 'outline'}
+                  onClick={() => setFilters({...initialFilters})}
+                >
+                  {t('productsPage.allCategories')}
+                </Button>
+              )
+              return (
+                <Button 
+                  key={cat}
+                  variant={filters.category === cat ? 'default' : 'outline'}
+                  onClick={() => setFilters({...filters, category: cat})}
+                >
+                  {cat}
+                </Button>
+              )
+            })}
           </div>
 
           {paginatedProducts.length > 0 ? (
