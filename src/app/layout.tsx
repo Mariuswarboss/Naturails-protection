@@ -1,13 +1,13 @@
 
 import type { Metadata } from 'next';
-import { Alegreya } from 'next/font/google';
+import { Inter } from 'next/font/google';
 import './globals.css';
 import AppProviders from '@/components/AppProviders';
 import { Toaster } from '@/components/ui/toaster';
 
-const alegreya = Alegreya({
+const inter = Inter({
   subsets: ['latin'],
-  variable: '--font-alegreya',
+  variable: '--font-inter',
 });
 
 export const metadata: Metadata = {
@@ -22,7 +22,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru" className={`${alegreya.variable}`}>
+    // The lang attribute will be updated by the AppProviders component.
+    <html lang="ru" className={`${inter.variable}`}>
       <body>
         <AppProviders>
             {children}
