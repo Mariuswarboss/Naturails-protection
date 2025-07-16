@@ -876,11 +876,11 @@ export const mockProducts: Product[] = [
     weight: 0.25
   },
   {
-    id: 'TPL47409',
-    name: 'product_names.TPL47409',
-    description: 'TPL47409',
+    id: 'TPL47410',
+    name: 'product_names.TPL47410',
+    description: 'TPL47410',
     price: 450,
-    imageUrl: 'https://tauroproline.com/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_TPL47409680_680resizebg.webp',
+    imageUrl: 'https://tauroproline.com/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_TPL47410680_680resizebg.webp',
     dataAiHint: 'pet care elixir',
     category: 'Care Elixir',
     stock: 50,
@@ -888,11 +888,11 @@ export const mockProducts: Product[] = [
     weight: 0.03,
   },
   {
-    id: 'TPL47410',
-    name: 'product_names.TPL47410',
-    description: 'TPL47410',
+    id: 'TPL47409',
+    name: 'product_names.TPL47409',
+    description: 'TPL47409',
     price: 450,
-    imageUrl: 'https://tauroproline.com/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_TPL47410680_680resizebg.webp',
+    imageUrl: 'https://tauroproline.com/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_TPL47409680_680resizebg.webp',
     dataAiHint: 'pet care elixir',
     category: 'Care Elixir',
     stock: 50,
@@ -990,7 +990,7 @@ export const mockProducts: Product[] = [
     price: 140,
     imageUrl: 'https://tauroproline.com/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_TPLPN63381680_680resizebg.webp',
     dataAiHint: 'pet toothpaste',
-    category: 'Toothpaste',
+    category: 'Dental',
     stock: 50,
     productFor: 'both',
     weight: 0.1
@@ -1002,7 +1002,7 @@ export const mockProducts: Product[] = [
     price: 140,
     imageUrl: 'https://www.tauroproline.com/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_TPL63639680_680resizebg.webp',
     dataAiHint: 'pet toothbrush',
-    category: 'Accessories',
+    category: 'Dental',
     stock: 100,
     productFor: 'both'
   },
@@ -1027,6 +1027,7 @@ export function getProductById(id: string): Product | undefined {
 export function getProductsByIds(ids: string[]): Product[] {
   return mockProducts.filter(p => ids.includes(p.id));
 }
+
 
 
 

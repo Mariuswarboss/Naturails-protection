@@ -15,7 +15,7 @@ import { useTranslation } from '@/contexts/LanguageContext';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 const foodCategories = ['Wet Food', 'Dry Food', 'Snacks'];
-const cosmeticsCategories = ['Shampoo', 'Mask', 'Conditioner', 'Balm', 'Care Mist', 'Care Powder', 'Care Oil', 'Care Elixir', 'Toothpaste', 'Accessories'];
+const cosmeticsCategories = ['Shampoo', 'Mask', 'Conditioner', 'Balm', 'Care Mist', 'Care Powder', 'Care Oil', 'Care Elixir', 'Dental'];
 
 
 const FilterSidebar = ({
