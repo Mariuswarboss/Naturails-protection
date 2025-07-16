@@ -897,7 +897,7 @@ export const mockProducts: Product[] = [
     category: 'Care Elixir',
     stock: 50,
     productFor: 'both',
-    weight: 0.03
+    weight: 0.03,
   },
   {
     id: 'TPL47408',
@@ -988,7 +988,7 @@ export const mockProducts: Product[] = [
     name: 'product_names.TPLPN63381',
     description: 'TPLPN63381',
     price: 140,
-    imageUrl: 'https://tauroproline.com/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_TPLPN63381680_680resizebg.webp',
+    imageUrl: 'https://tauroproline.com/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_TPL63639680_680resizebg.webp',
     dataAiHint: 'pet toothpaste',
     category: 'Toothpaste',
     stock: 50,
@@ -1015,5 +1015,6 @@ export function getProductById(id: string): Product | undefined {
 export function getProductsByIds(ids: string[]): Product[] {
   return mockProducts.filter(p => ids.includes(p.id));
 }
+
 
 
