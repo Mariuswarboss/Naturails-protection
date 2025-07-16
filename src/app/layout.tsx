@@ -3,6 +3,9 @@ import type { Metadata } from 'next';
 import { Alegreya } from 'next/font/google';
 import './globals.css';
 import AppProviders from '@/components/AppProviders';
+import { Toaster } from '@/components/ui/toaster';
+import { useTranslation } from '@/contexts/LanguageContext';
+import { useEffect } from 'react';
 
 const alegreya = Alegreya({
   subsets: ['latin'],
@@ -21,13 +24,32 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${alegreya.variable}`}>
+    <AppProviders>
+      <HtmlLangUpdater>
+        <body className="font-body antialiased">
+            {children}
+            <Toaster />
+        </body>
+      </HtmlLangUpdater>
+    </AppProviders>
+  );
+}
+
+// This new component is a client component that will handle updating the lang attribute.
+function HtmlLangUpdater({ children }: { children: React.ReactNode }) {
+  "use client";
+  const { language, isLanguageRestored } = useTranslation();
+
+  useEffect(() => {
+    if (isLanguageRestored) {
+      document.documentElement.lang = language.toLowerCase();
+    }
+  }, [language, isLanguageRestored]);
+
+  return (
+    <html lang={language.toLowerCase()} className={`${alegreya.variable}`}>
       <head />
-      <body className="font-body antialiased">
-        <AppProviders>
-          {children}
-        </AppProviders>
-      </body>
+      {children}
     </html>
   );
 }
