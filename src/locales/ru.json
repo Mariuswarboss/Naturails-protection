@@ -97,7 +97,9 @@
     "selectCoatColor": "Выберите цвет шерсти",
     "selectWeight": "Выберите вес",
     "previousPage": "Предыдущая Страница",
-    "nextPage": "Следующая Страница"
+    "nextPage": "Следующая Страница",
+    "categoriesLabel": "Категория",
+    "selectCategories": "Выберите Категорию"
   },
   "admin": {
     "adminPanel": "Панель Администратора",

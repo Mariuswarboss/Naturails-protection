@@ -41,24 +41,24 @@ const FilterSidebar = ({
     </CardHeader>
     <CardContent className="space-y-4">
       {Object.entries(dynamicOptions).map(([key, options]) => {
-        // For Cosmetics, we only want the category filter in the sidebar if it has options.
-        // The other categories are handled by buttons.
         if (mainCategory === 'Cosmetics') {
           if (key !== 'categories' || (options as string[]).length <= 1) return null;
         } else {
-           // For Food, we don't show the main category dropdown as it's handled by buttons.
           if (key === 'categories' || (options as string[]).length <= 1) return null;
         }
        
+        const labelKey = `productsPage.${key}Label`;
+        const placeholderKey = `productsPage.select${key.charAt(0).toUpperCase() + key.slice(1)}`;
+        
         return (
           <div key={key}>
-            <label htmlFor={key} className="block text-sm font-medium text-muted-foreground mb-1">{t(`productsPage.${key}Label`)}</label>
+            <label htmlFor={key} className="block text-sm font-medium text-muted-foreground mb-1">{t(labelKey)}</label>
             <Select
               value={filters[key]}
               onValueChange={(value) => setFilters({ ...filters, [key]: value })}
             >
               <SelectTrigger id={key}>
-                <SelectValue placeholder={t(`productsPage.select${key.charAt(0).toUpperCase() + key.slice(1)}`)} />
+                <SelectValue placeholder={t(placeholderKey)} />
               </SelectTrigger>
               <SelectContent>
                 {(options as string[]).map(option => (
@@ -380,6 +380,3 @@ export default function ProductsPage() {
     </SiteLayout>
   );
 }
-
-
-

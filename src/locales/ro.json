@@ -97,7 +97,9 @@
     "selectCoatColor": "Selectează culoarea blănii",
     "selectWeight": "Selectează greutatea",
     "previousPage": "Pagina Anterioară",
-    "nextPage": "Pagina Următoare"
+    "nextPage": "Pagina Următoare",
+    "categoriesLabel": "Categorie",
+    "selectCategories": "Selectați Categoria"
   },
   "admin": {
     "adminPanel": "Panou Admin",
@@ -432,7 +434,7 @@
     "KIKNPSC47271": {
       "details": "Gustările suplimentare Nature's Protection Superior Care Red Coat Grain Free Hypoallergenic Oral Care sunt un supliment alimentar de cea mai înaltă calitate, conceput pentru câini adulți de toate rasele cu blană roșie sau maro. Este o alegere perfectă pentru a arăta dragoste câinelui dvs. și, în același timp, pentru a-i oferi doza zilnică de vitamine, minerale, prebiotice și probiotice esențiale.\n\nAceste gustări funcționale pentru câini conțin formula Tear Stains off - un complex de aminoacizi atent selecționat și ingrediente complet echilibrate în compoziție, care pot ajuta la combaterea petelor maronii de lacrimi.",
       "components": "Constituenți analitici:\n- proteină brută – 24 %\n- fibră brută – 4,3 %\n- grăsime brută – 3,4 %\n- cenușă brută – 7,7 %\n- amidon – 7,6 %\n- umiditate – 18 %\n- fosfor – 1,35 %\n- sodiu – 0,7 %\n- potasiu – 0,7 %",
-      "vitaminsAndMinerals": "- Vitamina D3 - susține reglarea nivelurilor de calciu și fosfor în organism.\n- Vitamina E - acționează ca un antioxidant în organism.\n- Biotina - importantă pentru animalele cu probleme de piele și blană.\n- L-tirozina - ajută la îmbunătățirea funcției cognitive.\n- L-cistina - este implicată în producția de keratină.\n- L-triptofanul - susține funcția sănătoasă a creierului.",
+      "vitaminsAndMinerals": "- Vitamina D3\n- Vitamina E\n- Biotina\n- L-tirozina\n- L-cistina\n- L-triptofanul",
       "instructions": "Instrucțiuni de hrănire: doza zilnică poate varia în funcție de temperatura exterioară, stilul de viață, temperamentul și activitatea animalului. Apă curată și proaspătă trebuie să fie disponibilă în permanență."
     },
     "KIKNPSC47651": {
@@ -473,7 +475,7 @@
     },
     "TPL63767": {
       "details": "Șamponul Tauro Pro Line ULTRA NATURAL CARE Repair & Nourish, cu ingrediente de cea mai înaltă calitate, este conceput pentru a întări părul, a hidrata în profunzime pielea și blana și a-i conferi strălucire. Șamponul este potrivit pentru toate tipurile de blană ale câinilor și pisicilor.\n\nAcest șampon este al doilea pas – funcția – într-un sistem în trei pași: a doua spălare îmbunătățește funcția dorită.\n\nDatorită unei compoziții unice de ingrediente active, structura părului este hidratată și refăcută, părul devine mai moale, mai maleabil, neted și ușor de pieptănat.",
-      "components": "Compoziție: Aqua, Sodium Coco-Sulfate, Coco-Glucoside, Glycerin, Cocamidopropyl Betaine, Glyceryl Oleate, Persea Gratissima (Avocado) Fruit Extract, Hydrolyzed Silk, Urea, Guar Hydroxypropyltrimonium Chloride, Sodium Lactate, Starch Hydroxypropyltrimonium Chloride, Lactic Acid, PEG-18 Glyceryl Oleate/Cocoate, Sodium Chloride, Citric Acid, Sodium Benzoate, Potassium Sorbate, Ethylhexylglycerin, Phneoxyethanol, PEG-40 Hydrogenated Castor Oil, Parfum, Linalool.",
+      "components": "Compoziție: Aqua, Sodium Coco-Sulfate, Coco-Glucoside, Glycerin, Cocamidopropyl Betaine, Glyceryl Oleate, Persea Gratissima (Avocado) Fruit Extract, Hydrolyzed Silk, Urea, Guar Hydroxypropyltrimonium Chloride, Sodium Lactate, Starch Hydroxypropyltrimonium Chloride, Lactic Acid, PEG-18 Glyceryl Oleate/Cocoate, Sodium Chloride, Citric Acid, Sodium Benzoate, Potassium Sorbate, Ethylhexylglycerin, Phenoxyethanol, PEG-40 Hydrogenated Castor Oil, Parfum, Linalool.",
       "vitaminsAndMinerals": "Acest produs este un produs cosmetic; secțiunea de vitamine și minerale nu se aplică.",
       "instructions": "Utilizare: diluați șamponul cu apă călduță în raport de 1:10, umeziți blana și distribuiți produsul. Masați timp de aproximativ 3 minute și clătiți bine cu apă călduță.\n\nAvertisment: Doar pentru uz extern. A nu se lăsa la îndemâna copiilor."
     },
