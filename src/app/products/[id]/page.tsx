@@ -75,10 +75,6 @@ export default function ProductPage() {
           <div>
             <ProductDescription descriptionKey={product.description} />
           </div>
-          
-          <div className="border-t pt-6 space-y-1">
-            <p className="text-sm text-muted-foreground">{t('productPage.category', { category: product.category })}</p>
-          </div>
 
           <ProductDetailsClient product={product} variants={variants} />
 

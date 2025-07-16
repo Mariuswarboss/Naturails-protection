@@ -3,7 +3,7 @@
 
 import type React from 'react';
 import Link from 'next/link';
-import { LayoutDashboard, Settings, Package, PanelLeft } from 'lucide-react';
+import { LayoutDashboard, Settings, Package, PanelLeft, User } from 'lucide-react';
 import {
   SidebarProvider,
   Sidebar,
@@ -17,47 +17,17 @@ import {
   SidebarTrigger,
 } from '@/components/ui/sidebar'; 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { usePathname, useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
-import { useToast } from '@/hooks/use-toast';
+import { usePathname } from 'next/navigation';
 import { useTranslation } from '@/contexts/LanguageContext';
-
-const isAdminAuthenticated = () => {
-    if (typeof window !== 'undefined') {
-        const token = localStorage.getItem('authToken');
-        const email = localStorage.getItem('userEmail');
-        return token && email === 'admin@ecoshop.md';
-    }
-    return false;
-};
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const router = useRouter();
-  const { toast } = useToast();
   const { t } = useTranslation();
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-  useEffect(() => {
-      const authStatus = isAdminAuthenticated();
-      setIsAuthenticated(authStatus);
-      if (!authStatus) {
-          toast({ title: t('admin.accessDeniedToastTitle'), description: t('admin.accessDeniedToastDescription'), variant: "destructive" });
-          router.push('/login?redirect=/admin');
-      }
-  }, [router, toast, t]);
-
-  if (!isAuthenticated) {
-      return (
-          <div className="flex min-h-screen items-center justify-center">
-              <p>{t('admin.redirectingToLogin')}</p>
-          </div>
-      );
-  }
 
   const adminNavItems = [
     { href: '/admin', labelKey: 'admin.dashboard', icon: LayoutDashboard },
     { href: '/admin/products', labelKey: 'admin.products', icon: Package },
+    { href: '/admin/orders', labelKey: 'admin.orders', icon: User },
   ];
 
   return (
