@@ -180,8 +180,7 @@ export default function ProductsPage() {
     
     if (mainCategory === 'Cosmetics') {
         return {
-            categories: createOptions('category', filteredProductsByMainCategory),
-            weight: ['all', ...Array.from(new Set(filteredProductsByMainCategory.map(p => p.weight).filter(Boolean))).sort((a,b) => a-b).map(String)]
+            categories: createOptions('category', filteredProductsByMainCategory)
         };
     }
 
@@ -193,7 +192,7 @@ export default function ProductsPage() {
             flavour: createOptions('flavour', filteredProductsByMainCategory),
             purpose: createOptions('purpose', filteredProductsByMainCategory),
             coatColor: createOptions('coatColor', filteredProductsByMainCategory),
-            weight: ['all', ...Array.from(new Set(filteredProductsByMainCategory.map(p => p.weight).filter(Boolean))).sort((a,b) => a-b).map(String)]
+            weight: ['all', ...Array.from(new Set(filteredProductsByMainCategory.map(p => p.weight).filter(Boolean))).sort((a,b) => a! - b!).map(String)]
         };
     }
 
@@ -370,4 +369,5 @@ export default function ProductsPage() {
     </SiteLayout>
   );
 }
+
 
