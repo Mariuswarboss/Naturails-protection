@@ -861,6 +861,18 @@ export const mockProducts: Product[] = [
     stock: 50,
     productFor: 'both',
     weight: 0.25
+  },
+  {
+    id: 'TPL47410',
+    name: 'product_names.TPL47410',
+    description: 'TPL47410',
+    price: 200,
+    imageUrl: 'https://tauroproline.com/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_TPL47410680_680resizebg.webp',
+    dataAiHint: 'pet care elixir',
+    category: 'Care Elixir',
+    stock: 50,
+    productFor: 'both',
+    weight: 0.03
   }
 ];
 

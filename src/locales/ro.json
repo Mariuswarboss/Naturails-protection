@@ -228,7 +228,8 @@
     "TPLM46214": "TAURO PRO LINE Pure Mist",
     "CAN451432": "Pudră de îngrijire a pielii TAURO PRO LINE Pure Nature pentru tăieturi și zgârieturi minore",
     "TPL63380": "TAURO PRO LINE Pure Nature Stainless look 3in1, mască naturală de argilă pentru prevenirea petelor de lacrimi pe blană la câini",
-    "TPL47414": "TAURO PRO LINE Pure Nature magic coat oil, ulei pentru îngrijirea blănii la câini"
+    "TPL47414": "TAURO PRO LINE Pure Nature magic coat oil, ulei pentru îngrijirea blănii la câini",
+    "TPL47410": "TAURO PRO LINE Pure Nature Calming Elixir No. 3"
   },
   "product_descriptions": {
     "UNINPSC63999": {
@@ -500,6 +501,12 @@
       "components": "INGREDIENTE: Ulei din semințe de bumbac (Gossypium Herbaceum), ulei din semințe de struguri (Vitis Vinifera), ulei din sâmburi de caise (Prunus Armeniaca), ulei de migdale dulci (Prunus Amygdalus Dulcis), acid lauric, ulei de ricin hidrogenat PEG-40, acetat de tocoferil.",
       "vitaminsAndMinerals": "Acest produs este un produs cosmetic; secțiunea de vitamine și minerale nu se aplică.",
       "instructions": "INSTRUCȚIUNI DE UTILIZARE: distribuiți uleiul pe blana curată și uscată înainte de a lega papilotele. ATENȚIE: Numai pentru uz extern. Reacția alergică apare rar. Dacă apare o reacție alergică, întrerupeți utilizarea produsului. A nu se lăsa la îndemâna copiilor."
+    },
+    "TPL47410": {
+      "details": "Tauro Pro Line Pure Nature Calming Elixir No. 3. Acest elixir conține un complex de trei uleiuri naturale și esențiale, îmbogățit cu vitamine și aminoacizi, special formulat pentru a calma iritațiile pielii, a reduce mâncărimea și a restabili sănătatea pielii și a blănii animalului dvs. de companie. Cu opt uleiuri naturale și zece uleiuri esențiale premium, acesta hidratează, calmează și înmoaie pielea obosită a animalului dvs. de companie, reduce roșeața, protejează împotriva uscăciunii și previne mătreața. Revitalizează și hidratează pielea, conferind blănii o strălucire frumoasă și o moliciune luxoasă.",
+      "components": "INGREDIENTE: Acid lauric, ulei de cânepă (Cannabis Sativa), ulei de ricin hidrogenat PEG-40, ulei de tărâțe de orez (Oryza Sativa), ulei de chimen negru (Nigella Sativa), ulei absolut de lemn dulce (Glycyrrhiza Glabra), ulei de fructe de acai (Euterpe Oleracea), ulei din semințe de baobab (Adansonia Digitata), ulei din nuci de shea (Butyrospermum Parkii), ulei de orhidee (Anacamptis Morio), ulei esențial de rozmarin (Rosmarinus Officinalis), ulei esențial de lemn de cedru Texas (Juniperus Mexicana), ulei esențial de lavandă (Lavandula Angustifolia), ulei esențial de lemongrass (Cymbopogon Flexuosus), ulei de cocos (Cocos Nucifera), ulei esențial de anason (Pimpinella Anisum), ulei esențial de copaiba (Copaifera Officinalis), ulei din semințe de ceai verde (Camellia Sinensis), ulei esențial de arbore de ceai (Melaleuca Alternifolia), ulei esențial de mentă (Mentha x Piperita).",
+      "vitaminsAndMinerals": "Acest produs este un produs cosmetic; secțiunea de vitamine și minerale nu se aplică.",
+      "instructions": "INSTRUCȚIUNI DE UTILIZARE: adăugați 10-15 picături de elixir în șamponul sau balsamul animalului dvs. de companie. Masați pe piele și blană de la rădăcini până la vârfuri, lăsați să acționeze 3-5 minute și clătiți. Utilizați acest remediu și ca mască de ulei: frecați pe blană, lăsați să acționeze 20-30 de minute și clătiți cu șampon."
     }
   }
 }
