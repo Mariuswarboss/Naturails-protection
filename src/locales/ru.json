@@ -225,12 +225,22 @@
     "TPL47280": "TAURO PRO LINE Pure Nature Nose&Paw Balm Hydrates&Moisturizes, увлажняющий бальзам для подушечек лап и носа у собак и кошек",
     "TPL63790": "TAURO PRO LINE Pure Nature Fur Growth, шампунь для стимуляции роста шерсти у собак и кошек",
     "TPL63579": "TAURO PRO LINE Ultra Natural Care 6in1 Pure Mist, многофункциональное средство для ежедневного ухода за телом",
+    "TPL63579-1L": "TAURO PRO LINE Ultra Natural Care 6in1 Pure Mist, многофункциональное средство для ежедневного ухода за телом (1л)",
     "TPLM46214": "TAURO PRO LINE Pure Mist",
     "CAN451432": "TAURO PRO LINE Pure Nature порошок для ухода за кожей домашних животных при мелких порезах и царапинах",
     "TPL63380": "TAURO PRO LINE Pure Nature Stainless look 3в1, натуральная глиняная маска для предотвращения слезных пятен на шерсти у собак",
     "TPL47414": "TAURO PRO LINE Pure Nature magic coat oil, масло для ухода за шерстью собак",
     "TPL47410": "TAURO PRO LINE Pure Nature Успокаивающий эликсир № 3",
-    "TPL47409": "TAURO PRO LINE Pure Nature Восстанавливающий эликсир № 2"
+    "TPL47409": "TAURO PRO LINE Pure Nature Восстанавливающий эликсир № 2",
+    "TPL47408": "TAURO PRO LINE Pure Nature Питательный эликсир № 1",
+    "TPL47411": "TAURO PRO LINE Pure Nature Энергетический эликсир № 4",
+    "TPL63434": "TAURO PRO LINE Pure Nature Magic-Plex, восстанавливающий шампунь для шерсти собак и кошек",
+    "TPL63475": "TAURO PRO LINE Pure Nature 5в1, увлажняющий кондиционер для шерсти собак и кошек",
+    "TPL63388": "TAURO PRO LINE Pure Nature Fur Growth, кондиционер для стимуляции роста шерсти у собак и кошек",
+    "TPL63588": "TAURO PRO LINE Ultra Natural Care спрей для объема, несмываемый кондиционер для шерсти собак и кошек",
+    "TPL63601": "TAURO PRO LINE Ultra Natural Care несмываемый кондиционер для распутывания шерсти собак и кошек",
+    "TPLPN63381": "TAURO PRO LINE Pure Nature зубная паста с белой глиной (каолин), цеолитом и наночастицами серебра для собак и кошек",
+    "TPL63639": "TAURO PRO LINE PURE NATURE Зубная щетка для домашних животных"
   },
   "product_descriptions": {
     "UNINPSC63999": {
@@ -514,6 +524,60 @@
       "components": "ИНГРЕДИЕНТЫ: Лауриновая кислота, масло конопли (Cannabis Sativa), масло абрикосовых косточек (Prunus Armeniaca), растительный глицерин, эфирное масло эвкалипта (Eucalyptus Dives), ПЭГ-40 гидрогенизированное касторовое масло, масло рисовых отрубей (Oryza Sativa), масло плодов оливы (Olea Europaea), масло лимонных косточек (Citrus Limon), эфирное масло копайбы (Copaifera Officinalis), эфирное масло лаванды (Lavandula Angustifolia), масло гибискуса (Hibiscus Rosa – Sinensis), масло ши (Butyrospermum Parkii), масло алоэ вера мацерированное (Aloe Barbadensis), эфирное масло кедра гималайского (Cedrus Deodara), масло орехов андиробы (Carapa Guianensis), масло арганы (Argania Spinosa), эфирное масло розмарина (Rosmarinus Officinalis), эфирное масло тимьяна (Thymus Vulgaris), эфирное масло иланг-иланга (Cananga Odorata), эфирное масло шалфея (Salvia Sclarea).",
       "vitaminsAndMinerals": "Этот продукт является косметическим средством; раздел витаминов и минералов не применяется.",
       "instructions": "ИНСТРУКЦИЯ ПО ПРИМЕНЕНИЮ: добавьте 10-15 капель эликсира в шампунь или кондиционер вашего питомца. Вмассируйте в кожу и шерсть от корней до самых кончиков, оставьте на 3-5 минут и смойте. Используйте это средство и как масляную маску: вотрите в шерсть, оставьте на 20-30 минут и смойте шампунем."
+    },
+    "TPL47408": {
+        "details": "Tauro Pro Line Pure Nature Питательный эликсир № 1. Комбинация натуральных и эфирных масел, обогащенная витаминами и аминокислотами, эффективно увлажняет и способствует восстановлению поврежденной и тусклой шерсти и кожи. Смесь из восьми натуральных масел и девяти высококачественных эфирных масел стимулирует рост волос и гарантирует густую и блестящую шерсть. Присутствие витаминов и аминокислот обеспечивает глубокое увлажнение и питание шерсти и кожи вашего питомца, уменьшая выпадение волос, способствуя росту здоровых волос и потенциально облегчая симптомы алопеции.",
+        "components": "ИНГРЕДИЕНТЫ: Кокосовое масло (Cocos Nucifera), Масло абрикосовых косточек (Prunus Armeniaca), Эфирное масло лаванды (Lavandula Angustifolia), Эфирное масло лемонграсса (Cymbopogon Flexuosus), Лауриновая кислота, ПЭГ-40 гидрогенизированное касторовое масло, Растительный глицерин, Масло конопли (Cannabis Sativa), Эфирное масло цитронеллы (Cymbopogon Winterianus), Эфирное масло чайного дерева (Melaleuca Alternifolia), Эфирное масло кедра техасского (Juniperus Mexicana), Эфирное масло эвкалипта (Eucalyptus Dives), Масло гибискуса (Hibiscus Rosa – Sinensis), Масло какай (Caryodendron Orinocense), Масло арганы (Argania Spinosa), Масло алоэ вера мацерированное (Aloe Barbadensis), Масло андиробы (Carapa Guianensis), Эфирное масло мануки (Leptospermum Scoparium), Масло арктической клюквы (Oxycoccus Palustris), Эфирное масло мелиссы (Melissa Officinalis).",
+        "vitaminsAndMinerals": "Этот продукт является косметическим средством; раздел витаминов и минералов не применяется.",
+        "instructions": "ИНСТРУКЦИЯ ПО ПРИМЕНЕНИЮ: добавьте 10-15 капель эликсира в шампунь или кондиционер вашего питомца. Вмассируйте в кожу и шерсть от корней до самых кончиков, оставьте на 3-5 минут и смойте. Используйте это средство и как масляную маску: вотрите в шерсть, оставьте на 20-30 минут и смойте шампунем."
+    },
+    "TPL47411": {
+        "details": "Tauro Pro Line Pure Nature Энергетический эликсир № 4. Этот эликсир содержит комплекс из четырех ультра-мощных и концентрированных эфирных масел, обогащенных витаминами и аминокислотами, которые стимулируют рост волос, укрепляют как волосы, так и их фолликулы, и оживляют ослабленные структуры. Оригинальная смесь до 16 эфирных масел улучшает качество волосяного фолликула, что приводит к густой и упругой шерсти. Специальная смесь и активные ингредиенты улучшают кровообращение, качество кожи и способствуют образованию новых клеток кожи, что приводит к более густой, пышной и удивительно блестящей шерсти. Его можно использовать для лечения алопеции у домашних животных, так как он обеспечивает здоровую и восстановленную кожу и придает беспрецедентный объем шерсти питомца.",
+        "components": "ИНГРЕДИЕНТЫ: Эфирное масло лаванды (Lavandula Angustifolia), Эфирное масло кедра атласского (Cedrus Atlantica), Эфирное масло эвкалипта шаровидного (Eucalyptus Globulus), Эфирное масло лемонграсса (Cymbopogon Flexuosus), Эфирное масло листьев кедра (Thuja Occidentalis), Эфирное масло цитронеллы (Cymbopogon Winterianus), Эфирное масло тимьяна лимонного (Thymus Citriodorus), Эфирное масло розмарина (Rosmarinus Officinalis), Эфирное масло шалфея (Salvia Sclarea), Эфирное масло мускатного ореха (Myristica Fragrans), Эфирное масло мяты перечной (Mentha x Piperita), Эфирное масло кананги (Cananga Odorata var. Macrophylla), Эфирное масло корицы (Cinnamomum Cassia), Эфирное масло мануки (Leptospermum Scoparium), Эфирное масло мелиссы (Melissa Officinalis), Эфирное масло чайного дерева (Melaleuca Alternifolia).",
+        "vitaminsAndMinerals": "Этот продукт является косметическим средством; раздел витаминов и минералов не применяется.",
+        "instructions": "ИНСТРУКЦИЯ ПО ПРИМЕНЕНИЮ: добавьте 10-15 капель эликсира в шампунь или кондиционер вашего питомца. Вмассируйте в кожу и шерсть от корней до самых кончиков, оставьте на 3-5 минут и смойте."
+    },
+    "TPL63434": {
+        "details": "Восстанавливающий шампунь для собак и кошек Tauro Pro Line Pure Nature Restorative Magic Plex предназначен для мягкого восстановления и защиты шерсти вашего питомца от ежедневных стрессов, включая поврежденные волосы, секущиеся кончики и выпадение. Уникальная формула натуральных активных ингредиентов способствует глубокому увлажнению кожи и волос - идеально подходит для сухой и поврежденной шерсти, так как глубоко проникает в различные слои волоса от корней до кончиков. Шампунь восстанавливает, придает блеск и смягчает волосы, поврежденные процедурами, с поврежденной структурой.",
+        "components": "ИНГРЕДИЕНТЫ: Aqua, Sodium Coco-Sulfate, Glycerin, Coco-Glucoside, Coco-Betaine, Lauryl Glucoside, Argania Spinosa Kernel Oil, Santalum Album Oil, Citrus Aurantium Flower Oil, Rosa Canina Fruit Oil, Myristica Fragrans Kernel Oil, Commiphora Myrrha Oil, Aniba Rosaeodora Wood Oil, Daucus Carota Sativa Seed Oil, Glyceryl Oleate, PEG-40 Hydrogenated Castor Oil, Allantoin, Sodium Chloride, Ethylhexylglycerin, Phenoxyethanol, Citric Acid, Polyquaternium-10, Limonene, Linalool.",
+        "vitaminsAndMinerals": "Этот продукт является косметическим средством; раздел витаминов и минералов не применяется.",
+        "instructions": "ИНСТРУКЦИЯ ПО ПРИМЕНЕНИЮ: разведите шампунь теплой водой 1:10, смочите шерсть и нанесите средство. Массируйте около 3 минут, затем тщательно смойте теплой водой."
+    },
+    "TPL63475": {
+        "details": "Увлажняющий кондиционер для шерсти собак и кошек Tauro Pro Line Pure Nature 5в1 предназначен для мягкого восстановления сухой или обезвоженной шерсти путем ее интенсивного увлажнения. Уникальная формула натуральных активных ингредиентов способствует глубокому увлажнению кожи и волос - идеально подходит для сухой и поврежденной шерсти, так как глубоко проникает в различные слои волоса от корней до кончиков. Кондиционер помогает легче расчесывать шерсть и эффективно заполняет и утолщает волосы, поврежденные процедурами, с поврежденной структурой.",
+        "components": "ИНГРЕДИЕНТЫ: Aqua, Cetearyl Alcohol, Coco-Caprylate, Glycerin, Behenamidopropyl Dimethylamine, Behentrimonium Chloride, Olea Europaea Fruit Oil, Citrus Sinensis Peel Oil Expressed, Astrocaryum Murumuru Seed Butter, Cananga Odorata Flower Oil, Rosmarinus Officinalis Leaf Oil, Citrus Aurantifolia Oil, Simmondsia Chinensis Seed Oil, Tocopheryl Acetate, Panthenol, Lactic Acid, Isopropyl Alcohol, Phenoxyethanol, Ethylhexylglycerin, Limonene.",
+        "vitaminsAndMinerals": "Этот продукт является косметическим средством; раздел витаминов и минералов не применяется.",
+        "instructions": "ИНСТРУКЦИЯ ПО ПРИМЕНЕНИЮ: разведите кондиционер водой 1:10. Аккуратно вмассируйте в шерсть. Оставьте примерно на 3 минуты. Тщательно смойте теплой водой."
+    },
+    "TPL63388": {
+        "details": "Кондиционер для шерсти Tauro Pro Line Pure Nature Fur Growth для собак и кошек предназначен для стимуляции роста волос, улучшения их текстуры и наполнения шерсти и кожи питомца питательными веществами и влагой. Уникальная формула натуральных активных веществ уменьшает ломкость волос, укрепляет фолликулы, благодаря чему шерсть становится еще гуще, крепче и блестящее. Кондиционер эффективно заполняет и утолщает волосы, поврежденные процедурами, с поврежденной структурой, так что они выглядят здоровыми и ухоженными.",
+        "components": "ИНГРЕДИЕНТЫ: Aqua, Cetearyl Alcohol, Glycerin, Behenamidopropyl Dimethylamine, Behentrimonium Chloride, Coco-Caprylate, Betaine, Lavandula Angustifolia Oil, Cedrus Atlantica Oil, Cymbopogon Flexuosus Leaf Oil, Vanilla Planifolia Fruit Extract, Simmondsia Chinensis Seed Oil, Rosmarinus Officinalis Leaf Oil, Cananga Odorata Flower Oil, Myristica Fragrans Kernel Oil, Mentha Arvensis Herb Oil, Melaleuca Alternifolia Leaf Oil, Hydrolyzed Wheat Protein, Tocopheryl Acetate, Panthenol, Lactic Acid, Allantoin, Citric Acid, Isopropyl Alcohol, Sodium Benzoate, Phenoxyethanol, Ethylhexylglycerin, Linalool, Citral.",
+        "vitaminsAndMinerals": "Этот продукт является косметическим средством; раздел витаминов и минералов не применяется.",
+        "instructions": "ИНСТРУКЦИЯ ПО ПРИМЕНЕНИЮ: разведите кондиционер водой 1:10. Аккуратно вмассируйте в шерсть. Оставьте примерно на 3 минуты. Тщательно смойте теплой водой."
+    },
+    "TPL63588": {
+        "details": "Tauro Pro Line ULTRA NATURAL CARE Volume Boost Leave-In - это несмываемый кондиционер, предназначенный для увеличения объема шерсти у собак и кошек с пушистой шерстью.",
+        "components": "Состав: Aqua, Hydrogenated Strach Hydrolysate, PPG-3 Caprylyl Ether, Panthenol, Hydrolized Wheat Protein, Quaternium-91, Cetearyl Alcohol, Cetrimonium Methosulfate, Polyquaternium-10, Polysorbate 80, Sodium Benzoate, Phenoxyethanol, Ethylhexylglycerin, Parfum, Hexyl Cinnamal, Cinnamal, Citronellol , Coumarin, Benzyl Salicylate.",
+        "vitaminsAndMinerals": "Этот продукт является косметическим средством; раздел витаминов и минералов не применяется.",
+        "instructions": "Применение: хорошо встряхните флакон перед использованием, распылите на вымытую и высушенную шерсть или на сухую шерсть. Расчешите шерсть расческой или щеткой. Не требует смывания."
+    },
+    "TPL63601": {
+        "details": "Tauro Pro Line ULTRA NATURAL CARE Detangling Leave-In кондиционер, облегчающий расчесывание, подходит для кошек и собак даже с самой чувствительной кожей и шерстью.",
+        "components": "Состав: Aqua, Betaine, Glycerin, Polysorbate 80, Panthenol, Hydrolyzed Keratin, Helianthus Annuus Seed Extract, Butylene Glycol, Cetearyl Alcohol, Cetrimonium Methosulfate, Quaternium-91, Phenoxyethanol, Aroma, Ethylhexylglycerin.",
+        "vitaminsAndMinerals": "Этот продукт является косметическим средством; раздел витаминов и минералов не применяется.",
+        "instructions": "Применение: хорошо встряхните флакон перед использованием, распылите на вымытую и высушенную шерсть или на сухую шерсть. Расчешите шерсть расческой или щеткой. Не требует смывания."
+    },
+    "TPLPN63381": {
+        "details": "Антибактериальная зубная паста Tauro Pro Line Pure Nature с каолиновой глиной и наносеребром может помочь защитить и поддерживать здоровье полости рта вашего питомца. Эта зубная паста обладает сильными антибактериальными свойствами и балансирует микробиом полости рта питомца. Уникальный ингредиент наносеребро может помочь удалить бактерии и защитить от их роста. Каолиновая глина тщательно очищает, полирует, отбеливает зубы и устраняет или уменьшает неприятный запах изо рта.",
+        "components": "ИНГРЕДИЕНТЫ: Aqua, Hydrated Silica, Kaolin, Glycerin, Hydrogenated Starch Hydrolysate, Tetrasodium Pyrophosphate, Zeolite (MZG), Calcium Carbonate, Cellulose Gum, Propanediol, Xanthan Gum, Ethylhexylglycerin, Colloidal Silver.",
+        "vitaminsAndMinerals": "Этот продукт является косметическим средством; раздел витаминов и минералов не применяется.",
+        "instructions": "КАК ИСПОЛЬЗОВАТЬ: в первый раз нанесите небольшое количество зубной пасты на палец и предложите вашей собаке или кошке слизать ее. Медленно переходите к поднятию губ вашей собаки или кошки и втиранию зубной пасты пальцем вдоль линии десен и зубов. Когда вашему питомцу будет комфортно, нанесите небольшое количество зубной пасты на зубную щетку или щетку для пальцев и повторите вышеуказанные шаги. Всегда делайте чистку зубов приятным занятием для вашей собаки или кошки. Для достижения наилучших результатов чистите зубы ежедневно."
+    },
+    "TPL63639": {
+        "details": "Двусторонняя зубная щетка Tauro Pro Line Pure Nature — это специально разработанный инструмент для домашних животных, эффективно обеспечивающий здоровье полости рта и зубов. Мягкие щетинки делают процесс чистки зубов намного приятнее для вашего питомца. Благодаря им, налет, скопившийся между зубами, удаляется эффективно и безболезненно. Регулярный и правильный уход за зубами и языком вашего питомца снижает риск образования налета и зубного камня, одновременно нейтрализуя неприятный запах изо рта.",
+        "components": "Ручка изготовлена из полипропилена (PP), щетина — из нейлона.",
+        "vitaminsAndMinerals": "Этот продукт является косметическим средством; раздел витаминов и минералов не применяется.",
+        "instructions": "Инструкция по применению: промойте зубную щетку чистой водой или используйте ее с зубной пастой. В зависимости от размера зубов питомца, выберите большую или маленькую головку зубной щетки, вставьте в рот питомца, почистите зубы и налет на языке."
     }
   }
 }

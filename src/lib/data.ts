@@ -827,6 +827,19 @@ export const mockProducts: Product[] = [
     variantGroupId: 'tpl-pure-mist'
   },
   {
+    id: 'TPL63579-1L',
+    name: 'product_names.TPL63579-1L',
+    description: 'TPL63579',
+    price: 250,
+    imageUrl: 'https://tauroproline.com/vendor/laravel-files/files/import/_default_upload_bucket/__thumbnails__/vc_1_TPL63579680_680resizebg.webp',
+    dataAiHint: 'pet care mist',
+    category: 'Care Mist',
+    stock: 30,
+    productFor: 'both',
+    weight: 1,
+    variantGroupId: 'tpl-pure-mist'
+  },
+  {
     id: 'CAN451432',
     name: 'product_names.CAN451432',
     description: 'CAN451432',
@@ -885,6 +898,113 @@ export const mockProducts: Product[] = [
     stock: 50,
     productFor: 'both',
     weight: 0.03
+  },
+  {
+    id: 'TPL47408',
+    name: 'product_names.TPL47408',
+    description: 'TPL47408',
+    price: 200,
+    imageUrl: 'https://tauroproline.com/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_TPL47408680_680resizebg.webp',
+    dataAiHint: 'pet care elixir',
+    category: 'Care Elixir',
+    stock: 50,
+    productFor: 'both',
+    weight: 0.03,
+  },
+  {
+    id: 'TPL47411',
+    name: 'product_names.TPL47411',
+    description: 'TPL47411',
+    price: 200,
+    imageUrl: 'https://tauroproline.com/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_TPL47411680_680resizebg.webp',
+    dataAiHint: 'pet care elixir',
+    category: 'Care Elixir',
+    stock: 50,
+    productFor: 'both',
+    weight: 0.03,
+  },
+  {
+    id: 'TPL63434',
+    name: 'product_names.TPL63434',
+    description: 'TPL63434',
+    price: 150,
+    imageUrl: 'https://tauroproline.com/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_TPL63434680_680resizebg.webp',
+    dataAiHint: 'pet restoring shampoo',
+    category: 'Shampoo',
+    stock: 50,
+    productFor: 'both',
+    weight: 0.4
+  },
+  {
+    id: 'TPL63475',
+    name: 'product_names.TPL63475',
+    description: 'TPL63475',
+    price: 150,
+    imageUrl: 'https://tauroproline.com/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_TPL63475680_680resizebg.webp',
+    dataAiHint: 'pet moisturizing conditioner',
+    category: 'Conditioner',
+    stock: 50,
+    productFor: 'both',
+    weight: 0.4
+  },
+  {
+    id: 'TPL63388',
+    name: 'product_names.TPL63388',
+    description: 'TPL63388',
+    price: 150,
+    imageUrl: 'https://tauroproline.com/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_TPL63388680_680resizebg.webp',
+    dataAiHint: 'pet growth conditioner',
+    category: 'Conditioner',
+    stock: 50,
+    productFor: 'both',
+    weight: 0.4
+  },
+  {
+    id: 'TPL63588',
+    name: 'product_names.TPL63588',
+    description: 'TPL63588',
+    price: 150,
+    imageUrl: 'https://tauroproline.com/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_TPL63588680_680resizebg.webp',
+    dataAiHint: 'pet leave-in conditioner',
+    category: 'Conditioner',
+    stock: 50,
+    productFor: 'both',
+    weight: 0.25
+  },
+  {
+    id: 'TPL63601',
+    name: 'product_names.TPL63601',
+    description: 'TPL63601',
+    price: 150,
+    imageUrl: 'https://tauroproline.com/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_TPL63601680_680resizebg.webp',
+    dataAiHint: 'pet leave-in conditioner',
+    category: 'Conditioner',
+    stock: 50,
+    productFor: 'both',
+    weight: 0.25
+  },
+  {
+    id: 'TPLPN63381',
+    name: 'product_names.TPLPN63381',
+    description: 'TPLPN63381',
+    price: 150,
+    imageUrl: 'https://tauroproline.com/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_TPLPN63381680_680resizebg.webp',
+    dataAiHint: 'pet toothpaste',
+    category: 'Toothpaste',
+    stock: 50,
+    productFor: 'both',
+    weight: 0.1
+  },
+  {
+    id: 'TPL63639',
+    name: 'product_names.TPL63639',
+    description: 'TPL63639',
+    price: 50,
+    imageUrl: 'https://www.tauroproline.com/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_TPL63639680_680resizebg.webp',
+    dataAiHint: 'pet toothbrush',
+    category: 'Accessories',
+    stock: 100,
+    productFor: 'both'
   }
 ];
 
@@ -895,3 +1015,4 @@ export function getProductById(id: string): Product | undefined {
 export function getProductsByIds(ids: string[]): Product[] {
   return mockProducts.filter(p => ids.includes(p.id));
 }
+
