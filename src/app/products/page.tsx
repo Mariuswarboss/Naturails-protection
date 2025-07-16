@@ -23,13 +23,15 @@ const FilterSidebar = ({
   setFilters,
   dynamicOptions,
   resetFilters,
-  t
+  t,
+  mainCategory
 }: {
   filters: any;
   setFilters: (filters: any) => void;
   dynamicOptions: any;
   resetFilters: () => void;
   t: (key: string, replacements?: Record<string, string | number>) => string;
+  mainCategory: 'Food' | 'Cosmetics' | 'all';
 }) => (
   <Card>
     <CardHeader>
@@ -39,7 +41,15 @@ const FilterSidebar = ({
     </CardHeader>
     <CardContent className="space-y-4">
       {Object.entries(dynamicOptions).map(([key, options]) => {
-        if (key === 'categories' || (options as string[]).length <= 1) return null;
+        // For Cosmetics, we only want the category filter in the sidebar if it has options.
+        // The other categories are handled by buttons.
+        if (mainCategory === 'Cosmetics') {
+          if (key !== 'categories' || (options as string[]).length <= 1) return null;
+        } else {
+           // For Food, we don't show the main category dropdown as it's handled by buttons.
+          if (key === 'categories' || (options as string[]).length <= 1) return null;
+        }
+       
         return (
           <div key={key}>
             <label htmlFor={key} className="block text-sm font-medium text-muted-foreground mb-1">{t(`productsPage.${key}Label`)}</label>
@@ -281,6 +291,7 @@ export default function ProductsPage() {
             dynamicOptions={dynamicOptions}
             resetFilters={resetFilters}
             t={t}
+            mainCategory={mainCategory}
           />
         </aside>
 
@@ -369,5 +380,6 @@ export default function ProductsPage() {
     </SiteLayout>
   );
 }
+
 
 
