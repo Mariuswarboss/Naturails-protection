@@ -85,6 +85,12 @@ const nextConfig: NextConfig = {
         hostname: 'tauroproline.com',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.tauroproline.com',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
