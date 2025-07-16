@@ -753,6 +753,18 @@ export const mockProducts: Product[] = [
     variantGroupId: 'tpl-keratin-gloss-conditioner'
   },
   {
+    id: 'TPL63790',
+    name: 'product_names.TPL63790',
+    description: 'TPL63790',
+    price: 150,
+    imageUrl: 'https://tauroproline.com/vendor/laravel-files/files/import/Eshop/thumbnails/vc_1_TPL63790680_680resizebg.webp',
+    dataAiHint: 'pet shampoo growth',
+    category: 'Shampoo',
+    stock: 50,
+    productFor: 'both',
+    weight: 0.4
+  },
+  {
     id: 'TPL47281',
     name: 'product_names.TPL47281',
     description: 'TPL47281',
@@ -789,16 +801,16 @@ export const mockProducts: Product[] = [
     weight: 0.075,
   },
   {
-    id: 'TPL63790',
-    name: 'product_names.TPL63790',
-    description: 'TPL63790',
+    id: 'TPL63579',
+    name: 'product_names.TPL63579',
+    description: 'TPL63579',
     price: 150,
-    imageUrl: 'https://tauroproline.com/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_TPL63790680_680resizebg.webp',
-    dataAiHint: 'pet shampoo growth',
-    category: 'Shampoo',
+    imageUrl: 'https://tauroproline.com/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_TPL63580680_680resizebg.webp',
+    dataAiHint: 'pet care mist',
+    category: 'Care Mist',
     stock: 50,
     productFor: 'both',
-    weight: 0.4
+    weight: 0.25
   }
 ];
 

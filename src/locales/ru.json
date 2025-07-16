@@ -358,7 +358,8 @@
     "TPL47281": "TAURO PRO LINE Pure Nature Paw Balm Repairs&Protects, бальзам для восстановления и защиты подушечек лап у собак и кошек",
     "TPL47282": "TAURO PRO LINE Pure Nature Paw Balm Nourishes&Restores, бальзам для питания и восстановления подушечек лап у собак и кошек",
     "TPL47280": "TAURO PRO LINE Pure Nature Nose&Paw Balm Hydrates&Moisturizes, увлажняющий бальзам для подушечек лап и носа у собак и кошек",
-    "TPL63790": "TAURO PRO LINE Pure Nature Fur Growth, шампунь для стимуляции роста шерсти у собак и кошек"
+    "TPL63790": "TAURO PRO LINE Pure Nature Fur Growth, шампунь для стимуляции роста шерсти у собак и кошек",
+    "TPL63579": "TAURO PRO LINE Ultra Natural Care 6in1 Pure Mist, многофункциональное средство для ежедневного ухода за телом"
   },
   "product_descriptions": {
     "UNINPSC63999": {
@@ -606,6 +607,12 @@
       "components": "ИНГРЕДИЕНТЫ: Aqua, Sodium Coco-Sulfate, Glycerin, Coco-Glucoside, Coco-Betaine, Lauryl Glucoside, Lavandula Angustifolia (Lavender) Flower Oil, Cedrus Atlantica (Cedarwood) Wood Oil, Cymbopogon Flexuosus (Lemongrass) Leaf Oil, Vanilla Planifolia (Vanilla) Fruit Extract, Simmondsia Chinensis (Jojoba) Seed Oil, Rosmarinus Officinalis (Rosemary) Leaf Oil, Cananga Odorata (Ylang Ylang) Flower Oil, Mentha Piperita (Peppermint) Leaf Oil, Myroxylon Pereirae (Balsam Peru) Oil, Glyceryl Oleate, Allantoin, Polyquaternium-10, Caprylyl Glycol, Phenethyl Alcohol, Citric Acid, PEG-40 Hydrogenated Castor Oil, Linalool, Citral.",
       "vitaminsAndMinerals": "Этот продукт является косметическим средством; раздел витаминов и минералов не применяется.",
       "instructions": "ИНСТРУКЦИЯ ПО ПРИМЕНЕНИЮ: разведите шампунь теплой водой 1:10, смочите шерсть и нанесите средство. Массируйте около 3 минут, затем тщательно смойте теплой водой. ПРЕДОСТЕРЕЖЕНИЕ: Только для наружного применения. Хранить в недоступном для детей месте."
+    },
+    "TPL63579": {
+      "details": "Натуральный, многофункциональный продукт, созданный с помощью электрохимической активации. Этот процесс производит щелочную воду с pH 11,3. Он предназначен для ежедневного ухода за кожей, шерстью, глазами и ушами собак, кошек и других домашних животных. Подходит для использования во время выставок. Защищает кожу от сухости и аллергии. Помогает избежать коричневых слезных пятен и удаляет грязь и желтые пятна мочи на шерсти или коже.",
+      "components": "Состав: ионизированная щелочная вода с pH 11,3, содержащая шесть ионов: Ca2+, Mg2+, HCO3-, Cl-, SO42-, Na+.",
+      "vitaminsAndMinerals": "Этот продукт является косметическим средством; раздел витаминов и минералов не применяется.",
+      "instructions": "Применение: Распылите 1-2 раза прямо в уши или глаза, протрите грязь ватным диском. Используйте по мере необходимости. Наносите на влажную шерсть перед сушкой; или ежедневно на сухую шерсть. Для питомцев весом до 10 кг распыляйте 3-5 раз, 10-25 кг - 5-7 раз и более 25 кг - 7-10 раз. Используйте в сочетании с косметическими продуктами для усиления их эффекта. Только для наружного применения, распыляйте на шерсть или кожу 2-4 раза."
     }
   }
 }
