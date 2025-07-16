@@ -12,9 +12,9 @@ body {
     --foreground: 222.2 84% 4.9%;
 
     /* EcoShop Theme Colors */
-    --theme-bg: 120 60% 96.1%; /* #F0FFF0 - Very light desaturated green */
+    --theme-bg: 0 0% 100%; /* #FFFFFF - White */
     --theme-fg: 222.2 84% 4.9%; /* Default dark foreground */
-    --theme-primary: 120 27% 65%; /* #8FBC8F - Gentle green */
+    --theme-primary: 120 60% 25%; /* #1A661A - Dark Green */
     --theme-primary-fg: 210 40% 98%; /* White for primary buttons */
     --theme-accent: 54 38% 57%; /* #BDB76B - Soft earthy brown */
     --theme-accent-fg: 210 40% 98%; /* White for accent buttons */
