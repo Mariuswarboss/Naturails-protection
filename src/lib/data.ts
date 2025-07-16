@@ -810,7 +810,21 @@ export const mockProducts: Product[] = [
     category: 'Care Mist',
     stock: 50,
     productFor: 'both',
-    weight: 0.25
+    weight: 0.25,
+    variantGroupId: 'tpl-pure-mist'
+  },
+  {
+    id: 'TPLM46214',
+    name: 'product_names.TPLM46214',
+    description: 'TPL63579',
+    price: 50,
+    imageUrl: 'https://tauroproline.com/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_TPLM46214680_680resizebg.webp',
+    dataAiHint: 'pet care mist',
+    category: 'Care Mist',
+    stock: 50,
+    productFor: 'both',
+    weight: 0.06,
+    variantGroupId: 'tpl-pure-mist'
   },
   {
     id: 'CAN451432',
