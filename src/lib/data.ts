@@ -691,7 +691,7 @@ export const mockProducts: Product[] = [
     id: 'TPL63604',
     name: 'product_names.TPL63604',
     description: 'TPL63604',
-    price: 150,
+    price: 300,
     imageUrl: 'https://tauroproline.com/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_TPL63604680_680resizebg.webp',
     dataAiHint: 'pet mask',
     category: 'Mask',
@@ -804,7 +804,7 @@ export const mockProducts: Product[] = [
     id: 'TPL63579',
     name: 'product_names.TPL63579',
     description: 'TPL63579',
-    price: 150,
+    price: 250,
     imageUrl: 'https://tauroproline.com/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_TPL63580680_680resizebg.webp',
     dataAiHint: 'pet care mist',
     category: 'Care Mist',
@@ -830,7 +830,7 @@ export const mockProducts: Product[] = [
     id: 'TPL63579-1L',
     name: 'product_names.TPL63579-1L',
     description: 'TPL63579',
-    price: 250,
+    price: 700,
     imageUrl: 'https://tauroproline.com/vendor/laravel-files/files/import/_default_upload_bucket/__thumbnails__/vc_1_TPL63579680_680resizebg.webp',
     dataAiHint: 'pet care mist',
     category: 'Care Mist',
@@ -855,7 +855,7 @@ export const mockProducts: Product[] = [
     id: 'TPL63380',
     name: 'product_names.TPL63380',
     description: 'TPL63380',
-    price: 180,
+    price: 250,
     imageUrl: 'https://tauroproline.com/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_TPL63380680_680resizebg.webp',
     dataAiHint: 'pet tear stain remover',
     category: 'Mask',
@@ -867,7 +867,7 @@ export const mockProducts: Product[] = [
     id: 'TPL47414',
     name: 'product_names.TPL47414',
     description: 'TPL47414',
-    price: 200,
+    price: 500,
     imageUrl: 'https://tauroproline.com/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_TPL47414680_680resizebg.webp',
     dataAiHint: 'pet coat oil',
     category: 'Care Oil',
@@ -963,7 +963,7 @@ export const mockProducts: Product[] = [
     id: 'TPL63588',
     name: 'product_names.TPL63588',
     description: 'TPL63588',
-    price: 150,
+    price: 250,
     imageUrl: 'https://tauroproline.com/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_TPL63588680_680resizebg.webp',
     dataAiHint: 'pet leave-in conditioner',
     category: 'Conditioner',
@@ -975,7 +975,7 @@ export const mockProducts: Product[] = [
     id: 'TPL63601',
     name: 'product_names.TPL63601',
     description: 'TPL63601',
-    price: 150,
+    price: 250,
     imageUrl: 'https://tauroproline.com/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_TPL63601680_680resizebg.webp',
     dataAiHint: 'pet leave-in conditioner',
     category: 'Conditioner',
@@ -1005,6 +1005,18 @@ export const mockProducts: Product[] = [
     category: 'Accessories',
     stock: 100,
     productFor: 'both'
+  },
+  {
+    id: 'TPL63389',
+    name: 'product_names.TPL63389',
+    description: 'TPL63389',
+    price: 250,
+    imageUrl: 'https://www.tauroproline.com/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_TPL63389680_680resizebg.webp',
+    dataAiHint: 'pet growth conditioner',
+    category: 'Conditioner',
+    stock: 50,
+    productFor: 'both',
+    weight: 0.25
   }
 ];
 
@@ -1015,6 +1027,7 @@ export function getProductById(id: string): Product | undefined {
 export function getProductsByIds(ids: string[]): Product[] {
   return mockProducts.filter(p => ids.includes(p.id));
 }
+
 
 
 
