@@ -177,16 +177,31 @@ export default function ProductsPage() {
       'all', 
       ...Array.from(new Set(productSet.map(p => p[key]).filter(Boolean) as string[]))
     ];
+    
+    if (mainCategory === 'Cosmetics') {
+        return {
+            categories: createOptions('category', filteredProductsByMainCategory),
+            weight: ['all', ...Array.from(new Set(filteredProductsByMainCategory.map(p => p.weight).filter(Boolean))).sort((a,b) => a-b).map(String)]
+        };
+    }
+
+    if (mainCategory === 'Food') {
+        return {
+            categories: createOptions('category', filteredProductsByMainCategory),
+            breedSize: createOptions('breedSize', filteredProductsByMainCategory),
+            lifestage: createOptions('lifestage', filteredProductsByMainCategory),
+            flavour: createOptions('flavour', filteredProductsByMainCategory),
+            purpose: createOptions('purpose', filteredProductsByMainCategory),
+            coatColor: createOptions('coatColor', filteredProductsByMainCategory),
+            weight: ['all', ...Array.from(new Set(filteredProductsByMainCategory.map(p => p.weight).filter(Boolean))).sort((a,b) => a-b).map(String)]
+        };
+    }
+
     return {
       categories: createOptions('category', filteredProductsByMainCategory),
-      breedSize: createOptions('breedSize', filteredProductsByMainCategory),
-      lifestage: createOptions('lifestage', filteredProductsByMainCategory),
-      flavour: createOptions('flavour', filteredProductsByMainCategory),
-      purpose: createOptions('purpose', filteredProductsByMainCategory),
-      coatColor: createOptions('coatColor', filteredProductsByMainCategory),
-      weight: ['all', ...Array.from(new Set(filteredProductsByMainCategory.map(p => p.weight).filter(Boolean))).sort((a,b) => a-b).map(String)]
-    };
-  }, [filteredProductsByMainCategory]);
+    }
+
+  }, [filteredProductsByMainCategory, mainCategory]);
 
   const filteredAndSortedProducts = useMemo(() => {
     let products = [...filteredProductsByMainCategory];
@@ -355,3 +370,4 @@ export default function ProductsPage() {
     </SiteLayout>
   );
 }
+
