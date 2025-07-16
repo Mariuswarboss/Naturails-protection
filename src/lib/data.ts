@@ -863,6 +863,18 @@ export const mockProducts: Product[] = [
     weight: 0.25
   },
   {
+    id: 'TPL47409',
+    name: 'product_names.TPL47409',
+    description: 'TPL47409',
+    price: 200,
+    imageUrl: 'https://tauroproline.com/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_TPL47409680_680resizebg.webp',
+    dataAiHint: 'pet care elixir',
+    category: 'Care Elixir',
+    stock: 50,
+    productFor: 'both',
+    weight: 0.03,
+  },
+  {
     id: 'TPL47410',
     name: 'product_names.TPL47410',
     description: 'TPL47410',
@@ -883,24 +895,3 @@ export function getProductById(id: string): Product | undefined {
 export function getProductsByIds(ids: string[]): Product[] {
   return mockProducts.filter(p => ids.includes(p.id));
 }
-
-// MOCK DATA - In a real app, this would come from a database.
-export const mockUsers: User[] = [
-  {
-    id: 'user-1',
-    email: 'buyer@example.com',
-    name: 'Alex Buyer',
-    addresses: [
-      { id: 'addr-1', street: '123 Pet Lane', city: 'Chisinau', postalCode: 'MD-2001', country: 'Moldova', isDefault: true },
-      { id: 'addr-2', street: '456 Dog Park Ave', city: 'Balti', postalCode: 'MD-3100', country: 'Moldova', isDefault: false },
-    ],
-  },
-  {
-    id: 'admin-1',
-    email: 'admin@ecoshop.md',
-    name: 'Admin User',
-    addresses: [],
-  },
-];
-
-export const mockOrders: Order[] = [];
