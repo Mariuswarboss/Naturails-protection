@@ -757,7 +757,7 @@ export const mockProducts: Product[] = [
     name: 'product_names.TPL63790',
     description: 'TPL63790',
     price: 300,
-    imageUrl: 'https://tauroproline.com/vendor/laravel-files/files/import/Eshop/thumbnails/vc_1_TPL63790680_680resizebg.webp',
+    imageUrl: 'https://www.tauroproline.com/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_TPL63790680_680resizebg.webp',
     dataAiHint: 'pet shampoo growth',
     category: 'Shampoo',
     stock: 50,
@@ -988,7 +988,7 @@ export const mockProducts: Product[] = [
     name: 'product_names.TPLPN63381',
     description: 'TPLPN63381',
     price: 140,
-    imageUrl: 'https://tauroproline.com/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_TPL63639680_680resizebg.webp',
+    imageUrl: 'https://tauroproline.com/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_TPLPN63381680_680resizebg.webp',
     dataAiHint: 'pet toothpaste',
     category: 'Toothpaste',
     stock: 50,
@@ -1015,6 +1015,7 @@ export function getProductById(id: string): Product | undefined {
 export function getProductsByIds(ids: string[]): Product[] {
   return mockProducts.filter(p => ids.includes(p.id));
 }
+
 
 
 
