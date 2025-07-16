@@ -138,7 +138,7 @@ export const mockProducts: Product[] = [
     name: "product_names.NPSC45664",
     description: 'NPSC45664',
     price: 1450,
-    imageUrl: 'https://naturesprotection.eu/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_NPSC45664680_680resizebg.webp',
+    imageUrl: 'https://d3gr7hv60ouvr1.cloudfront.net/CACHE/images/products/281c7561-ed7d-47b0-8212-b57add94c1b8/c2178b6042f05a485822eb122fdefeb8.jpg',
     dataAiHint: 'dog food',
     category: 'Dry Food',
     stock: 15,
@@ -811,6 +811,18 @@ export const mockProducts: Product[] = [
     stock: 50,
     productFor: 'both',
     weight: 0.25
+  },
+  {
+    id: 'CAN451432',
+    name: 'product_names.CAN451432',
+    description: 'CAN451432',
+    price: 180,
+    imageUrl: 'https://tauroproline.com/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_CAN451432680_680resizebg.webp',
+    dataAiHint: 'pet care powder',
+    category: 'Care Powder',
+    stock: 50,
+    productFor: 'both',
+    weight: 0.03
   }
 ];
 

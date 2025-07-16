@@ -359,7 +359,8 @@
     "TPL47282": "TAURO PRO LINE Pure Nature Paw Balm Nourishes&Restores, balsam pentru hrănirea și refacerea pernuțelor la câini și pisici",
     "TPL47280": "TAURO PRO LINE Pure Nature Nose&Paw Balm Hydrates&Moisturizes, balsam hidratant pentru pernuțe și nas la câini și pisici",
     "TPL63790": "TAURO PRO LINE Pure Nature Fur Growth, șampon pentru stimularea creșterii blănii la câini și pisici",
-    "TPL63579": "TAURO PRO LINE Ultra Natural Care 6in1 Pure Mist, produs multifuncțional pentru îngrijirea zilnică a corpului"
+    "TPL63579": "TAURO PRO LINE Ultra Natural Care 6in1 Pure Mist, produs multifuncțional pentru îngrijirea zilnică a corpului",
+    "CAN451432": "Pudră de îngrijire a pielii TAURO PRO LINE Pure Nature pentru tăieturi și zgârieturi minore"
   },
   "product_descriptions": {
     "UNINPSC63999": {
@@ -613,6 +614,12 @@
       "components": "Compoziție: apă alcalină ionizată cu pH 11,3, conținând șase ioni: Ca2+, Mg2+, HCO3-, Cl-, SO42-, Na+.",
       "vitaminsAndMinerals": "Acest produs este un produs cosmetic; secțiunea de vitamine și minerale nu se aplică.",
       "instructions": "Utilizare: Pulverizați de 1-2 ori direct în urechi sau ochi, ștergeți murdăria cu un tampon de bumbac. Utilizați după necesități. Aplicați pe blana umedă înainte de uscare; sau zilnic pe blana uscată. Pentru animalele de companie cu o greutate de până la 10 kg, pulverizați de 3-5 ori, 10-25 kg - de 5-7 ori și mai mult de 25 kg - de 7-10 ori. Utilizați în combinație cu produse cosmetice pentru a le spori efectul. Doar pentru uz extern, pulverizați pe blană sau pe piele de 2-4 ori."
+    },
+    "CAN451432": {
+      "details": "Pudra 100% naturală de zeolit clinoptilolit de la Tauro Pro Line Pure Nature este un produs versatil care oprește eficient sângerările minore după tăierea unghiilor sau zgârieturi la animalele de companie. În plus, ridică blana de la rădăcini, oferind un efect de albire perfect pentru pregătirea blănii pentru expoziții sau pentru a obține un aspect pufos. Această pudră multifuncțională este potrivită atât pentru uz casnic, cât și în timpul expozițiilor.",
+      "components": "Ingrediente: 100 % zeolit clinoptilolit.",
+      "vitaminsAndMinerals": "Acest produs este un produs cosmetic; secțiunea de vitamine și minerale nu se aplică.",
+      "instructions": "Utilizare: Dacă este necesar, aplicați puțină pudră pe piele sau în zona rănilor mai mici. Nu utilizați mai mult de 5 ori pe zi și continuați până la vindecarea rănii. Nu utilizați pe dermul secționat. Avertisment: A nu se lăsa la îndemâna copiilor. Doar pentru uz veterinar. Păstrați produsul în ambalajul original – păstrați la temperaturi de 5-35 °C pentru depozitare."
     }
   }
 }
