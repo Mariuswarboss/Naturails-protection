@@ -8,10 +8,12 @@ import Image from 'next/image';
 import { ChevronLeft } from 'lucide-react';
 import Link from 'next/link';
 import ProductCard from '@/components/ProductCard';
-import ProductRecommendations from '@/components/ProductRecommendations';
 import ProductDetailsClient from './ProductDetailsClient';
 import ProductDescription from './ProductDescription';
 import { useTranslation } from '@/contexts/LanguageContext';
+import dynamic from 'next/dynamic';
+
+const ProductRecommendations = dynamic(() => import('@/components/ProductRecommendations'), { ssr: false });
 
 export default function ProductPage() {
   const params = useParams();
