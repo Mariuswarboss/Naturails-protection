@@ -999,7 +999,7 @@ export const mockProducts: Product[] = [
     id: 'TPL63639',
     name: 'product_names.TPL63639',
     description: 'TPL63639',
-    price: 140,
+    price: 70,
     imageUrl: 'https://www.tauroproline.com/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_TPL63639680_680resizebg.webp',
     dataAiHint: 'pet toothbrush',
     category: 'Dental',
@@ -1027,6 +1027,7 @@ export function getProductById(id: string): Product | undefined {
 export function getProductsByIds(ids: string[]): Product[] {
   return mockProducts.filter(p => ids.includes(p.id));
 }
+
 
 
 
