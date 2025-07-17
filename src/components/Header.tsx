@@ -47,7 +47,7 @@ export default function Header() {
   ];
 
   const NavLinksComponent = ({ mobile = false }: { mobile?: boolean }) => (
-    <nav className={`flex ${mobile ? 'flex-col space-y-2 p-4' : 'space-x-6 items-center'}`}>
+    <nav className={`flex ${mobile ? 'flex-col space-y-2 p-4' : 'space-x-4 lg:space-x-6 items-center'}`}>
       {navLinks.map(link => (
         <Link
           key={link.href}
@@ -64,9 +64,9 @@ export default function Header() {
   const LanguageSwitcherDropdown = ({ mobile = false }: { mobile?: boolean }) => (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant={mobile ? "outline" : "ghost"} size={mobile ? "default" : "sm"} className={`${mobile ? 'w-full justify-start text-left py-2 px-3' : 'px-2'}`}>
+        <Button variant={mobile ? "outline" : "ghost"} size={mobile ? "default" : "icon"} className={`${mobile ? 'w-full justify-start text-left py-2 px-3' : 'px-2'}`}>
           <Languages className={`h-5 w-5 ${mobile ? 'mr-2': ''}`} />
-          <span className={mobile ? '' : 'hidden sm:inline ml-1'}>{language}</span>
+          <span className={mobile ? '' : 'sr-only'}>{language}</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className={mobile ? "w-[calc(100%-2rem)]" : ""}>
@@ -83,14 +83,14 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow-sm">
-      <div className="container flex h-24 items-center justify-between">
-        <Link href="/" className="mr-4 flex items-center">
+      <div className="container flex h-20 items-center justify-between">
+        <Link href="/" className="mr-2 flex items-center shrink-0">
           <Image
             src={logoUrl}
             alt={t('header.siteTitle')}
-            width={280}
-            height={80}
-            className="object-contain h-20 w-auto"
+            width={200}
+            height={60}
+            className="object-contain h-16 w-auto"
             data-ai-hint="company logo"
             priority
           />
@@ -100,21 +100,19 @@ export default function Header() {
           <NavLinksComponent />
         </div>
 
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center space-x-1 sm:space-x-2">
           <form onSubmit={handleSearchSubmit} className="relative hidden md:block">
             <Input 
               type="search" 
               placeholder={t('header.searchPlaceholder')} 
-              className="h-10 w-full sm:w-48 lg:w-64 pl-10 pr-4 rounded-full border-border focus:border-primary"
+              className="h-9 w-full sm:w-32 lg:w-48 pl-9 pr-3 rounded-full border-border focus:border-primary"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
-            <Search className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground pointer-events-none" />
+            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground pointer-events-none" />
           </form>
           
-          <div className="hidden md:block">
-            <LanguageSwitcherDropdown />
-          </div>
+          <LanguageSwitcherDropdown />
 
           <div className="lg:hidden">
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>

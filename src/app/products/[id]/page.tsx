@@ -11,9 +11,6 @@ import ProductCard from '@/components/ProductCard';
 import ProductDetailsClient from './ProductDetailsClient';
 import ProductDescription from './ProductDescription';
 import { useTranslation } from '@/contexts/LanguageContext';
-import dynamic from 'next/dynamic';
-
-const ProductRecommendations = dynamic(() => import('@/components/ProductRecommendations'), { ssr: false });
 
 export default function ProductPage() {
   const params = useParams();
@@ -93,8 +90,6 @@ export default function ProductPage() {
           </div>
         </section>
       )}
-
-      <ProductRecommendations currentProductId={product.id} currentProductCategory={product.category} />
       
     </SiteLayout>
   );
