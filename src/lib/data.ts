@@ -1,5 +1,5 @@
 
-import type { Product, User, Order, Address, OrderItem } from '@/types';
+import type { Product } from '@/types';
 
 export const mockProducts: Product[] = [
   {
@@ -219,7 +219,7 @@ export const mockProducts: Product[] = [
     purpose: 'Tear Stain Prevention',
     coatColor: 'White',
     weight: 1.5,
-    variantGroupId: 'npsc-white-dog-salmon-adult'
+    variantGroupId: 'npsc-white-dog-salmon-adult',
   },
   {
     id: 'NPSC45834-10',
@@ -237,7 +237,7 @@ export const mockProducts: Product[] = [
     purpose: 'Tear Stain Prevention',
     coatColor: 'White',
     weight: 10,
-    variantGroupId: 'npsc-white-dog-salmon-adult'
+    variantGroupId: 'npsc-white-dog-salmon-adult',
   },
   {
     id: 'NPSC45671',
@@ -371,7 +371,7 @@ export const mockProducts: Product[] = [
     coatColor: 'White',
     flavour: 'Salmon',
     purpose: 'Tear Stain Prevention',
-    weight: 0.11
+    weight: 0.11,
   },
   {
     id: 'KIKNPSC47655',
@@ -387,7 +387,7 @@ export const mockProducts: Product[] = [
     coatColor: 'White',
     flavour: 'Lamb',
     purpose: 'Mobility and Joint Health',
-    weight: 0.150
+    weight: 0.150,
   },
   {
     id: 'KIKNPSC47199',
@@ -403,7 +403,7 @@ export const mockProducts: Product[] = [
     coatColor: 'White',
     flavour: 'Salmon',
     purpose: 'Hypoallergenic & Digestive Care',
-    weight: 0.110
+    weight: 0.110,
   },
   {
     id: 'KIKNPSC47273',
@@ -419,7 +419,7 @@ export const mockProducts: Product[] = [
     coatColor: 'Red',
     flavour: 'Salmon',
     purpose: 'Skin & Coat Health',
-    weight: 0.160
+    weight: 0.160,
   },
   {
     id: 'KIKNPSC47654',
@@ -435,7 +435,7 @@ export const mockProducts: Product[] = [
     coatColor: 'White',
     flavour: 'Herring',
     purpose: 'Immune Health',
-    weight: 0.15
+    weight: 0.15,
   },
   {
     id: 'KIKNPSC47660',
@@ -451,7 +451,7 @@ export const mockProducts: Product[] = [
     coatColor: 'Red',
     flavour: 'Lamb',
     purpose: 'Healthy Body & Stamina',
-    weight: 0.15
+    weight: 0.15,
   },
   {
     id: 'KIKNPSC47271',
@@ -467,7 +467,7 @@ export const mockProducts: Product[] = [
     coatColor: 'Red',
     flavour: 'Salmon',
     purpose: 'Oral & Intestinal Care',
-    weight: 0.15
+    weight: 0.15,
   },
   {
     id: 'KIKNPSC47651',
@@ -483,7 +483,7 @@ export const mockProducts: Product[] = [
     coatColor: 'White',
     flavour: 'Insects',
     purpose: 'Healthy Growth & Development',
-    weight: 0.150
+    weight: 0.150,
   },
   {
     id: 'KIKNPSC47657',
@@ -499,7 +499,7 @@ export const mockProducts: Product[] = [
     coatColor: 'White',
     flavour: 'Salmon',
     purpose: 'Sensitive Care',
-    weight: 0.150
+    weight: 0.150,
   },
   {
     id: 'KIKNPSC-BRAIN-SALMON',
@@ -515,7 +515,7 @@ export const mockProducts: Product[] = [
     coatColor: 'White',
     flavour: 'Salmon',
     purpose: 'Brain Development',
-    weight: 0.110
+    weight: 0.110,
   },
   {
     id: 'SNK46125',
@@ -570,7 +570,7 @@ export const mockProducts: Product[] = [
     stock: 50,
     productFor: 'both',
     weight: 0.4,
-    variantGroupId: 'tpl-repair-nourish-shampoo'
+    variantGroupId: 'tpl-repair-nourish-shampoo',
   },
   {
     id: 'TPL63603',
@@ -583,7 +583,7 @@ export const mockProducts: Product[] = [
     stock: 30,
     productFor: 'both',
     weight: 1,
-    variantGroupId: 'tpl-repair-nourish-shampoo'
+    variantGroupId: 'tpl-repair-nourish-shampoo',
   },
   {
     id: 'TPL63767',
@@ -596,7 +596,7 @@ export const mockProducts: Product[] = [
     stock: 15,
     productFor: 'both',
     weight: 3.785,
-    variantGroupId: 'tpl-repair-nourish-shampoo'
+    variantGroupId: 'tpl-repair-nourish-shampoo',
   },
   {
     id: 'TPL63606',
@@ -609,7 +609,7 @@ export const mockProducts: Product[] = [
     stock: 50,
     productFor: 'both',
     weight: 0.4,
-    variantGroupId: 'tpl-keratin-gloss-shampoo'
+    variantGroupId: 'tpl-keratin-gloss-shampoo',
   },
   {
     id: 'TPL63607',
@@ -622,7 +622,7 @@ export const mockProducts: Product[] = [
     stock: 30,
     productFor: 'both',
     weight: 1,
-    variantGroupId: 'tpl-keratin-gloss-shampoo'
+    variantGroupId: 'tpl-keratin-gloss-shampoo',
   },
   {
     id: 'TPL63608',
@@ -635,7 +635,7 @@ export const mockProducts: Product[] = [
     stock: 15,
     productFor: 'both',
     weight: 3.785,
-    variantGroupId: 'tpl-keratin-gloss-shampoo'
+    variantGroupId: 'tpl-keratin-gloss-shampoo',
   },
   {
     id: 'TPL63612',
@@ -698,7 +698,7 @@ export const mockProducts: Product[] = [
     stock: 40,
     productFor: 'both',
     weight: 0.4,
-    variantGroupId: 'tpl-repair-nourish-mask'
+    variantGroupId: 'tpl-repair-nourish-mask',
   },
   {
     id: 'TPL63768',
@@ -711,7 +711,7 @@ export const mockProducts: Product[] = [
     stock: 10,
     productFor: 'both',
     weight: 3.785,
-    variantGroupId: 'tpl-repair-nourish-mask'
+    variantGroupId: 'tpl-repair-nourish-mask',
   },
   {
     id: 'TPL63609',
@@ -724,7 +724,7 @@ export const mockProducts: Product[] = [
     stock: 50,
     productFor: 'both',
     weight: 0.4,
-    variantGroupId: 'tpl-keratin-gloss-conditioner'
+    variantGroupId: 'tpl-keratin-gloss-conditioner',
   },
   {
     id: 'TPL63610',
@@ -737,7 +737,7 @@ export const mockProducts: Product[] = [
     stock: 30,
     productFor: 'both',
     weight: 1,
-    variantGroupId: 'tpl-keratin-gloss-conditioner'
+    variantGroupId: 'tpl-keratin-gloss-conditioner',
   },
   {
     id: 'TPL63611',
@@ -750,7 +750,7 @@ export const mockProducts: Product[] = [
     stock: 15,
     productFor: 'both',
     weight: 3.785,
-    variantGroupId: 'tpl-keratin-gloss-conditioner'
+    variantGroupId: 'tpl-keratin-gloss-conditioner',
   },
   {
     id: 'TPL63790',
@@ -762,7 +762,7 @@ export const mockProducts: Product[] = [
     category: 'Shampoo',
     stock: 50,
     productFor: 'both',
-    weight: 0.4
+    weight: 0.4,
   },
   {
     id: 'TPL47281',
@@ -774,7 +774,7 @@ export const mockProducts: Product[] = [
     category: 'Balm',
     stock: 50,
     productFor: 'both',
-    weight: 0.075
+    weight: 0.075,
   },
   {
     id: 'TPL47282',
@@ -786,7 +786,7 @@ export const mockProducts: Product[] = [
     category: 'Balm',
     stock: 50,
     productFor: 'both',
-    weight: 0.075
+    weight: 0.075,
   },
   {
     id: 'TPL47280',
@@ -811,7 +811,7 @@ export const mockProducts: Product[] = [
     stock: 50,
     productFor: 'both',
     weight: 0.25,
-    variantGroupId: 'tpl-pure-mist'
+    variantGroupId: 'tpl-pure-mist',
   },
   {
     id: 'TPLM46214',
@@ -824,7 +824,7 @@ export const mockProducts: Product[] = [
     stock: 50,
     productFor: 'both',
     weight: 0.06,
-    variantGroupId: 'tpl-pure-mist'
+    variantGroupId: 'tpl-pure-mist',
   },
   {
     id: 'TPL63579-1L',
@@ -837,7 +837,7 @@ export const mockProducts: Product[] = [
     stock: 30,
     productFor: 'both',
     weight: 1,
-    variantGroupId: 'tpl-pure-mist'
+    variantGroupId: 'tpl-pure-mist',
   },
   {
     id: 'CAN451432',
@@ -849,7 +849,7 @@ export const mockProducts: Product[] = [
     category: 'Care Powder',
     stock: 50,
     productFor: 'both',
-    weight: 0.03
+    weight: 0.03,
   },
   {
     id: 'TPL63380',
@@ -861,7 +861,7 @@ export const mockProducts: Product[] = [
     category: 'Mask',
     stock: 40,
     productFor: 'both',
-    weight: 0.05
+    weight: 0.05,
   },
   {
     id: 'TPL47414',
@@ -873,7 +873,7 @@ export const mockProducts: Product[] = [
     category: 'Care Oil',
     stock: 50,
     productFor: 'both',
-    weight: 0.25
+    weight: 0.25,
   },
   {
     id: 'TPL47410',
@@ -933,7 +933,7 @@ export const mockProducts: Product[] = [
     category: 'Shampoo',
     stock: 50,
     productFor: 'both',
-    weight: 0.4
+    weight: 0.4,
   },
   {
     id: 'TPL63475',
@@ -945,7 +945,7 @@ export const mockProducts: Product[] = [
     category: 'Conditioner',
     stock: 50,
     productFor: 'both',
-    weight: 0.4
+    weight: 0.4,
   },
   {
     id: 'TPL63388',
@@ -957,7 +957,7 @@ export const mockProducts: Product[] = [
     category: 'Conditioner',
     stock: 50,
     productFor: 'both',
-    weight: 0.4
+    weight: 0.4,
   },
   {
     id: 'TPL63588',
@@ -969,7 +969,7 @@ export const mockProducts: Product[] = [
     category: 'Conditioner',
     stock: 50,
     productFor: 'both',
-    weight: 0.25
+    weight: 0.25,
   },
   {
     id: 'TPL63601',
@@ -981,7 +981,7 @@ export const mockProducts: Product[] = [
     category: 'Conditioner',
     stock: 50,
     productFor: 'both',
-    weight: 0.25
+    weight: 0.25,
   },
   {
     id: 'TPLPN63381',
@@ -993,7 +993,7 @@ export const mockProducts: Product[] = [
     category: 'Dental',
     stock: 50,
     productFor: 'both',
-    weight: 0.1
+    weight: 0.1,
   },
   {
     id: 'TPL63639',
@@ -1004,7 +1004,7 @@ export const mockProducts: Product[] = [
     dataAiHint: 'pet toothbrush',
     category: 'Dental',
     stock: 100,
-    productFor: 'both'
+    productFor: 'both',
   },
   {
     id: 'TPL63389',
@@ -1016,7 +1016,7 @@ export const mockProducts: Product[] = [
     category: 'Conditioner',
     stock: 50,
     productFor: 'both',
-    weight: 0.25
+    weight: 0.25,
   }
 ];
 
@@ -1025,7 +1025,7 @@ export function getProductById(id: string): Product | undefined {
 }
 
 export function getProductsByIds(ids: string[]): Product[] {
-  return mockProducts.filter(p => ids.includes(p.id));
+  return mockProducts.filter(p => ids.includes(p.id) && !p.isHidden);
 }
 
 
@@ -1034,3 +1034,6 @@ export function getProductsByIds(ids: string[]): Product[] {
 
 
 
+
+
+  

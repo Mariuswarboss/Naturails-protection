@@ -18,6 +18,7 @@ export interface Product {
   coatColor?: string;
   weight?: number; // in kg
   variantGroupId?: string;
+  isHidden?: boolean;
 }
 
 export interface CartItem {
@@ -66,3 +67,5 @@ export interface Order {
   trackingNumber?: string;
   items: OrderItem[];
 }
+
+  

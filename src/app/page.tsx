@@ -22,14 +22,14 @@ export default function HomePage() {
         <div className="container mx-auto px-4 z-10 relative">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="text-center md:text-left">
-              <h1 className="font-headline text-3xl md:text-5xl lg:text-6xl font-extrabold mb-6 text-primary tracking-tight">
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold mb-6 text-primary tracking-tight">
                 {t('homepage.heroTitle')}
               </h1>
               <p className="text-base md:text-xl text-foreground/80 mb-8 max-w-lg mx-auto md:mx-0">
                 {t('homepage.heroSubtitle')}
               </p>
               <Link href="/products">
-                <Button size="lg" className="font-headline text-base md:text-lg px-6 py-3 md:px-8 md:py-3 rounded-full">
+                <Button size="lg" className="text-base md:text-lg px-6 py-3 md:px-8 md:py-3 rounded-full">
                   {t('homepage.shopAllProducts')} <ChevronRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
@@ -61,7 +61,7 @@ export default function HomePage() {
                 data-ai-hint="dog playing"
               />
               <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
-                <h3 className="font-headline text-3xl md:text-5xl font-bold text-white mb-4">{t('homepage.productsCardTitle')}</h3>
+                <h3 className="text-3xl md:text-5xl font-bold text-white mb-4">{t('homepage.productsCardTitle')}</h3>
                 <p className="text-gray-200 mb-6 text-sm md:text-lg max-w-xl">{t('homepage.productsCardSubtitle')}</p>
                 <Button variant="secondary" className="bg-white/90 hover:bg-white text-primary group-hover:bg-primary group-hover:text-white transition-colors rounded-full px-6 py-2 md:px-8 md:py-3 text-base md:text-lg">
                   {t('homepage.shopNow')} <ChevronRight className="ml-1 h-5 w-5" />
@@ -77,7 +77,7 @@ export default function HomePage() {
         <section className="py-16 md:py-24 bg-secondary/30">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
-                <h2 className="font-headline text-3xl md:text-4xl font-bold text-foreground">{t('homepage.featuredProducts')}</h2>
+                <h2 className="text-3xl md:text-4xl font-bold text-foreground">{t('homepage.featuredProducts')}</h2>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
               {featuredProducts.map(product => (
@@ -97,7 +97,7 @@ export default function HomePage() {
       <section className="py-16 md:py-24 bg-card border-y">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h3 className="font-headline text-3xl md:text-4xl font-bold mb-4 text-primary">{t('homepage.whyChooseUsTitle')}</h3>
+            <h3 className="text-3xl md:text-4xl font-bold mb-4 text-primary">{t('homepage.whyChooseUsTitle')}</h3>
             <p className="text-foreground/80 max-w-3xl mx-auto text-base md:text-lg">
               {t('homepage.whyChooseUsSubtitle')}
             </p>
@@ -136,3 +136,6 @@ export default function HomePage() {
   );
 }
     
+
+  
+
