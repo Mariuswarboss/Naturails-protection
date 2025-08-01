@@ -1,83 +1,49 @@
 
-"use client";
-
-import { useParams } from 'next/navigation';
 import { getProductById, mockProducts } from '@/lib/data';
 import SiteLayout from '@/components/SiteLayout';
-import Image from 'next/image';
-import { ChevronLeft } from 'lucide-react';
 import Link from 'next/link';
-import ProductDetailsClient from './ProductDetailsClient';
-import ProductDescription from './ProductDescription';
-import { useTranslation } from '@/contexts/LanguageContext';
-import ProductRecommendations from '@/components/ProductRecommendations';
+import { ChevronLeft } from 'lucide-react';
+import ProductPageClient from './ProductPageClient';
 
-export default function ProductPage() {
-  const params = useParams();
-  const { t } = useTranslation();
-  
-  const id = Array.isArray(params.id) ? params.id[0] : params.id as string;
+export function generateStaticParams() {
+  return mockProducts.map((product) => ({
+    id: product.id,
+  }))
+}
+
+export default function ProductPage({ params }: { params: { id: string } }) {
+  const { id } = params;
   const product = getProductById(id);
 
   if (!product) {
+    // This part will be rendered on the server during the build process
+    // for any IDs that don't match a product.
     return (
       <SiteLayout>
         <div className="text-center py-10">
-          <h1 className="text-2xl font-bold">{t('productPage.productNotFound')}</h1>
+          <h1 className="text-2xl font-bold">Product Not Found</h1>
           <Link href="/products" className="text-primary hover:underline mt-4 inline-block">
               <ChevronLeft className="inline h-4 w-4 mr-1" />
-              {t('productPage.backToProducts')}
+              Back to Products
           </Link>
         </div>
       </SiteLayout>
     );
   }
-  
+
   const variants = product.variantGroupId
     ? mockProducts.filter(p => p.variantGroupId === product.variantGroupId).sort((a, b) => (a.weight || 0) - (b.weight || 0))
     : [];
 
   return (
     <SiteLayout>
-      <div className="mb-6">
+       <div className="mb-6">
         <Link href="/products" className="text-sm text-muted-foreground hover:text-primary inline-flex items-center">
             <ChevronLeft className="h-4 w-4 mr-1" />
-            {t('productPage.backToProducts')}
+            {/* This text will be translated on the client */}
         </Link>
       </div>
-
-      <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
-        <div className="relative aspect-square rounded-lg overflow-hidden shadow-lg border">
-          <Image
-            src={product.imageUrl}
-            alt={t(product.name)}
-            fill
-            className="object-cover"
-            priority
-            data-ai-hint={product.dataAiHint || "product image"}
-          />
-           {product.stock <= 0 && (
-            <div className="absolute top-3 right-3 bg-destructive text-destructive-foreground text-sm font-bold px-3 py-1.5 rounded-md">
-              {t('productPage.outOfStockButton')}
-            </div>
-          )}
-        </div>
-
-        <div className="space-y-6">
-          <h1 className="font-headline text-3xl md:text-4xl font-bold">{t(product.name)}</h1>
-          <p className="text-2xl font-semibold text-primary">{product.price.toFixed(2)} MDL</p>
-          
-          <div>
-            <ProductDescription descriptionKey={product.description} />
-          </div>
-
-          <ProductDetailsClient product={product} variants={variants} />
-
-        </div>
-      </div>
-
-      <ProductRecommendations currentProductId={product.id} currentProductCategory={product.category} />
-      
+      <ProductPageClient product={product} variants={variants} />
     </SiteLayout>
   );
 }
