@@ -1,6 +1,7 @@
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/naturesp/public_html/
+    - export DEPLOYPATH=/home/naturesp/public_html
     - /bin/npm install
+    - /bin/npm run build
     - /bin/npm run export
-    - /bin/cp -r out/* $DEPLOYPATH
+    - /bin/cp -a out/. $DEPLOYPATH
