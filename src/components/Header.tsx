@@ -122,7 +122,7 @@ export default function Header() {
                   <span className="sr-only">{t('header.toggleMenu')}</span>
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-[300px] sm:w-[350px] p-0 flex flex-col">
+              <SheetContent onOpenAutoFocus={(e) => e.preventDefault()} side="right" className="w-[300px] sm:w-[350px] p-0 flex flex-col">
                 <div className="p-4 border-b">
                   <Link href="/" className="flex items-center" onClick={() => setIsMobileMenuOpen(false)}>
                      <Image
