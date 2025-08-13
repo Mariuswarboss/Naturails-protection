@@ -2,12 +2,11 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { getProductsByIds, mockProducts } from '@/lib/data';
+import { mockProducts } from '@/lib/data';
 import type { Product } from '@/types';
 import ProductCard from '@/components/ProductCard';
 import { Loader2 } from 'lucide-react';
 import { useTranslation } from '@/contexts/LanguageContext';
-import { getProductRecommendations } from '@/ai/flows/recommendations';
 
 export default function ProductRecommendations({ currentProductId, currentProductCategory }: { currentProductId: string; currentProductCategory: string; }) {
     const [recommendedProducts, setRecommendedProducts] = useState<Product[]>([]);
@@ -35,15 +34,12 @@ export default function ProductRecommendations({ currentProductId, currentProduc
                     numberOfRecommendations: 4,
                 };
 
-                const recommendations = await getProductRecommendations(payload);
-                
-                if (recommendations && recommendations.productIds && recommendations.productIds.length > 0) {
-                    const productIds = recommendations.productIds.filter(id => id !== currentProductId);
-                    const products = getProductsByIds(productIds);
-                    setRecommendedProducts(products);
-                } else {
-                    setRecommendedProducts([]);
-                }
+                // Fallback: simple client-side recommender using mock data only
+                const candidateProducts = mockProducts
+                  .filter(p => p.id !== currentProductId && (!currentProductCategory || p.category === currentProductCategory))
+                  .slice(0, 8);
+                const products = candidateProducts.slice(0, 4);
+                setRecommendedProducts(products);
             } catch (err) {
                 console.error("Failed to fetch product recommendations:", err);
                 setError(t('productRecommendations.error'));
