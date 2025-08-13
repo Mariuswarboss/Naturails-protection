@@ -1,70 +1,50 @@
 
-'use server';
 /**
- * @fileOverview Product recommendation agent.
+ * @fileOverview Product recommendation utilities.
  *
  * - getProductRecommendations - A function that returns product recommendations based on browsing history.
  * - ProductRecommendationInput - The input type for the getProductRecommendations function.
  * - ProductRecommendationOutput - The return type for the getProductRecommendations function.
  */
 
-import { ai } from '@/ai/genkit';
-import { z } from 'zod';
 import { mockProducts } from '@/lib/data';
 
-const ProductRecommendationInputSchema = z.object({
-  browsingHistory: z
-    .string()
-    .describe('A comma-separated list of product IDs the user has recently viewed.'),
-  numberOfRecommendations: z
-    .number()
-    .describe('The number of product recommendations to return.'),
-});
-export type ProductRecommendationInput = z.infer<
-  typeof ProductRecommendationInputSchema
->;
+export interface ProductRecommendationInput {
+  browsingHistory: string; // A comma-separated list of product IDs the user has recently viewed
+  numberOfRecommendations: number; // The number of product recommendations to return
+}
 
-const ProductRecommendationOutputSchema = z.object({
-  productIds: z
-    .array(z.string())
-    .describe('An array of recommended product IDs.'),
-});
-export type ProductRecommendationOutput = z.infer<
-  typeof ProductRecommendationOutputSchema
->;
+export interface ProductRecommendationOutput {
+  productIds: string[]; // An array of recommended product IDs
+}
 
-const allProductInfo = mockProducts
-  .map(
-    (p) =>
-      `ID: ${p.id}, Name: ${p.name}, Description: ${p.description}, Category: ${p.category}`
-  )
-  .join('\n');
+// Simple recommendation algorithm for static export compatibility
+export async function getProductRecommendations(input: ProductRecommendationInput): Promise<ProductRecommendationOutput> {
+  const { browsingHistory, numberOfRecommendations } = input;
+  const viewedProductIds = browsingHistory.split(',').filter(id => id.trim());
 
-const prompt = ai.definePrompt(
-  {
-    name: 'productRecommenderPrompt',
-    input: { schema: ProductRecommendationInputSchema },
-    output: { schema: ProductRecommendationOutputSchema },
-    prompt: `You are a pet store product recommender. Your goal is to suggest products that a user might like based on their browsing history.
+  // Get the categories of viewed products
+  const viewedProducts = mockProducts.filter(p => viewedProductIds.includes(p.id));
+  const viewedCategories = [...new Set(viewedProducts.map(p => p.category))];
 
-Here is the list of all available products:
-${allProductInfo}
+  // Find products in similar categories that haven't been viewed
+  let recommendations = mockProducts.filter(p =>
+    !viewedProductIds.includes(p.id) &&
+    viewedCategories.includes(p.category)
+  );
 
-User's recent browsing history (by product ID):
-{{{browsingHistory}}}
-
-Please recommend {{{numberOfRecommendations}}} other products that the user might be interested in. Do not recommend products that are already in their browsing history.`,
-  },
-);
-
-export const getProductRecommendations = ai.defineFlow(
-  {
-    name: 'productRecommenderFlow',
-    inputSchema: ProductRecommendationInputSchema,
-    outputSchema: ProductRecommendationOutputSchema,
-  },
-  async (input) => {
-    const { output } = await prompt(input);
-    return output!;
+  // If we don't have enough recommendations, add random products
+  if (recommendations.length < numberOfRecommendations) {
+    const additionalProducts = mockProducts.filter(p =>
+      !viewedProductIds.includes(p.id) &&
+      !recommendations.some(r => r.id === p.id)
+    );
+    recommendations = [...recommendations, ...additionalProducts];
   }
-);
+
+  // Shuffle and take the requested number
+  const shuffled = recommendations.sort(() => Math.random() - 0.5);
+  const productIds = shuffled.slice(0, numberOfRecommendations).map(p => p.id);
+
+  return { productIds };
+}

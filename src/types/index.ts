@@ -5,6 +5,8 @@ export interface Product {
   description: string;
   price: number;
   imageUrl: string;
+  additionalImageUrls?: string[];
+  videoUrl?: string;
   dataAiHint?: string;
   category: string; 
   stock: number;
@@ -67,5 +69,3 @@ export interface Order {
   trackingNumber?: string;
   items: OrderItem[];
 }
-
-  

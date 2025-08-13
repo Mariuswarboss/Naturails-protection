@@ -157,19 +157,28 @@ export default function ProductsPage() {
   useEffect(() => {
     const searchFromUrl = searchParams.get('search');
     const categoryFromUrl = searchParams.get('category');
+    const coatColorFromUrl = searchParams.get('coatColor');
 
     if (searchFromUrl) {
-        setSearchTerm(searchFromUrl);
-        setAppliedSearchTerm(searchFromUrl);
+      setSearchTerm(searchFromUrl);
+      setAppliedSearchTerm(searchFromUrl);
     }
+
+    const newFilters = { ...initialFilters };
+
     if (categoryFromUrl === 'Food' || categoryFromUrl === 'Cosmetics') {
       setMainCategory(categoryFromUrl);
-      setFilters(initialFilters); // Reset other filters when main category changes
     } else if (categoryFromUrl) {
-      setFilters(prev => ({...prev, category: categoryFromUrl}));
+      newFilters.category = categoryFromUrl;
     } else {
       setMainCategory('all');
     }
+    
+    if (coatColorFromUrl) {
+      newFilters.coatColor = coatColorFromUrl;
+    }
+
+    setFilters(newFilters);
   }, [searchParams]);
 
   const filteredProductsByMainCategory = useMemo(() => {
@@ -380,5 +389,3 @@ export default function ProductsPage() {
     </SiteLayout>
   );
 }
-
-  

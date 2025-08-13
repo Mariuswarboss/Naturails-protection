@@ -53,7 +53,7 @@ export default function ProductRecommendations({ currentProductId, currentProduc
             }
         }
 
-        // fetchRecommendations();
+        fetchRecommendations();
     }, [currentProductId, currentProductCategory, t]);
 
 
