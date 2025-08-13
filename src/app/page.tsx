@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from 'next/link';
@@ -21,7 +22,7 @@ import {
 // Create a client-only component for the carousel
 const ClientOnlyCarousel = () => {
   const { t } = useTranslation();
-  const [plugin] = React.useState(() =>
+  const [plugin] = React.useState(
     Autoplay({ delay: 5000, stopOnInteraction: true })
   )
   const slides = [
@@ -58,12 +59,12 @@ const ClientOnlyCarousel = () => {
       <CarouselContent>
         {slides.map((slide, index) => (
           <CarouselItem key={index}>
-            <div className="relative h-[60vh] md:h-[70vh] rounded-lg overflow-hidden">
+            <div className="relative h-[60vh] md:h-[70vh] rounded-lg overflow-hidden bg-black/10 dark:bg-black/20">
               <Image
                 src={slide.imageUrl}
                 alt={t(slide.titleKey)}
                 fill
-                className="object-cover"
+                className="object-contain md:object-cover"
                 data-ai-hint={slide.dataAiHint}
                 priority={index === 0}
               />
@@ -190,6 +191,3 @@ export default function HomePage() {
     </SiteLayout>
   );
 }
-    
-
-    

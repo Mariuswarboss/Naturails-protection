@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   description: "Nature's Protection Moldova oferă hrană premium, hipoalergenică și accesorii de calitate pentru câini și pisici. Produse naturale, fără conservanți, disponibile în Chișinău și toată Moldova – pentru sănătatea și bunăstarea animalelor tale de companie.",
   keywords: "Nature Protection Moldova, Nature's Protection, hrana animale, hrana caini, hrana pisici, pet food Moldova, Chișinău, Tauro Pro Line, hrana hipoalergenica, hrana fara cereale, accesorii animale, produse premium pentru animale",
   icons: {
-    icon: 'favicon.ico',
+    icon: '/favicon.ico',
   },
 };
 export default function RootLayout({
