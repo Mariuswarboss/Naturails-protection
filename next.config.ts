@@ -2,9 +2,14 @@
 import type {NextConfig} from 'next';
 
 const nextConfig: NextConfig = {
-  /* config options here */
   output: 'export',
-  trailingSlash: true,
+  /* config options here */
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   images: {
     unoptimized: true,
     remotePatterns: [
@@ -87,15 +92,6 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       }
     ],
-  },
-  allowedDevOrigins: [
-      'https://6000-firebase-studio-1749817101482.cluster-6vyo4gb53jczovun3dxslzjahs.cloudworkstations.dev',
-  ],
-  typescript: {
-    ignoreBuildErrors: true,
-  },
-  eslint: {
-    ignoreDuringBuilds: true,
   },
 };
 

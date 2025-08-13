@@ -10,7 +10,7 @@ import SiteLayout from '@/components/SiteLayout';
 import { ChevronRight, Leaf, FlaskConical, Award } from 'lucide-react';
 import { useTranslation } from '@/contexts/LanguageContext';
 import * as React from 'react';
-import Autoplay from "embla-carousel-autoplay"
+// import Autoplay from "embla-carousel-autoplay"
 import {
   Carousel,
   CarouselContent,
@@ -24,9 +24,23 @@ export default function HomePage() {
   
   const featuredProducts = mockProducts.filter(p => p.productFor === 'dog').slice(0, 4);
 
-  const plugin = React.useRef(
-    typeof window !== 'undefined' ? Autoplay({ delay: 5000, stopOnInteraction: true }) : null
-  )
+  const [autoplayPlugin, setAutoplayPlugin] = React.useState<any>(null);
+  const [isClient, setIsClient] = React.useState(false);
+
+  React.useEffect(() => {
+    setIsClient(true);
+    const loadAutoplay = async () => {
+      try {
+        const { default: Autoplay } = await import("embla-carousel-autoplay");
+        const plugin = Autoplay({ delay: 5000, stopOnInteraction: true });
+        setAutoplayPlugin(plugin);
+      } catch (error) {
+        console.warn("Failed to load autoplay plugin:", error);
+      }
+    };
+
+    loadAutoplay();
+  }, []);
 
   const slides = [
     {
@@ -56,45 +70,73 @@ export default function HomePage() {
     <SiteLayout>
       {/* Hero Section */}
       <section className="relative w-full mb-16 md:mb-24">
-        <Carousel
-          plugins={plugin.current ? [plugin.current] : []}
-          className="w-full"
-          onMouseEnter={() => plugin.current?.stop?.()}
-          onMouseLeave={() => plugin.current?.reset?.()}
-        >
-          <CarouselContent>
-            {slides.map((slide, index) => (
-              <CarouselItem key={index}>
-                <div className="relative h-[60vh] md:h-[70vh] rounded-lg overflow-hidden">
-                  <Image
-                    src={slide.imageUrl}
-                    alt={t(slide.titleKey)}
-                    fill
-                    className="object-cover"
-                    data-ai-hint={slide.dataAiHint}
-                    priority={index === 0}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                  <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4">
-                    <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold mb-6 text-white tracking-tight shadow-lg">
-                      {t(slide.titleKey)}
-                    </h1>
-                    <p className="text-base md:text-xl text-white/90 mb-8 max-w-2xl mx-auto shadow-sm">
-                       {t(slide.subtitleKey)}
-                    </p>
-                    <Link href={slide.link}>
-                      <Button size="lg" className="text-base md:text-lg px-6 py-3 md:px-8 md:py-3 rounded-full">
-                        {t('homepage.shopAllProducts')} <ChevronRight className="ml-2 h-5 w-5" />
-                      </Button>
-                    </Link>
+        {isClient ? (
+          <Carousel
+            plugins={autoplayPlugin ? [autoplayPlugin] : []}
+            className="w-full"
+            onMouseEnter={() => autoplayPlugin?.stop?.()}
+            onMouseLeave={() => autoplayPlugin?.reset?.()}
+          >
+            <CarouselContent>
+              {slides.map((slide, index) => (
+                <CarouselItem key={index}>
+                  <div className="relative h-[60vh] md:h-[70vh] rounded-lg overflow-hidden">
+                    <Image
+                      src={slide.imageUrl}
+                      alt={t(slide.titleKey)}
+                      fill
+                      className="object-cover"
+                      data-ai-hint={slide.dataAiHint}
+                      priority={index === 0}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                    <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4">
+                      <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold mb-6 text-white tracking-tight shadow-lg">
+                        {t(slide.titleKey)}
+                      </h1>
+                      <p className="text-base md:text-xl text-white/90 mb-8 max-w-2xl mx-auto shadow-sm">
+                         {t(slide.subtitleKey)}
+                      </p>
+                      <Link href={slide.link}>
+                        <Button size="lg" className="text-base md:text-lg px-6 py-3 md:px-8 md:py-3 rounded-full">
+                          {t('homepage.shopAllProducts')} <ChevronRight className="ml-2 h-5 w-5" />
+                        </Button>
+                      </Link>
+                    </div>
                   </div>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 z-10 hidden md:flex" />
-          <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 z-10 hidden md:flex" />
-        </Carousel>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 z-10 hidden md:flex" />
+            <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 z-10 hidden md:flex" />
+          </Carousel>
+        ) : (
+          // Fallback for SSR - show first slide only
+          <div className="relative h-[60vh] md:h-[70vh] rounded-lg overflow-hidden">
+            <Image
+              src={slides[0].imageUrl}
+              alt={t(slides[0].titleKey)}
+              fill
+              className="object-cover"
+              data-ai-hint={slides[0].dataAiHint}
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4">
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold mb-6 text-white tracking-tight shadow-lg">
+                {t(slides[0].titleKey)}
+              </h1>
+              <p className="text-base md:text-xl text-white/90 mb-8 max-w-2xl mx-auto shadow-sm">
+                 {t(slides[0].subtitleKey)}
+              </p>
+              <Link href={slides[0].link}>
+                <Button size="lg" className="text-base md:text-lg px-6 py-3 md:px-8 md:py-3 rounded-full">
+                  {t('homepage.shopAllProducts')} <ChevronRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
+            </div>
+          </div>
+        )}
       </section>
 
       {/* Category Section */}
