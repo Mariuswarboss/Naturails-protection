@@ -47,6 +47,10 @@ export default function ProductPageClient({ product, variants }: { product: Prod
     if (videoIdMatch) {
       return `https://www.youtube.com/embed/${videoIdMatch[1]}`;
     }
+    const shortUrlMatch = url.match(/youtu\.be\/([^?&]+)/);
+    if (shortUrlMatch) {
+        return `https://www.youtube.com/embed/${shortUrlMatch[1]}`;
+    }
     return url;
   };
   
@@ -101,7 +105,7 @@ export default function ProductPageClient({ product, variants }: { product: Prod
           )}
            {product.videoUrl && (
             <div className="mt-8">
-              <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden border">
+              <div className="aspect-video rounded-lg overflow-hidden border">
                 <iframe
                   src={getYouTubeEmbedUrl(product.videoUrl)}
                   title="Product Video"

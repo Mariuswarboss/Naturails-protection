@@ -2,7 +2,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { getProductsByIds } from '@/lib/data';
+import { getProductsByIds, mockProducts } from '@/lib/data';
 import type { Product } from '@/types';
 import ProductCard from '@/components/ProductCard';
 import { Loader2 } from 'lucide-react';
@@ -23,7 +23,7 @@ export default function ProductRecommendations({ currentProductId, currentProduc
                 // Construct a browsing history with the current product and some others from the same category
                 let history = [currentProductId];
                 if (currentProductCategory) {
-                    const otherProductsInCategory = getProductsByIds([])
+                    const otherProductsInCategory = mockProducts
                         .filter(p => p.category === currentProductCategory && p.id !== currentProductId)
                         .slice(0, 2)
                         .map(p => p.id);
@@ -93,4 +93,3 @@ export default function ProductRecommendations({ currentProductId, currentProduc
         </section>
     );
 }
-

@@ -17,7 +17,8 @@ import {
   DialogTitle,
   DialogDescription,
   DialogFooter,
-  DialogClose
+  DialogClose,
+  DialogTrigger
 } from "@/components/ui/dialog";
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
@@ -194,7 +195,7 @@ export default function AdminProductsPage() {
               {filteredProducts.length > 0 ? filteredProducts.map((product) => (
                 <TableRow key={product.id}>
                   <TableCell>
-                    <Image src={product.imageUrl} alt={product.name} width={50} height={50} className="rounded-md object-cover" data-ai-hint={product.dataAiHint || "product image"}/>
+                    <Image src={product.imageUrl} alt={t(product.name)} width={50} height={50} className="rounded-md object-cover" data-ai-hint={product.dataAiHint || "product image"}/>
                   </TableCell>
                   <TableCell className="font-medium">{t(product.name)}</TableCell>
                   <TableCell>{product.category}</TableCell>

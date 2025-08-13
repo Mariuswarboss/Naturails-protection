@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   description: 'Calitate inalta a hranei pentru caine\'s Protection in Moldova. Hrană și accesorii de înaltă calitate pentru animalele de companie în Moldova.',
   keywords: "Nature Protection Moldova, pet food, hrana animale, Chisinau, Moldova, caini, pisici, Tauro Pro Line",
   icons: {
-    icon: '/favicon.ico.jpg',
+    icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQ8tWf-9QY-PHpfoecyRgrwxYvgh9PBFKLNw&s',
   },
 };
 
