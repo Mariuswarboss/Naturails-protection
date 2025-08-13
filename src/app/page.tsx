@@ -25,7 +25,7 @@ export default function HomePage() {
   const featuredProducts = mockProducts.filter(p => p.productFor === 'dog').slice(0, 4);
 
   const plugin = React.useRef(
-    Autoplay({ delay: 5000, stopOnInteraction: true })
+    typeof window !== 'undefined' ? Autoplay({ delay: 5000, stopOnInteraction: true }) : null
   )
 
   const slides = [
@@ -57,10 +57,10 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="relative w-full mb-16 md:mb-24">
         <Carousel
-          plugins={[plugin.current]}
+          plugins={plugin.current ? [plugin.current] : []}
           className="w-full"
-          onMouseEnter={plugin.current.stop}
-          onMouseLeave={plugin.current.reset}
+          onMouseEnter={() => plugin.current?.stop?.()}
+          onMouseLeave={() => plugin.current?.reset?.()}
         >
           <CarouselContent>
             {slides.map((slide, index) => (
