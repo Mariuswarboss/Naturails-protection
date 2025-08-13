@@ -24,124 +24,34 @@ export default function HomePage() {
   
   const featuredProducts = mockProducts.filter(p => p.productFor === 'dog').slice(0, 4);
 
-  const [currentSlide, setCurrentSlide] = React.useState(0);
-  const [isAutoplayPaused, setIsAutoplayPaused] = React.useState(false);
 
-  // Auto-advance slides
-  React.useEffect(() => {
-    if (isAutoplayPaused) return;
-
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, [slides.length, isAutoplayPaused]);
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  };
-
-  const slides = [
-    {
-      titleKey: 'homepage.heroTitle',
-      subtitleKey: 'homepage.heroSubtitle',
-      imageUrl: 'https://www.gmdistribuzione.com/wp-content/uploads/2020/05/nuova-Img-di-testa-NATURES-1024x480-1.jpg',
-      dataAiHint: 'dog food products',
-      link: '/products?category=Dry%20Food'
-    },
-    {
-      titleKey: 'footer.tagline',
-      subtitleKey: 'homepage.productsCardSubtitle',
-      imageUrl: 'https://naturesprotection.eu/vendor/laravel-files/files/gabriele/np-sc/__thumbnails__/en-npsc-red-coat-key-visual-a4-horizontal-2-print-202203181650_1166fit.jpg',
-      dataAiHint: 'red dog',
-      link: '/products?category=Food&coatColor=Red'
-    },
-    {
-      titleKey: 'homepage.whyChooseUsTitle',
-      subtitleKey: 'homepage.whyChooseUsSubtitle',
-      imageUrl: 'https://tauroproline.com/vendor/laravel-files/files/__thumbnails__/1800_500fit.jpg',
-      dataAiHint: 'pet cosmetics',
-      link: '/products?category=Cosmetics'
-    }
-  ];
 
   return (
     <SiteLayout>
-      {/* Hero Section - Custom Carousel */}
+      {/* Hero Section - Static */}
       <section className="relative w-full mb-16 md:mb-24">
-        <div
-          className="relative h-[60vh] md:h-[70vh] rounded-lg overflow-hidden"
-          onMouseEnter={() => setIsAutoplayPaused(true)}
-          onMouseLeave={() => setIsAutoplayPaused(false)}
-        >
-          {/* Slides */}
-          <div className="relative w-full h-full">
-            {slides.map((slide, index) => (
-              <div
-                key={index}
-                className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-                  index === currentSlide ? 'opacity-100' : 'opacity-0'
-                }`}
-              >
-                <Image
-                  src={slide.imageUrl}
-                  alt={t(slide.titleKey)}
-                  fill
-                  className="object-cover"
-                  data-ai-hint={slide.dataAiHint}
-                  priority={index === 0}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4">
-                  <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold mb-6 text-white tracking-tight shadow-lg">
-                    {t(slide.titleKey)}
-                  </h1>
-                  <p className="text-base md:text-xl text-white/90 mb-8 max-w-2xl mx-auto shadow-sm">
-                     {t(slide.subtitleKey)}
-                  </p>
-                  <Link href={slide.link}>
-                    <Button size="lg" className="text-base md:text-lg px-6 py-3 md:px-8 md:py-3 rounded-full">
-                      {t('homepage.shopAllProducts')} <ChevronRight className="ml-2 h-5 w-5" />
-                    </Button>
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Navigation Arrows */}
-          <button
-            onClick={prevSlide}
-            className="absolute left-4 top-1/2 -translate-y-1/2 z-10 hidden md:flex items-center justify-center w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-colors"
-            aria-label="Previous slide"
-          >
-            <ChevronRight className="h-6 w-6 text-white rotate-180" />
-          </button>
-          <button
-            onClick={nextSlide}
-            className="absolute right-4 top-1/2 -translate-y-1/2 z-10 hidden md:flex items-center justify-center w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-colors"
-            aria-label="Next slide"
-          >
-            <ChevronRight className="h-6 w-6 text-white" />
-          </button>
-
-          {/* Slide Indicators */}
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex space-x-2">
-            {slides.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentSlide(index)}
-                className={`w-3 h-3 rounded-full transition-colors ${
-                  index === currentSlide ? 'bg-white' : 'bg-white/50'
-                }`}
-                aria-label={`Go to slide ${index + 1}`}
-              />
-            ))}
+        <div className="relative h-[60vh] md:h-[70vh] rounded-lg overflow-hidden">
+          <Image
+            src="https://www.gmdistribuzione.com/wp-content/uploads/2020/05/nuova-Img-di-testa-NATURES-1024x480-1.jpg"
+            alt={t('homepage.heroTitle')}
+            fill
+            className="object-cover"
+            data-ai-hint="dog food products"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold mb-6 text-white tracking-tight shadow-lg">
+              {t('homepage.heroTitle')}
+            </h1>
+            <p className="text-base md:text-xl text-white/90 mb-8 max-w-2xl mx-auto shadow-sm">
+               {t('homepage.heroSubtitle')}
+            </p>
+            <Link href="/products?category=Dry%20Food">
+              <Button size="lg" className="text-base md:text-lg px-6 py-3 md:px-8 md:py-3 rounded-full">
+                {t('homepage.shopAllProducts')} <ChevronRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
