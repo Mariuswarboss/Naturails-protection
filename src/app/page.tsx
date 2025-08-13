@@ -11,36 +11,40 @@ import { ChevronRight, Leaf, FlaskConical, Award } from 'lucide-react';
 import { useTranslation } from '@/contexts/LanguageContext';
 import * as React from 'react';
 // import Autoplay from "embla-carousel-autoplay"
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel"
+// import {
+//   Carousel,
+//   CarouselContent,
+//   CarouselItem,
+//   CarouselNext,
+//   CarouselPrevious,
+// } from "@/components/ui/carousel"
 
 export default function HomePage() {
   const { t } = useTranslation();
   
   const featuredProducts = mockProducts.filter(p => p.productFor === 'dog').slice(0, 4);
 
-  const [autoplayPlugin, setAutoplayPlugin] = React.useState<any>(null);
-  const [isClient, setIsClient] = React.useState(false);
+  const [currentSlide, setCurrentSlide] = React.useState(0);
+  const [isAutoplayPaused, setIsAutoplayPaused] = React.useState(false);
 
+  // Auto-advance slides
   React.useEffect(() => {
-    setIsClient(true);
-    const loadAutoplay = async () => {
-      try {
-        const { default: Autoplay } = await import("embla-carousel-autoplay");
-        const plugin = Autoplay({ delay: 5000, stopOnInteraction: true });
-        setAutoplayPlugin(plugin);
-      } catch (error) {
-        console.warn("Failed to load autoplay plugin:", error);
-      }
-    };
+    if (isAutoplayPaused) return;
 
-    loadAutoplay();
-  }, []);
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [slides.length, isAutoplayPaused]);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
 
   const slides = [
     {
@@ -68,75 +72,78 @@ export default function HomePage() {
 
   return (
     <SiteLayout>
-      {/* Hero Section */}
+      {/* Hero Section - Custom Carousel */}
       <section className="relative w-full mb-16 md:mb-24">
-        {isClient ? (
-          <Carousel
-            plugins={autoplayPlugin ? [autoplayPlugin] : []}
-            className="w-full"
-            onMouseEnter={() => autoplayPlugin?.stop?.()}
-            onMouseLeave={() => autoplayPlugin?.reset?.()}
-          >
-            <CarouselContent>
-              {slides.map((slide, index) => (
-                <CarouselItem key={index}>
-                  <div className="relative h-[60vh] md:h-[70vh] rounded-lg overflow-hidden">
-                    <Image
-                      src={slide.imageUrl}
-                      alt={t(slide.titleKey)}
-                      fill
-                      className="object-cover"
-                      data-ai-hint={slide.dataAiHint}
-                      priority={index === 0}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                    <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4">
-                      <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold mb-6 text-white tracking-tight shadow-lg">
-                        {t(slide.titleKey)}
-                      </h1>
-                      <p className="text-base md:text-xl text-white/90 mb-8 max-w-2xl mx-auto shadow-sm">
-                         {t(slide.subtitleKey)}
-                      </p>
-                      <Link href={slide.link}>
-                        <Button size="lg" className="text-base md:text-lg px-6 py-3 md:px-8 md:py-3 rounded-full">
-                          {t('homepage.shopAllProducts')} <ChevronRight className="ml-2 h-5 w-5" />
-                        </Button>
-                      </Link>
-                    </div>
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 z-10 hidden md:flex" />
-            <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 z-10 hidden md:flex" />
-          </Carousel>
-        ) : (
-          // Fallback for SSR - show first slide only
-          <div className="relative h-[60vh] md:h-[70vh] rounded-lg overflow-hidden">
-            <Image
-              src={slides[0].imageUrl}
-              alt={t(slides[0].titleKey)}
-              fill
-              className="object-cover"
-              data-ai-hint={slides[0].dataAiHint}
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-            <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4">
-              <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold mb-6 text-white tracking-tight shadow-lg">
-                {t(slides[0].titleKey)}
-              </h1>
-              <p className="text-base md:text-xl text-white/90 mb-8 max-w-2xl mx-auto shadow-sm">
-                 {t(slides[0].subtitleKey)}
-              </p>
-              <Link href={slides[0].link}>
-                <Button size="lg" className="text-base md:text-lg px-6 py-3 md:px-8 md:py-3 rounded-full">
-                  {t('homepage.shopAllProducts')} <ChevronRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
-            </div>
+        <div
+          className="relative h-[60vh] md:h-[70vh] rounded-lg overflow-hidden"
+          onMouseEnter={() => setIsAutoplayPaused(true)}
+          onMouseLeave={() => setIsAutoplayPaused(false)}
+        >
+          {/* Slides */}
+          <div className="relative w-full h-full">
+            {slides.map((slide, index) => (
+              <div
+                key={index}
+                className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                  index === currentSlide ? 'opacity-100' : 'opacity-0'
+                }`}
+              >
+                <Image
+                  src={slide.imageUrl}
+                  alt={t(slide.titleKey)}
+                  fill
+                  className="object-cover"
+                  data-ai-hint={slide.dataAiHint}
+                  priority={index === 0}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4">
+                  <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold mb-6 text-white tracking-tight shadow-lg">
+                    {t(slide.titleKey)}
+                  </h1>
+                  <p className="text-base md:text-xl text-white/90 mb-8 max-w-2xl mx-auto shadow-sm">
+                     {t(slide.subtitleKey)}
+                  </p>
+                  <Link href={slide.link}>
+                    <Button size="lg" className="text-base md:text-lg px-6 py-3 md:px-8 md:py-3 rounded-full">
+                      {t('homepage.shopAllProducts')} <ChevronRight className="ml-2 h-5 w-5" />
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            ))}
           </div>
-        )}
+
+          {/* Navigation Arrows */}
+          <button
+            onClick={prevSlide}
+            className="absolute left-4 top-1/2 -translate-y-1/2 z-10 hidden md:flex items-center justify-center w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-colors"
+            aria-label="Previous slide"
+          >
+            <ChevronRight className="h-6 w-6 text-white rotate-180" />
+          </button>
+          <button
+            onClick={nextSlide}
+            className="absolute right-4 top-1/2 -translate-y-1/2 z-10 hidden md:flex items-center justify-center w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-colors"
+            aria-label="Next slide"
+          >
+            <ChevronRight className="h-6 w-6 text-white" />
+          </button>
+
+          {/* Slide Indicators */}
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex space-x-2">
+            {slides.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentSlide(index)}
+                className={`w-3 h-3 rounded-full transition-colors ${
+                  index === currentSlide ? 'bg-white' : 'bg-white/50'
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* Category Section */}
