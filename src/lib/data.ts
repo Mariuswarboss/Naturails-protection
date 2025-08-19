@@ -1357,7 +1357,7 @@ export const mockProducts: Product[] = [
     id: 'TPL47411',
     name: 'product_names.TPL47411',
     description: 'TPL47411',
-    price: 450,
+    price: 500,
     imageUrl: 'https://tauroproline.com/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_1_TPL47411680_680resizebg.webp',
     additionalImageUrls: [
         "https://www.tauroproline.com/vendor/laravel-files/files/import/Eshop/__thumbnails__/vc_3_TPL47411_1680_680resizebg.webp",
