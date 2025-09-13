@@ -17,6 +17,11 @@ const nextConfig: NextConfig = {
   },
   // Disable server-side features for static export
   distDir: 'out',
+  // Ensure proper file extensions for static export
+  assetPrefix: '',
+  generateBuildId: async () => {
+    return 'build-' + Date.now()
+  },
   images: {
     unoptimized: true,
     remotePatterns: [
