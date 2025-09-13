@@ -220,6 +220,7 @@
     }
   },
   "product_names": {
+     "NPSC45796": "NATURE'S PROTECTION SUPERIOR CARE hrană uscată hipoalergenică fără cereale cu somon pentru câini adulți sensibili de toate rasele",
     "UNINPSC63999": "NATURE'S PROTECTION SUPERIOR CARE hrană umedă suplimentară cu ton și somon pentru câini adulți cu blană albă de toate rasele",
     "UNINPSC70012": "NATURE'S PROTECTION SUPERIOR CARE hrană umedă suplimentară cu ton și biban de mare pentru câini adulți cu blană albă de toate rasele",
     "UNINPSC70010": "NATURE'S PROTECTION SUPERIOR CARE hrană umedă suplimentară cu ton pentru câini adulți cu blană albă de toate rasele",
@@ -293,6 +294,12 @@
     "TPL63389": "TAURO PRO LINE Pure Nature Fur Growth, balsam spray pentru stimularea creșterii blănii la câini și pisici"
   },
   "product_descriptions": {
+     "NPSC45796": {
+      "details": "Nature's Protection Superior Care Hypoallergenic Grain Free cu Somon pentru Câini Adulți de Toate Taliile este o hrană uscată Super Premium, completă și echilibrată, cu surse de proteine și materii prime de cea mai înaltă calitate. Această hrană uscată completă hipoalergenică este special concepută pentru câinii cu sistem digestiv sensibil. Este îmbogățită cu ingrediente care oferă performanța perfectă pentru bunăstarea animalului de companie. O compoziție completă a hranei uscate nu numai că va oferi animalului dvs. toți nutrienții eficienți, dar va asigura și o digestibilitate și palatabilitate perfecte.",
+      "components": "Compoziție: somon 40% (uscat și măcinat fin), pulpă de cartofi uscată, mazăre, grăsime de pasăre, pulpă de sfeclă de zahăr, ulei de somon, semințe de in, clinoptilolit dinamic micronizat (1%), celuloză, fructooligozaharide (FOS), extract de yucca, gălbenele uscate (sursă de luteină).",
+      "vitaminsAndMinerals": "Aditivi/per 1 kg: aditivi nutriționali: vitamina A (3a672a) – 18 000 UI, vitamina D3 (3a671)* – 1 500 UI, vitamina E (3a700) – 530 mg, acid folic (3a316) – 1 mg, biotină (3a880) – 0,1 mg, niacină (3a314) – 35 mg, vitamina B6 (3a831) – 3 mg, vitamina B1 – 3 mg, vitamina B12 – 0,05 mg, sulfat de fier (II) monohidrat (3b103) – 50 mg, iodat de calciu anhidru (3b202) – 1,5 mg, sulfat de cupru (II) pentahidrat (3b405) – 5 mg, sulfat de mangan monohidrat (3b503) – 20 mg, sulfat de zinc monohidrat (3b605) – 115 mg, selenit de sodiu (3b801) – 0,1 mg. Aditivi tehnologici: extract de rozmarin, extracte de tocoferol din uleiuri vegetale (1b306(i)).\n*Utilizarea simultană cu Vitamina D2 nu este permisă.\n\nConstituenți analitici: proteină brută – 24%, fibră brută – 3,5%, grăsime brută – 14%, cenușă brută – 9%, calciu – 1,2%, fosfor – 0,9%, potasiu – 0,6%, sodiu – 0,4%, acizi grași Omega-3 – 0,45%, acizi grași Omega-6 – 2,51%.",
+      "instructions": "Instrucțiuni de hrănire: serviți hrana uscată. Apă proaspătă trebuie să fie disponibilă în permanență."
+    },
     "UNINPSC63999": {
       "details": "Această hrană umedă complementară este ideală pentru digestie sensibilă și potrivită în mod specific pentru câinii cu blană albă datorită ingredientelor sale delicate care mențin structura lacrimilor și a salivei curate și nu provoacă pătarea blănii.\n\nCu ton și somon ca proteine principale, oferă proteine de înaltă calitate și acizi grași esențiali omega-3, care susțin sănătatea inimii, reduc inflamația și promovează o blană strălucitoare.\n\nSomonul este, de asemenea, bogat în vitamine și minerale, inclusiv vitamina D și vitaminele din complexul B, care susțin funcția imunitară și sănătatea creierului. Servind ca un topper nutritiv pentru a îmbunătăți dieta lor, această hrană asigură o nutriție echilibrată și bunăstare generală, oferind aminoacizi esențiali, vitamine și nutrienți pentru a sprijini o sănătate mai bună, a îmbunătăți digestia și a crește nivelul de energie.",
       "components": "Compoziție: \n- 50% carne de ton\n- 4% somon\n- 2% orez\n- extract de ton.",
