@@ -9,6 +9,10 @@ export async function generateStaticParams() {
   }));
 }
 
+// Force static generation
+export const dynamic = 'force-static';
+export const revalidate = false;
+
 export default async function ProductPage({ params }: { params: { id: string } }) {
   const { id } = params;
   const product = getProductById(id);

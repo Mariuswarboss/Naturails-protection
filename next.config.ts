@@ -11,6 +11,12 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  // Optimize for static generation
+  experimental: {
+    optimizeCss: true,
+  },
+  // Disable server-side features for static export
+  distDir: 'out',
   images: {
     unoptimized: true,
     remotePatterns: [
