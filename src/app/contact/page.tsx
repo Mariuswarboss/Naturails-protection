@@ -54,12 +54,12 @@ export default function ContactPage() {
             <CardContent>
                 <div className="space-y-4 text-foreground/90 text-base md:text-lg">
                     <div className="flex flex-col">
-                        <span className="font-semibold">Angela Chistrea</span>
+                        <span className="font-semibold"></span>
                         <a href="tel:+37369110316" className="text-primary hover:underline">(+373) 069110316</a>
                     </div>
                     <div className="flex flex-col">
-                        <span className="font-semibold">Igor Chistrea</span>
-                        <a href="tel:+37369149646" className="text-primary hover:underline">(+373) 069149646</a>
+                        <span className="font-semibold"></span>
+                        <a href="tel:+37369149646" className="text-primary hover:underline">(+373) 069149636</a>
                     </div>
                 </div>
             </CardContent>
