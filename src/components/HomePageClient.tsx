@@ -5,7 +5,10 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { mockProducts } from '@/lib/data';
 import ProductCard from '@/components/ProductCard';
-import { ChevronRight, Leaf, FlaskConical, Award } from 'lucide-react';
+import type { Product } from '@/types';
+import { getRandomWeightedProducts } from '@/lib/recommendations';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { Award, Bone, ChevronRight, FlaskConical, HeartPulse, Leaf, ShieldCheck, Sparkles } from 'lucide-react';
 import { useTranslation } from '@/contexts/LanguageContext';
 import * as React from 'react';
 import Autoplay from "embla-carousel-autoplay"
@@ -17,6 +20,58 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel"
 
+const benefitItems = [
+  {
+    titleKey: 'homepage.benefitIngredientsTitle',
+    textKey: 'homepage.benefitIngredientsText',
+    Icon: ShieldCheck,
+  },
+  {
+    titleKey: 'homepage.benefitDigestionTitle',
+    textKey: 'homepage.benefitDigestionText',
+    Icon: HeartPulse,
+  },
+  {
+    titleKey: 'homepage.benefitImmuneTitle',
+    textKey: 'homepage.benefitImmuneText',
+    Icon: Sparkles,
+  },
+  {
+    titleKey: 'homepage.benefitSkinCoatTitle',
+    textKey: 'homepage.benefitSkinCoatText',
+    Icon: Leaf,
+  },
+  {
+    titleKey: 'homepage.benefitJointsTitle',
+    textKey: 'homepage.benefitJointsText',
+    Icon: Bone,
+  },
+  {
+    titleKey: 'homepage.benefitMicrozeogenTitle',
+    textKey: 'homepage.benefitMicrozeogenText',
+    Icon: FlaskConical,
+  },
+];
+
+const faqItems = [
+  {
+    questionKey: 'homepage.faqSensitiveQuestion',
+    answerKey: 'homepage.faqSensitiveAnswer',
+  },
+  {
+    questionKey: 'homepage.faqChooseFoodQuestion',
+    answerKey: 'homepage.faqChooseFoodAnswer',
+  },
+  {
+    questionKey: 'homepage.faqMixFoodQuestion',
+    answerKey: 'homepage.faqMixFoodAnswer',
+  },
+  {
+    questionKey: 'homepage.faqSwitchFoodQuestion',
+    answerKey: 'homepage.faqSwitchFoodAnswer',
+  },
+];
+
 // Create a client-only component for the carousel
 const ClientOnlyCarousel = () => {
   const { t } = useTranslation();
@@ -27,23 +82,23 @@ const ClientOnlyCarousel = () => {
     {
       titleKey: 'homepage.heroTitle',
       subtitleKey: 'homepage.heroSubtitle',
-      imageUrl: 'https://www.gmdistribuzione.com/wp-content/uploads/2020/05/nuova-Img-di-testa-NATURES-1024x480-1.jpg',
-      dataAiHint: 'dog food products',
-      link: '/products?category=Dry%20Food'
+      imageUrl: '/images/banners/topper-in-gravy.webp',
+      dataAiHint: 'wet food cats dogs',
+      link: '/products'
     },
     {
       titleKey: 'footer.tagline',
       subtitleKey: 'homepage.productsCardSubtitle',
-      imageUrl: 'https://naturesprotection.eu/vendor/laravel-files/files/gabriele/np-sc/__thumbnails__/en-npsc-red-coat-key-visual-a4-horizontal-2-print-202203181650_1166fit.jpg',
-      dataAiHint: 'red dog',
-      link: '/products?category=Food&coatColor=Red'
+      imageUrl: '/images/banners/vet-diet.webp',
+      dataAiHint: 'veterinary diet dog food',
+      link: '/products'
     },
     {
       titleKey: 'homepage.whyChooseUsTitle',
       subtitleKey: 'homepage.whyChooseUsSubtitle',
-      imageUrl: 'https://tauroproline.com/vendor/laravel-files/files/__thumbnails__/1800_500fit.jpg',
-      dataAiHint: 'pet cosmetics',
-      link: '/products?category=Cosmetics'
+      imageUrl: '/images/banners/all-life-stages.webp',
+      dataAiHint: 'all life stages white dogs',
+      link: '/products'
     }
   ];
 
@@ -57,25 +112,25 @@ const ClientOnlyCarousel = () => {
       <CarouselContent>
         {slides.map((slide, index) => (
           <CarouselItem key={index}>
-            <div className="relative h-[60vh] md:h-[70vh] rounded-lg overflow-hidden bg-black/10 dark:bg-black/20">
+            <div className="relative h-[440px] overflow-hidden bg-black/10 sm:h-[560px] md:h-[calc(100vh-9rem)] md:min-h-[620px] dark:bg-black/20">
               <Image
                 src={slide.imageUrl}
                 alt={t(slide.titleKey)}
                 fill
-                className="object-contain md:object-cover"
+                className="object-cover"
                 data-ai-hint={slide.dataAiHint}
                 priority={index === 0}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4">
-                <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold mb-6 text-white tracking-tight shadow-lg">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/15 to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 flex flex-col items-center px-5 pb-10 text-center sm:px-8 sm:pb-16 md:bottom-12">
+                <h1 className="mb-3 max-w-[18rem] text-2xl font-extrabold leading-tight text-white shadow-lg sm:max-w-2xl sm:text-4xl md:mb-6 md:text-5xl lg:text-6xl">
                   {t(slide.titleKey)}
                 </h1>
-                <p className="text-base md:text-xl text-white/90 mb-8 max-w-2xl mx-auto shadow-sm">
+                <p className="mb-5 max-w-[19rem] text-sm leading-6 text-white/90 shadow-sm sm:max-w-xl sm:text-base md:mb-8 md:max-w-2xl md:text-xl">
                    {t(slide.subtitleKey)}
                 </p>
                 <Link href={slide.link}>
-                  <Button size="lg" className="text-base md:text-lg px-6 py-3 md:px-8 md:py-3 rounded-full">
+                  <Button size="lg" className="h-11 rounded-full px-5 text-sm sm:text-base md:h-12 md:px-8 md:text-lg">
                     {t('homepage.shopAllProducts')} <ChevronRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
@@ -84,8 +139,8 @@ const ClientOnlyCarousel = () => {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 z-10 hidden md:flex" />
-      <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 z-10 hidden md:flex" />
+      <CarouselPrevious className="absolute left-4 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 rounded-full bg-white/95 text-primary shadow-lg hover:bg-white md:left-8 md:h-14 md:w-14" />
+      <CarouselNext className="absolute right-4 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 rounded-full bg-white/95 text-primary shadow-lg hover:bg-white md:right-8 md:h-14 md:w-14" />
     </Carousel>
   )
 }
@@ -93,44 +148,20 @@ const ClientOnlyCarousel = () => {
 export default function HomePageClient() {
   const { t } = useTranslation();
   const [isMounted, setIsMounted] = React.useState(false);
+  const [featuredProducts, setFeaturedProducts] = React.useState<Product[]>([]);
 
   React.useEffect(() => {
     setIsMounted(true);
+    setFeaturedProducts(getRandomWeightedProducts(mockProducts.filter(p => p.productFor === 'dog'), 4));
   }, []);
-  
-  const featuredProducts = mockProducts.filter(p => p.productFor === 'dog').slice(0, 4);
 
   return (
     <>
       {/* Hero Section */}
-      <section className="relative w-full mb-16 md:mb-24">
-        {isMounted ? <ClientOnlyCarousel /> : <div className="h-[60vh] md:h-[70vh] bg-muted rounded-lg"></div>}
+      <section className="relative left-1/2 mb-16 w-screen -translate-x-1/2 md:mb-24">
+        {isMounted ? <ClientOnlyCarousel /> : <div className="h-[440px] bg-muted sm:h-[560px] md:h-[calc(100vh-9rem)] md:min-h-[620px]"></div>}
       </section>
 
-      {/* Category Section */}
-      <section className="py-12 md:py-24 container mx-auto px-4">
-        <div className="grid grid-cols-1 gap-8 md:gap-12">
-          <Link href="/products" className="block group">
-            <div className="relative rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 aspect-video bg-gray-900">
-              <Image
-                src="https://images.unsplash.com/photo-1536809188428-e8ecf663d0be?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                alt="Happy dog playing outdoors"
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105 opacity-60 group-hover:opacity-50"
-                data-ai-hint="dog playing"
-              />
-              <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
-                <h3 className="font-headline text-4xl md:text-5xl font-bold text-white mb-4">{t('homepage.productsCardTitle')}</h3>
-                <p className="text-gray-200 mb-6 text-md md:text-lg max-w-xl">{t('homepage.productsCardSubtitle')}</p>
-                <Button variant="secondary" className="bg-white/90 hover:bg-white text-primary group-hover:bg-primary group-hover:text-white transition-colors rounded-full px-6 py-2 md:px-8 md:py-3 text-base md:text-lg">
-                  {t('homepage.shopNow')} <ChevronRight className="ml-1 h-5 w-5" />
-                </Button>
-              </div>
-            </div>
-          </Link>
-        </div>
-      </section>
-      
       {/* Featured Products Section */}
       {featuredProducts.length > 0 && (
         <section className="py-16 md:py-24 bg-secondary/30">
@@ -152,8 +183,35 @@ export default function HomePageClient() {
         </section>
       )}
 
-      {/* Why Choose Us Section */}
+      {/* Benefits Section */}
       <section className="py-16 md:py-24 bg-card border-y">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl md:text-4xl font-bold mb-4 text-primary">{t('homepage.benefitsTitle')}</h3>
+            <p className="text-foreground/80 max-w-3xl mx-auto text-base md:text-lg">
+              {t('homepage.benefitsSubtitle')}
+            </p>
+          </div>
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+            {benefitItems.map(({ titleKey, textKey, Icon }) => (
+              <div key={titleKey} className="rounded-lg border bg-background p-5">
+                <div className="flex items-start gap-4">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold text-foreground">{t(titleKey)}</h4>
+                    <p className="mt-2 text-sm leading-6 text-foreground/70">{t(textKey)}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us Section */}
+      <section className="py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h3 className="text-3xl md:text-4xl font-bold mb-4 text-primary">{t('homepage.whyChooseUsTitle')}</h3>
@@ -183,6 +241,30 @@ export default function HomePageClient() {
               <h4 className="text-xl font-semibold mb-2 text-foreground">{t('homepage.trustedQualityTitle')}</h4>
               <p className="text-sm md:text-base text-foreground/70">{t('homepage.trustedQualityText')}</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16 md:py-24 bg-secondary/30 border-t">
+        <div className="container mx-auto px-4">
+          <div className="mx-auto max-w-3xl">
+            <div className="text-center mb-8">
+              <h3 className="text-3xl md:text-4xl font-bold text-foreground">{t('homepage.faqTitle')}</h3>
+              <p className="mt-3 text-foreground/70">{t('homepage.faqSubtitle')}</p>
+            </div>
+            <Accordion type="single" collapsible className="rounded-lg border bg-background px-4">
+              {faqItems.map(({ questionKey, answerKey }) => (
+                <AccordionItem key={questionKey} value={questionKey}>
+                  <AccordionTrigger className="text-left text-base font-semibold">
+                    {t(questionKey)}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-sm leading-6 text-foreground/70">
+                    {t(answerKey)}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
           </div>
         </div>
       </section>

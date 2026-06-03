@@ -7,6 +7,7 @@ import type { Product } from '@/types';
 import ProductCard from '@/components/ProductCard';
 import { Loader2 } from 'lucide-react';
 import { useTranslation } from '@/contexts/LanguageContext';
+import { getRandomWeightedProducts } from '@/lib/recommendations';
 
 export default function ProductRecommendations({ currentProductId, currentProductCategory }: { currentProductId: string; currentProductCategory: string; }) {
     const [recommendedProducts, setRecommendedProducts] = useState<Product[]>([]);
@@ -19,26 +20,10 @@ export default function ProductRecommendations({ currentProductId, currentProduc
             setLoading(true);
             setError(null);
             try {
-                // Construct a browsing history with the current product and some others from the same category
-                let history = [currentProductId];
-                if (currentProductCategory) {
-                    const otherProductsInCategory = mockProducts
-                        .filter(p => p.category === currentProductCategory && p.id !== currentProductId)
-                        .slice(0, 2)
-                        .map(p => p.id);
-                    history.push(...otherProductsInCategory);
-                }
-                
-                const payload = {
-                    browsingHistory: [...new Set(history)].slice(-5).join(','),
-                    numberOfRecommendations: 4,
-                };
-
-                // Fallback: simple client-side recommender using mock data only
-                const candidateProducts = mockProducts
-                  .filter(p => p.id !== currentProductId && (!currentProductCategory || p.category === currentProductCategory))
-                  .slice(0, 8);
-                const products = candidateProducts.slice(0, 4);
+                const products = getRandomWeightedProducts(mockProducts, 4, {
+                    excludeId: currentProductId,
+                    currentProductCategory,
+                });
                 setRecommendedProducts(products);
             } catch (err) {
                 console.error("Failed to fetch product recommendations:", err);

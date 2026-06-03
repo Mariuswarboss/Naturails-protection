@@ -8,15 +8,17 @@ import Image from 'next/image';
 import ProductDetailsClient from './ProductDetailsClient';
 import ProductDescription from './ProductDescription';
 import ProductRecommendations from './ProductRecommendations';
+import FeedingCalculator from './FeedingCalculator';
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
 import { useRouter } from 'next/navigation';
 import { ChevronLeft, Youtube } from 'lucide-react';
 import Link from 'next/link';
 import SiteLayout from '@/components/SiteLayout';
+import { getProductDisplayName } from '@/lib/productDisplayNames';
 
 export default function ProductPageClient({ product, variants }: { product: Product | undefined, variants: Product[] }) {
-  const { t } = useTranslation();
+  const { t, translations } = useTranslation();
   const router = useRouter();
 
   const [mainImage, setMainImage] = useState(product?.imageUrl);
@@ -55,6 +57,7 @@ export default function ProductPageClient({ product, variants }: { product: Prod
   };
   
   const allImages = [product.imageUrl, ...(product.additionalImageUrls || [])];
+  const productName = getProductDisplayName(product, t, translations);
 
   return (
     <SiteLayout>
@@ -69,7 +72,7 @@ export default function ProductPageClient({ product, variants }: { product: Prod
           <div className="relative aspect-square rounded-lg overflow-hidden shadow-lg border">
             <Image
               src={mainImage || product.imageUrl}
-              alt={t(product.name)}
+              alt={productName}
               fill
               className="object-cover transition-all duration-300"
               priority
@@ -94,7 +97,7 @@ export default function ProductPageClient({ product, variants }: { product: Prod
                 >
                   <Image
                     src={img}
-                    alt={`${t(product.name)} thumbnail ${index + 1}`}
+                    alt={`${productName} thumbnail ${index + 1}`}
                     fill
                     className="object-cover"
                     data-ai-hint={product.dataAiHint || "product image thumbnail"}
@@ -119,7 +122,7 @@ export default function ProductPageClient({ product, variants }: { product: Prod
         </div>
 
         <div className="space-y-6">
-          <h1 className="font-headline text-3xl md:text-4xl font-bold">{t(product.name)}</h1>
+          <h1 className="font-headline text-3xl md:text-4xl font-bold">{productName}</h1>
           <p className="text-2xl font-semibold text-primary">{product.price.toFixed(2)} MDL</p>
           
           <div>
@@ -130,6 +133,7 @@ export default function ProductPageClient({ product, variants }: { product: Prod
 
         </div>
       </div>
+      <FeedingCalculator product={product} />
       <ProductRecommendations currentProductId={product.id} currentProductCategory={product.category} />
     </SiteLayout>
   );

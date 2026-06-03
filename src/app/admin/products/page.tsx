@@ -24,6 +24,7 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { useTranslation } from '@/contexts/LanguageContext';
+import { toProductImagePath } from '@/lib/images';
 
 const ProductForm = ({ product, onSave, onCancel }: { product?: Product | null, onSave: (productData: Omit<Product, 'id'> | Product) => void, onCancel: () => void }) => {
   const [name, setName] = useState(product?.name || '');
@@ -41,7 +42,7 @@ const ProductForm = ({ product, onSave, onCancel }: { product?: Product | null, 
         toast({ title: t('admin.validationErrorToastTitle'), description: t('admin.validationErrorToastDescription'), variant: "destructive"});
         return;
     }
-    const productData = { name, description, price, category, stock, imageUrl };
+    const productData = { name, description, price, category, stock, imageUrl: toProductImagePath(imageUrl) };
     if (product && product.id) {
         onSave({ id: product.id, ...productData });
     } else {
@@ -56,7 +57,18 @@ const ProductForm = ({ product, onSave, onCancel }: { product?: Product | null, 
         <div><Label htmlFor="price">{t('admin.productFormPriceLabel')}</Label><Input id="price" type="number" step="0.01" value={price} onChange={e => setPrice(parseFloat(e.target.value))} required /></div>
         <div><Label htmlFor="category">{t('admin.productFormCategoryLabel')}</Label><Input id="category" value={category} onChange={e => setCategory(e.target.value)} required /></div>
         <div><Label htmlFor="stock">{t('admin.productFormStockLabel')}</Label><Input id="stock" type="number" value={stock} onChange={e => setStock(parseInt(e.target.value))} required /></div>
-        <div><Label htmlFor="imageUrl">{t('admin.productFormImageUrlLabel')}</Label><Input id="imageUrl" value={imageUrl} onChange={e => setImageUrl(e.target.value)} /></div>
+        <div>
+          <Label htmlFor="imageUrl">{t('admin.productFormImageUrlLabel')}</Label>
+          <Input
+            id="imageUrl"
+            value={imageUrl}
+            onChange={e => setImageUrl(e.target.value)}
+            placeholder="/images/products/exemplu.webp sau exemplu.webp"
+          />
+          <p className="mt-1 text-xs text-muted-foreground">
+            Pentru poze locale, pune fisierul in public/images/products si scrie aici numele lui.
+          </p>
+        </div>
         <DialogFooter className="pt-4">
             <DialogClose asChild><Button type="button" variant="outline" onClick={onCancel}>{t('admin.productFormCancelButton')}</Button></DialogClose>
             <Button type="submit">{t('admin.productFormSaveButton')}</Button>

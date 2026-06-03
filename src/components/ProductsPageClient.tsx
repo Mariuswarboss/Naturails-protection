@@ -11,9 +11,134 @@ import { Button } from '@/components/ui/button';
 import { Filter, Search, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useTranslation } from '@/contexts/LanguageContext';
+import { categoryDisplayOrder, compareByCategoryPriority, cosmeticsCategoryOrder, foodCategoryOrder } from '@/lib/recommendations';
 
-const foodCategories = ['Wet Food', 'Dry Food', 'Snacks'];
-const cosmeticsCategories = ['Shampoo', 'Mask', 'Conditioner', 'Balm', 'Care Mist', 'Care Powder', 'Care Oil', 'Care Elixir', 'Dental'];
+const foodCategories = foodCategoryOrder;
+const cosmeticsCategories = cosmeticsCategoryOrder;
+
+const sortCategoryOptions = (options: string[]) => {
+  return [...options].sort((a, b) => {
+    if (a === 'all') return -1;
+    if (b === 'all') return 1;
+
+    const aIndex = categoryDisplayOrder.indexOf(a);
+    const bIndex = categoryDisplayOrder.indexOf(b);
+
+    if (aIndex === -1 && bIndex === -1) {
+      return a.localeCompare(b);
+    }
+
+    if (aIndex === -1) return 1;
+    if (bIndex === -1) return -1;
+
+    return aIndex - bIndex;
+  });
+};
+
+const matchesFilterValue = (product: Product, key: string, value: string) => {
+  if (value === 'all') return true;
+
+  if (key === 'productFor') {
+    return product.productFor === value || product.productFor === 'both';
+  }
+
+  if (key === 'purpose') {
+    const purpose = String(product.purpose ?? '').toLowerCase();
+    if (value === 'Digestion') {
+      return /digestion|digestive|gastrointestinal|intestinal|stomach/.test(purpose);
+    }
+    if (value === 'Skin & Coat') {
+      return /skin|coat/.test(purpose);
+    }
+    return purpose === value.toLowerCase();
+  }
+
+  if (key === 'format') {
+    if (product.category !== 'Wet Food') return false;
+    if (value === 'Soup') {
+      return product.purpose === 'White Coat Soup' || (product.weight ?? 0) >= 0.14;
+    }
+    if (value === 'Pouch') {
+      return (product.weight ?? 0) < 0.14;
+    }
+  }
+
+  return String(product[key as keyof Product]) === value;
+};
+
+const formatFilterOption = (key: string, option: string, t: (key: string) => string) => {
+  if (option === 'all') return t('productsPage.all');
+
+  if (key === 'productFor') {
+    const labels: Record<string, string> = {
+      dog: t('productsPage.dogs'),
+      cat: t('productsPage.cats'),
+      both: t('productsPage.dogsAndCats'),
+    };
+    return labels[option] ?? option;
+  }
+
+  return option;
+};
+
+type FilterState = {
+  category: string;
+  productFor: string;
+  breedSize: string;
+  lifestage: string;
+  flavour: string;
+  purpose: string;
+  coatColor: string;
+  weight: string;
+  format: string;
+};
+
+type FilterOptions = Partial<Record<keyof FilterState, string[]>>;
+
+const foodOnlyFilterKeys: Array<keyof FilterState> = [
+  'breedSize',
+  'lifestage',
+  'flavour',
+  'purpose',
+  'coatColor',
+  'weight',
+  'format',
+];
+
+const initialFilters: FilterState = {
+  category: 'all',
+  productFor: 'all',
+  breedSize: 'all',
+  lifestage: 'all',
+  flavour: 'all',
+  purpose: 'all',
+  coatColor: 'all',
+  weight: 'all',
+  format: 'all',
+};
+
+const getMainCategoryFromCategory = (category: string): 'Food' | 'Cosmetics' | 'all' => {
+  if (category === 'Food' || foodCategories.includes(category)) return 'Food';
+  if (category === 'Cosmetics' || cosmeticsCategories.includes(category)) return 'Cosmetics';
+  return 'all';
+};
+
+const normalizeFiltersForCategory = (filters: FilterState, category: string): FilterState => {
+  const nextFilters = { ...filters, category };
+  const nextMainCategory = getMainCategoryFromCategory(category);
+
+  if (nextMainCategory !== 'Food') {
+    foodOnlyFilterKeys.forEach((key) => {
+      nextFilters[key] = 'all';
+    });
+  }
+
+  if (category !== 'Wet Food') {
+    nextFilters.format = 'all';
+  }
+
+  return nextFilters;
+};
 
 const FilterSidebar = ({
   filters,
@@ -23,9 +148,9 @@ const FilterSidebar = ({
   t,
   mainCategory
 }: {
-  filters: any;
-  setFilters: (filters: any) => void;
-  dynamicOptions: any;
+  filters: FilterState;
+  setFilters: (filters: FilterState) => void;
+  dynamicOptions: FilterOptions;
   resetFilters: () => void;
   t: (key: string, replacements?: Record<string, string | number>) => string;
   mainCategory: 'Food' | 'Cosmetics' | 'all';
@@ -38,10 +163,16 @@ const FilterSidebar = ({
     </CardHeader>
     <CardContent className="space-y-4">
       {Object.entries(dynamicOptions).map(([key, options]) => {
-        if (mainCategory === 'Cosmetics') {
-          if (key !== 'categories' || (options as string[]).length <= 1) return null;
-        } else {
-          if (key === 'categories' || (options as string[]).length <= 1) return null;
+        const typedKey = key as keyof FilterState;
+        const optionList = options as string[];
+        if (!optionList || optionList.length <= 1) return null;
+
+        if (mainCategory === 'Cosmetics' && foodOnlyFilterKeys.includes(typedKey)) {
+          return null;
+        }
+
+        if (typedKey === 'format' && filters.category !== 'Wet Food') {
+          return null;
         }
        
         const labelKey = `productsPage.${key}Label`;
@@ -51,16 +182,23 @@ const FilterSidebar = ({
           <div key={key}>
             <label htmlFor={key} className="block text-sm font-medium text-muted-foreground mb-1">{t(labelKey)}</label>
             <Select
-              value={filters[key]}
-              onValueChange={(value) => setFilters({ ...filters, [key]: value })}
+              value={filters[typedKey]}
+              onValueChange={(value) => {
+                if (typedKey === 'category') {
+                  setFilters(normalizeFiltersForCategory(filters, value));
+                  return;
+                }
+
+                setFilters({ ...filters, [typedKey]: value });
+              }}
             >
               <SelectTrigger id={key}>
                 <SelectValue placeholder={t(placeholderKey)} />
               </SelectTrigger>
               <SelectContent>
-                {(options as string[]).map(option => (
+                {optionList.map(option => (
                   <SelectItem key={option} value={option}>
-                    {option === 'all' ? t('productsPage.all') : option}
+                    {formatFilterOption(key, option, t)}
                   </SelectItem>
                 ))}
               </SelectContent>
@@ -128,7 +266,7 @@ export default function ProductsPageClient() {
   const { t } = useTranslation();
   const searchParams = useSearchParams();
   
-  const allProducts = useMemo(() => mockProducts, []);
+  const allProducts = useMemo(() => mockProducts.filter(product => !product.isHidden), []);
 
   const [searchTerm, setSearchTerm] = useState('');
   const [appliedSearchTerm, setAppliedSearchTerm] = useState('');
@@ -137,23 +275,12 @@ export default function ProductsPageClient() {
   const [currentPage, setCurrentPage] = useState(1);
   const ITEMS_PER_PAGE = 12;
 
-  const initialFilters = {
-    category: 'all',
-    breedSize: 'all',
-    lifestage: 'all',
-    flavour: 'all',
-    purpose: 'all',
-    coatColor: 'all',
-    weight: 'all',
-  };
-
   const [filters, setFilters] = useState(initialFilters);
   const [mainCategory, setMainCategory] = useState<'Food' | 'Cosmetics' | 'all'>('all');
 
   useEffect(() => {
     const searchFromUrl = searchParams.get('search');
     const categoryFromUrl = searchParams.get('category');
-    const coatColorFromUrl = searchParams.get('coatColor');
 
     if (searchFromUrl) {
       setSearchTerm(searchFromUrl);
@@ -161,20 +288,30 @@ export default function ProductsPageClient() {
     }
 
     const newFilters = { ...initialFilters };
+    let newMainCategory: 'Food' | 'Cosmetics' | 'all' = 'all';
 
     if (categoryFromUrl === 'Food' || categoryFromUrl === 'Cosmetics') {
-      setMainCategory(categoryFromUrl);
+      newMainCategory = categoryFromUrl;
     } else if (categoryFromUrl) {
       newFilters.category = categoryFromUrl;
-    } else {
-      setMainCategory('all');
-    }
-    
-    if (coatColorFromUrl) {
-      newFilters.coatColor = coatColorFromUrl;
+      newMainCategory = getMainCategoryFromCategory(categoryFromUrl);
     }
 
-    setFilters(newFilters);
+    (Object.keys(initialFilters) as Array<keyof typeof initialFilters>).forEach((filterKey) => {
+      if (filterKey === 'category') return;
+      const valueFromUrl = searchParams.get(filterKey);
+      if (valueFromUrl) {
+        newFilters[filterKey] = valueFromUrl;
+      }
+    });
+
+    if (!searchFromUrl) {
+      setSearchTerm('');
+      setAppliedSearchTerm('');
+    }
+
+    setMainCategory(newMainCategory);
+    setFilters(normalizeFiltersForCategory(newFilters, newFilters.category));
   }, [searchParams]);
 
   const filteredProductsByMainCategory = useMemo(() => {
@@ -188,31 +325,46 @@ export default function ProductsPageClient() {
   }, [mainCategory, allProducts]);
 
   const dynamicOptions = useMemo(() => {
-    const createOptions = (key: keyof Product, productSet: Product[]) => [
-      'all', 
-      ...Array.from(new Set(productSet.map(p => p[key]).filter(Boolean) as string[]))
-    ];
+    const createOptions = (key: keyof Product, productSet: Product[]) => {
+      const options = [
+        'all',
+        ...Array.from(new Set(productSet.map(p => p[key]).filter(Boolean) as string[]))
+      ];
+
+      if (key === 'category') return sortCategoryOptions(options);
+
+      if (key === 'productFor') {
+        const order = ['all', 'dog', 'cat', 'both'];
+        return options.sort((a, b) => order.indexOf(a) - order.indexOf(b));
+      }
+
+      return options;
+    };
     
     if (mainCategory === 'Cosmetics') {
         return {
-            categories: createOptions('category', filteredProductsByMainCategory)
+            productFor: createOptions('productFor', filteredProductsByMainCategory),
+            category: createOptions('category', filteredProductsByMainCategory)
         };
     }
 
     if (mainCategory === 'Food') {
         return {
-            categories: createOptions('category', filteredProductsByMainCategory),
+            productFor: createOptions('productFor', filteredProductsByMainCategory),
+            category: createOptions('category', filteredProductsByMainCategory),
             breedSize: createOptions('breedSize', filteredProductsByMainCategory),
             lifestage: createOptions('lifestage', filteredProductsByMainCategory),
             flavour: createOptions('flavour', filteredProductsByMainCategory),
             purpose: createOptions('purpose', filteredProductsByMainCategory),
             coatColor: createOptions('coatColor', filteredProductsByMainCategory),
+            format: ['all', 'Pouch', 'Soup'],
             weight: ['all', ...Array.from(new Set(filteredProductsByMainCategory.map(p => p.weight).filter(Boolean))).sort((a,b) => a! - b!).map(String)]
         };
     }
 
     return {
-      categories: createOptions('category', filteredProductsByMainCategory),
+      productFor: createOptions('productFor', filteredProductsByMainCategory),
+      category: createOptions('category', filteredProductsByMainCategory),
     }
 
   }, [filteredProductsByMainCategory, mainCategory]);
@@ -221,34 +373,37 @@ export default function ProductsPageClient() {
     let products = [...filteredProductsByMainCategory];
 
     if (appliedSearchTerm) {
+      const normalizedSearch = appliedSearchTerm.toLowerCase();
       products = products.filter(p =>
-        p.name.toLowerCase().includes(appliedSearchTerm.toLowerCase()) ||
-        p.description.toLowerCase().includes(appliedSearchTerm.toLowerCase())
+        t(p.name).toLowerCase().includes(normalizedSearch) ||
+        p.id.toLowerCase().includes(normalizedSearch) ||
+        p.name.toLowerCase().includes(normalizedSearch) ||
+        p.description.toLowerCase().includes(normalizedSearch)
       );
     }
 
     Object.entries(filters).forEach(([key, value]) => {
       if (value !== 'all') {
-        products = products.filter(p => String(p[key as keyof Product]) === value);
+        products = products.filter(p => matchesFilterValue(p, key, value));
       }
     });
 
     switch (sortOption) {
       case 'price-asc':
-        products.sort((a, b) => a.price - b.price);
+        products.sort((a, b) => compareByCategoryPriority(a, b) || a.price - b.price);
         break;
       case 'price-desc':
-        products.sort((a, b) => b.price - a.price);
+        products.sort((a, b) => compareByCategoryPriority(a, b) || b.price - a.price);
         break;
       case 'name-asc':
-        products.sort((a, b) => a.name.localeCompare(b.name));
+        products.sort((a, b) => compareByCategoryPriority(a, b) || a.name.localeCompare(b.name));
         break;
       case 'name-desc':
-        products.sort((a, b) => b.name.localeCompare(a.name));
+        products.sort((a, b) => compareByCategoryPriority(a, b) || b.name.localeCompare(a.name));
         break;
     }
     return products;
-  }, [appliedSearchTerm, filters, sortOption, filteredProductsByMainCategory]);
+  }, [appliedSearchTerm, filters, sortOption, filteredProductsByMainCategory, t]);
   
   useEffect(() => {
     setCurrentPage(1);
@@ -300,7 +455,7 @@ export default function ProductsPageClient() {
         </aside>
 
         <main>
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 p-4 bg-card rounded-lg shadow mb-8">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 p-3 sm:p-4 bg-card rounded-lg shadow mb-5 sm:mb-8">
             <form onSubmit={handleSearchSubmit} className="flex-grow w-full sm:w-auto">
               <div className="relative">
                 <Input
@@ -334,13 +489,14 @@ export default function ProductsPageClient() {
             </div>
           </div>
           
-          <div className="flex flex-wrap gap-2 mb-6">
-            {(dynamicOptions.categories as string[]).map(cat => {
+          <div className="flex flex-wrap gap-2 mb-5 sm:mb-6">
+            {(dynamicOptions.category ?? ['all']).map(cat => {
               if (cat === 'all') return (
                 <Button 
                   key={cat}
                   variant={filters.category === cat ? 'default' : 'outline'}
-                  onClick={() => setFilters({...initialFilters})}
+                  onClick={() => setFilters(normalizeFiltersForCategory(filters, 'all'))}
+                  className="h-9 px-3 text-sm sm:h-10 sm:px-4"
                 >
                   {t('productsPage.allCategories')}
                 </Button>
@@ -349,7 +505,8 @@ export default function ProductsPageClient() {
                 <Button 
                   key={cat}
                   variant={filters.category === cat ? 'default' : 'outline'}
-                  onClick={() => setFilters({...filters, category: cat})}
+                  onClick={() => setFilters(normalizeFiltersForCategory(filters, cat))}
+                  className="h-9 px-3 text-sm sm:h-10 sm:px-4"
                 >
                   {cat}
                 </Button>
@@ -359,7 +516,7 @@ export default function ProductsPageClient() {
 
           {paginatedProducts.length > 0 ? (
              <>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 md:gap-8">
                 {paginatedProducts.map((product: Product) => (
                     <ProductCard key={product.id} product={product} />
                 ))}

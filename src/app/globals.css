@@ -11,7 +11,7 @@
     /* EcoShop Theme Colors - WCAG AA Compliant */
     --theme-bg: 120 27% 97%; /* #F0FFF0 - Honeydew */
     --theme-fg: 240 10% 3.9%;
-    --theme-primary: 120 33% 32%; /* #3A6B3A - Darker, accessible green */
+    --theme-primary: 149 100% 33%; /* #00A650 - Nature's Protection logo green */
     --theme-primary-fg: 0 0% 100%;
     --theme-accent: 54 42% 61%; /* #C2BE87 - Lighter, accessible earthy brown/yellow */
     --theme-accent-fg: 240 10% 3.9%;
@@ -51,8 +51,8 @@
     /* Dark EcoShop Theme Colors - WCAG AA Compliant */
     --theme-bg: 120 10% 10%; /* Dark green-tinged background */
     --theme-fg: 210 40% 98%; /* Light foreground */
-    --theme-primary: 120 27% 65%; /* #8FBC8F - Gentle green */
-    --theme-primary-fg: 222.2 84% 4.9%; /* Dark text on primary buttons */
+    --theme-primary: 149 100% 38%; /* #00C25E - Nature's Protection logo green */
+    --theme-primary-fg: 0 0% 100%; /* White text on primary buttons */
     --theme-accent: 54 38% 57%; /* #BDB76B - Soft earthy brown */
     --theme-accent-fg: 222.2 84% 4.9%; /* Dark text on accent buttons */
  
