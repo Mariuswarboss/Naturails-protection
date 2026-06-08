@@ -1,0 +1,55 @@
+
+> nextn@0.1.0 dev
+> next dev --hostname 0.0.0.0
+
+   ▲ Next.js 15.5.3
+   - Local:        http://localhost:3000
+   - Network:      http://0.0.0.0:3000
+   - Experiments (use with caution):
+     ✓ optimizeCss
+
+ ✓ Starting...
+ ✓ Ready in 1846ms
+ ○ Compiling / ...
+ ✓ Compiled / in 4.4s (1000 modules)
+ GET / 200 in 4762ms
+ ✓ Compiled in 514ms (391 modules)
+ GET / 200 in 52ms
+ ○ Compiling /products/[id] ...
+ ✓ Compiled /products/[id] in 854ms (1020 modules)
+ ✓ Compiled / in 118ms (627 modules)
+ GET / 200 in 261ms
+ ○ Compiling /products ...
+ GET /products/TPL63797/ 200 in 2210ms
+ GET /products/NPS45750/ 200 in 798ms
+ GET /products/NPSC47592-10/ 200 in 800ms
+ GET /products/KIKNPSC70538/ 200 in 800ms
+ GET /products/KIKNPSC70542/ 200 in 800ms
+ GET /products/KIKNPSC70541/ 200 in 801ms
+ GET /products/NPSC45797/ 200 in 801ms
+ GET /products/NPSC45671/ 200 in 801ms
+ GET /products/NPSC45667/ 200 in 801ms
+ GET /products/TPL63797/ 200 in 800ms
+ ✓ Compiled /products in 809ms (1060 modules)
+ GET / 200 in 31ms
+ GET /products/ 200 in 25ms
+ GET /products/TPL63615/ 200 in 33ms
+ GET / 200 in 45ms
+ GET / 200 in 64ms
+ GET /products/ 200 in 71ms
+ GET /products/ 200 in 63ms
+ GET /products/NPS45750/ 200 in 331ms
+ GET /products/NPSC45797/ 200 in 339ms
+ GET /products/NPSC45671/ 200 in 349ms
+ GET /products/NPSC47592-10/ 200 in 359ms
+ GET /products/KIKNPSC70538/ 200 in 365ms
+ GET /products/KIKNPSC70542/ 200 in 371ms
+ GET /products/NPSC45667/ 200 in 375ms
+ GET /products/TPL63794/ 200 in 381ms
+ GET /products/KIKNPSC70541/ 200 in 390ms
+ GET /products/?category=Food&productFor=cat&purpose=Urinary 200 in 20ms
+ GET /products/ 200 in 18ms
+ GET /products/?category=Snacks&productFor=dog 200 in 24ms
+ GET /products/SNK46104/ 200 in 27ms
+ GET /products/KIKNPSC47654/ 200 in 27ms
+ GET /products/KIKNPSC47653/ 200 in 28ms
