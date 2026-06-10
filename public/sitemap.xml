@@ -25,12 +25,6 @@
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://www.naturesprotection.md/products/UNINPSC63999/</loc>
-    <lastmod>2026-06-03T18:54:48.916Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.naturesprotection.md/products/UNINPSC70012/</loc>
     <lastmod>2026-06-03T18:54:48.916Z</lastmod>
     <changefreq>weekly</changefreq>
@@ -79,7 +73,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.naturesprotection.md/products/NPSC47236/</loc>
+    <loc>https://www.naturesprotection.md/products/NPSC47234/</loc>
     <lastmod>2026-06-03T18:54:48.916Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -110,12 +104,6 @@
   </url>
   <url>
     <loc>https://www.naturesprotection.md/products/NPSC45833/</loc>
-    <lastmod>2026-06-03T18:54:48.916Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.naturesprotection.md/products/NPSC45664/</loc>
     <lastmod>2026-06-03T18:54:48.916Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -385,18 +373,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.naturesprotection.md/products/NPSCVET47576-10/</loc>
-    <lastmod>2026-06-03T18:54:48.916Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.naturesprotection.md/products/TPL63602/</loc>
-    <lastmod>2026-06-03T18:54:48.916Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.naturesprotection.md/products/TPL63592/</loc>
     <lastmod>2026-06-03T18:54:48.916Z</lastmod>
     <changefreq>weekly</changefreq>
@@ -427,18 +403,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.naturesprotection.md/products/TPL63606/</loc>
-    <lastmod>2026-06-03T18:54:48.916Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.naturesprotection.md/products/TPL63607/</loc>
-    <lastmod>2026-06-03T18:54:48.916Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.naturesprotection.md/products/TPL63608/</loc>
     <lastmod>2026-06-03T18:54:48.916Z</lastmod>
     <changefreq>weekly</changefreq>
@@ -452,12 +416,6 @@
   </url>
   <url>
     <loc>https://www.naturesprotection.md/products/TPL63591/</loc>
-    <lastmod>2026-06-03T18:54:48.916Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.naturesprotection.md/products/TPL63598/</loc>
     <lastmod>2026-06-03T18:54:48.916Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -583,31 +541,13 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.naturesprotection.md/products/TPL47408/</loc>
-    <lastmod>2026-06-03T18:54:48.916Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.naturesprotection.md/products/TPL47411/</loc>
     <lastmod>2026-06-03T18:54:48.916Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.naturesprotection.md/products/TPL63434/</loc>
-    <lastmod>2026-06-03T18:54:48.916Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.naturesprotection.md/products/TPL63475/</loc>
-    <lastmod>2026-06-03T18:54:48.916Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.naturesprotection.md/products/TPL63388/</loc>
     <lastmod>2026-06-03T18:54:48.916Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -641,5 +581,17 @@
     <lastmod>2026-06-03T18:54:48.916Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.naturesprotection.md/products/NPSC45668/</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.naturesprotection.md/products/NPSC45667-4/</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>

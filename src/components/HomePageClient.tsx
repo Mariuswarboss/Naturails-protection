@@ -152,7 +152,7 @@ export default function HomePageClient() {
 
   React.useEffect(() => {
     setIsMounted(true);
-    setFeaturedProducts(getRandomWeightedProducts(mockProducts.filter(p => p.productFor === 'dog'), 4));
+    setFeaturedProducts(getRandomWeightedProducts(mockProducts.filter(p => p.productFor === 'dog' && !p.isHidden), 4));
   }, []);
 
   return (
