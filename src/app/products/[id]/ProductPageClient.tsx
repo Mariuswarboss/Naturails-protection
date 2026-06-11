@@ -124,12 +124,12 @@ export default function ProductPageClient({ product, variants }: { product: Prod
         <div className="space-y-6">
           <h1 className="font-headline text-3xl md:text-4xl font-bold">{productName}</h1>
           <p className="text-2xl font-semibold text-primary">{product.price.toFixed(2)} MDL</p>
+
+          <ProductDetailsClient product={product} variants={variants} />
           
           <div>
             <ProductDescription descriptionKey={product.description} />
           </div>
-
-          <ProductDetailsClient product={product} variants={variants} />
 
         </div>
       </div>
